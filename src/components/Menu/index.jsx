@@ -16,6 +16,7 @@ export default function Menu() {
         <li className='item'>3</li>
         <li className='item'>4</li>
         <li className='item'>5</li>
+        <li className='item'>6</li>
       </ul>
     </div>
   )
