@@ -1,0 +1,50 @@
+.menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(99, 255, 80, 0.2);
+
+    .xmarkContainer {
+        height: 120px;
+
+        .xmark {
+            position: absolute;
+            padding: 8px;
+            top: 20px;
+            right: 12px;
+            width: 24px;
+            height: 24px;
+            background: salmon;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.2s;
+
+            path {
+                pointer-events: none;
+            }
+        }
+
+        .xmark:hover {
+            opacity: 0.8;
+        }
+    }
+
+    .list {
+        margin: 0;
+        padding: 0;
+        background: rgba(72, 108, 215, 0.2);
+
+        .item {
+            line-height: 80px;
+            text-align: center;
+            background: rgba(100, 20, 30, 0.1);
+            border-top: 1px solid #000;
+        }
+
+        .item:last-child {
+            border-bottom: 1px solid #000
+        }
+    }
+}

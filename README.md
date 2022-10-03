@@ -1,3 +1,17 @@
+# 創建 React App
+```
+create-react-app billnogate
+
+npm install normalize.css
+
+npm install node-sass
+
+```
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
