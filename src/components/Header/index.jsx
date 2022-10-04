@@ -1,19 +1,26 @@
 import React from 'react'
+
 import { useNavigate } from "react-router-dom"
-import store from "../../redux/store"
-import { show_menu } from "../../redux/actions/menu"
+
+import { useDispatch} from 'react-redux';
+import { show_menu } from '../../store/slice/menu';
+
 import "./index.scss"
 import logo from './../../images/logo.png';
 
 
 export default function Header() {
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+
     const goHome = () => {
         navigate("")
     }
+
     const showMenu = () => {
-        store.dispatch(show_menu())
+        dispatch(show_menu())
     }
+
     return (
         <div className='header'>
             <img onClick={goHome} className='logo' src={logo} alt="billnogates" />
