@@ -1,12 +1,12 @@
-import { SHOWMENU, HIDEMENU } from "../constant"
+import { SHOW_MENU, HIDE_MENU } from "../constant"
 
 const initState = ""
 export default function headerReducer(preState = initState, action) {
     const { type } = action
     switch (type) {
-        case SHOWMENU:
+        case SHOW_MENU:
             return "active"
-        case HIDEMENU:
+        case HIDE_MENU:
             return ""
         default:
             return preState

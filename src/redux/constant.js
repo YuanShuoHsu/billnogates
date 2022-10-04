@@ -1,2 +1,2 @@
-export const SHOWMENU = "showMenu"
-export const HIDEMENU = "hideMenu"
+export const SHOW_MENU = "show_menu"
+export const HIDE_MENU = "hide_menu"
