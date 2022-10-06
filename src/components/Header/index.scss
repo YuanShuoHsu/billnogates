@@ -40,10 +40,11 @@
 
     .svgContainer {
         margin: 0 6px;
+        white-space: nowrap;
         display: none;
 
         @include desktop {
-            display: flex;
+            display: block;
         }
 
         .magnifying-glass {
@@ -93,7 +94,6 @@
             border-radius: 4px;
             cursor: pointer;
             transition: 0.2s;
-
 
             &:hover {
                 opacity: 0.8;

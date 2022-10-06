@@ -1,9 +1,11 @@
 import React from 'react'
+import Navbar from "../Navbar"
 
 import { useNavigate } from "react-router-dom"
 
-import { useDispatch } from 'react-redux';
-import { show_sidebar } from '../../store/slice/sidebar';
+import { useDispatch } from 'react-redux'
+import { show_searchbar } from "../../store/slice/searchbar"
+import { show_sidebar } from '../../store/slice/sidebar'
 
 import "./index.scss"
 import logo from './../../images/logo.png';
@@ -17,6 +19,10 @@ export default function Header() {
         navigate("")
     }
 
+    const showSearch = () => {
+        dispatch(show_searchbar())
+    }
+
     const showMenu = () => {
         dispatch(show_sidebar())
     }
@@ -27,8 +33,9 @@ export default function Header() {
                 <img onClick={goHome} className='logo' src={logo} alt="billnogates" />
                 <span className='title'>Billnogates</span>
             </div>
+            <Navbar />
             <div className='svgContainer'>
-                <svg className='magnifying-glass' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                <svg onClick={showSearch} className='magnifying-glass' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z" />
                 </svg>
                 <svg className='cart-shopping' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
