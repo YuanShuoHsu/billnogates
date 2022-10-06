@@ -1,6 +1,55 @@
 .product {
     position: relative;
-    width: 100%;
-    height: 80px;
-    background: sandybrown;
+    margin: 10px;
+    display: grid;
+    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+
+    .box {
+        height: 360px;
+        background: skyblue;
+        border-radius: 10px;
+        overflow: hidden;
+
+        .photoContainer {
+            margin: 10px;
+            height: 240px;
+            background: #fff;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+
+            .photo {
+                width: 100%;
+            }
+        }
+
+        .item {
+            line-height: 24px;
+            text-align: center;
+            background: salmon;
+        }
+
+        .price {
+            line-height: 24px;
+            text-align: center;
+            background: bisque;
+        }
+
+        .addToCart {
+            line-height: 40px;
+            text-align: center;
+            background: #000;
+            color: #fff;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+
+                opacity: 0.8;
+            }
+        }
+    }
 }

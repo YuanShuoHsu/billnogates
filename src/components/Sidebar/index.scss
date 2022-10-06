@@ -1,4 +1,16 @@
-.menu {
+@mixin desktop {
+    @media(max-width:768px) {
+        @content;
+    }
+}
+
+// @mixin mobile {
+//     @media(max-width:414px) {
+//         @content;
+//     }
+// }
+
+.sidebar {
     position: absolute;
     top: 0;
     left: 0;
@@ -7,6 +19,15 @@
     background: rgba(99, 255, 80, 0.2);
     transition: 0.2s;
     z-index: 100;
+    display: none;
+
+    @include desktop {
+        display: block;
+    }
+
+    &.active {
+        left: -100%;
+    }
 
     .xmarkContainer {
         height: 120px;
@@ -23,13 +44,13 @@
             cursor: pointer;
             transition: 0.2s;
 
+            &:hover {
+                opacity: 0.8;
+            }
+
             path {
                 pointer-events: none;
             }
-        }
-
-        .xmark:hover {
-            opacity: 0.8;
         }
     }
 
@@ -44,23 +65,19 @@
             background: rgba(100, 20, 30, 0.1);
             border-top: 1px solid #000;
 
+            &:last-child {
+                border-bottom: 1px solid #000
+            }
+
             .link {
                 padding: 10px;
                 width: 100px;
                 background: salmon;
-            }
 
-            .link.active {
-                background: cadetblue;
+                &.active {
+                    background: cadetblue;
+                }
             }
-        }
-
-        .item:last-child {
-            border-bottom: 1px solid #000
         }
     }
-}
-
-.menu.active {
-    left: -100%;
 }

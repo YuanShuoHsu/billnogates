@@ -1,3 +1,15 @@
+@mixin desktop {
+    @media(max-width:768px) {
+        @content;
+    }
+}
+
+// @mixin mobile {
+//     @media(max-width:414px) {
+//         @content;
+//     }
+// }
+
 .header {
     position: relative;
     width: 100%;
@@ -7,37 +19,89 @@
     justify-content: space-between;
     align-items: center;
 
-    .logo {
-        margin: 12px;
-        width: 50px;
-        height: 50px;
-        border-radius: 8px;
-        cursor: pointer;
-    }
+    .brand {
+        display: flex;
+        align-items: center;
 
-    .title {
-        font-family: sans-serif;
-        font-size: 24px;
-        font-weight: 600;
-        letter-spacing: 1px;
-    }
+        .logo {
+            margin: 12px;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
 
-    .bars {
-        margin: 12px;
-        padding: 8px;
-        width: 24px;
-        height: 24px;
-        background: #fff;
-        border-radius: 4px;
-        cursor: pointer;
-        transition: 0.2s;
-
-        path {
-            pointer-events: none;
+        .title {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 1px;
         }
     }
 
-    .bars:hover {
-        opacity: 0.8;
+    .svgContainer {
+        margin: 0 6px;
+        display: none;
+
+        @include desktop {
+            display: flex;
+        }
+
+        .magnifying-glass {
+            margin: 0 6px;
+            padding: 8px;
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            path {
+                pointer-events: none;
+            }
+        }
+
+        .cart-shopping {
+            margin: 0 6px;
+            padding: 8px;
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            path {
+                pointer-events: none;
+            }
+        }
+
+        .bars {
+            margin: 0 6px;
+            padding: 8px;
+            width: 24px;
+            height: 24px;
+            background: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.2s;
+
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            path {
+                pointer-events: none;
+            }
+        }
     }
 }
