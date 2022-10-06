@@ -12,8 +12,68 @@
 
 .navbar {
     display: block;
+    z-index: 100;
 
     @include desktop {
         display: none;
+    }
+
+    .menu {
+        margin: 0;
+        padding: 0;
+        display: flex;
+
+        .item {
+            position: relative;
+            list-style: none;
+
+            .link {
+                width: 100px;
+                height: 40px;
+                background: cornsilk;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-decoration: none;
+
+                &:hover {
+                    background: salmon;
+                }
+            }
+
+            .caret-down {
+                width: 24px;
+                height: 24px;
+
+                path {
+                    pointer-events: none;
+                }
+            }
+
+            .subMenu {
+                position: absolute;
+                margin: 0;
+                padding: 0;
+                left: 0;
+
+                .subItem {
+                    list-style: none;
+
+                    .subLink {
+                        width: 100px;
+                        height: 40px;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        text-decoration: none;
+                        background: aquamarine;
+
+                        &:hover {
+                            background: salmon;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
