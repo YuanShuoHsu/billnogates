@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { NavLink } from "react-router-dom"
+import Navbar from "../Navbar"
 
 import { useDispatch, useSelector } from 'react-redux';
 import { hide_sidebar } from '../../store/slice/sidebar';
@@ -22,26 +22,7 @@ export default function Sidebar() {
           <path d="M310.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L160 210.7 54.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L114.7 256 9.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 301.3 265.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L205.3 256 310.6 150.6z" />
         </svg>
       </div>
-      <ul className='list'>
-        <li className='item'>
-          <NavLink className="link" to="1">1</NavLink>
-        </li>
-        <li className='item'>
-          <NavLink className="link" to="2">2</NavLink>
-        </li>
-        <li className='item'>
-          <NavLink className="link" to="3">3</NavLink>
-        </li>
-        <li className='item'>
-          <NavLink className="link" to="4">4</NavLink>
-        </li>
-        <li className='item'>
-          <NavLink className="link" to="5">5</NavLink>
-        </li>
-        <li className='item'>
-          <NavLink className="link" to="6">6</NavLink>
-        </li>
-      </ul>
+      <Navbar />
     </div>
   )
 }

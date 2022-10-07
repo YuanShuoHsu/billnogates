@@ -11,17 +11,24 @@
 // }
 
 .navbar {
-    display: block;
-    z-index: 100;
+    // margin: 0 12px;
+    display: inline-block;
+    z-index: 2;
+    // background: cadetblue;
 
     @include desktop {
-        display: none;
+        margin: 0;
+        display: block;
     }
 
     .menu {
         margin: 0;
         padding: 0;
         display: flex;
+
+        @include desktop {
+            display: block;
+        }
 
         .item {
             position: relative;
@@ -31,10 +38,17 @@
                 width: 100px;
                 height: 40px;
                 background: cornsilk;
+                border-radius: 4px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 text-decoration: none;
+
+                @include desktop {
+                    width: 100%;
+                    height: 80px;
+                    border-radius: 0;
+                }
 
                 &:hover {
                     background: salmon;
@@ -56,6 +70,10 @@
                 padding: 0;
                 left: 0;
 
+                @include desktop {
+                    position: relative;
+                }
+
                 .subItem {
                     list-style: none;
 
@@ -67,6 +85,11 @@
                         align-items: center;
                         text-decoration: none;
                         background: aquamarine;
+
+                        @include desktop {
+                            width: 100%;
+                            height: 80px;
+                        }
 
                         &:hover {
                             background: salmon;

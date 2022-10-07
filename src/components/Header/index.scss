@@ -11,13 +11,15 @@
 // }
 
 .header {
-    position: relative;
+    position: sticky;
+    top: 0;
     width: 100%;
     height: 80px;
-    background: #dddddd;
+    background: rgba(200, 200, 200, 0.5);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    z-index: 2;
 
     .brand {
         display: flex;
@@ -38,69 +40,85 @@
         }
     }
 
-    .svgContainer {
-        margin: 0 6px;
-        white-space: nowrap;
-        display: none;
+    .navbarContainer {
+        display: flex;
 
-        @include desktop {
-            display: block;
-        }
-
-        .magnifying-glass {
-            margin: 0 6px;
-            padding: 8px;
-            width: 24px;
-            height: 24px;
-            background: #fff;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: 0.2s;
-
-            &:hover {
-                opacity: 0.8;
-            }
-
-            path {
-                pointer-events: none;
+        .navbar {
+            @include desktop {
+                display: none;
             }
         }
 
-        .cart-shopping {
+
+        .svgContainer {
             margin: 0 6px;
-            padding: 8px;
-            width: 24px;
-            height: 24px;
-            background: #fff;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: 0.2s;
+            white-space: nowrap;
 
-            &:hover {
-                opacity: 0.8;
+            .magnifying-glass {
+                margin: 0 6px;
+                padding: 8px;
+                width: 24px;
+                height: 24px;
+                background: #fff;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: 0.2s;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+
+                path {
+                    pointer-events: none;
+                }
             }
 
-            path {
-                pointer-events: none;
+            .cart-shopping {
+                margin: 0 6px;
+                padding: 8px;
+                width: 24px;
+                height: 24px;
+                background: #fff;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: 0.2s;
+                display: none;
+
+                @include desktop {
+                    display: inline-block;
+                }
+
+                &:hover {
+                    opacity: 0.8;
+                }
+
+                path {
+                    pointer-events: none;
+                }
             }
-        }
 
-        .bars {
-            margin: 0 6px;
-            padding: 8px;
-            width: 24px;
-            height: 24px;
-            background: #fff;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: 0.2s;
+            .bars {
+                margin: 0 6px;
+                padding: 8px;
+                width: 24px;
+                height: 24px;
+                background: #fff;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: 0.2s;
+                display: none;
 
-            &:hover {
-                opacity: 0.8;
-            }
+                @include desktop {
+                    display: inline-block;
+                }
 
-            path {
-                pointer-events: none;
+                &:hover {
+                    opacity: 0.8;
+                }
+
+                path {
+                    pointer-events: none;
+                }
             }
         }
     }

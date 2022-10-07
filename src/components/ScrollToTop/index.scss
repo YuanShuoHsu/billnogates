@@ -1,0 +1,33 @@
+.scrollToTop{
+    position: fixed;
+    right: 40px;
+    bottom: 80px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: cornflowerblue;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    transition: 0.2s;
+
+    &.active {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    &:hover {
+        opacity: 0.8;
+    }
+
+    .angle-up {
+        width: 24px;
+        height: 24px;
+
+        path {
+            pointer-events: none;
+        }
+    }
+}

@@ -11,7 +11,7 @@
 // }
 
 .sidebar {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
@@ -50,33 +50,6 @@
 
             path {
                 pointer-events: none;
-            }
-        }
-    }
-
-    .list {
-        margin: 0;
-        padding: 0;
-        background: rgba(72, 108, 215, 0.2);
-
-        .item {
-            line-height: 80px;
-            text-align: center;
-            background: rgba(100, 20, 30, 0.1);
-            border-top: 1px solid #000;
-
-            &:last-child {
-                border-bottom: 1px solid #000
-            }
-
-            .link {
-                padding: 10px;
-                width: 100px;
-                background: salmon;
-
-                &.active {
-                    background: cadetblue;
-                }
             }
         }
     }
