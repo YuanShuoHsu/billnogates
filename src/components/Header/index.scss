@@ -42,13 +42,13 @@
 
     .navbarContainer {
         display: flex;
+        align-items: center;
 
         .navbar {
             @include desktop {
                 display: none;
             }
         }
-
 
         .svgContainer {
             margin: 0 6px;

@@ -1,4 +1,4 @@
-.scrollToTop{
+.scrollToTop {
     position: fixed;
     right: 40px;
     bottom: 80px;
@@ -12,10 +12,12 @@
     align-items: center;
     z-index: 2;
     transition: 0.2s;
+    opacity: 0;
+    pointer-events: none;
 
     &.active {
-        opacity: 0;
-        pointer-events: none;
+        opacity: 1;
+        pointer-events: auto;
     }
 
     &:hover {

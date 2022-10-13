@@ -34,7 +34,7 @@ export default function Searchbar() {
     }
 
     return (
-        <div onClick={hideSearchbar} className={`searchbar ${searchbar ? "" : "active"}`}>
+        <div onClick={hideSearchbar} className={`searchbar ${searchbar}`}>
             <div onClick={stopPropagation} className='box'>
                 <label className='glassLabel' htmlFor="search">
                     <svg className='magnifying-glass' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
