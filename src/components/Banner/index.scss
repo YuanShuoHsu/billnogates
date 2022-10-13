@@ -1,7 +1,7 @@
 .swiper {
     position: relative;
     width: 100%;
-    height: 320px;
+    height: auto;
 
     .swiper-slide {
         text-align: center;
@@ -29,4 +29,13 @@
         }
     }
 
+    .swiper-pagination {
+        .swiper-pagination-bullet {
+            background: #0091DB;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #E4027E;
+        }
+    }
 }

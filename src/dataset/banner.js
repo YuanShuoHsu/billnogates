@@ -1,17 +1,17 @@
 const IMAGES = [
     {
         id: 1,
-        image: require("../images/哈.png"),
+        image: require("../images/手創大人物.png"),
         name: "手創大人物_工作區域"
     },
     {
         id: 2,
-        image: require("../images/test.png"),
+        image: require("../images/手創大人物.png"),
         name: "手創大人物_工作區域"
     },
     {
         id: 3,
-        image: require("../images/test.png"),
+        image: require("../images/手創大人物.png"),
         name: "手創大人物_工作區域"
     }
 ]

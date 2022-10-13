@@ -21,7 +21,6 @@ export default function NavbarItem(props) {
     const ulHeight = (currentNode) => {
         if (currentNode !== null) {
             setUlChildren(currentNode.children.length)
-            console.log(ulChildren)
         }
     }
 

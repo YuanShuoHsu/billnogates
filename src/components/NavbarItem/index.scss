@@ -5,8 +5,8 @@
 }
 
 .navbarItem {
+    position: relative;
     .item {
-        position: relative;
         list-style: none;
 
         &:hover {

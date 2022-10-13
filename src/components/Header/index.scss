@@ -42,7 +42,6 @@
 
     .navbarContainer {
         display: flex;
-        align-items: center;
 
         .navbar {
             @include desktop {
@@ -52,6 +51,7 @@
 
         .svgContainer {
             margin: 0 6px;
+            display: flex;
             white-space: nowrap;
 
             .magnifying-glass {
@@ -73,29 +73,27 @@
                 }
             }
 
-            .link {
-                .cart-shopping {
-                    margin: 0 6px;
-                    padding: 8px;
-                    width: 24px;
-                    height: 24px;
-                    background: #fff;
-                    border-radius: 4px;
-                    cursor: pointer;
-                    transition: 0.2s;
-                    display: none;
+            .cart-shopping {
+                margin: 0 6px;
+                padding: 8px;
+                width: 24px;
+                height: 24px;
+                background: #fff;
+                border-radius: 4px;
+                cursor: pointer;
+                transition: 0.2s;
+                display: none;
 
-                    @include desktop {
-                        display: inline-block;
-                    }
+                @include desktop {
+                    display: inline-block;
+                }
 
-                    &:hover {
-                        opacity: 0.8;
-                    }
+                &:hover {
+                    opacity: 0.8;
+                }
 
-                    path {
-                        pointer-events: none;
-                    }
+                path {
+                    pointer-events: none;
                 }
             }
 

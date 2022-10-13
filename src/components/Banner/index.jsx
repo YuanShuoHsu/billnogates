@@ -16,6 +16,7 @@ export default function Banner() {
       modules={[Autoplay, FreeMode, Pagination, A11y]}
       spaceBetween={0}
       slidesPerView={1}
+      autoHeight={true}
       autoplay={{
         delay: 2500,
         disableOnInteraction: false,
