@@ -1,7 +1,7 @@
 import React from 'react'
 import Navbar from "../Navbar"
 
-import { NavLink, useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 import { useDispatch } from 'react-redux'
 import { show_searchbar } from "../../store/slice/searchbar"

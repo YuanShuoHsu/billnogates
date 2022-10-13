@@ -1,6 +1,5 @@
 import React from 'react'
 import "./index.scss"
-import logo from "./../../images/logo.png"
 import PRODUCTS from "../../dataset/product"
 // 商品圖片大小建議 180px : 240px = 3 : 4
 
