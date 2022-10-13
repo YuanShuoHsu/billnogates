@@ -1,0 +1,25 @@
+@mixin desktop {
+    @media(max-width:768px) {
+        @content;
+    }
+}
+
+// @mixin mobile {
+//     @media(max-width:414px) {
+//         @content;
+//     }
+// }
+
+.navbar {
+    z-index: 2;
+
+    .menu {
+        margin: 0;
+        padding: 0;
+        display: flex;
+
+        @include desktop {
+            display: block;
+        }
+    }
+}

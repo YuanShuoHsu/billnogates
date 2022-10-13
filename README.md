@@ -6,9 +6,13 @@ npm install normalize.css
 
 npm install node-sass
 
+npm install react-router-dom
+
+npm install react-redux
+
+npm install @reduxjs/toolkit
+
 ```
-
-
 
 
 

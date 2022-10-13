@@ -1,0 +1,56 @@
+@mixin desktop {
+    @media(max-width:768px) {
+        @content;
+    }
+}
+
+// @mixin mobile {
+//     @media(max-width:414px) {
+//         @content;
+//     }
+// }
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: cornsilk;
+    transition: 0.2s;
+    z-index: 3;
+    display: none;
+
+    @include desktop {
+        display: block;
+    }
+
+    &.active {
+        left: 0;
+    }
+
+    .xmarkContainer {
+        height: 120px;
+
+        .xmark {
+            position: absolute;
+            padding: 8px;
+            top: 20px;
+            right: 12px;
+            width: 24px;
+            height: 24px;
+            background: salmon;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+                opacity: 0.8;
+            }
+
+            path {
+                pointer-events: none;
+            }
+        }
+    }
+}
