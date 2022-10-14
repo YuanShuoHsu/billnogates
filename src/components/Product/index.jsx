@@ -1,7 +1,6 @@
 import React from 'react'
 import "./index.scss"
 import PRODUCTS from "../../dataset/product"
-// 商品圖片大小建議 180px : 240px = 3 : 4
 
 export default function Product() {
     console.log(PRODUCTS)
