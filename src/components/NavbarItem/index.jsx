@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
-import "./index.scss"
 
 import { NavLink } from "react-router-dom"
+
+import "./index.scss"
 
 export default function NavbarItem(props) {
 
