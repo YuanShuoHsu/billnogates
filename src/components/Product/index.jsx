@@ -1,6 +1,8 @@
 import React from 'react'
-import "./index.scss"
+
 import PRODUCTS from "../../dataset/product"
+
+import "./index.scss"
 
 export default function Product() {
     return (

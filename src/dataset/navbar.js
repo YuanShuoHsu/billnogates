@@ -46,11 +46,7 @@ const NAVS = [
                 subnav: "4-4"
             }
         ]
-    },
-    {
-        id: 5,
-        nav: "5",
-    },
+    }
 ]
 
 export default NAVS

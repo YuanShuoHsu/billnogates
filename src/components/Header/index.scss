@@ -54,7 +54,10 @@
             display: flex;
             white-space: nowrap;
 
-            .magnifying-glass {
+            .magnifying-glass,
+            .user,
+            .cart-shopping,
+            .bars {
                 margin: 0 6px;
                 padding: 8px;
                 width: 24px;
@@ -63,30 +66,6 @@
                 border-radius: 4px;
                 cursor: pointer;
                 transition: 0.2s;
-
-                &:hover {
-                    opacity: 0.8;
-                }
-
-                path {
-                    pointer-events: none;
-                }
-            }
-
-            .cart-shopping {
-                margin: 0 6px;
-                padding: 8px;
-                width: 24px;
-                height: 24px;
-                background: #fff;
-                border-radius: 4px;
-                cursor: pointer;
-                transition: 0.2s;
-                display: none;
-
-                @include desktop {
-                    display: inline-block;
-                }
 
                 &:hover {
                     opacity: 0.8;
@@ -98,26 +77,10 @@
             }
 
             .bars {
-                margin: 0 6px;
-                padding: 8px;
-                width: 24px;
-                height: 24px;
-                background: #fff;
-                border-radius: 4px;
-                cursor: pointer;
-                transition: 0.2s;
                 display: none;
 
                 @include desktop {
                     display: inline-block;
-                }
-
-                &:hover {
-                    opacity: 0.8;
-                }
-
-                path {
-                    pointer-events: none;
                 }
             }
         }
