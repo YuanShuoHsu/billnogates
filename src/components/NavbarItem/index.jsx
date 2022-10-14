@@ -8,7 +8,6 @@ export default function NavbarItem(props) {
     const { item } = props
 
     const [click, setClick] = useState(false)
-    const [ulChildren, setUlChildren] = useState(0)
 
     const handleClick = (click) => {
         setClick(click)
@@ -20,7 +19,7 @@ export default function NavbarItem(props) {
 
     const ulHeight = (currentNode) => {
         if (currentNode !== null) {
-            setUlChildren(currentNode.children.length)
+            currentNode.style.setProperty("--x", currentNode.children.length)
         }
     }
 
@@ -36,7 +35,7 @@ export default function NavbarItem(props) {
                             </svg> : null
                     }
                 </NavLink>
-                <ul style={click ? { height: `calc(80px * ${ulChildren})` } : { height: "0px" }} ref={ulHeight} className='subMenu' onClick={stopPropagation}>
+                <ul ref={ulHeight} className={`subMenu ${click ? "active" : ""}`} onClick={stopPropagation}>
                     {
                         item.layers && item.layers.map(subItem => (
                             <li className='subItem' key={subItem.subId}>

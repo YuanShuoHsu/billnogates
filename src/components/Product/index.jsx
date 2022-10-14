@@ -3,7 +3,6 @@ import "./index.scss"
 import PRODUCTS from "../../dataset/product"
 
 export default function Product() {
-    console.log(PRODUCTS)
     return (
         <div className='product'>
             {
