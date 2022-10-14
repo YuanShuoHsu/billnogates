@@ -6,10 +6,10 @@
     height: 40px;
     border-radius: 50%;
     background: cornflowerblue;
-    cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
     z-index: 2;
     transition: 0.2s;
     opacity: 0;
@@ -18,10 +18,10 @@
     &.active {
         opacity: 1;
         pointer-events: auto;
-    }
 
-    &:hover {
-        opacity: 0.8;
+        &:hover {
+            opacity: 0.8;
+        }
     }
 
     .angle-up {

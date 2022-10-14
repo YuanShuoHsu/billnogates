@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 import "./index.scss"
 
 export default function ScrollToTop() {
-  
+
   const [scroll, setScroll] = useState("")
 
   useEffect(() => {
@@ -13,11 +13,11 @@ export default function ScrollToTop() {
   })
 
   const scrollFunction = () => {
-    if (window.scrollY > 80) {
-      setScroll("active")
-    }
-    else {
+    if (window.scrollY <= 80 && scroll !== "") {
       setScroll("")
+    }
+    else if (window.scrollY > 80 && scroll !== "active") {
+      setScroll("active")
     }
   }
 
