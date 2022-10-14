@@ -1,3 +1,9 @@
+@mixin desktop {
+    @media(max-width:768px) {
+        @content;
+    }
+}
+
 @mixin keyframes-animation($name) {
     @-webkit-keyframes #{$name} {
         @content;
@@ -16,7 +22,7 @@
 .recommend {
     position: relative;
     width: 100%;
-    height: 40px;
+    height: 30px;
     background: #E4027E;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
     display: flex;
@@ -42,6 +48,21 @@
                 @include prefix-property(filter, hue-rotate(360deg));
             }
         }
+
+        @include desktop {
+            @include keyframes-animation(scroll) {
+                0% {
+                    @include prefix-property(transform, translateX(50%));
+                    @include prefix-property(filter, hue-rotate(0deg));
+                }
+    
+                100% {
+                    @include prefix-property(transform, translateX(-100%));
+                    @include prefix-property(filter, hue-rotate(360deg));
+                }
+            }
+        }
+
 
         .stroke {
             color: transparent;
