@@ -16,11 +16,88 @@
     }
 
     .box {
-        padding: 0 6px;
+        padding: 0 12px;
         width: 300px;
         height: 100%;
         background: #fff;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        background: #fff;
+
+        .order {
+            border: 1px solid #000;
+            display: flex;
+            flex-direction: column;
+
+            .product {
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: row;
+
+                .photo {
+                    .image {
+                        width: 80px;
+                    }
+                }
+
+                .information {}
+            }
+
+            .choose {
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                align-items: center;
+
+                .quantity {
+                    // height: 30px;
+                    display: flex;
+                    flex-direction: row;
+
+                    .decrement {
+                        width: 24px;
+                        height: 24px;
+                        cursor: pointer;
+                    }
+
+                    .number {
+                        text-align: center;
+                    }
+
+                    .increment {
+                        width: 24px;
+                        height: 24px;
+                        cursor: pointer;
+                    }
+                }
+
+                .price {
+                    color: #000;
+                    font-weight: 500;
+                    font-size: 18px;
+                    letter-spacing: 1px;
+                }
+
+                .trash-can {
+                    // margin: 0 6px;
+                    // padding: 8px;
+                    width: 24px;
+                    height: 24px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    transition: 0.2s;
+
+                    &:hover {
+                        fill: #E4027E;
+                        opacity: 0.8;
+                    }
+
+                    path {
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
     }
 }
