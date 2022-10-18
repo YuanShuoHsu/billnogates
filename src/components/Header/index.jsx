@@ -35,8 +35,8 @@ export default function Header() {
 
     return (
         <div className='header'>
-            <div className='brand'>
-                <img onClick={goHome} className='logo' src={logo} alt="billnogates" />
+            <div onClick={goHome} className='brand'>
+                <img className='logo' src={logo} alt="billnogates" />
                 <span className='title'>Billnogates</span>
             </div>
             <div className='navbarContainer'>

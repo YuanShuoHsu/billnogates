@@ -1,7 +1,12 @@
 .footer {
     position: relative;
+    padding: 10px 0;
     width: 100%;
-    line-height: 80px;
-    text-align: center;
-    background: #ddd;
+    background: #B5B6B6;
+
+    .copyright {
+        margin: 0;
+        line-height: 30px;
+        text-align: center;
+    }
 }
