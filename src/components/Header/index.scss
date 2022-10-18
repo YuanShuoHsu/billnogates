@@ -52,6 +52,7 @@
 
     .navbarContainer {
         display: flex;
+        align-items: center;
 
         .navbar {
             @include desktop {
@@ -59,39 +60,54 @@
             }
         }
 
-        .svgContainer {
+        .svgGroup {
             margin: 0 6px;
             display: flex;
             white-space: nowrap;
 
-            .magnifying-glass,
-            .user,
-            .cart-shopping,
-            .bars {
+            .search,
+            .customer,
+            .cart,
+            .hamburger {
                 margin: 0 4px;
-                padding: 4px;
-                width: 20px;
-                height: 20px;
-                // background: #fff;
-                // border-radius: 4px;
+                width: 30px;
+                height: 30px;
+                border-radius: 4px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 cursor: pointer;
-                transition: 0.2s;
 
                 &:hover {
                     opacity: 0.8;
-                    fill: #E4027D;
+
+                    .magnifying-glass,
+                    .user,
+                    .cart-shopping,
+                    .bars {
+                        fill: #E4027D;
+                    }
                 }
 
-                path {
-                    pointer-events: none;
+                .magnifying-glass,
+                .user,
+                .cart-shopping,
+                .bars {
+                    width: 20px;
+                    height: 20px;
+                    transition: 0.2s;
+
+                    path {
+                        pointer-events: none;
+                    }
                 }
             }
 
-            .bars {
+            .hamburger {
                 display: none;
 
                 @include desktop {
-                    display: inline-block;
+                    display: flex;
                 }
             }
         }
