@@ -103,6 +103,19 @@
                 }
             }
 
+            .cart {
+                &::before {
+                    position: absolute;
+                    content: "1";
+                    width: 15px;
+                    line-height: 15px;
+                    text-align: center;
+                    background: rgba(228, 2, 125, 0.8);
+                    border-radius: 50%;
+                    pointer-events: none;
+                }
+            }
+
             .hamburger {
                 display: none;
 

@@ -17,13 +17,7 @@ export default function NavbarItem(props) {
     const stopPropagation = (event) => {
         event.stopPropagation()
     }
-
-    const ulHeight = (currentNode) => {
-        if (currentNode !== null) {
-            currentNode.style.setProperty("--x", currentNode.children.length)
-        }
-    }
-
+    
     return (
         <div className="navbarItem">
             <li onClick={() => handleClick(!click)} className={`item ${click ? "active" : ""}`} key={item.id}>
@@ -36,7 +30,7 @@ export default function NavbarItem(props) {
                             </svg> : null
                     }
                 </NavLink>
-                <ul ref={ulHeight} className={`subMenu ${click ? "active" : ""}`} onClick={stopPropagation}>
+                <ul style={{ "--x": `${item.layers ? item.layers.length : 0}` }} className={`subMenu ${click ? "active" : ""}`} onClick={stopPropagation}>
                     {
                         item.layers && item.layers.map(subItem => (
                             <li className='subItem' key={subItem.subId}>

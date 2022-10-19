@@ -3,7 +3,7 @@ import Navbar from "../Navbar"
 
 import { useNavigate } from "react-router-dom"
 
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { show_searchbar } from "../../store/slice/searchbar"
 import { show_cartbar } from "../../store/slice/cartbar"
 import { show_sidebar } from '../../store/slice/sidebar'
@@ -16,6 +16,9 @@ export default function Header() {
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const cartbarItem = useSelector(state => state.cartbarItem.value);
+
+    // console.log(cartbarItem.length, "c")
 
     const goHome = () => {
         navigate("")
