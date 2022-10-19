@@ -1,0 +1,30 @@
+.cartbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 3;
+    transition: 0.2s;
+    opacity: 0;
+    pointer-events: none;
+
+    &.active {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .box {
+        width: 300px;
+        height: 100%;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+
+        .title {
+            padding: 0 10px;
+        }
+    }
+}

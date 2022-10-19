@@ -6,6 +6,7 @@
 
 .navbarItem {
     position: relative;
+
     .item {
         list-style: none;
 
@@ -43,6 +44,10 @@
 
                 .caret-down {
                     transform: rotate(180deg);
+                }
+
+                .subMenu {
+                    height: calc(var(--x) * 80px);
                 }
             }
         }
@@ -92,13 +97,14 @@
             padding: 0;
             opacity: 0;
             pointer-events: none;
-            transition: 0.2s;
 
             @include desktop {
                 position: relative;
+                height: 0;
                 opacity: 1;
                 pointer-events: auto;
                 overflow: hidden;
+                transition: 0.2s;
             }
 
             .subItem {

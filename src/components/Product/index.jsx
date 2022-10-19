@@ -1,10 +1,29 @@
 import React from 'react'
-import "./index.scss"
-import logo from "./../../images/logo.png"
+
+import { useDispatch, useSelector } from 'react-redux';
+import { add_cartbarItem, increment_cartbarItem } from '../../store/slice/cartbarItem';
+
 import PRODUCTS from "../../dataset/product"
-// 商品圖片大小建議 180px : 240px = 3 : 4
+
+import "./index.scss"
 
 export default function Product() {
+
+    const dispatch = useDispatch();
+    const cartbarItem = useSelector(state => state.cartbarItem.value);
+
+    const addToCart = (item) => {
+        const findCartbarItem = cartbarItem.find(obj => (
+            obj.id === item.id
+        ))
+        if (findCartbarItem === undefined) {
+            dispatch(add_cartbarItem(item))
+        }
+        else {
+            dispatch(increment_cartbarItem(item))
+        }
+    }
+
     return (
         <div className='product'>
             {
@@ -15,50 +34,10 @@ export default function Product() {
                         </div>
                         <div className='name'>{item.name}</div>
                         <div className='price'>${item.price}</div>
-                        <div className='addToCart'>加入購物車</div>
+                        <div onClick={() => addToCart(item)} className='addToCart'>加入購物車</div>
                     </div>
                 ))
             }
-            {/* <div className='box'>
-                <div className='photoContainer'>
-                    <img className='photo' src={logo} alt="示意圖" />
-                </div>
-                <div className='item'>商品</div>
-                <div className='price'>NT$100</div>
-                <div className='addToCart'>加入購物車</div>
-            </div> */}
-            {/* <div className='box'>
-                <div className='photoContainer'>
-                    <img className='photo' src={logo} alt="示意圖" />
-                </div>
-                <div className='item'>商品</div>
-                <div className='price'>NT$100</div>
-                <div className='addToCart'>加入購物車</div>
-            </div>
-            <div className='box'>
-                <div className='photoContainer'>
-                    <img className='photo' src={logo} alt="示意圖" />
-                </div>
-                <div className='item'>商品</div>
-                <div className='price'>NT$100</div>
-                <div className='addToCart'>加入購物車</div>
-            </div>
-            <div className='box'>
-                <div className='photoContainer'>
-                    <img className='photo' src={logo} alt="示意圖" />
-                </div>
-                <div className='item'>商品</div>
-                <div className='price'>NT$100</div>
-                <div className='addToCart'>加入購物車</div>
-            </div>
-            <div className='box'>
-                <div className='photoContainer'>
-                    <img className='photo' src={logo} alt="示意圖" />
-                </div>
-                <div className='item'>商品</div>
-                <div className='price'>NT$100</div>
-                <div className='addToCart'>加入購物車</div>
-            </div> */}
         </div>
     )
 }

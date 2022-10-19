@@ -16,10 +16,11 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: cornsilk;
+    background: #0091DB;
     transition: 0.2s;
     z-index: 3;
     display: none;
+    overflow-y: auto;
 
     @include desktop {
         display: block;
@@ -29,27 +30,37 @@
         left: 0;
     }
 
-    .xmarkContainer {
+    .landscape {
         height: 120px;
 
-        .xmark {
+        .close {
             position: absolute;
-            padding: 8px;
-            top: 20px;
-            right: 12px;
-            width: 24px;
-            height: 24px;
-            background: salmon;
+            top: 25px;
+            right: 10px;
+            width: 30px;
+            height: 30px;
             border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             cursor: pointer;
-            transition: 0.2s;
 
             &:hover {
                 opacity: 0.8;
+
+                .xmark {
+                    fill: #E4027D;
+                }
             }
 
-            path {
-                pointer-events: none;
+            .xmark {
+                width: 20px;
+                height: 20px;
+                transition: 0.2s;
+
+                path {
+                    pointer-events: none;
+                }
             }
         }
     }

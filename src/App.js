@@ -1,7 +1,8 @@
 import Searchbar from "./components/Searchbar"
+import Cartbar from "./components/Cartbar"
 import Sidebar from "./components/Sidebar"
 import ScrollToTop from "./components/ScrollToTop"
-// import Recommend from "./components/Recommend"
+import Recommend from "./components/Recommend"
 import Header from "./components/Header"
 import Banner from "./components/Banner"
 import Product from "./components/Product"
@@ -11,11 +12,13 @@ export default function App() {
   return (
     <div className="app">
       <Searchbar />
+      <Cartbar />
       <Sidebar />
       <ScrollToTop />
-      {/* <Recommend /> */}
       <Header />
+      <Recommend />
       <Banner />
+      <Recommend />
       <Product />
       <Footer />
     </div>

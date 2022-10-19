@@ -1,14 +1,14 @@
 import React, { useState } from 'react'
-import "./index.scss"
 
 import { NavLink } from "react-router-dom"
+
+import "./index.scss"
 
 export default function NavbarItem(props) {
 
     const { item } = props
 
     const [click, setClick] = useState(false)
-    const [ulChildren, setUlChildren] = useState(0)
 
     const handleClick = (click) => {
         setClick(click)
@@ -17,13 +17,7 @@ export default function NavbarItem(props) {
     const stopPropagation = (event) => {
         event.stopPropagation()
     }
-
-    const ulHeight = (currentNode) => {
-        if (currentNode !== null) {
-            setUlChildren(currentNode.children.length)
-        }
-    }
-
+    
     return (
         <div className="navbarItem">
             <li onClick={() => handleClick(!click)} className={`item ${click ? "active" : ""}`} key={item.id}>
@@ -36,7 +30,7 @@ export default function NavbarItem(props) {
                             </svg> : null
                     }
                 </NavLink>
-                <ul style={click ? { height: `calc(80px * ${ulChildren})` } : { height: "0px" }} ref={ulHeight} className='subMenu' onClick={stopPropagation}>
+                <ul style={{ "--x": `${item.layers ? item.layers.length : 0}` }} className={`subMenu ${click ? "active" : ""}`} onClick={stopPropagation}>
                     {
                         item.layers && item.layers.map(subItem => (
                             <li className='subItem' key={subItem.subId}>
