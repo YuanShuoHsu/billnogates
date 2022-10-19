@@ -1,13 +1,15 @@
 .cartbarItem {
     .order {
-        padding: 10px;
+        padding: 5px;
         background: #eee;
 
         .product {
+            // margin: 5px 5px 10px 5px;
             margin: 0;
             display: flex;
 
             .photo {
+                margin: 5px;
                 width: 120px;
                 height: 160px;
 
@@ -19,8 +21,9 @@
             }
 
             .information {
+                margin: 5px;
                 height: 160px;
-                width: 150px;
+                width: 140px;
 
                 line-height: 20px;
                 color: #000;
@@ -51,7 +54,7 @@
         }
 
         .choose {
-            margin: 10px 0 0 0;
+            margin: 5px;
             display: flex;
             justify-content: space-between;
             align-items: center;
