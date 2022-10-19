@@ -8,6 +8,7 @@ import "./index.scss"
 export default function CartbarItem(props) {
     const dispatch = useDispatch();
     const cartbarItem = useSelector(state => state.cartbarItem.value);
+    console.log(cartbarItem)
 
     const { item } = props
 
@@ -28,9 +29,9 @@ export default function CartbarItem(props) {
     }
 
     const handleDelete = (item) => {
-        const newCartbarItem = cartbarItem.filter((obj) => {
-            return obj.id !== item.id
-        })
+        const newCartbarItem = cartbarItem.filter(obj => (
+            obj.id !== item.id
+        ))
         dispatch(delete_cartbarItem(newCartbarItem))
     }
 

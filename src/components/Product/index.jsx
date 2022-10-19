@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { add_cartbarItem } from '../../store/slice/cartbarItem';
+import { add_cartbarItem, increment_cartbarItem } from '../../store/slice/cartbarItem';
 
 import PRODUCTS from "../../dataset/product"
 
@@ -13,11 +13,14 @@ export default function Product() {
     const cartbarItem = useSelector(state => state.cartbarItem.value);
 
     const addToCart = (item) => {
-        const temp = cartbarItem.find(obj => (
+        const findCartbarItem = cartbarItem.find(obj => (
             obj.id === item.id
         ))
-        if (temp === undefined) {
+        if (findCartbarItem === undefined) {
             dispatch(add_cartbarItem(item))
+        }
+        else {
+            dispatch(increment_cartbarItem(item))
         }
     }
 
