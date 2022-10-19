@@ -3,7 +3,7 @@ import React from 'react'
 import { Autoplay, FreeMode, Pagination, A11y } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import IMAGES from "../../dataset/banner.js"
+import IMAGES from "../../dataset/banner"
 
 import 'swiper/scss';
 import "swiper/scss/free-mode";
