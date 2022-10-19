@@ -11,9 +11,12 @@ export const cartbarItemSlice = createSlice({
         add_cartbarItem: (state, data) => {
             state.value = [...state.value, data.payload]
         },
+        delete_cartbarItem: (state, data) => {
+            state.value = [...data.payload]
+        },
     },
 })
 
-export const { add_cartbarItem } = cartbarItemSlice.actions
+export const { add_cartbarItem, delete_cartbarItem } = cartbarItemSlice.actions
 
 export default cartbarItemSlice.reducer
