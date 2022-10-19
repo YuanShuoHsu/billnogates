@@ -104,15 +104,18 @@
             }
 
             .cart {
-                &::before {
-                    position: absolute;
-                    content: "1";
-                    width: 15px;
-                    line-height: 15px;
-                    text-align: center;
-                    background: rgba(228, 2, 125, 0.8);
-                    border-radius: 50%;
-                    pointer-events: none;
+                &.active {
+                    &::before {
+                        position: absolute;
+                        counter-reset: x var(--x);
+                        content: counter(x);
+                        width: 15px;
+                        line-height: 15px;
+                        text-align: center;
+                        background: rgba(228, 2, 125, 0.8);
+                        border-radius: 50%;
+                        pointer-events: none;
+                    }
                 }
             }
 
