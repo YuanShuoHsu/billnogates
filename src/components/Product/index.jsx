@@ -12,16 +12,20 @@ export default function Product() {
     const dispatch = useDispatch();
     const cartbarItem = useSelector(state => state.cartbarItem.value);
 
+    const repeatElement = (cartbarItem, item) => {
+        let counter = 0;
+        cartbarItem.forEach(element => {
+            if (element === item) {
+                counter++
+            }
+        });
+        return counter;
+    }
+
     const addToCart = (item) => {
-        // const findCartbarItem = cartbarItem.find(obj => (
-            // obj.id === item.id
-        // ))
-        // if (findCartbarItem === undefined) {
+        if (repeatElement(cartbarItem, item) < 10) {
             dispatch(add_cartbarItem(item))
-        // }
-        // else {
-            // dispatch(increment_cartbarItem(item))
-        // }
+        }
     }
 
     return (
@@ -34,7 +38,7 @@ export default function Product() {
                         </div>
                         <div className='name'>{item.name}</div>
                         <div className='price'>${item.price}</div>
-                        <div onClick={() => addToCart(item)} className='addToCart'>加入購物車</div>
+                        <button onClick={() => addToCart(item)} className='addToCart'>加入購物車</button>
                     </div>
                 ))
             }

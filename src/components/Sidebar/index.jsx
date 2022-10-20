@@ -22,12 +22,14 @@ export default function Sidebar() {
   const newBetterScroll = () => {
     BScroll.use(MouseWheel)
     let bs = new BScroll(scrollWrapper.current, {
+      click: true,
+      tap: "tap",
       probeType: 3,
       mouseWheel: true,
     })
-    setInterval(() => {
-      bs.refresh()
-    }, 2000)
+    // setInterval(() => {
+    //   bs.refresh()
+    // }, 2000)
   }
 
   return (
