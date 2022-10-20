@@ -13,6 +13,9 @@ export default function Cartbar() {
     const cartbar = useSelector(state => state.cartbar.value);
     const cartbarItem = useSelector(state => state.cartbarItem.value);
 
+    const set = new Set()
+    const setCartbarItem = cartbarItem.filter(item => !set.has(item.id) ? set.add(item.id) : false)
+
     const hideCartbar = () => {
         dispatch(hide_cartbar())
     }
@@ -26,8 +29,8 @@ export default function Cartbar() {
             <div onClick={stopPropagation} className='box'>
                 <h2 className='title'>您的購物車</h2>
                 {
-                    cartbarItem && cartbarItem.map(item => (
-                        < CartbarItem item={item} key={item.id} />
+                    setCartbarItem && setCartbarItem.map(item => (
+                        < CartbarItem cartbarItem={cartbarItem} setCartbarItem={setCartbarItem} item={item} key={item.id} />
                     ))
                 }
             </div>

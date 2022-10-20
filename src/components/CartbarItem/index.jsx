@@ -1,20 +1,32 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { delete_cartbarItem } from '../../store/slice/cartbarItem';
 
 import "./index.scss"
 
 export default function CartbarItem(props) {
     const dispatch = useDispatch();
-    const cartbarItem = useSelector(state => state.cartbarItem.value);
-    console.log(cartbarItem)
 
-    const { item } = props
+    const { cartbarItem, setCartbarItem, item } = props
 
     const [number, setNumber] = useState(1)
     const minNumber = 1
     const maxNumber = 10
+
+    useEffect(() => {
+        setNumber(repeatElement(cartbarItem, item))
+    })
+
+    const repeatElement = (cartbarItem, item) => {
+        let counter = 0;
+        cartbarItem.forEach(element => {
+            if (element === item) {
+                counter++
+            }
+        });
+        return counter;
+    }
 
     const decrement = () => {
         if (number > minNumber) {
@@ -29,14 +41,14 @@ export default function CartbarItem(props) {
     }
 
     const handleDelete = (item) => {
-        const newCartbarItem = cartbarItem.filter(obj => (
+        const newCartbarItem = setCartbarItem.filter(obj => (
             obj.id !== item.id
         ))
         dispatch(delete_cartbarItem(newCartbarItem))
     }
 
     return (
-        <div className='cartbarItem'>
+        <div className='cartbarItem' >
             <div className='order'>
                 <div className='product'>
                     <div className='photo'>
