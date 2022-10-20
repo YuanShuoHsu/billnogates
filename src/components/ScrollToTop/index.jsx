@@ -7,16 +7,16 @@ export default function ScrollToTop() {
   const [scroll, setScroll] = useState("")
 
   useEffect(() => {
-    window.onscroll = () => {
-      scrollFunction()
-    }
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   })
 
-  const scrollFunction = () => {
-    if (window.scrollY <= 80 && scroll !== "") {
+  const handleScroll = () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+    if (scrollTop <= 80 && scroll !== "") {
       setScroll("")
     }
-    else if (window.scrollY > 80 && scroll !== "active") {
+    else if (scrollTop > 80 && scroll !== "active") {
       setScroll("active")
     }
   }

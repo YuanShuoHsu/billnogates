@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
+
 import Navbar from "../Navbar"
 
 import { useNavigate } from "react-router-dom"
@@ -13,10 +14,29 @@ import logo from './../../images/logo.png';
 import "./index.scss"
 
 export default function Header() {
+    
+    const [lastScrollTop, setLastScrollTop] = useState(0)
+    const [headerTop, setHeaderTop] = useState(true)
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const cartbarItem = useSelector(state => state.cartbarItem.value);
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+    })
+
+    const handleScroll = () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop
+        if (scrollTop > lastScrollTop && scrollTop > 80) {
+            setHeaderTop(false)
+        }
+        else {
+            setHeaderTop(true)
+        }
+        setLastScrollTop(scrollTop)
+    }
 
     const goHome = () => {
         navigate("")
@@ -35,7 +55,7 @@ export default function Header() {
     }
 
     return (
-        <div className='header'>
+        <div style={{ top: `${headerTop ? "0" : "-80px"}` }} className='header'>
             <div onClick={goHome} className='brand'>
                 <img className='logo' src={logo} alt="billnogates" />
                 <span className='title'>Billnogates</span>
