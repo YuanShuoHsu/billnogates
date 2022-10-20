@@ -30,7 +30,7 @@ export default function Cartbar() {
                 <h2 className='title'>您的購物車</h2>
                 {
                     setCartbarItem && setCartbarItem.map(item => (
-                        < CartbarItem cartbarItem={cartbarItem} setCartbarItem={setCartbarItem} item={item} key={item.id} />
+                        < CartbarItem cartbarItem={cartbarItem} item={item} key={item.id} />
                     ))
                 }
             </div>
