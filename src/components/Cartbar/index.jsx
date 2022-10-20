@@ -28,6 +28,7 @@ export default function Cartbar() {
         <div onClick={hideCartbar} className={`cartbar ${cartbar}`}>
             <div onClick={stopPropagation} className='box'>
                 <h2 className='title'>您的購物車</h2>
+                <p className='notbuy' style={{ display: `${setCartbarItem.length ? "none" : "block"}` }}>目前還是空的</p>
                 {
                     setCartbarItem && setCartbarItem.map(item => (
                         < CartbarItem cartbarItem={cartbarItem} item={item} key={item.id} />

@@ -45,7 +45,6 @@ export default function CartbarItem(props) {
         const newCartbarItem = cartbarItem.filter(obj => (
             obj.id !== item.id
         ))
-        console.log(newCartbarItem)
         dispatch(delete_cartbarItem(newCartbarItem))
     }
 
