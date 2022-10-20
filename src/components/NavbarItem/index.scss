@@ -33,15 +33,9 @@
                 .caret-down {
                     transform: rotate(0deg);
                 }
-
-                .subMenu {
-                    opacity: 1;
-                    pointer-events: auto;
-                }
             }
 
             &.active {
-
                 .caret-down {
                     transform: rotate(180deg);
                 }
@@ -61,6 +55,7 @@
             justify-content: center;
             align-items: center;
             text-decoration: none;
+            transition: 0.2s;
 
             @include desktop {
                 width: 100%;
@@ -97,6 +92,7 @@
             padding: 0;
             opacity: 0;
             pointer-events: none;
+            transition: 0.2s;
 
             @include desktop {
                 position: relative;
@@ -104,7 +100,6 @@
                 opacity: 1;
                 pointer-events: auto;
                 overflow: hidden;
-                transition: 0.2s;
             }
 
             .subItem {
