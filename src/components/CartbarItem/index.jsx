@@ -16,7 +16,7 @@ export default function CartbarItem(props) {
 
     useEffect(() => {
         setNumber(repeatElement(cartbarItem, item))
-    })
+    }, [cartbarItem, item])
 
     const repeatElement = (cartbarItem, item) => {
         let counter = 0;
