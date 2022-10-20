@@ -29,38 +29,40 @@
         left: 0;
     }
 
-    .landscape {
-        height: 120px;
 
-        .close {
-            position: absolute;
-            top: 25px;
-            right: 10px;
-            width: 30px;
-            height: 30px;
-            border-radius: 4px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
 
-            &:hover {
-                opacity: 0.8;
+    // .landscape {
+    //     height: 120px;
 
-                .xmark {
-                    fill: #E4027D;
-                }
-            }
+    //     .close {
+    //         position: absolute;
+    //         top: 25px;
+    //         right: 10px;
+    //         width: 30px;
+    //         height: 30px;
+    //         border-radius: 4px;
+    //         display: flex;
+    //         justify-content: center;
+    //         align-items: center;
+    //         cursor: pointer;
 
-            .xmark {
-                width: 20px;
-                height: 20px;
-                transition: 0.2s;
+    //         &:hover {
+    //             opacity: 0.8;
 
-                path {
-                    pointer-events: none;
-                }
-            }
-        }
-    }
+    //             .xmark {
+    //                 fill: #E4027D;
+    //             }
+    //         }
+
+    //         .xmark {
+    //             width: 20px;
+    //             height: 20px;
+    //             transition: 0.2s;
+
+    //             path {
+    //                 pointer-events: none;
+    //             }
+    //         }
+    //     }
+    // }
 }
