@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import { useDispatch } from 'react-redux';
-import { delete_cartbarItem } from '../../store/slice/cartbarItem';
+import { add_cartbarItem, delete_cartbarItem } from '../../store/slice/cartbarItem';
 
 import "./index.scss"
 
@@ -19,6 +19,17 @@ export default function CartbarItem(props) {
         setNumber(repeatElement(cartbarItem, item))
     }, [cartbarItem, item])
 
+    const deleteElement = (cartbarItem, item) => {
+        const reverseCartbarItem = [...cartbarItem].reverse();
+        for (let i = 0; i < reverseCartbarItem.length; i++) {
+            if (reverseCartbarItem[i] === item) {
+                reverseCartbarItem.splice(i, 1)
+                break
+            }
+        }
+        return [...reverseCartbarItem].reverse()
+    }
+
     const repeatElement = (cartbarItem, item) => {
         let counter = 0;
         cartbarItem.forEach(element => {
@@ -30,14 +41,14 @@ export default function CartbarItem(props) {
     }
 
     const decrement = () => {
-        if (number > minNumber) {
-            setNumber(number - 1)
+        if (minNumber < repeatElement(cartbarItem, item)) {
+            dispatch(delete_cartbarItem(deleteElement(cartbarItem, item)))
         }
     }
 
     const increment = () => {
-        if (number < maxNumber) {
-            setNumber(number + 1)
+        if (repeatElement(cartbarItem, item) < maxNumber) {
+            dispatch(add_cartbarItem(item))
         }
     }
 

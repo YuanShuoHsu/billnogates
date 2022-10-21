@@ -12,6 +12,8 @@ export default function Product() {
     const dispatch = useDispatch();
     const cartbarItem = useSelector(state => state.cartbarItem.value);
 
+    const maxNumber = 10;
+
     const repeatElement = (cartbarItem, item) => {
         let counter = 0;
         cartbarItem.forEach(element => {
@@ -23,7 +25,7 @@ export default function Product() {
     }
 
     const addToCart = (item) => {
-        if (repeatElement(cartbarItem, item) < 10) {
+        if (repeatElement(cartbarItem, item) < maxNumber) {
             dispatch(add_cartbarItem(item))
         }
     }
