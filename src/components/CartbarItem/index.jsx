@@ -21,9 +21,9 @@ export default function CartbarItem(props) {
 
     const deleteElement = (cartbarItem, item) => {
         const reverseCartbarItem = [...cartbarItem].reverse();
-        for (let i = 0; i < reverseCartbarItem.length; i++) {
-            if (reverseCartbarItem[i] === item) {
-                reverseCartbarItem.splice(i, 1)
+        for (let index = 0; index < reverseCartbarItem.length; index++) {
+            if (reverseCartbarItem[index] === item) {
+                reverseCartbarItem.splice(index, 1)
                 break
             }
         }
