@@ -26,12 +26,15 @@
             background: salmon;
         }
 
+        &.active {
+            background: burlywood;
+        }
+
         .subText {
             font-size: 16px;
             font-weight: 400;
             color: #000;
             letter-spacing: 1px;
-            // transition: 0.2s;
         }
     }
 }
