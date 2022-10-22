@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 
+import NavbarSubItem from '../NavbarSubItem'
+
 import { NavLink } from "react-router-dom"
 
 import "./index.scss"
@@ -33,11 +35,7 @@ export default function NavbarItem(props) {
                 <ul style={{ "--x": `${item.layers ? item.layers.length : 0}` }} className={`subMenu ${click ? "active" : ""}`} onClick={stopPropagation}>
                     {
                         item.layers && item.layers.map(subItem => (
-                            <li className='subItem' key={subItem.subId}>
-                                <NavLink className="subLink" to={subItem.subnav}>
-                                    <span className='subText'>{subItem.subnav}</span>
-                                </NavLink>
-                            </li>
+                            <NavbarSubItem subItem={subItem}/>
                         ))
                     }
                 </ul>
