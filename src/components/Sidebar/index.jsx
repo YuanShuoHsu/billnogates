@@ -8,7 +8,7 @@ import { hide_sidebar } from '../../store/slice/sidebar';
 import "./index.scss"
 
 export default function Sidebar() {
-  
+
   const dispatch = useDispatch();
   const sidebar = useSelector(state => state.sidebar.value);
 
@@ -24,7 +24,7 @@ export default function Sidebar() {
     <div onClick={hideMenu} className={`sidebar ${sidebar}`}>
       <div onClick={stopPropagation} className='box'>
         <div className='landscape'></div>
-        <Navbar className="navbar" />
+        <Navbar />
       </div>
     </div>
   )

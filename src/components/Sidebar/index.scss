@@ -26,12 +26,6 @@
         &.active {
             opacity: 1;
             pointer-events: auto;
-
-            .box {
-                .navbar {
-                    pointer-events: auto;
-                }
-            }
         }
     }
 
@@ -50,10 +44,6 @@
         .landscape {
             width: 100%;
             min-height: 120px;
-        }
-
-        .navbar {
-            pointer-events: none;
         }
     }
 }
