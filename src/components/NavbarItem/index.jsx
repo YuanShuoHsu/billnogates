@@ -35,7 +35,7 @@ export default function NavbarItem(props) {
                         item.layers && item.layers.map(subItem => (
                             <li className='subItem' key={subItem.subId}>
                                 <NavLink className="subLink" to={subItem.subnav}>
-                                    <span className='subText'>{subItem.subnav}</span>                                    
+                                    <span className='subText'>{subItem.subnav}</span>
                                 </NavLink>
                             </li>
                         ))

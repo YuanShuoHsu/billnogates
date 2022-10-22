@@ -23,6 +23,10 @@
         flex-direction: column;
         overflow-y: auto;
 
+        &::-webkit-scrollbar {
+            display: none;
+        }
+
         .title {
             padding: 0 10px;
         }
