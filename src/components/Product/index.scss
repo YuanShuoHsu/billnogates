@@ -8,14 +8,14 @@
     .box {
         height: 360px;
         background: skyblue;
-        border-radius: 10px;
+        border-radius: 4px;
         overflow: hidden;
 
         .photoContainer {
             margin: 10px;
             height: 240px;
             background: #fff;
-            border-radius: 10px;
+            border-radius: 4px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -29,30 +29,72 @@
         }
 
         .name {
-            line-height: 24px;
+            line-height: 30px;
             text-align: center;
             background: salmon;
         }
 
         .price {
-            line-height: 24px;
+            line-height: 30px;
             text-align: center;
             background: bisque;
         }
 
-        .addToCart {
+        .buttonGroup {
             width: 100%;
-            line-height: 40px;
-            text-align: center;
-            color: #fff;
-            background: #000;
-            border: none;
-            cursor: pointer;
-            transition: 0.2s;
+            height: 40px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
 
-            &:hover {
+            .addToCart {
+                margin: 0 10px 0 0;
+                padding: 0;
+                width: 30px;
+                height: 30px;
+                color: #fff;
+                background: #000;
+                border: none;
+                border-radius: 4px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                transition: 0.2s;
 
-                opacity: 0.8;
+                &:hover {
+                    opacity: 0.8;
+
+                    .heart {
+                        fill: #E4027E;
+                    }
+
+                    .cart-arrow-down {
+                        fill: #E4027E;
+                    }
+                }
+
+                .heart {
+                    width: 20px;
+                    height: 20px;
+                    fill: #fff;
+                    transition: 0.2s;
+
+                    path {
+                        pointer-events: none;
+                    }
+                }
+
+                .cart-arrow-down {
+                    width: 20px;
+                    height: 20px;
+                    fill: #fff;
+                    transition: 0.2s;
+
+                    path {
+                        pointer-events: none;
+                    }
+                }
             }
         }
     }

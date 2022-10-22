@@ -17,7 +17,7 @@ export default function NavbarItem(props) {
     const stopPropagation = (event) => {
         event.stopPropagation()
     }
-    
+
     return (
         <div className="navbarItem">
             <li onClick={() => handleClick(!click)} className={`item ${click ? "active" : ""}`} key={item.id}>
@@ -25,8 +25,8 @@ export default function NavbarItem(props) {
                     <span className='text'>{item.nav}</span>
                     {
                         item.layers ?
-                            <svg className='caret-down' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-                                <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
+                            <svg className='angle-down' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
                             </svg> : null
                     }
                 </NavLink>
@@ -34,7 +34,9 @@ export default function NavbarItem(props) {
                     {
                         item.layers && item.layers.map(subItem => (
                             <li className='subItem' key={subItem.subId}>
-                                <NavLink className="subLink" to={subItem.subnav}>{subItem.subnav}</NavLink>
+                                <NavLink className="subLink" to={subItem.subnav}>
+                                    <span className='subText'>{subItem.subnav}</span>                                    
+                                </NavLink>
                             </li>
                         ))
                     }
