@@ -19,6 +19,20 @@ const PRODUCTS = [
         name: "阿蜜",
         description: "一名超級阿嬤，很會交朋友",
         price: 300,
+    },
+    {
+        id: 4,
+        image: require("../images/logo.png"),
+        name: "阿嬌",
+        description: "一名家庭主婦，焦慮感十足",
+        price: 600,
+    },
+    {
+        id: 5,
+        image: require("../images/logo.png"),
+        name: "阿漢",
+        description: "一名大老闆，超級控制狂",
+        price: 900,
     }
 ]
 

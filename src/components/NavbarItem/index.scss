@@ -41,7 +41,7 @@
                 }
 
                 .subMenu {
-                    height: calc(var(--x) * 80px);
+                    height: calc(var(--x) * 40px);
                 }
             }
         }
@@ -59,7 +59,7 @@
 
             @include desktop {
                 width: 100%;
-                height: 80px;
+                height: 40px;
                 border-radius: 0;
             }
 
@@ -116,7 +116,7 @@
 
                     @include desktop {
                         width: 100%;
-                        height: 80px;
+                        height: 40px;
                     }
 
                     &:hover {

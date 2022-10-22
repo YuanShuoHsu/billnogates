@@ -18,6 +18,26 @@ const NAVS = [
             {
                 subId: 3,
                 subnav: "2-3"
+            },
+            {
+                subId: 4,
+                subnav: "2-4"
+            },
+            {
+                subId: 5,
+                subnav: "2-5"
+            },
+            {
+                subId: 6,
+                subnav: "2-6"
+            },
+            {
+                subId: 7,
+                subnav: "2-7"
+            },
+            {
+                subId: 8,
+                subnav: "2-8"
             }
         ]
     },
@@ -44,6 +64,30 @@ const NAVS = [
             {
                 subId: 4,
                 subnav: "4-4"
+            },
+            {
+                subId: 5,
+                subnav: "4-5"
+            },
+            {
+                subId: 6,
+                subnav: "4-6"
+            },
+            {
+                subId: 7,
+                subnav: "4-7"
+            },
+            {
+                subId: 8,
+                subnav: "4-8"
+            },
+            {
+                subId: 9,
+                subnav: "4-9"
+            },
+            {
+                subId: 10,
+                subnav: "4-10"
             }
         ]
     }

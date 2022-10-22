@@ -30,6 +30,10 @@
         left: 0;
     }
 
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
     .landscape {
         height: 120px;
 
