@@ -24,7 +24,7 @@ export default function Sidebar() {
     <div onClick={hideMenu} className={`sidebar ${sidebar}`}>
       <div onClick={stopPropagation} className='box'>
         <div className='landscape'></div>
-        <Navbar />
+        <Navbar className="navbar" />
       </div>
     </div>
   )

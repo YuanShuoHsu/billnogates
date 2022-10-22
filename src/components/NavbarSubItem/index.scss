@@ -6,35 +6,32 @@
 
 .navbarSubItem {
     position: relative;
+    list-style: none;
 
-    .subItem {
-        list-style: none;
+    .subLink {
+        width: 100px;
+        height: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        background: rgb(91, 168, 142);
 
-        .subLink {
-            width: 100px;
+        @include desktop {
+            width: 100%;
             height: 40px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            background: rgb(91, 168, 142);
+        }
 
-            @include desktop {
-                width: 100%;
-                height: 40px;
-            }
+        &:hover {
+            background: salmon;
+        }
 
-            &:hover {
-                background: salmon;
-            }
-
-            .subText {
-                font-size: 16px;
-                font-weight: 400;
-                color: #000;
-                letter-spacing: 1px;
-                // transition: 0.2s;
-            }
+        .subText {
+            font-size: 16px;
+            font-weight: 400;
+            color: #000;
+            letter-spacing: 1px;
+            // transition: 0.2s;
         }
     }
 }

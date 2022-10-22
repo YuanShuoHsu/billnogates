@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,Fragment } from 'react'
 
 import NavbarSubItem from '../NavbarSubItem'
 
@@ -21,8 +21,8 @@ export default function NavbarItem(props) {
     }
 
     return (
-        <div className="navbarItem">
-            <li onClick={() => handleClick(!click)} className={`item ${click ? "active" : ""}`} key={item.id}>
+        <Fragment>
+            <li onClick={() => handleClick(!click)} className={`navbarItem ${click ? "active" : ""}`} key={item.id}>
                 <NavLink className="link" to={item.layers ? null : item.nav}>
                     <span className='text'>{item.nav}</span>
                     {
@@ -40,6 +40,6 @@ export default function NavbarItem(props) {
                     }
                 </ul>
             </li>
-        </div>
+        </Fragment>
     )
 }

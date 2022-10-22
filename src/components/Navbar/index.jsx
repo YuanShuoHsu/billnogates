@@ -6,7 +6,6 @@ import NavbarItem from '../NavbarItem'
 import "./index.scss"
 
 export default function Navbar() {
-
   return (
     <div className='navbar'>
       <ul className='menu'>

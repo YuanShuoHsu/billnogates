@@ -6,101 +6,98 @@
 
 .navbarItem {
     position: relative;
+    list-style: none;
 
-    .item {
-        list-style: none;
-
-        &:hover {
-            .link {
-                .text {
-                    transform: scale(1.1);
-                }
+    &:hover {
+        .link {
+            .text {
+                transform: scale(1.1);
             }
+        }
 
+        .angle-down {
+            transform: rotate(180deg);
+        }
+
+        .subMenu {
+            opacity: 1;
+            pointer-events: auto;
+            // transform: translateY(10px);
+        }
+    }
+
+    @include desktop {
+        &:hover {
+            .angle-down {
+                transform: rotate(0deg);
+            }
+        }
+
+        &.active {
             .angle-down {
                 transform: rotate(180deg);
             }
 
             .subMenu {
-                opacity: 1;
-                pointer-events: auto;
-                // transform: translateY(10px);
+                height: calc(var(--x) * 40px);
             }
         }
+    }
+
+    .link {
+        width: 100px;
+        height: 40px;
+        background: cornsilk;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        transition: 0.2s;
 
         @include desktop {
-            &:hover {
-                .angle-down {
-                    transform: rotate(0deg);
-                }
-            }
-
-            &.active {
-                .angle-down {
-                    transform: rotate(180deg);
-                }
-
-                .subMenu {
-                    height: calc(var(--x) * 40px);
-                }
-            }
-        }
-
-        .link {
-            width: 100px;
+            width: 100%;
             height: 40px;
-            background: cornsilk;
-            border-radius: 4px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-decoration: none;
-            transition: 0.2s;
-
-            @include desktop {
-                width: 100%;
-                height: 40px;
-                border-radius: 0;
-            }
-
-            &:hover {
-                background: salmon;
-            }
-
-            .text {
-                font-size: 16px;
-                font-weight: 400;
-                color: #000;
-                letter-spacing: 1px;
-                transition: 0.2s;
-            }
+            border-radius: 0;
         }
 
-        .angle-down {
-            width: 16px;
-            height: 16px;
-            transition: 0.2s;
-
-            path {
-                pointer-events: none;
-            }
+        &:hover {
+            background: salmon;
         }
 
-        .subMenu {
-            position: absolute;
-            margin: 0;
-            padding: 0;
-            opacity: 0;
+        .text {
+            font-size: 16px;
+            font-weight: 400;
+            color: #000;
+            letter-spacing: 1px;
+            transition: 0.2s;
+        }
+    }
+
+    .angle-down {
+        width: 16px;
+        height: 16px;
+        transition: 0.2s;
+
+        path {
             pointer-events: none;
-            transition: 0.2s;
+        }
+    }
 
-            @include desktop {
-                position: relative;
-                height: 0;
-                opacity: 1;
-                pointer-events: auto;
-                overflow: hidden;
-            }
+    .subMenu {
+        position: absolute;
+        margin: 0;
+        padding: 0;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.2s;
+
+        @include desktop {
+            position: relative;
+            height: 0;
+            opacity: 1;
+            pointer-events: auto;
+            overflow: hidden;
         }
     }
 }

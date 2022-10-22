@@ -17,20 +17,22 @@
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.5);
-    transition: 0.2s;
     z-index: 3;
-    display: none;
-    overflow-y: auto;
+    transition: 0.2s;
+    opacity: 0;
+    pointer-events: none;
 
     @include desktop {
-        display: block;
-        opacity: 0;
-        pointer-events: none;
-    }
+        &.active {
+            opacity: 1;
+            pointer-events: auto;
 
-    &.active {
-        opacity: 1;
-        pointer-events: auto;
+            .box {
+                .navbar {
+                    pointer-events: auto;
+                }
+            }
+        }
     }
 
     .box {
@@ -48,6 +50,10 @@
         .landscape {
             width: 100%;
             min-height: 120px;
+        }
+
+        .navbar {
+            pointer-events: none;
         }
     }
 }

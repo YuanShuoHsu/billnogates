@@ -55,8 +55,8 @@
         display: flex;
         align-items: center;
 
-        .navbar {
-            @include desktop {
+        @include desktop {
+            .navbar {
                 display: none;
             }
         }
