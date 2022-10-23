@@ -32,7 +32,7 @@ export default function Header() {
         if (scrollTop > lastScrollTop && scrollTop - lastScrollTop > 10 && scrollTop > 80) {
             setHeaderTop(false)
         }
-        else if (scrollTop < lastScrollTop && lastScrollTop - scrollTop > 10) {
+        else if (scrollTop < lastScrollTop && lastScrollTop - scrollTop > 5) {
             setHeaderTop(true)
         }
         setLastScrollTop(scrollTop)
