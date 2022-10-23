@@ -11,15 +11,15 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    cursor: pointer;
-    pointer-events: none;
-    transition: 0.2s;
     opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+    transition: 0.2s;
     z-index: 2;
 
     &.active {
-        pointer-events: auto;
         opacity: 1;
+        pointer-events: auto;
 
         &:hover {
             opacity: 0.8;

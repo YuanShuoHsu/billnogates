@@ -29,10 +29,10 @@ export default function Header() {
 
     const handleScroll = () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-        if (scrollTop > lastScrollTop && scrollTop > 80) {
+        if (scrollTop > lastScrollTop && scrollTop - lastScrollTop > 10 && scrollTop > 80) {
             setHeaderTop(false)
         }
-        else {
+        else if (scrollTop < lastScrollTop && lastScrollTop - scrollTop > 10) {
             setHeaderTop(true)
         }
         setLastScrollTop(scrollTop)
