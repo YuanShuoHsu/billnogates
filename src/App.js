@@ -9,7 +9,7 @@ export default function App() {
     <div className="app">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/Login" element={<Login />} />
         {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
       </Routes>
     </div>
