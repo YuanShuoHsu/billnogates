@@ -1,4 +1,4 @@
-.product {
+.Product {
     position: relative;
     margin: 10px;
     display: grid;
@@ -74,16 +74,16 @@
                     }
                 }
 
-                .heart {
-                    width: 20px;
-                    height: 20px;
-                    fill: #fff;
-                    transition: 0.2s;
+                // .heart {
+                //     width: 20px;
+                //     height: 20px;
+                //     fill: #fff;
+                //     transition: 0.2s;
 
-                    path {
-                        pointer-events: none;
-                    }
-                }
+                //     path {
+                //         pointer-events: none;
+                //     }
+                // }
 
                 .cart-arrow-down {
                     width: 20px;

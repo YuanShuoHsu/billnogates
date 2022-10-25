@@ -13,6 +13,7 @@ import "./index.scss"
 export default function Banner() {
   return (
     <Swiper
+    className='Banner'
       modules={[Autoplay, FreeMode, Pagination, A11y]}
       spaceBetween={0}
       slidesPerView={1}

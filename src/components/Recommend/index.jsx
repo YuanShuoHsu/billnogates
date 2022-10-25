@@ -4,7 +4,7 @@ import "./index.scss"
 
 export default function Recommend() {
   return (
-    <div className='recommend'>
+    <div className='Recommend'>
       <div className='content'>
         billnogates
         <span className='stroke'> store - </span>

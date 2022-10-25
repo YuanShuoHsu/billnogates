@@ -18,10 +18,10 @@ export default function NavbarItem(props) {
 
     return (
         <Fragment>
-            <li onClick={() => handleClick(!click)} className={`navbarItem ${click ? "active" : ""}`} key={item.id}>
+            <li onClick={() => handleClick(!click)} className={`NavbarItem ${click ? "active" : ""}`} key={item.id}>
                 {
                     item.layers === undefined ?
-                        <NavLink className="link" to={item.nav}>
+                        <NavLink className="link" to={`/${item.nav}`}>
                             <span className='text'>{item.nav}</span>
                         </NavLink> :
                         <Fragment>
@@ -34,7 +34,7 @@ export default function NavbarItem(props) {
                             <ul style={{ "--x": `${item.layers.length}` }} className="subMenu">
                                 {
                                     item.layers && item.layers.map(subItem => (
-                                        <NavbarSubItem subItem={subItem} key={subItem.subId} />
+                                        <NavbarSubItem itemNav={item.nav} subItem={subItem} key={subItem.subId} />
                                     ))
                                 }
                             </ul>

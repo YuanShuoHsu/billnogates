@@ -1,11 +1,11 @@
 const NAVS = [
     {
         id: 1,
-        nav: "1",
+        nav: "品牌故事",
     },
     {
         id: 2,
-        nav: "2",
+        nav: "商店",
         layers: [
             {
                 subId: 1,
@@ -43,11 +43,11 @@ const NAVS = [
     },
     {
         id: 3,
-        nav: "3",
+        nav: "部落格",
     },
     {
         id: 4,
-        nav: "4",
+        nav: "小比足跡",
         layers: [
             {
                 subId: 1,

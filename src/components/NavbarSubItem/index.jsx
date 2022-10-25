@@ -6,7 +6,7 @@ import "./index.scss"
 
 export default function NavbarSubItem(props) {
 
-    const { subItem } = props
+    const { itemNav, subItem } = props
 
     const stopPropagation = (event) => {
         event.stopPropagation()
@@ -14,8 +14,8 @@ export default function NavbarSubItem(props) {
 
     return (
         <Fragment>
-            <li className='navbarSubItem' key={subItem.subId} onClick={stopPropagation}>
-                <NavLink className="subLink" to={subItem.subnav}>
+            <li className='NavbarSubItem' key={subItem.subId} onClick={stopPropagation}>
+                <NavLink className="subLink" to={`/${itemNav}/${subItem.subnav}`}>
                     <span className='subText'>{subItem.subnav}</span>
                 </NavLink>
             </li>

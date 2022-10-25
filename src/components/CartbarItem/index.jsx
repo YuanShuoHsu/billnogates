@@ -60,7 +60,7 @@ export default function CartbarItem(props) {
     }
 
     return (
-        <div className='cartbarItem' >
+        <div className='CartbarItem' >
             <div className='order'>
                 <div className='product'>
                     <div className='photo'>
