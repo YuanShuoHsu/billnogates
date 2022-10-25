@@ -23,10 +23,10 @@ export default function Membership() {
             <div className='Membership'>
                 <div className='box'>
                     <div className='router'>
-                        <NavLink className={isActive => "loginLink" + (!isActive ? " active" : "")} to="login" activeClassName="selected">
+                        <NavLink className={({ isActive }) => "loginLink" + (isActive ? " active" : "")} to="login">
                             <button className='loginButton'>登入</button>
                         </NavLink>
-                        <NavLink className={isActive => "registerLink" + (!isActive ? " active" : "")} to="register" >
+                        <NavLink className={({isActive}) => "registerLink" + (isActive ? " active" : "")} to="register" >
                             <button className='registerButton'>註冊</button>
                         </NavLink>
                     </div>
