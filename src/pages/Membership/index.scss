@@ -8,12 +8,15 @@
     align-items: center;
 
     .box {
+        width: 80%;
+        max-width: 400px;
+
         .router {
             display: flex;
 
             .loginLink {
-                border-radius: 4px;
-                background: #fff;
+                width: 100%;
+                border-top-left-radius: 4px;
 
                 &.active {
                     .loginButton {
@@ -23,26 +26,25 @@
 
                 .loginButton {
                     padding: 0;
-                    width: 200px;
+                    width: 100%;
                     height: 40px;
                     background: #fff;
                     border: none;
-                    border-right: 0.5px solid #000;
                     border-top-left-radius: 4px;
                     cursor: pointer;
                 }
             }
 
             .registerLink {
-                border-radius: 4px;
+                width: 100%;
+                border-top-right-radius: 4px;
 
                 .registerButton {
                     padding: 0;
-                    width: 200px;
+                    width: 100%;
                     height: 40px;
                     background: #fff;
                     border: none;
-                    border-left: 0.5px solid #000;
                     border-top-right-radius: 4px;
                     cursor: pointer;
                 }
