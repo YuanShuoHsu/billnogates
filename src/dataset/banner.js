@@ -3,18 +3,18 @@
 const IMAGES = [
     {
         id: 1,
-        image: require("../images/手創大人物.png"),
-        name: "手創大人物_工作區域"
+        image: require("../images/網站banner 手創展.png"),
+        name: "網站banner 手創展"
     },
     {
         id: 2,
-        image: require("../images/手創大人物.png"),
-        name: "手創大人物_工作區域"
+        image: require("../images/網站banner 聯名漁夫帽_工作區域 1 複本.png"),
+        name: "網站banner 聯名漁夫帽_工作區域 1 複本"
     },
     {
         id: 3,
-        image: require("../images/手創大人物.png"),
-        name: "手創大人物_工作區域"
+        image: require("../images/banner漫時編織預購.png"),
+        name: "banner漫時編織預購"
     }
 ]
 

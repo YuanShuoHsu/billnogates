@@ -15,7 +15,7 @@ export default function NavbarSubItem(props) {
     return (
         <Fragment>
             <li className='NavbarSubItem' key={subItem.subId} onClick={stopPropagation}>
-                <NavLink className="subLink" to={`/${itemNav}/${subItem.subnav}`}>
+                <NavLink className={({ isActive }) => "subLink" + (isActive ? " active" : "")} to={`/${itemNav}/${subItem.subnav}`}>
                     <span className='subText'>{subItem.subnav}</span>
                 </NavLink>
             </li>

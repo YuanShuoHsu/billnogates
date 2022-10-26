@@ -21,7 +21,7 @@ export default function NavbarItem(props) {
             <li onClick={() => handleClick(!click)} className={`NavbarItem ${click ? "active" : ""}`} key={item.id}>
                 {
                     item.layers === undefined ?
-                        <NavLink className="link" to={`/${item.nav}`}>
+                        <NavLink className={({ isActive }) => "link" + (isActive ? " active" : "")} to={`/${item.nav}`}>
                             <span className='text'>{item.nav}</span>
                         </NavLink> :
                         <Fragment>
