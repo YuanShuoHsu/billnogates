@@ -59,8 +59,10 @@
         display: flex;
         align-items: center;
 
-        @include desktop {
-            .Navbar {
+        .Navbar {
+            display: flex;
+
+            @include desktop {
                 display: none;
             }
         }

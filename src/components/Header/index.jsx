@@ -56,7 +56,7 @@ export default function Header() {
                 <span className='title'>Billnogates</span>
             </Link>
             <div className='navbarContainer'>
-                <Navbar />
+                <Navbar className="Navbar" />
                 <div className='buttonGroup'>
                     <button onClick={showSearch} className='search'>
                         <svg className='magnifying-glass' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

@@ -8,8 +8,8 @@ const IMAGES = [
     },
     {
         id: 2,
-        image: require("../images/網站banner 聯名漁夫帽_工作區域 1 複本.png"),
-        name: "網站banner 聯名漁夫帽_工作區域 1 複本"
+        image: require("../images/網站banner 聯名漁夫帽.png"),
+        name: "網站banner 聯名漁夫帽"
     },
     {
         id: 3,

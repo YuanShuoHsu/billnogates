@@ -5,6 +5,7 @@ import { NavLink, Routes, Route } from "react-router-dom"
 import Searchbar from "../../components/Searchbar"
 import Cartbar from "../../components/Cartbar"
 import Sidebar from "../../components/Sidebar"
+import ScrollToTop from "../../components/ScrollToTop"
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 
@@ -19,6 +20,7 @@ export default function Membership() {
             <Searchbar />
             <Cartbar />
             <Sidebar />
+            <ScrollToTop />
             <Header />
             <div className='Membership'>
                 <div className='box'>
