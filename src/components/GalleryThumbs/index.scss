@@ -37,6 +37,14 @@
                 object-fit: cover;
             }
         }
+
+        .swiper-pagination {
+            background: rgba(288, 2, 152, 0.2);
+
+            .swiper-pagination-progressbar-fill {
+                background: #E4027D;
+            }
+        }
     }
 
     .mySwiper {
@@ -45,8 +53,12 @@
         box-sizing: border-box;
 
         .swiper-slide {
+            padding: 10px;
+            box-sizing: border-box;
+
             text-align: center;
             font-size: 18px;
+            // background: #fff;
 
             display: -webkit-box;
             display: -ms-flexbox;
@@ -63,11 +75,17 @@
 
             opacity: 0.4;
 
+            &:first-child,
+            &:last-child {
+                padding: 10px 0;
+            }
+
             img {
                 display: block;
                 width: 100%;
                 height: 100%;
                 object-fit: cover;
+                cursor: pointer;
             }
         }
 

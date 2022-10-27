@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { FreeMode, Thumbs } from 'swiper';
+import { Keyboard, FreeMode, Pagination, Thumbs } from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/scss";
@@ -19,8 +19,20 @@ export default function GalleryThumbs() {
         <div className="GalleryThumbs">
             <Swiper
                 className="mySwiper2"
-                modules={[Thumbs]}
+                modules={[Keyboard, FreeMode, Pagination, Thumbs]}
                 spaceBetween={0}
+                keyboard={{
+                    enabled: true,
+                }}
+                freeMode={{
+                    enabled: true,
+                    sticky: true
+                }}
+                grabCursor={true}
+
+                pagination={{
+                    type: "progressbar",
+                }}
                 thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
             >
                 <SwiperSlide>
@@ -46,6 +58,7 @@ export default function GalleryThumbs() {
                 spaceBetween={0}
                 slidesPerView={3}
                 freeMode={true}
+                grabCursor={true}
                 watchSlidesProgress={true}
             >
                 <SwiperSlide>
