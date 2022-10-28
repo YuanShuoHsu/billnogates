@@ -53,7 +53,7 @@
         box-sizing: border-box;
 
         .swiper-slide {
-            padding: 10px;
+            padding: 10px 10px 10px 0;
             box-sizing: border-box;
 
             text-align: center;
@@ -75,7 +75,6 @@
 
             opacity: 0.4;
 
-            &:first-child,
             &:last-child {
                 padding: 10px 0;
             }

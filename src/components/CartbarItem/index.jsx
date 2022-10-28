@@ -20,14 +20,14 @@ export default function CartbarItem(props) {
     }, [cartbarItem, item])
 
     const deleteElement = (cartbarItem, item) => {
-        const reverseCartbarItem = [...cartbarItem].reverse();
-        for (let index = 0; index < reverseCartbarItem.length; index++) {
-            if (reverseCartbarItem[index] === item) {
-                reverseCartbarItem.splice(index, 1)
+        const newCartbarItem = [...cartbarItem];
+        for (let index = newCartbarItem.length; index > 0; index--) {
+            if (newCartbarItem[index - 1] === item) {
+                newCartbarItem.splice(index - 1, 1)
                 break
             }
         }
-        return [...reverseCartbarItem].reverse()
+        return newCartbarItem
     }
 
     const repeatElement = (cartbarItem, item) => {

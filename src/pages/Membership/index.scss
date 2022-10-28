@@ -14,47 +14,42 @@
         .router {
             display: flex;
 
-            .loginLink {
+            .link {
                 width: 100%;
-                border-top-left-radius: 4px;
 
-                &.active {
-                    .loginButton {
-                        background: cornsilk;
-                    }
-                }
-
-                .loginButton {
-                    padding: 0;
-                    width: 100%;
-                    height: 40px;
-                    color: #000;
-                    background: #fff;
-                    border: none;
+                &:first-child {
                     border-top-left-radius: 4px;
-                    cursor: pointer;
                 }
-            }
 
-            .registerLink {
-                width: 100%;
-                border-top-right-radius: 4px;
+                &:last-child {
+                    border-top-right-radius: 4px;
+                }
 
-                .registerButton {
+                &.active {
+
+                    .login,
+                    .register {
+                        background: cornsilk;
+                    }
+                }
+
+                .login,
+                .register {
                     padding: 0;
                     width: 100%;
                     height: 40px;
                     color: #000;
                     background: #fff;
                     border: none;
-                    border-top-right-radius: 4px;
                     cursor: pointer;
                 }
 
-                &.active {
-                    .registerButton {
-                        background: cornsilk;
-                    }
+                .login {
+                    border-top-left-radius: 4px;
+                }
+
+                .register {
+                    border-top-right-radius: 4px;
                 }
             }
         }

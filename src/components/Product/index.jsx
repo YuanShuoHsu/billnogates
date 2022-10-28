@@ -40,7 +40,7 @@ export default function Product() {
             {
                 PRODUCTS && PRODUCTS.map(item => (
                     <div className='box' key={item.id}>
-                        <Link onClick={() => ccc(item)} className='link' to={"/detailed"}>
+                        <Link onClick={() => ccc(item)} className='link' to={"/detailed/description"}>
                             <div className='photoContainer'>
                                 <img className='photo' src={item.image} alt={item.name} />
                             </div>

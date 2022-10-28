@@ -36,7 +36,7 @@ export default function Cartbar() {
                         <Fragment>
                             {
                                 setCartbarItem && setCartbarItem.map(item => (
-                                    < CartbarItem cartbarItem={cartbarItem} item={item} key={item.id} />
+                                    <CartbarItem cartbarItem={cartbarItem} item={item} key={item.id} />
                                 ))
                             }
                             <Link className="checklink" to="/">
