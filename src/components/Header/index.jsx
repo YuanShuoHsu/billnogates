@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { show_searchbar } from "../../store/slice/searchbar"
 import { show_cartbar } from "../../store/slice/cartbar"
 import { show_sidebar } from '../../store/slice/sidebar'
+import { show_header, hide_header } from '../../store/slice/header'
 
 import logo from './../../images/logo.png';
 
@@ -16,10 +17,11 @@ import "./index.scss"
 export default function Header() {
 
     const [lastScrollTop, setLastScrollTop] = useState(0)
-    const [headerTop, setHeaderTop] = useState(true)
+    // const [headerTop, setHeaderTop] = useState(true)
 
     const dispatch = useDispatch()
     const cartbarItem = useSelector(state => state.cartbarItem.value);
+    const header = useSelector(state => state.header.value);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -28,11 +30,13 @@ export default function Header() {
 
     const handleScroll = () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-        if (scrollTop - lastScrollTop > 10 && scrollTop > 80 && headerTop !== false) {
-            setHeaderTop(false)
+        if (scrollTop - lastScrollTop > 10 && scrollTop > 80 && header !== false) {
+            // setHeaderTop(false)
+            dispatch(hide_header())
         }
-        else if (lastScrollTop - scrollTop > 5 && headerTop !== true) {
-            setHeaderTop(true)
+        else if (lastScrollTop - scrollTop > 5 && header !== true) {
+            // setHeaderTop(true)
+            dispatch(show_header())
         }
         setLastScrollTop(scrollTop)
     }
@@ -50,7 +54,7 @@ export default function Header() {
     }
 
     return (
-        <div style={{ top: `${headerTop ? "0" : "-80px"}` }} className='Header'>
+        <div style={{ top: `${header ? "0" : "-80px"}` }} className='Header'>
             <Link className='brand' to="/">
                 <img className='logo' src={logo} alt="billnogates" />
                 <span className='title'>Billnogates</span>

@@ -4,6 +4,7 @@ import { Link } from "react-router-dom"
 
 import { useDispatch, useSelector } from 'react-redux';
 import { add_cartbarItem } from '../../store/slice/cartbarItem';
+import { show_header } from '../../store/slice/header'
 
 import PRODUCTS from "../../dataset/product"
 
@@ -29,6 +30,7 @@ export default function Product() {
     const addToCart = (item) => {
         if (repeatElement(cartbarItem, item) < maxNumber) {
             dispatch(add_cartbarItem(item))
+            dispatch(show_header())
         }
     }
     const ccc = (item) => {
