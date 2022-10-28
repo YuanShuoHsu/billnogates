@@ -1,0 +1,78 @@
+.Checkout {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .privacy {
+        width: 80%;
+        background: cadetblue;
+        padding: 5px;
+
+        .title {
+            padding: 0 5px;
+        }
+
+        .name {
+            display: flex;
+            flex-direction: row;
+
+            .lastName,
+            .firstName {
+                margin: 5px;
+                padding: 0 10px;
+                width: 50%;
+                height: 40px;
+                border: none;
+                border-radius: 4px;
+                outline: none;
+            }
+        }
+
+        .contact {
+            display: flex;
+            flex-direction: column;
+            padding: 0 5px;
+
+            .email,
+            .phone {
+                margin: 5px 0;
+                padding: 10px;
+                box-sizing: border-box;
+                width: 100%;
+                height: 40px;
+                border: none;
+                border-radius: 4px;
+                outline: none;
+            }
+        }
+    }
+
+    .remark {
+        width: 80%;
+        background: cornsilk;
+        padding: 5px;
+
+        display: flex;
+        flex-direction: column;
+
+        .title {
+            padding: 0 5px;
+        }
+
+        .message {
+            padding: 5px;
+
+            .comments {
+                padding: 0 10px;
+                box-sizing: border-box;
+                width: 100%;
+                height: 40px;
+                border: none;
+                border-radius: 4px;
+                outline: none;
+            }
+        }
+    }
+}

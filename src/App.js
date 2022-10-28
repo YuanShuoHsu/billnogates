@@ -5,6 +5,7 @@ import { Routes, Route, Navigate } from "react-router-dom"
 import Home from "./pages/Home";
 import Membership from "./pages/Membership";
 import Detailed from "./pages/Detailed";
+import Checkout from "./pages/Checkout";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
         <Route path="membership" element={<Navigate replace to="/membership/login" />} />
         <Route path="detailed/*" element={<Detailed />} />
         <Route path="detailed" element={<Navigate replace to="/detailed/description" />} />
+        <Route path="checkout" element={<Checkout />} />
         {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
       </Routes>
     </div>
