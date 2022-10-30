@@ -35,31 +35,6 @@ const NAVS = [
                 subId: 3,
                 subNav: "2-3",
                 subLink: "2-3"
-            },
-            {
-                subId: 4,
-                subNav: "2-4",
-                subLink: "2-4"
-            },
-            {
-                subId: 5,
-                subNav: "2-5",
-                subLink: "2-5"
-            },
-            {
-                subId: 6,
-                subNav: "2-6",
-                subLink: "2-6"
-            },
-            {
-                subId: 7,
-                subNav: "2-7",
-                subLink: "2-7"
-            },
-            {
-                subId: 8,
-                subNav: "2-8",
-                subLink: "2-8"
             }
         ]
     },
@@ -121,36 +96,6 @@ const NAVS = [
                 subId: 4,
                 subNav: "4-4",
                 subLink: "4-4"
-            },
-            {
-                subId: 5,
-                subNav: "4-5",
-                subLink: "4-5"
-            },
-            {
-                subId: 6,
-                subNav: "4-6",
-                subLink: "4-6"
-            },
-            {
-                subId: 7,
-                subNav: "4-7",
-                subLink: "4-7"
-            },
-            {
-                subId: 8,
-                subNav: "4-8",
-                subLink: "4-8"
-            },
-            {
-                subId: 9,
-                subNav: "4-9",
-                subLink: "4-9"
-            },
-            {
-                subId: 10,
-                subNav: "4-10",
-                subLink: "4-10"
             }
         ]
     }

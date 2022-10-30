@@ -5,6 +5,8 @@ import cartbarReducer from "./slice/cartbar"
 import cartbarItemReducer from "./slice/cartbarItem"
 import sidebarReducer from './slice/sidebar'
 import headerReducer from './slice/header'
+import headerNavItemReducer from './slice/headerNavItem'
+import headerNavSubMenuReducer from './slice/headerNavSubMenu'
 
 export const store = configureStore({
     reducer: {
@@ -12,7 +14,9 @@ export const store = configureStore({
         cartbar: cartbarReducer,
         cartbarItem: cartbarItemReducer,
         sidebar: sidebarReducer,
-        header: headerReducer
+        header: headerReducer,
+        headerNavItem: headerNavItemReducer,
+        headerNavSubMenu: headerNavSubMenuReducer
     },
 })
 

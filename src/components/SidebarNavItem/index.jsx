@@ -10,15 +10,15 @@ export default function SidebarNavItem(props) {
 
     const { item } = props
 
-    const [click, setClick] = useState(false)
+    const [itemClick, setItemClick] = useState(false)
 
-    const handleClick = (click) => {
-        setClick(click)
+    const handleClick = (itemClick) => {
+        setItemClick(itemClick)
     }
 
     return (
         <Fragment>
-            <li onClick={() => handleClick(!click)} className={`SidebarNavItem ${click ? "active" : ""}`} key={item.id}>
+            <li onClick={() => handleClick(!itemClick)} className={`SidebarNavItem ${itemClick ? "active" : ""}`} key={item.id}>
                 {
                     item.layers === undefined ?
                         <NavLink className={({ isActive }) => "link" + (isActive ? " active" : "")} to={`/${item.link}`}>
@@ -33,7 +33,7 @@ export default function SidebarNavItem(props) {
                             </div>
                             <ul style={{ "--x": `${item.layers.length}` }} className="subMenu">
                                 {
-                                    item.layers && item.layers.map(subItem => (
+                                    item.layers.map(subItem => (
                                         <SidebarNavSubItem itemLink={item.link} subItem={subItem} key={subItem.subId} />
                                     ))
                                 }

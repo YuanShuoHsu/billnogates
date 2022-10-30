@@ -4,14 +4,7 @@
     }
 }
 
-// @mixin mobile {
-//     @media(max-width:414px) {
-//         @content;
-//     }
-// }
-
-.Navbar {
-    z-index: 2;
+.HeaderNav {
 
     .menu {
         margin: 0;
@@ -19,7 +12,7 @@
         display: flex;
 
         @include desktop {
-            display: block;
+            display: none;
         }
     }
 }

@@ -1,24 +1,31 @@
-import React, { useState, Fragment } from 'react'
-
-import NavbarSubItem from '../NavbarSubItem'
+import React, { Fragment } from 'react'
 
 import { NavLink } from "react-router-dom"
+import { useDispatch, useSelector } from 'react-redux'
+import { change_headerNavItem } from '../../store/slice/headerNavItem'
+import { show_headerNavSubMenu, hide_headerNavSubMenu } from '../../store/slice/headerNavSubMenu'
 
 import "./index.scss"
 
-export default function NavbarItem(props) {
+export default function HeaderNavItem(props) {
+
+    const dispatch = useDispatch()
+    const headerNavSubMenu = useSelector(state => state.headerNavSubMenu.value);
 
     const { item } = props
 
-    const [click, setClick] = useState(false)
+    const handleEnterHover = () => {
+        dispatch(change_headerNavItem(item))
+        dispatch(show_headerNavSubMenu())
+    }
 
-    const handleClick = (click) => {
-        setClick(click)
+    const handleLeaveHover = () => {
+        dispatch(hide_headerNavSubMenu())
     }
 
     return (
         <Fragment>
-            <li onClick={() => handleClick(!click)} className={`NavbarItem ${click ? "active" : ""}`} key={item.id}>
+            <li onMouseEnter={handleEnterHover} onMouseLeave={handleLeaveHover} className={`HeaderNavItem ${headerNavSubMenu ? "active" : ""}`} key={item.id}>
                 {
                     item.layers === undefined ?
                         <NavLink className={({ isActive }) => "link" + (isActive ? " active" : "")} to={`/${item.link}`}>
@@ -31,14 +38,6 @@ export default function NavbarItem(props) {
                                     <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
                                 </svg>
                             </div>
-                            <ul style={{ "--x": `${item.layers.length}` }} className="subMenu">
-                                <div className='space'></div>
-                                {
-                                    item.layers && item.layers.map(subItem => (
-                                        <NavbarSubItem itemLink={item.link} subItem={subItem} key={subItem.subId} />
-                                    ))
-                                }
-                            </ul>
                         </Fragment>
                 }
             </li>
