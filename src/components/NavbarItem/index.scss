@@ -85,6 +85,12 @@
         position: absolute;
         margin: 0;
         padding: 0;
+        left: 0;
+        width: 100%;
+        background: cornsilk;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         opacity: 0;
         pointer-events: none;
         transition: 0.2s;
@@ -94,6 +100,10 @@
             height: 0;
             opacity: 1;
             overflow: hidden;
+        }
+
+        .space {
+            height: 20px;
         }
     }
 }

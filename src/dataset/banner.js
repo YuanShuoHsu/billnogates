@@ -8,7 +8,7 @@ const IMAGES = [
     },
     {
         id: 2,
-        image: require("../images/網站banner 聯名漁夫帽.png"),
+        image: require("../images/banner 1920x1440 75dpi測試_工作區域 1.png"),
         name: "網站banner 聯名漁夫帽"
     },
     {

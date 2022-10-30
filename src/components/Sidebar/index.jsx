@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Navbar from "../Navbar"
+import SidebarNav from '../SidebarNav';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { hide_sidebar } from '../../store/slice/sidebar';
@@ -21,10 +21,10 @@ export default function Sidebar() {
   }
 
   return (
-    <div onClick={hideMenu} className={`Sidebar ${sidebar}`}>
+    <div onClick={hideMenu} className={`Sidebar ${sidebar ? "active" : ""}`}>
       <div onClick={stopPropagation} className='box'>
         <div className='landscape'></div>
-        <Navbar />
+        <SidebarNav />
       </div>
     </div>
   )

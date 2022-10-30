@@ -1,0 +1,68 @@
+.SidebarNavItem {
+    position: relative;
+    width: 100%;
+    list-style: none;
+
+    &.active {
+        .link {
+            .angle-down {
+                transform: rotate(180deg);
+            }
+        }
+
+        .subMenu {
+            height: calc(var(--x) * 40px);
+        }
+    }
+
+    .link {
+        width: 100%;
+        height: 40px;
+        background: cornsilk;
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+            background: salmon;
+        }
+
+        &.active {
+            background: cornflowerblue;
+        }
+
+        .angle-down {
+            width: 16px;
+            height: 16px;
+            transition: 0.2s;
+
+            path {
+                pointer-events: none;
+            }
+        }
+
+        .text {
+            font-size: 16px;
+            font-weight: 400;
+            color: #000;
+            letter-spacing: 1px;
+            transition: 0.2s;
+        }
+    }
+
+    .subMenu {
+        position: relative;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        height: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        overflow: hidden;
+        transition: 0.2s;
+    }
+}

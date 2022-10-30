@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    value: "",
+    value: false,
 }
 
 export const sidebarSlice = createSlice({
@@ -9,10 +9,10 @@ export const sidebarSlice = createSlice({
     initialState,
     reducers: {
         show_sidebar: (state) => {
-            state.value = "active"
+            state.value = true
         },
         hide_sidebar: (state) => {
-            state.value = ""
+            state.value = false
         }
     },
 })

@@ -1,12 +1,12 @@
 import React, { useState, Fragment } from 'react'
 
-import NavbarSubItem from '../NavbarSubItem'
+import SidebarNavSubItem from '../SidebarNavSubItem'
 
 import { NavLink } from "react-router-dom"
 
 import "./index.scss"
 
-export default function NavbarItem(props) {
+export default function SidebarNavItem(props) {
 
     const { item } = props
 
@@ -18,7 +18,7 @@ export default function NavbarItem(props) {
 
     return (
         <Fragment>
-            <li onClick={() => handleClick(!click)} className={`NavbarItem ${click ? "active" : ""}`} key={item.id}>
+            <li onClick={() => handleClick(!click)} className={`SidebarNavItem ${click ? "active" : ""}`} key={item.id}>
                 {
                     item.layers === undefined ?
                         <NavLink className={({ isActive }) => "link" + (isActive ? " active" : "")} to={`/${item.link}`}>
@@ -32,10 +32,9 @@ export default function NavbarItem(props) {
                                 </svg>
                             </div>
                             <ul style={{ "--x": `${item.layers.length}` }} className="subMenu">
-                                <div className='space'></div>
                                 {
                                     item.layers && item.layers.map(subItem => (
-                                        <NavbarSubItem itemLink={item.link} subItem={subItem} key={subItem.subId} />
+                                        <SidebarNavSubItem itemLink={item.link} subItem={subItem} key={subItem.subId} />
                                     ))
                                 }
                             </ul>
