@@ -27,8 +27,10 @@ export default function SidebarNavItem(props) {
             {
                 item.layers === undefined ?
                     <li className="SidebarNavItem" key={item.id}>
-                        <NavLink className={({ isActive }) => "link" + (isActive ? " active" : "")} to={`/${item.link}`}>
-                            <span className='text'>{item.nav}</span>
+                        <NavLink className={({ isActive }) => "href" + (isActive ? " active" : "")} to={`/${item.link}`}>
+                            <div className='link'>
+                                <span className='text'>{item.nav}</span>
+                            </div>
                         </NavLink>
                     </li> :
                     <li onClick={() => handleClick(!itemClick)} className={`SidebarNavItem ${itemClick ? "active" : ""}`} key={item.id}>

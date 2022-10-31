@@ -2,7 +2,7 @@ const NAVS = [
     {
         id: 1,
         nav: "品牌故事",
-        link: "story",
+        link: "story"
     },
     {
         id: 2,
@@ -105,24 +105,12 @@ const NAVS = [
     {
         id: 3,
         nav: "部落格",
-        link: "blog",
-        layers: [
-            {
-                subId: 1,
-                subNav: "材料實驗室",
-                subLink: "materialLab",
-            },
-            {
-                subId: 2,
-                subNav: "纖維探險隊",
-                subLink: "fiberAdventure"
-            },
-        ]
+        link: "blog"
     },
     {
         id: 4,
         nav: "小比足跡",
-        link: "footprint",
+        link: "footprint"
     }
 ]
 

@@ -4,20 +4,26 @@
     display: flex;
     justify-content: center;
 
-    .grandLink {
+    .grandHref {
         margin: 5px 0;
-        padding: 0 10px;
         text-decoration: none;
+        border-radius: 4px;
+
+        &.active {
+            .grandLink {
+                background: burlywood;
+            }
+        }
+    }
+
+    .grandLink {
+        padding: 0 10px;
         border-radius: 4px;
         background: rgb(91, 168, 142);
         transition: 0.2s;
 
         &:hover {
             background: salmon;
-        }
-
-        &.active {
-            background: burlywood;
         }
 
         .grandText {

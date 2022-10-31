@@ -8,16 +8,13 @@
     position: relative;
     list-style: none;
 
-    &:hover {
-        .link {
-            .angle-down {
-                transform: rotate(180deg);
-            }
-        }
+    .Href {
+        text-decoration: none;
 
-        .subMenu {
-            opacity: 1;
-            pointer-events: auto;
+        &.active {
+            .link {
+                background: cornflowerblue;
+            }
         }
     }
 
@@ -25,24 +22,17 @@
         padding: 0 20px;
         height: 40px;
         background: cornsilk;
-        text-decoration: none;
         display: flex;
-        justify-content: center;
         align-items: center;
         cursor: pointer;
         transition: 0.2s;
 
-        @include desktop {
-            width: 100%;
-            height: 40px;
-        }
-
         &:hover {
             background: salmon;
-        }
 
-        &.active {
-            background: cornflowerblue;
+            .angle-down {
+                transform: rotate(180deg);
+            }
         }
 
         .angle-down {
@@ -56,26 +46,11 @@
         }
 
         .text {
+            color: #000;
             font-size: 16px;
             font-weight: 400;
-            color: #000;
             letter-spacing: 1px;
             transition: 0.2s;
         }
     }
-
-    // .subMenu {
-    //     position: absolute;
-    //     margin: 0;
-    //     padding: 0;
-    //     left: 0;
-    //     width: 100%;
-    //     background: cornsilk;
-    //     display: flex;
-    //     flex-direction: column;
-    //     align-items: center;
-    //     opacity: 0;
-    //     pointer-events: none;
-    //     transition: 0.2s;
-    // }
 }

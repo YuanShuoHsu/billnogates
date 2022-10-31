@@ -15,11 +15,20 @@
         }
     }
 
+    .subHref {
+        text-decoration: none;
+
+        &.active {
+            .subLink {
+                background: cornflowerblue;
+            }
+        }
+    }
+
     .subLink {
         width: 100%;
         height: 40px;
         background: burlywood;
-        text-decoration: none;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -28,10 +37,6 @@
 
         &:hover {
             background: salmon;
-        }
-
-        &.active {
-            background: cornflowerblue;
         }
 
         .angle-down {

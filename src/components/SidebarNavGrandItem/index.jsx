@@ -14,8 +14,10 @@ export default function SidebarNavGrandItem(props) {
 
     return (
         <li onClick={stopPropagation} className='SidebarNavGrandItem' key={grandItem.grandId}>
-            <NavLink className={({ isActive }) => "grandLink" + (isActive ? " active" : "")} to={`/${itemLink}/${subItemLink}/${grandItem.grandLink}`}>
-                <span className='grandText'>{grandItem.grandNav}</span>
+            <NavLink className={({ isActive }) => "grandHref" + (isActive ? " active" : "")} to={`/${itemLink}/${subItemLink}/${grandItem.grandLink}`}>
+                <div className='grandLink'>
+                    <span className='grandText'>{grandItem.grandNav}</span>
+                </div>
             </NavLink>
         </li>
     )

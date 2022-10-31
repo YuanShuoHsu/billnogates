@@ -14,7 +14,7 @@ export default function HeaderNavItem(props) {
 
     const { item } = props
 
-    const handleEnterHover = async() => {
+    const handleEnterHover = async () => {
         await dispatch(change_headerNavItem(item))
         dispatch(show_headerNavSubMenu())
     }
@@ -28,8 +28,10 @@ export default function HeaderNavItem(props) {
             {
                 item.layers === undefined ?
                     <li className={`HeaderNavItem ${headerNavSubMenu ? "active" : ""}`} key={item.id}>
-                        <NavLink className={({ isActive }) => "link" + (isActive ? " active" : "")} to={`/${item.link}`}>
-                            <span className='text'>{item.nav}</span>
+                        <NavLink className={({ isActive }) => "Href" + (isActive ? " active" : "")} to={`/${item.link}`}>
+                            <div className='link'>
+                                <span className='text'>{item.nav}</span>
+                            </div>
                         </NavLink>
                     </li> :
                     <li onMouseEnter={handleEnterHover} onMouseLeave={handleLeaveHover} className={`HeaderNavItem ${headerNavSubMenu ? "active" : ""}`} key={item.id}>

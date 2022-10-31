@@ -29,8 +29,10 @@ export default function SidebarNavSubItem(props) {
             {
                 subItem.subLayers === undefined ?
                     <li className="SidebarNavSubItem" key={subItem.subId}>
-                        <NavLink className={({ isActive }) => "subLink" + (isActive ? " active" : "")} to={`/${itemLink}/${subItem.subLink}`}>
-                            <span className='subText'>{subItem.subNav}</span>
+                        <NavLink className={({ isActive }) => "subHref" + (isActive ? " active" : "")} to={`/${itemLink}/${subItem.subLink}`}>
+                            <div className='subLink'>
+                                <span className='subText'>{subItem.subNav}</span>
+                            </div>
                         </NavLink>
                     </li> :
                     <li onClick={(event) => handleClick(event, !subItemClick)} className={`SidebarNavSubItem ${subItemClick ? "active" : ""}`} key={subItem.subId}>

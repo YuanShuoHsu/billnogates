@@ -3,21 +3,26 @@
     width: 100%;
     list-style: none;
 
+    .grandHref {
+        text-decoration: none;
+
+        &.active {
+            .grandLink {
+                background: burlywood;
+            }
+        }
+    }
+
     .grandLink {
         width: 100%;
         height: 40px;
         display: flex;
         justify-content: center;
         align-items: center;
-        text-decoration: none;
         background: rgb(91, 168, 142);
 
         &:hover {
             background: salmon;
-        }
-
-        &.active {
-            background: burlywood;
         }
 
         .grandText {

@@ -1,4 +1,4 @@
-// 商品圖片大小建議 180px : 240px = 3 : 4
+// 商品圖片大小建議 75dpi 1920 x 1080 = 16 : 9
 
 const IMAGES = [
     {
@@ -8,7 +8,7 @@ const IMAGES = [
     },
     {
         id: 2,
-        image: require("../images/banner 1920x1440 75dpi測試_工作區域 1.png"),
+        image: require("../images/網站banner 聯名漁夫帽.png"),
         name: "網站banner 聯名漁夫帽"
     },
     {

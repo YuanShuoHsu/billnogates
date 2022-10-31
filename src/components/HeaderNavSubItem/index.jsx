@@ -13,8 +13,10 @@ export default function HeaderNavSubItem(props) {
         <li className='HeaderNavSubItem' key={subItem.subId}>
             {
                 subItem.subLayers === undefined ?
-                    <NavLink className={({ isActive }) => "subLink" + (isActive ? " active" : "")} to={`/${itemLink}/${subItem.subLink}`}>
-                        <span className='subText'>{subItem.subNav}</span>
+                    <NavLink className={({ isActive }) => "subHref" + (isActive ? " active" : "")} to={`/${itemLink}/${subItem.subLink}`}>
+                        <div className='subLink'>
+                            <span className='subText'>{subItem.subNav}</span>
+                        </div>
                     </NavLink> :
                     <Fragment>
                         <div className="subLink">
