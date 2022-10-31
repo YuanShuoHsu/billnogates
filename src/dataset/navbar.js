@@ -60,11 +60,6 @@ const NAVS = [
                         grandId: 2,
                         grandNav: "鉤針小花T(短袖)",
                         grandLink: "wovenFrame",
-                    },
-                    {
-                        grandId: 3,
-                        grandNav: "漫時編織",
-                        grandLink: "wanderlust",
                     }
                 ]
             },

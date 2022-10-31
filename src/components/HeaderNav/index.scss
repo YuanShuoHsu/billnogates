@@ -5,14 +5,15 @@
 }
 
 .HeaderNav {
+    display: block;
+
+    @include desktop {
+        display: none;
+    }
 
     .menu {
         margin: 0;
         padding: 0;
         display: flex;
-
-        @include desktop {
-            display: none;
-        }
     }
 }

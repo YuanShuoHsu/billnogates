@@ -27,12 +27,24 @@
         cursor: pointer;
         transition: 0.2s;
 
-        &:hover {
+        &.active {
             background: salmon;
 
             .angle-down {
                 transform: rotate(180deg);
             }
+        }
+
+        &:hover {
+            background: salmon;
+        }
+
+        .text {
+            color: #000;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            transition: 0.2s;
         }
 
         .angle-down {
@@ -43,14 +55,6 @@
             path {
                 pointer-events: none;
             }
-        }
-
-        .text {
-            color: #000;
-            font-size: 16px;
-            font-weight: 400;
-            letter-spacing: 1px;
-            transition: 0.2s;
         }
     }
 }
