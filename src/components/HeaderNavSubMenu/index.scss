@@ -1,24 +1,10 @@
 .HeaderNavSubMenu {
-    position: absolute;
+    position: relative;
     margin: 0;
-    padding: 0;
-    left: 0;
-    top: 60px;
+    padding: 5px;
+    box-sizing: border-box;
     width: 100%;
-    height: 300px;
-    opacity: 0;
-    pointer-events: none;
-    transition: 0.2s;
-
-    &.active {
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    .space {
-        width: 100%;
-        height: 20px;
-        background: transparent;
-        text-align: center;
-    }
+    background: #E4027D;
+    display: flex;
+    justify-content: space-evenly;
 }

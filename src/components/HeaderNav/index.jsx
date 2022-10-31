@@ -11,7 +11,7 @@ export default function HeaderNav() {
       <ul className='menu'>
         {
           NAVS && NAVS.map(item => (
-            <NavbarItem item={item} key={item.id}/>
+            <NavbarItem item={item} key={item.id} />
           ))
         }
       </ul>

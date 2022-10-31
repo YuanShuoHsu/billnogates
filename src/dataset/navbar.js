@@ -11,93 +11,118 @@ const NAVS = [
         layers: [
             {
                 subId: 1,
-                subNav: "2-1",
-                subLink: "2-1",
+                subNav: "生活玩藝",
+                subLink: "lifeArt",
+            },
+            {
+                subId: 2,
+                subNav: "手作材料組",
+                subLink: "handmade",
                 subLayers: [
                     {
                         grandId: 1,
-                        grandNav: "2-1-1",
-                        grandLink: "2-1-1",
+                        grandNav: "巧手織布-企鵝鵝子",
+                        grandLink: "penguin",
                     },
                     {
                         grandId: 2,
-                        grandNav: "2-1-2",
-                        grandLink: "2-1-2",
+                        grandNav: "巧手織布-迷你織框",
+                        grandLink: "wovenFrame",
+                    },
+                    {
+                        grandId: 3,
+                        grandNav: "巧手織布-喬喬貓貓織板",
+                        grandLink: "JoJo",
+                    },
+                    {
+                        grandId: 4,
+                        grandNav: "巧手織布-恐龍",
+                        grandLink: "dinosaur",
+                    },
+                    {
+                        grandId: 5,
+                        grandNav: "漫時編織",
+                        grandLink: "wanderlust",
                     }
                 ]
             },
             {
-                subId: 2,
-                subNav: "2-2",
-                subLink: "2-2"
+                subId: 3,
+                subNav: "Old'K系列",
+                subLink: "old'K",
+                subLayers: [
+                    {
+                        grandId: 1,
+                        grandNav: "鉤針小花T(長袖)",
+                        grandLink: "penguin",
+                    },
+                    {
+                        grandId: 2,
+                        grandNav: "鉤針小花T(短袖)",
+                        grandLink: "wovenFrame",
+                    },
+                    {
+                        grandId: 3,
+                        grandNav: "漫時編織",
+                        grandLink: "wanderlust",
+                    }
+                ]
             },
             {
-                subId: 3,
-                subNav: "2-3",
-                subLink: "2-3"
+                subId: 4,
+                subNav: "聯名合作",
+                subLink: "co-branding",
+                subLayers: [
+                    {
+                        grandId: 1,
+                        grandNav: "印花聯名の小物＿運動小人刺繡片",
+                        grandLink: "athletes",
+                    },
+                    {
+                        grandId: 2,
+                        grandNav: "印花聯名の帽子＿花椰菜菜子裡的小白蟲先生",
+                        grandLink: "cauliflower",
+                    },
+                    {
+                        grandId: 3,
+                        grandNav: "印花聯名の帽子＿掉了草的牛番茄",
+                        grandLink: "beefTomato",
+                    },
+                    {
+                        grandId: 4,
+                        grandNav: "印花聯名の帽子＿跟著腦袋跑操場",
+                        grandLink: "runningBrain",
+                    },
+                    {
+                        grandId: 5,
+                        grandNav: "印花聯名の帽子__滑倒的秋葵弟弟",
+                        grandLink: "slippingOkra",
+                    }
+                ]
             }
         ]
     },
     {
         id: 3,
         nav: "部落格",
-        link: "blog"
+        link: "blog",
+        layers: [
+            {
+                subId: 1,
+                subNav: "材料實驗室",
+                subLink: "materialLab",
+            },
+            {
+                subId: 2,
+                subNav: "纖維探險隊",
+                subLink: "fiberAdventure"
+            },
+        ]
     },
     {
         id: 4,
         nav: "小比足跡",
         link: "footprint",
-        layers: [
-            {
-                subId: 1,
-                subNav: "4-1",
-                subLink: "4-1",
-                subLayers: [
-                    {
-                        grandId: 1,
-                        grandNav: "4-1-1",
-                        grandLink: "4-1-1",
-                    },
-                    {
-                        grandId: 2,
-                        grandNav: "4-1-2",
-                        grandLink: "4-1-2",
-                    },
-                    {
-                        grandId: 3,
-                        grandNav: "4-1-3",
-                        grandLink: "4-1-3",
-                    }
-                ]
-            },
-            {
-                subId: 2,
-                subNav: "4-2",
-                subLink: "4-2"
-            },
-            {
-                subId: 3,
-                subNav: "4-3",
-                subLink: "4-3",
-                subLayers: [
-                    {
-                        grandId: 1,
-                        grandNav: "4-3-1",
-                        grandLink: "4-3-1",
-                    },
-                    {
-                        grandId: 2,
-                        grandNav: "4-3-2",
-                        grandLink: "4-3-2",
-                    }
-                ]
-            },
-            {
-                subId: 4,
-                subNav: "4-4",
-                subLink: "4-4"
-            }
-        ]
     }
 ]
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import Navbar from "../HeaderNav"
+import HeaderNav from "../HeaderNav"
 import HeaderButton from '../HeaderButton'
 import HeaderNavSubMenu from '../HeaderNavSubMenu'
 
@@ -8,6 +8,7 @@ import { Link } from "react-router-dom"
 
 import { useDispatch, useSelector } from 'react-redux'
 import { show_header, hide_header } from '../../store/slice/header'
+import { show_headerNavSubMenu, hide_headerNavSubMenu } from '../../store/slice/headerNavSubMenu'
 
 import logo from './../../images/logo.png';
 
@@ -19,6 +20,7 @@ export default function Header() {
 
     const dispatch = useDispatch()
     const header = useSelector(state => state.header.value);
+    const headerNavSubMenu = useSelector(state => state.headerNavSubMenu.value);
 
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
@@ -29,11 +31,20 @@ export default function Header() {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop
         if (scrollTop - lastScrollTop > 10 && scrollTop > 80 && header !== false) {
             dispatch(hide_header())
+            dispatch(hide_headerNavSubMenu())
         }
         else if (lastScrollTop - scrollTop > 5 && header !== true) {
             dispatch(show_header())
         }
         setLastScrollTop(scrollTop)
+    }
+
+    const handleEnterHover = () => {
+        dispatch(show_headerNavSubMenu())
+    }
+
+    const handleLeaveHover = () => {
+        dispatch(hide_headerNavSubMenu())
     }
 
     return (
@@ -44,11 +55,14 @@ export default function Header() {
                     <span className='title'>Billnogates</span>
                 </Link>
                 <div className='component'>
-                    <Navbar />
+                    <HeaderNav />
                     <HeaderButton />
                 </div>
             </div>
-            <HeaderNavSubMenu />
+            <div onMouseEnter={handleEnterHover} onMouseLeave={handleLeaveHover} className={`dropdown ${headerNavSubMenu ? "active" : ""}`}>
+                <div className='space'></div>
+                <HeaderNavSubMenu />
+            </div>
         </div>
     )
 }
