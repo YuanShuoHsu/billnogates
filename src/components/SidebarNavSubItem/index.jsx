@@ -8,13 +8,20 @@ import "./index.scss"
 
 export default function SidebarNavSubItem(props) {
 
-    const { itemLink, subItem } = props
+    const { handleSubItemLayersLength, itemLink, subItem } = props
 
     const [subItemClick, setSubItemClick] = useState(false)
 
     const handleClick = (event, subItemClick) => {
         event.stopPropagation()
         setSubItemClick(subItemClick)
+
+        if (subItemClick === true && subItem.subLayers !== undefined) {
+            handleSubItemLayersLength(subItem.subLayers.length);
+        }
+        else if (subItemClick === false && subItem.subLayers !== undefined) {
+            handleSubItemLayersLength(-subItem.subLayers.length);
+        }
     }
 
     return (
