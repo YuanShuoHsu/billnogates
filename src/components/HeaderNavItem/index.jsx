@@ -28,7 +28,7 @@ export default function HeaderNavItem(props) {
             {
                 item.layers === undefined ?
                     <li className={`HeaderNavItem ${headerNavSubMenu ? "active" : ""}`} key={item.id}>
-                        <NavLink className={({ isActive }) => "Href" + (isActive ? " active" : "")} to={`/${item.link}`}>
+                        <NavLink className={({ isActive }) => "href" + (isActive ? " active" : "")} to={`/${item.link}`}>
                             <div className='link'>
                                 <span className='text'>{item.nav}</span>
                             </div>
