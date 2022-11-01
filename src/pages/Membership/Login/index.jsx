@@ -27,20 +27,33 @@ export default function Login() {
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
-                console.log(userCredential)
-                const user = userCredential.user;
-                console.log(user)
+                // console.log(userCredential)
+                // const user = userCredential.user;
+                // console.log(user)
                 alert("登入成功")
                 navigate("/")
             })
             .catch((error) => {
-                console.log(error)
+                // console.log(error)
                 const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode)
-                console.log(errorMessage)
+                // console.log(errorCode)
+                // const errorMessage = error.message;
+                // console.log(errorMessage)
+                switch (errorCode) {
+                    case "auth/invalid-email":
+                        alert("信箱格式不確定")
+                        break
+                    case "auth/user-not-found":
+                        alert("信箱不存在")
+                        break
+                    case "auth/wrong-password":
+                        alert("密碼錯誤")
+                        break
+                    default:
+                }
             });
     }
+    
     return (
         <form className='Login' onSubmit={handleSubmit}>
             <div className='information'>

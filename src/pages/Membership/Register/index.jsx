@@ -27,18 +27,30 @@ export default function Register() {
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
-                console.log(userCredential)
-                const user = userCredential.user;
-                console.log(user)
+                // console.log(userCredential)
+                // const user = userCredential.user;
+                // console.log(user)
                 alert("註冊成功")
                 navigate("/membership/login")
             })
             .catch((error) => {
-                console.log(error)
+                // console.log(error)
                 const errorCode = error.code;
-                const errorMessage = error.message;
-                console.log(errorCode)
-                console.log(errorMessage)
+                // console.log(errorCode)
+                // const errorMessage = error.message;
+                // console.log(errorMessage)
+                switch (errorCode) {
+                    case "auth/email-already-in-use":
+                        alert("信箱已存在")
+                        break
+                    case "auth/invalid-email":
+                        alert("信箱格式不正確")
+                        break
+                    case "auth/weak-password":
+                        alert("密碼強度不足")
+                        break
+                    default:
+                }
             });
     }
 

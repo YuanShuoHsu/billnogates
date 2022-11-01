@@ -86,6 +86,52 @@
         }
     }
 
+    .memberProfile {
+        text-decoration: none;
+        border-radius: 4px;
+
+        .customer {
+            margin: 0 2px;
+            padding: 0;
+            height: 30px;
+            background: transparent;
+            border: none;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+
+            &:hover {
+                opacity: 0.8;
+
+                .user {
+                    fill: #E4027D;
+                }
+            }
+
+            .user {
+                margin: 0 2px;
+                width: 20px;
+                height: 20px;
+                fill: #000;
+                transition: 0.2s;
+
+                path {
+                    pointer-events: none;
+                }
+            }
+
+            .name {
+                margin: 0 2px;
+                color: #000;
+                font-size: 16px;
+                font-weight: 400;
+                letter-spacing: 1px;
+            }
+        }
+    }
+
     .cart {
         &.active {
             &::before {
