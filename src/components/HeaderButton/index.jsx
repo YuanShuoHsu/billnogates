@@ -19,6 +19,24 @@ export default function HeaderButton() {
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
             if (user) {
+                // The user object has basic properties such as display name, email, etc.
+                // const displayName = user.displayName;
+                // const email = user.email;
+                // const photoURL = user.photoURL;
+                // const emailVerified = user.emailVerified;
+                // console.log(displayName)
+                // console.log(email)
+                // console.log(photoURL)
+                // console.log(emailVerified)
+
+                // user.providerData.forEach((profile) => {
+                //     console.log("Sign-in provider: " + profile.providerId);
+                //     console.log("Provider-specific UID: " + profile.uid);
+                //     console.log("Name: " + profile.displayName);
+                //     console.log("Email: " + profile.email);
+                //     console.log("Photo URL: " + profile.photoURL);
+                // });
+
                 // User is signed in, see docs for a list of available properties
                 // https://firebase.google.com/docs/reference/js/firebase.User
                 // console.log(user)

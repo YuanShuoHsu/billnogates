@@ -13,6 +13,7 @@ export default function Register() {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const [isLoading, setIsLoading] = useState(false)
 
     const saveEmail = (event) => {
         setEmail(event.target.value)
@@ -24,8 +25,10 @@ export default function Register() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
+        setIsLoading(true)
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
+                setIsLoading(false)
                 // Signed in
                 // console.log(userCredential)
                 // const user = userCredential.user;
@@ -34,6 +37,7 @@ export default function Register() {
                 navigate("/membership/login")
             })
             .catch((error) => {
+                setIsLoading(false)
                 // console.log(error)
                 const errorCode = error.code;
                 // console.log(errorCode)
@@ -58,28 +62,42 @@ export default function Register() {
         <form className='Register' onSubmit={handleSubmit}>
             <div className='privacy'>
                 <div className='grid'>
-                    <input className='lastName' type="text" placeholder='姓氏' required />
+                    <input className='input' type="text" required />
+                    <span className='text'>姓氏</span>
                 </div>
                 <div className='grid'>
-                    <input className='firstName' type="text" placeholder='名稱' required />
+                    <input className='input' type="text" required />
+                    <span className='text'>名字</span>
                 </div>
                 <div className='grid'>
-                    <select defaultValue={''} className='gender' name="gender" required>
+                    <select defaultValue={''} className='select' name="gender" required>
                         <option value="" disabled>性別</option>
                         <option value="male">男性</option>
                         <option value="female">女性</option>
                     </select>
+                    <span className='selectText'>性別</span>
                 </div>
                 <div className='grid'>
-                    <input className='birthday' type="date" placeholder='出生日期' required />
+                    <input className='date' type="date" required />
+                    <span className='dateText'>出生日期</span>
                 </div>
             </div>
-            <div className='information'>
-                <input onChange={saveEmail} className='email' type="text" placeholder='電子郵件' required />
-                <input onChange={savePassword} className='password' type="password" placeholder='密碼' required />
+            <div className='inputBox'>
+                <input onChange={saveEmail} className='input' type="text" required />
+                <span className='text'>電子郵件</span>
             </div>
-            <div className='registerContainer'>
-                <button className='registerButton'>註冊</button>
+            <div className='inputBox'>
+                <input onChange={savePassword} className='input' type="password" required />
+                <span className='text'>密碼</span>
+            </div>
+            <div className='register'>
+                <button className='button'>
+                    {
+                        isLoading ?
+                            <span className='text'>Loading</span> :
+                            <span className='text'>註冊</span>
+                    }
+                </button>
             </div>
         </form>
     )
