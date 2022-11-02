@@ -146,11 +146,22 @@
                 color: #000;
 
                 &::-webkit-calendar-picker-indicator {
+                    padding: 4px;
+                    border-radius: 4px;
+                    opacity: 0.5;
                     cursor: pointer;
                 }
 
                 &:invalid {
                     color: transparent;
+                }
+
+                &:valid {
+                    color: #000;
+                }
+
+                &:focus {
+                    color: rgba(0, 0, 0, 0.5);
                 }
 
                 &:valid,
