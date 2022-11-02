@@ -72,7 +72,10 @@ export default function Login() {
                 <button className='button'>
                     {
                         isLoading ?
-                            <span className='text'>Loading</span> :
+                            <div className="loader">
+                                <span className='circle'></span>
+                                <span className='circle'></span>
+                            </div> :
                             <span className='text'>登入</span>
                     }
                 </button>
