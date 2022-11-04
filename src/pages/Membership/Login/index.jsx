@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom"
 
 import { signInWithEmailAndPassword } from "firebase/auth";
+// import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../../../utils/firebase"
 
 import "./index.scss"
@@ -26,17 +27,28 @@ export default function Login() {
     const handleSubmit = (event) => {
         event.preventDefault()
         setIsLoading(true)
+        handleSignInWithEmailAndPassword()
+    }
+
+    const handleSignInWithEmailAndPassword = () => {
+
+
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
-                // console.log(userCredential)
                 // const user = userCredential.user;
-                // console.log(user)
+                // if (user.emailVerified) {
+                    alert("登入成功")
+                    navigate("/")
+                // }
+                // else {
+                    // alert("請先驗證信箱")
+                    // handleSignOut()
+                // }
                 setIsLoading(false)
-                alert("登入成功")
-                navigate("/")
             })
             .catch((error) => {
+                console.log(auth.currentUser)
                 setIsLoading(false)
                 // console.log(error)
                 const errorCode = error.code;
@@ -57,6 +69,16 @@ export default function Login() {
                 }
             });
     }
+
+    // const handleSignOut = () => {
+    //     signOut(auth).then(() => {
+    //         // Sign-out successful.
+    //         // setCurrentUser(null)
+    //     }).catch((error) => {
+    //         // An error happened.
+    //         // console.log(error)
+    //     });
+    // }
 
     return (
         <form className='Login' onSubmit={handleSubmit}>

@@ -108,6 +108,11 @@
                 .user {
                     fill: #E4027D;
                 }
+
+                .name {
+                    color: #E4027D;
+                    ;
+                }
             }
 
             .user {
@@ -128,6 +133,7 @@
                 font-size: 16px;
                 font-weight: 400;
                 letter-spacing: 1px;
+                transition: 0.2s;
             }
         }
     }
