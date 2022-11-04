@@ -125,7 +125,7 @@
                             }
                         }
 
-                        &:nth-child(2) {
+                        &:last-child {
                             left: 50%;
                             background: rgba(0, 0, 0, 0.1);
                             backdrop-filter: blur(10px);

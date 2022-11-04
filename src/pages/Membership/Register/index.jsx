@@ -3,7 +3,8 @@ import React, { useState } from 'react'
 // import { useNavigate } from "react-router-dom"
 
 // import { createUserWithEmailAndPassword, RecaptchaVerifier, updateProfile, sendEmailVerification } from "firebase/auth";
-// import { auth } from "../../../utils/firebase"
+import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
+import { auth } from "../../../utils/firebase"
 
 import google from "../../../images/google.png"
 import facebook from "../../../images/facebook.png"
@@ -116,6 +117,60 @@ export default function Register() {
     //         });
     // }
 
+    const handleGoogleSignIn = () => {
+        GoogleSignIn()
+    }
+
+    const GoogleSignIn = () => {
+        const provider = new GoogleAuthProvider();
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                // This gives you a Google Access Token. You can use it to access the Google API.
+                const credential = GoogleAuthProvider.credentialFromResult(result);
+                const token = credential.accessToken;
+                // The signed-in user info.
+                const user = result.user;
+                console.log(result, token, user)
+            }).catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.customData.email;
+                // The AuthCredential type that was used.
+                const credential = GoogleAuthProvider.credentialFromError(error);
+                console.log(error, errorCode, errorMessage, email, credential)
+            });
+    }
+
+    const handleFacebookSignIn = () => {
+        facebookSignIn()
+    }
+
+    const facebookSignIn = () => {
+        const provider = new FacebookAuthProvider();
+        signInWithPopup(auth, provider)
+            .then((result) => {
+                // The signed-in user info.
+                const user = result.user;
+
+                // This gives you a Facebook Access Token. You can use it to access the Facebook API.
+                const credential = FacebookAuthProvider.credentialFromResult(result);
+                const accessToken = credential.accessToken;
+                console.log(result, user, accessToken)
+            })
+            .catch((error) => {
+                // Handle Errors here.
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                // The email of the user's account used.
+                const email = error.customData.email;
+                // The AuthCredential type that was used.
+                const credential = FacebookAuthProvider.credentialFromError(error);
+                console.log(error, errorCode, errorMessage, email, credential)
+            });
+    }
+
     return (
         <div className='Register'>
             <form className='form' action="">
@@ -131,7 +186,7 @@ export default function Register() {
                     <span className='text'>OTP</span>
                 </div>
                 <div className='alert'>
-                    <p className='text'>{}</p>
+                    <p className='text'>{ }</p>
                 </div>
                 <div className='register'>
                     <button className='button'>
@@ -151,7 +206,7 @@ export default function Register() {
                     <span className='divider'></span>
                 </div>
             </form>
-            <div className='buttonBox'>
+            <div onClick={handleGoogleSignIn} className='buttonBox'>
                 <button className='button'>
                     <img className='brand' src={google} alt="google" />
                     <div className='textBox'>
@@ -161,7 +216,7 @@ export default function Register() {
                     </div>
                 </button>
             </div>
-            <div className='buttonBox'>
+            <div onClick={handleFacebookSignIn} className='buttonBox'>
                 <button className='button'>
                     <img className='brand' src={facebook} alt="facebook" />
                     <div className='textBox'>
