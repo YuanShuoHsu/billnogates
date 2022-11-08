@@ -1,10 +1,8 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 
 // import { useNavigate } from "react-router-dom"
-
-// import { createUserWithEmailAndPassword, RecaptchaVerifier, updateProfile, sendEmailVerification } from "firebase/auth";
-import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
-import { auth } from "../../../utils/firebase"
+import { RecaptchaVerifier, signInWithPhoneNumber, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
+import { auth } from "../../../firebase"
 
 import google from "../../../images/google.png"
 import facebook from "../../../images/facebook.png"
@@ -13,116 +11,87 @@ import "./index.scss"
 
 export default function Register() {
 
-    // const navigate = useNavigate()
-
-    // useEffect(() => {
-    //     ui.start('.firebaseui-auth-container', uiConfig);
-    // }, [])
-
-    // const [lastName, setLastName] = useState("")
-    // const [firstName, setFirstName] = useState("")
     const [phoneNumber, setPhoneNumber] = useState("")
+    const [phoneError, setPhoneError] = useState("")
     const [OTP, setOTP] = useState("")
-    // const [email, setEmail] = useState("")
-    // const [password, setPassword] = useState("")
+    const [OTPError, setOTPError] = useState("")
+    const [OTPIsShow, setOTPIsShow] = useState(false)
     const [isLoading, setIsLoading] = useState(false)
-
-    // const saveLastName = (event) => {
-    //     setLastName(event.target.value)
-    // }
-
-    // const saveFirstName = (event) => {
-    //     setFirstName(event.target.value)
-    // }
 
     const savePhoneNumber = (event) => {
         setPhoneNumber(event.target.value)
     }
 
     const saveOTP = (event) => {
-        setOTP(event.target.value)
+        const otp = event.target.value
+        setOTP(otp)
+        if (otp.length === 6) {
+            console.log(OTP)
+            // OTPConfirmationResult()
+        }
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        setIsLoading(true)
+        phoneNumberSignIn()
+    }
 
-    // const saveEmail = (event) => {
-    //     setEmail(event.target.value)
-    // }
+    const phoneNumberSignIn = () => {
+        window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
+            'size': 'invisible',
+            'callback': (response) => {
+                // reCAPTCHA solved, allow signInWithPhoneNumber.
+                // console.log("callback")
+            },
+            'expired-callback': () => {
+                // Response expired. Ask user to solve reCAPTCHA again.
+                // console.log("expired-callback")
+            }
+        }, auth);
 
-    // const savePassword = (event) => {
-    //     setPassword(event.target.value)
-    // }
+        const appVerifier = window.recaptchaVerifier;
+        const tempPhone = "+886981140688"
 
-    // const handleSubmit = (event) => {
-    //     event.preventDefault()
-    //     setIsLoading(true)
-    //     // handleCreateUserWithEmailAndPassword()
-    // }
+        signInWithPhoneNumber(auth, tempPhone, appVerifier)
+            .then((confirmationResult) => {
+                // SMS sent. Prompt user to type the code from the message, then sign the
+                // user in with confirmationResult.confirm(code).
+                window.confirmationResult = confirmationResult;
+                setOTPIsShow(true)
+                setIsLoading(false)
+                // console.log(confirmationResult)
+            }).catch((error) => {
+                // Error; SMS not sent
+                setIsLoading(false)
+                setPhoneError(error.message)
+                // console.log(error)
+            });
+    }
 
-    // const handleCreateUserWithEmailAndPassword = () => {
-    //     createUserWithEmailAndPassword(auth, email, password)
-    //         .then((userCredential) => {
-    //             setIsLoading(false)
-    //             // Signed in
-    //             // console.log(userCredential)
-    //             // const user = userCredential.user;
-    //             // console.log(user)
-
-
-    //             // alert("註冊成功")
-    //             handleUpdateProfile()
-    //         })
-    //         .catch((error) => {
-    //             setIsLoading(false)
-    //             // console.log(error)
-    //             const errorCode = error.code;
-    //             // console.log(errorCode)
-    //             // const errorMessage = error.message;
-    //             // console.log(errorMessage)
-    //             switch (errorCode) {
-    //                 case "auth/email-already-in-use":
-    //                     alert("信箱已存在")
-    //                     break
-    //                 case "auth/invalid-email":
-    //                     alert("信箱格式不正確")
-    //                     break
-    //                 case "auth/weak-password":
-    //                     alert("密碼強度不足")
-    //                     break
-    //                 default:
-    //             }
-    //         });
-    // }
-
-    // const handleUpdateProfile = () => {
-    //     updateProfile(auth.currentUser, {
-    //         // displayName: lastName + firstName,
-    //         // photoURL: "https://example.com/jane-q-user/profile.jpg"
-    //         // phoneNumber: "12345"
-    //     }).then(() => {
-    //         // Profile updated!
-    //         console.log("Profile updated!")
-    //         handleSendEmailVerification()
-    //     }).catch((error) => {
-    //         // An error occurred
-    //         console.log(error)
-    //     });
-    // }
-
-    // const handleSendEmailVerification = () => {
-    //     sendEmailVerification(auth.currentUser)
-    //         .then(() => {
-    //             // Email verification sent!
-    //             console.log("Email verification sent!")
-    //             navigate("/membership/login")
-    //         });
-    // }
+    const OTPConfirmationResult = () => {
+        const confirmationResult = window.confirmationResult
+        console.log(OTP)
+        confirmationResult.confirm(OTP).then((result) => {
+            // User signed in successfully.
+            const user = result.user;
+            console.log(result, user)
+            setIsLoading(false)
+        }).catch((error) => {
+            // User couldn't sign in (bad verification code?)
+            console.log(error)
+            setOTPError(error.message)
+            setIsLoading(false)
+        });
+    }
 
     const handleGoogleSignIn = () => {
-        GoogleSignIn()
+        googleSignIn()
     }
 
-    const GoogleSignIn = () => {
+    const googleSignIn = () => {
         const provider = new GoogleAuthProvider();
+
         signInWithPopup(auth, provider)
             .then((result) => {
                 // This gives you a Google Access Token. You can use it to access the Google API.
@@ -173,23 +142,29 @@ export default function Register() {
 
     return (
         <div className='Register'>
-            <form className='form' action="">
+            <form onSubmit={handleSubmit} className='form'>
                 <div className='inputBox'>
                     <input onChange={savePhoneNumber} className='input' type="text" required />
                     <span className='text'>手機號碼</span>
                 </div>
                 <div className='alert'>
-                    <p className='text'>{"錯誤"}</p>
+                    <p className='text'>{phoneError}</p>
                 </div>
-                <div className='inputBox'>
-                    <input onChange={saveOTP} className='input' type="text" required />
-                    <span className='text'>OTP</span>
-                </div>
-                <div className='alert'>
-                    <p className='text'>{ }</p>
-                </div>
+                {
+                    OTPIsShow ?
+                        <Fragment>
+                            <div className='inputBox'>
+                                <input onChange={saveOTP} value={OTP} className='input' type="text" required />
+                                <span className='text'>OTP</span>
+                            </div>
+                            <div className='alert'>
+                                <p className='text'>{OTPError}</p>
+                            </div>
+                        </Fragment>
+                        : null
+                }
                 <div className='register'>
-                    <button className='button'>
+                    <button className='button' id='sign-in-button'>
                         {
                             isLoading ?
                                 <div className="loader">
@@ -206,8 +181,8 @@ export default function Register() {
                     <span className='divider'></span>
                 </div>
             </form>
-            <div onClick={handleGoogleSignIn} className='buttonBox'>
-                <button className='button'>
+            <div className='buttonBox'>
+                <button onClick={handleGoogleSignIn} className='button'>
                     <img className='brand' src={google} alt="google" />
                     <div className='textBox'>
                         <span className='text'>使用</span>
@@ -216,8 +191,8 @@ export default function Register() {
                     </div>
                 </button>
             </div>
-            <div onClick={handleFacebookSignIn} className='buttonBox'>
-                <button className='button'>
+            <div className='buttonBox'>
+                <button onClick={handleFacebookSignIn} className='button'>
                     <img className='brand' src={facebook} alt="facebook" />
                     <div className='textBox'>
                         <span className='text'>使用</span>
