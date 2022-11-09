@@ -1,6 +1,7 @@
 import React, { useState, Fragment } from 'react'
 
-// import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
+
 import { RecaptchaVerifier, signInWithPhoneNumber, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import { auth } from "../../../firebase"
 
@@ -11,12 +12,20 @@ import "./index.scss"
 
 export default function Register() {
 
+    const navigate = useNavigate()
+
     const [phoneNumber, setPhoneNumber] = useState("")
     const [phoneError, setPhoneError] = useState("")
+    const [timer, setTimer] = useState(60)
+    const [timerIsShow, setTimerIsShow] = useState(false)
+    const [timerIsFirst, setTimerIsFirst] = useState(true)
     const [OTP, setOTP] = useState("")
     const [OTPError, setOTPError] = useState("")
     const [OTPIsShow, setOTPIsShow] = useState(false)
-    const [isLoading, setIsLoading] = useState(false)
+    const [password, setPassword] = useState("")
+    const [passwordError, setPasswordError] = useState("")
+    const [passwordIsShow, setPasswordIsShow] = useState(false)
+    const [eyeIsShow, setEyeIsShow] = useState(false)
 
     const savePhoneNumber = (event) => {
         setPhoneNumber(event.target.value)
@@ -26,15 +35,34 @@ export default function Register() {
         const otp = event.target.value
         setOTP(otp)
         if (otp.length === 6) {
-            console.log(OTP)
-            // OTPConfirmationResult()
+            OTPConfirmationResult(otp)
         }
+    }
+
+    const savePassword = (event) => {
+        setPassword(event.target.value)
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        setIsLoading(true)
-        phoneNumberSignIn()
+        if (passwordIsShow === true) {
+
+        }
+        else if (timerIsShow === false) {
+            setTimerIsShow(true)
+            setTimerIsFirst(false)
+            phoneNumberSignIn()
+            let count = 60;
+            let timerId = setInterval(() => {
+                count--
+                setTimer(count)
+                if (count === 0) {
+                    clearInterval(timerId);
+                    setTimerIsShow(false)
+                    setTimer(60)
+                }
+            }, 1000);
+        }
     }
 
     const phoneNumberSignIn = () => {
@@ -59,29 +87,28 @@ export default function Register() {
                 // user in with confirmationResult.confirm(code).
                 window.confirmationResult = confirmationResult;
                 setOTPIsShow(true)
-                setIsLoading(false)
                 // console.log(confirmationResult)
             }).catch((error) => {
                 // Error; SMS not sent
-                setIsLoading(false)
-                setPhoneError(error.message)
-                // console.log(error)
+                const errorMessage = error.message;
+                // console.log(error, errorMessage)
+                setPhoneError(errorMessage)
             });
     }
 
-    const OTPConfirmationResult = () => {
+    const OTPConfirmationResult = (otp) => {
         const confirmationResult = window.confirmationResult
-        console.log(OTP)
-        confirmationResult.confirm(OTP).then((result) => {
+        // console.log(OTP)
+        confirmationResult.confirm(otp).then((result) => {
             // User signed in successfully.
             const user = result.user;
             console.log(result, user)
-            setIsLoading(false)
+            setPasswordIsShow(true)
         }).catch((error) => {
             // User couldn't sign in (bad verification code?)
-            console.log(error)
-            setOTPError(error.message)
-            setIsLoading(false)
+            const errorMessage = error.message;
+            // console.log(error, errorMessage)
+            setOTPError(errorMessage)
         });
     }
 
@@ -102,13 +129,14 @@ export default function Register() {
                 console.log(result, token, user)
             }).catch((error) => {
                 // Handle Errors here.
-                const errorCode = error.code;
+                // const errorCode = error.code;
                 const errorMessage = error.message;
                 // The email of the user's account used.
-                const email = error.customData.email;
+                // const email = error.customData.email;
                 // The AuthCredential type that was used.
-                const credential = GoogleAuthProvider.credentialFromError(error);
-                console.log(error, errorCode, errorMessage, email, credential)
+                // const credential = GoogleAuthProvider.credentialFromError(error);
+                // console.log(error, errorCode, errorMessage, email, credential)
+                alert(errorMessage)
             });
     }
 
@@ -130,51 +158,90 @@ export default function Register() {
             })
             .catch((error) => {
                 // Handle Errors here.
-                const errorCode = error.code;
+                // const errorCode = error.code;
                 const errorMessage = error.message;
                 // The email of the user's account used.
-                const email = error.customData.email;
+                // const email = error.customData.email;
                 // The AuthCredential type that was used.
-                const credential = FacebookAuthProvider.credentialFromError(error);
-                console.log(error, errorCode, errorMessage, email, credential)
+                // const credential = FacebookAuthProvider.credentialFromError(error);
+                // console.log(error, errorCode, errorMessage, email, credential)
+                alert(errorMessage)
             });
+    }
+
+    const toggleEye = () => {
+        setEyeIsShow(!eyeIsShow)
     }
 
     return (
         <div className='Register'>
             <form onSubmit={handleSubmit} className='form'>
-                <div className='inputBox'>
-                    <input onChange={savePhoneNumber} className='input' type="text" required />
-                    <span className='text'>手機號碼</span>
-                </div>
-                <div className='alert'>
-                    <p className='text'>{phoneError}</p>
-                </div>
                 {
-                    OTPIsShow ?
+                    passwordIsShow ?
                         <Fragment>
                             <div className='inputBox'>
-                                <input onChange={saveOTP} value={OTP} className='input' type="text" required />
-                                <span className='text'>OTP</span>
+                                {
+                                    eyeIsShow ?
+                                        <Fragment>
+                                            <input onChange={savePassword} className='input' type="text" required />
+                                            <span className='text'>密碼</span>
+                                            <svg onClick={toggleEye} className='svg active' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
+                                                <path d="M288 32c-80.8 0-145.5 36.8-192.6 80.6C48.6 156 17.3 208 2.5 243.7c-3.3 7.9-3.3 16.7 0 24.6C17.3 304 48.6 356 95.4 399.4C142.5 443.2 207.2 480 288 480s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C433.5 68.8 368.8 32 288 32zM432 256c0 79.5-64.5 144-144 144s-144-64.5-144-144s64.5-144 144-144s144 64.5 144 144zM288 192c0 35.3-28.7 64-64 64c-11.5 0-22.3-3-31.6-8.4c-.2 2.8-.4 5.5-.4 8.4c0 53 43 96 96 96s96-43 96-96s-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6z" />
+                                            </svg>
+                                        </Fragment>
+                                        :
+                                        <Fragment>
+                                            <input onChange={savePassword} className='input' type="password" required />
+                                            <span className='text'>密碼</span>
+                                            <svg onClick={toggleEye} className='svg' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                                                <path d="M38.8 5.1C28.4-3.1 13.3-1.2 5.1 9.2S-1.2 34.7 9.2 42.9l592 464c10.4 8.2 25.5 6.3 33.7-4.1s6.3-25.5-4.1-33.7L525.6 386.7c39.6-40.6 66.4-86.1 79.9-118.4c3.3-7.9 3.3-16.7 0-24.6c-14.9-35.7-46.2-87.7-93-131.1C465.5 68.8 400.8 32 320 32c-68.2 0-125 26.3-169.3 60.8L38.8 5.1zM223.1 149.5C248.6 126.2 282.7 112 320 112c79.5 0 144 64.5 144 144c0 24.9-6.3 48.3-17.4 68.7L408 294.5c5.2-11.8 8-24.8 8-38.5c0-53-43-96-96-96c-2.8 0-5.6 .1-8.4 .4c5.3 9.3 8.4 20.1 8.4 31.6c0 10.2-2.4 19.8-6.6 28.3l-90.3-70.8zm223.1 298L373 389.9c-16.4 6.5-34.3 10.1-53 10.1c-79.5 0-144-64.5-144-144c0-6.9 .5-13.6 1.4-20.2L83.1 161.5C60.3 191.2 44 220.8 34.5 243.7c-3.3 7.9-3.3 16.7 0 24.6c14.9 35.7 46.2 87.7 93 131.1C174.5 443.2 239.2 480 320 480c47.8 0 89.9-12.9 126.2-32.5z" />
+                                            </svg>
+                                        </Fragment>
+                                }
                             </div>
                             <div className='alert'>
-                                <p className='text'>{OTPError}</p>
+                                <p className='text'>{passwordError}</p>
+                            </div>
+                            <div className='register'>
+                                <button className='button'>
+                                    <span className='text'>註冊</span>
+                                </button>
+                            </div>
+                        </Fragment> :
+                        <Fragment>
+                            <div className='inputBox'>
+                                <input onChange={savePhoneNumber} className='input' type="text" required />
+                                <span className='text'>手機號碼</span>
+                            </div>
+                            <div className='alert'>
+                                <p className='text'>{phoneError}</p>
+                            </div>
+                            {
+                                OTPIsShow ?
+                                    <Fragment>
+                                        <div className='inputBox'>
+                                            <input onChange={saveOTP} value={OTP} className='input' type="text" />
+                                            <span className='text'>OTP</span>
+                                        </div>
+                                        <div className='alert'>
+                                            <p className='text'>{OTPError}</p>
+                                        </div>
+                                    </Fragment>
+                                    : null
+                            }
+                            <div className='register'>
+                                <button className='button' id='sign-in-button'>
+                                    {
+                                        timerIsShow ?
+                                            <span className='text'>{timer}秒</span> :
+                                            timerIsFirst ?
+                                                <span className='text'>獲取驗證碼</span> :
+                                                <span className='text'>重發驗證碼</span>
+                                    }
+                                </button>
                             </div>
                         </Fragment>
-                        : null
                 }
-                <div className='register'>
-                    <button className='button' id='sign-in-button'>
-                        {
-                            isLoading ?
-                                <div className="loader">
-                                    <span className='circle'></span>
-                                    <span className='circle'></span>
-                                </div> :
-                                <span className='text'>註冊</span>
-                        }
-                    </button>
-                </div>
                 <div className='others'>
                     <span className='divider'></span>
                     <p className='or'>或</p>
@@ -202,69 +269,5 @@ export default function Register() {
                 </button>
             </div>
         </div>
-        // <form className='Register' onSubmit={handleSubmit}>
-        //     {/* <div className='privacy'>
-        //         <div className='grid'>
-        //             <input onChange={saveLastName} className='input' type="text" required />
-        //             <span className='text'>姓氏</span>
-        //         </div>
-        //         <div className='grid'>
-        //             <input onChange={saveFirstName} className='input' type="text" required />
-        //             <span className='text'>名字</span>
-        //         </div>
-        //         <div className='grid'>
-        //             <select defaultValue={''} className='select' name="gender" required>
-        //                 <option value="" disabled>性別</option>
-        //                 <option value="male">男性</option>
-        //                 <option value="female">女性</option>
-        //             </select>
-        //             <span className='selectText'>性別</span>
-        //             <div className='drop'>
-        //                 <svg className='caret-down' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
-        //                     <path d="M137.4 374.6c12.5 12.5 32.8 12.5 45.3 0l128-128c9.2-9.2 11.9-22.9 6.9-34.9s-16.6-19.8-29.6-19.8L32 192c-12.9 0-24.6 7.8-29.6 19.8s-2.2 25.7 6.9 34.9l128 128z" />
-        //                 </svg>
-        //             </div>
-        //         </div>
-        //         <div className='grid'>
-        //             <input className='date' type="date" required />
-        //             <span className='dateText'>出生日期</span>
-        //         </div>
-        //     </div> */}
-        //     {/* <div className="firebaseui-auth-container"></div> */}
-        //     {/* <div id="recaptcha-container"></div> */}
-        //     <div className='buttonBox'>
-        //         <button className='button'>
-        //             <img className='brand' src={google} alt="google" />
-        //         </button>
-        //     </div>
-        //     <div className='inputBox'>
-        //         <input onChange={savePhoneNumber} className='input' type="text" required />
-        //         <span className='text'>手機號碼</span>
-        //     </div>
-        //     <div className='inputBox'>
-        //         <input onChange={saveOTP} className='input' type="text" required />
-        //         <span className='text'>OTP</span>
-        //     </div>
-        //     <div className='inputBox'>
-        //         <input onChange={saveEmail} className='input' type="text" required />
-        //         <span className='text'>電子郵件</span>
-        //     </div>
-        //     <div className='inputBox'>
-        //         <input onChange={savePassword} className='input' type="password" required />
-        //         <span className='text'>密碼</span>
-        //     </div>
-        //     <div className='register'>
-        //         <button className='button'>
-        //             {
-        //                 isLoading ?
-        //                     <div className="loader">
-        //                         <span className='circle'></span>
-        //                         <span className='circle'></span>
-        //                     </div> :
-        //                     <span className='text'>註冊</span>
-        //             }
-        //         </button>
-        //     </div>
-        // </form>
     )
 }

@@ -61,6 +61,26 @@
                 transition: 0.2s;
                 pointer-events: none;
             }
+
+            .svg {
+                position: absolute;
+                padding: 0 10px;
+                right: 0;
+                width: 20px;
+                height: 40px;
+                border-top-right-radius: 4px;
+                border-bottom-right-radius: 4px;
+                fill: rgba(0, 0, 0, 0.5);
+                cursor: pointer;
+
+                &.active {
+                    fill: #000;
+                }
+
+                path {
+                    pointer-events: none;
+                }
+            }
         }
 
         .alert {
@@ -242,267 +262,4 @@
             }
         }
     }
-
-    // .privacy {
-    //     padding: 5px;
-    //     display: grid;
-    //     grid-template-columns: repeat(2, 1fr);
-    //     gap: 10px;
-
-    //     .grid {
-    //         position: relative;
-    //         min-width: 100%;
-    //         border-radius: 4px;
-    //         white-space: nowrap;
-
-    //         .input {
-    //             padding: 0 10px;
-    //             box-sizing: border-box;
-    //             width: 100%;
-    //             height: 40px;
-    //             border: none;
-    //             border-radius: 4px;
-    //             outline: none;
-
-    //             &:valid,
-    //             &:focus {
-    //                 ~.text {
-    //                     padding: 0 4px;
-    //                     line-height: 20px;
-    //                     background: #ddd;
-    //                     border-radius: 2px;
-    //                     color: #E4027D;
-    //                     font-size: 12px;
-    //                     transform: translate(10px, -10px);
-    //                 }
-    //             }
-    //         }
-
-    //         .text {
-    //             position: absolute;
-    //             padding: 0 10px;
-    //             left: 0;
-    //             line-height: 40px;
-    //             background: transparent;
-    //             border-radius: 4px;
-    //             color: rgba(0, 0, 0, 0.5);
-    //             font-size: 16px;
-    //             font-weight: 400;
-    //             letter-spacing: 1px;
-    //             transition: 0.2s;
-    //             pointer-events: none;
-    //         }
-
-    //         .select {
-    //             position: relative;
-    //             padding: 0 10px;
-    //             width: 100%;
-    //             height: 40px;
-    //             background: #fff;
-    //             border: none;
-    //             border-radius: 4px;
-    //             outline: none;
-    //             color: #000;
-    //             -webkit-appearance: none;
-    //             -moz-appearance: none;
-    //             appearance: none;
-    //             cursor: pointer;
-
-    //             &::-ms-expand {
-    //                 display: none;
-    //             }
-
-    //             &:invalid {
-    //                 color: transparent;
-    //             }
-
-    //             &:valid,
-    //             &:focus {
-    //                 ~.selectText {
-    //                     padding: 0 4px;
-    //                     line-height: 20px;
-    //                     background: #ddd;
-    //                     border-radius: 2px;
-    //                     font-size: 12px;
-    //                     color: #E4027D;
-    //                     transform: translate(10px, -10px);
-    //                 }
-
-    //                 ~.drop {
-    //                     .caret-down {
-    //                         transform: rotate(180deg);
-    //                     }
-    //                 }
-    //             }
-    //         }
-
-    //         .selectText {
-    //             position: absolute;
-    //             padding: 0 10px;
-    //             left: 0;
-    //             line-height: 40px;
-    //             background: transparent;
-    //             border-radius: 4px;
-    //             color: rgba(0, 0, 0, 0.5);
-    //             font-size: 16px;
-    //             font-weight: 400;
-    //             letter-spacing: 1px;
-    //             transition: 0.2s;
-    //             pointer-events: none;
-    //         }
-
-    //         .drop {
-    //             position: absolute;
-    //             padding: 0 5px;
-    //             top: 0;
-    //             right: 0;
-    //             height: 40px;
-    //             border-top-right-radius: 4px;
-    //             border-bottom-right-radius: 4px;
-    //             display: flex;
-    //             justify-content: center;
-    //             align-items: center;
-    //             pointer-events: none;
-
-    //             .caret-down {
-    //                 width: 20px;
-    //                 height: 20px;
-    //                 fill: rgba(0, 0, 0, 0.5);
-    //                 transition: 0.2s;
-
-    //                 path {
-    //                     pointer-events: none;
-    //                 }
-    //             }
-    //         }
-
-    //         .date {
-    //             padding: 0 10px;
-    //             box-sizing: border-box;
-    //             width: 100%;
-    //             height: 40px;
-    //             background: #fff;
-    //             border: none;
-    //             border-radius: 4px;
-    //             outline: none;
-    //             color: #000;
-
-    //             &::-webkit-calendar-picker-indicator {
-    //                 padding: 4px;
-    //                 border-radius: 4px;
-    //                 opacity: 0.5;
-    //                 cursor: pointer;
-    //             }
-
-    //             &:invalid {
-    //                 color: transparent;
-    //             }
-
-    //             &:valid {
-    //                 color: #000;
-    //             }
-
-    //             &:focus {
-    //                 color: rgba(0, 0, 0, 0.5);
-    //             }
-
-    //             &:valid,
-    //             &:focus {
-    //                 ~.dateText {
-    //                     padding: 0 4px;
-    //                     line-height: 20px;
-    //                     background: #ddd;
-    //                     border-radius: 2px;
-    //                     font-size: 12px;
-    //                     color: #E4027D;
-    //                     transform: translate(10px, -10px);
-    //                 }
-    //             }
-    //         }
-
-    //         .dateText {
-    //             position: absolute;
-    //             padding: 0 10px;
-    //             left: 0;
-    //             line-height: 40px;
-    //             background: transparent;
-    //             border-radius: 4px;
-    //             color: rgba(0, 0, 0, 0.5);
-    //             font-size: 16px;
-    //             font-weight: 400;
-    //             letter-spacing: 1px;
-    //             transition: 0.2s;
-    //             pointer-events: none;
-    //         }
-    //     }
-    // }
-
-    // .buttonBox,
-    // .inputBox {
-    //     position: relative;
-    //     margin: 0 5px;
-    //     padding: 5px 0;
-
-
-    //     .button {
-    //         // padding: 0 10px;
-    //         padding: 0;
-    //         width: 100%;
-    //         height: 40px;
-    //         background: #fff;
-    //         border: none;
-    //         border-radius: 4px;
-    //         // outline: none;
-    //         display: flex;
-
-    //         .brand {
-    //             padding: 5px;
-    //             box-sizing: border-box;
-    //             width: 40px;
-    //             height: 40px;
-    //         }
-    //     }
-
-    //     .input {
-    //         padding: 0 10px;
-    //         box-sizing: border-box;
-    //         width: 100%;
-    //         height: 40px;
-    //         background: #fff;
-    //         border: none;
-    //         border-radius: 4px;
-    //         outline: none;
-
-    //         &:valid,
-    //         &:focus {
-    //             ~.text {
-    //                 padding: 0 4px;
-    //                 line-height: 20px;
-    //                 background: #ddd;
-    //                 border-radius: 2px;
-    //                 color: #E4027D;
-    //                 font-size: 12px;
-    //                 transform: translate(10px, -10px);
-    //             }
-    //         }
-    //     }
-
-
-    //     .text {
-    //         position: absolute;
-    //         padding: 0 10px;
-    //         left: 0;
-    //         line-height: 40px;
-    //         background: transparent;
-    //         border-radius: 4px;
-    //         color: rgba(0, 0, 0, 0.5);
-    //         font-size: 16px;
-    //         font-weight: 400;
-    //         letter-spacing: 1px;
-    //         transition: 0.2s;
-    //         pointer-events: none;
-    //     }
-    // }
-
-
 }
