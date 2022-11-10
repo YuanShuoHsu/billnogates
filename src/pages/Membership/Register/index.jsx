@@ -1,12 +1,10 @@
 import React, { useState, Fragment } from 'react'
+import SocialMedia from './SocialMedia';
 
 import { useNavigate } from "react-router-dom"
 
-import { RecaptchaVerifier, signInWithPhoneNumber, signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
+import { RecaptchaVerifier, signInWithPhoneNumber, signInWithPopup, updatePassword, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import { auth } from "../../../firebase"
-
-import google from "../../../images/google.png"
-import facebook from "../../../images/facebook.png"
 
 import "./index.scss"
 
@@ -27,6 +25,7 @@ export default function Register() {
     const [passwordIsShow, setPasswordIsShow] = useState(false)
     const [eyeIsShow, setEyeIsShow] = useState(false)
 
+
     const savePhoneNumber = (event) => {
         setPhoneNumber(event.target.value)
     }
@@ -46,7 +45,7 @@ export default function Register() {
     const handleSubmit = (event) => {
         event.preventDefault()
         if (passwordIsShow === true) {
-
+            settingPassword()
         }
         else if (timerIsShow === false) {
             setTimerIsShow(true)
@@ -112,61 +111,18 @@ export default function Register() {
         });
     }
 
-    const handleGoogleSignIn = () => {
-        googleSignIn()
-    }
-
-    const googleSignIn = () => {
-        const provider = new GoogleAuthProvider();
-
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                const credential = GoogleAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                // The signed-in user info.
-                const user = result.user;
-                console.log(result, token, user)
-            }).catch((error) => {
-                // Handle Errors here.
-                // const errorCode = error.code;
-                const errorMessage = error.message;
-                // The email of the user's account used.
-                // const email = error.customData.email;
-                // The AuthCredential type that was used.
-                // const credential = GoogleAuthProvider.credentialFromError(error);
-                // console.log(error, errorCode, errorMessage, email, credential)
-                alert(errorMessage)
-            });
-    }
-
-    const handleFacebookSignIn = () => {
-        facebookSignIn()
-    }
-
-    const facebookSignIn = () => {
-        const provider = new FacebookAuthProvider();
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                // The signed-in user info.
-                const user = result.user;
-
-                // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-                const credential = FacebookAuthProvider.credentialFromResult(result);
-                const accessToken = credential.accessToken;
-                console.log(result, user, accessToken)
-            })
-            .catch((error) => {
-                // Handle Errors here.
-                // const errorCode = error.code;
-                const errorMessage = error.message;
-                // The email of the user's account used.
-                // const email = error.customData.email;
-                // The AuthCredential type that was used.
-                // const credential = FacebookAuthProvider.credentialFromError(error);
-                // console.log(error, errorCode, errorMessage, email, credential)
-                alert(errorMessage)
-            });
+    const settingPassword = () => {
+        const user = auth.currentUser;
+        updatePassword(user, password).then(() => {
+            // Update successful.
+            console.log(password)
+            navigate("/")
+        }).catch((error) => {
+            // An error ocurred
+            // console.log(error, error.message)
+            const errorMessage = error.message;
+            setPasswordError(errorMessage)
+        });
     }
 
     const toggleEye = () => {
@@ -242,32 +198,13 @@ export default function Register() {
                             </div>
                         </Fragment>
                 }
-                <div className='others'>
-                    <span className='divider'></span>
-                    <p className='or'>或</p>
-                    <span className='divider'></span>
-                </div>
             </form>
-            <div className='buttonBox'>
-                <button onClick={handleGoogleSignIn} className='button'>
-                    <img className='brand' src={google} alt="google" />
-                    <div className='textBox'>
-                        <span className='text'>使用</span>
-                        <span className='brandText'>google</span>
-                        <span className='text'>帳號註冊</span>
-                    </div>
-                </button>
+            <div className='others'>
+                <span className='divider'></span>
+                <p className='or'>或</p>
+                <span className='divider'></span>
             </div>
-            <div className='buttonBox'>
-                <button onClick={handleFacebookSignIn} className='button'>
-                    <img className='brand' src={facebook} alt="facebook" />
-                    <div className='textBox'>
-                        <span className='text'>使用</span>
-                        <p className='brandText'>facebook</p>
-                        <span className='text'>帳號註冊</span>
-                    </div>
-                </button>
-            </div>
+            <SocialMedia />
         </div>
     )
 }

@@ -1,13 +1,12 @@
 import React, { useState } from 'react'
 
+import SocialMedia from './SocialMedia'
+
 import { useNavigate } from "react-router-dom"
 
 // import { signInWithEmailAndPassword } from "firebase/auth";
 // import { signInWithEmailAndPassword, signOut } from "firebase/auth";
 // import { auth } from "../../../firebase"
-
-import google from "../../../images/google.png"
-import facebook from "../../../images/facebook.png"
 
 import "./index.scss"
 
@@ -35,54 +34,6 @@ export default function Login() {
         setIsLoading(true)
         // handleSignInWithEmailAndPassword()
     }
-
-    // const handleSignInWithEmailAndPassword = () => {
-    //     signInWithEmailAndPassword(auth, email, password)
-    //         .then((userCredential) => {
-    //             // Signed in
-    //             // const user = userCredential.user;
-    //             // if (user.emailVerified) {
-    //             alert("登入成功")
-    //             navigate("/")
-    //             // }
-    //             // else {
-    //             // alert("請先驗證信箱")
-    //             // handleSignOut()
-    //             // }
-    //             setIsLoading(false)
-    //         })
-    //         .catch((error) => {
-    //             console.log(auth.currentUser)
-    //             setIsLoading(false)
-    //             // console.log(error)
-    //             const errorCode = error.code;
-    //             // console.log(errorCode)
-    //             // const errorMessage = error.message;
-    //             // console.log(errorMessage)
-    //             switch (errorCode) {
-    //                 case "auth/invalid-email":
-    //                     alert("信箱格式不確定")
-    //                     break
-    //                 case "auth/user-not-found":
-    //                     alert("信箱不存在")
-    //                     break
-    //                 case "auth/wrong-password":
-    //                     alert("密碼錯誤")
-    //                     break
-    //                 default:
-    //             }
-    //         });
-    // }
-
-    // const handleSignOut = () => {
-    //     signOut(auth).then(() => {
-    //         // Sign-out successful.
-    //         // setCurrentUser(null)
-    //     }).catch((error) => {
-    //         // An error happened.
-    //         // console.log(error)
-    //     });
-    // }
 
     return (
         <div className='Login' >
@@ -113,36 +64,13 @@ export default function Login() {
                         }
                     </button>
                 </div>
-                <div className='others'>
-                    <span className='divider'></span>
-                    <p className='or'>或</p>
-                    <span className='divider'></span>
-                </div>
             </form>
-            <div className='buttonBox'>
-                <button
-                    // onClick={handleGoogleSignIn}
-                    className='button'>
-                    <img className='brand' src={google} alt="google" />
-                    <div className='textBox'>
-                        <span className='text'>使用</span>
-                        <span className='brandText'>google</span>
-                        <span className='text'>帳號註冊</span>
-                    </div>
-                </button>
+            <div className='others'>
+                <span className='divider'></span>
+                <p className='or'>或</p>
+                <span className='divider'></span>
             </div>
-            <div className='buttonBox'>
-                <button
-                    // onClick={handleFacebookSignIn} 
-                    className='button'>
-                    <img className='brand' src={facebook} alt="facebook" />
-                    <div className='textBox'>
-                        <span className='text'>使用</span>
-                        <p className='brandText'>facebook</p>
-                        <span className='text'>帳號註冊</span>
-                    </div>
-                </button>
-            </div>
+            <SocialMedia />
         </div>
     )
 }
