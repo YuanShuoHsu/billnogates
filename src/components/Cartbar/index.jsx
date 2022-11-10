@@ -14,12 +14,19 @@ export default function Cartbar() {
     const dispatch = useDispatch();
     const cartbar = useSelector(state => state.cartbar.value);
     const cartbarItem = useSelector(state => state.cartbarItem.value);
+    const headerButton = useSelector(state => state.headerButton.value);
 
     const set = new Set()
     const setCartbarItem = cartbarItem.filter(item => !set.has(item.id) ? set.add(item.id) : false)
 
     const hideCartbar = () => {
         dispatch(hide_cartbar())
+
+        document.body.style.removeProperty('position');
+        document.body.style.removeProperty('top');
+        document.body.style.removeProperty('width');
+        document.body.style.removeProperty('overflow');
+        window.scrollTo(0, headerButton);
     }
 
     const stopPropagation = (event) => {

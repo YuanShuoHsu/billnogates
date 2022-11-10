@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from 'react-redux'
 // import { show_searchbar } from "../../store/slice/searchbar"
 import { show_cartbar } from "../../store/slice/cartbar"
 import { show_sidebar } from '../../store/slice/sidebar'
+import { position_headerButton } from '../../store/slice/headerButton'
 
 import "./index.scss"
 
@@ -69,10 +70,24 @@ export default function HeaderButton() {
 
     const showCart = () => {
         dispatch(show_cartbar())
+        
+        const scrollPosition = window.pageYOffset;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.width = '100%';
+        document.body.style.overflow = 'hidden';
+        dispatch(position_headerButton(scrollPosition))
     }
 
     const showMenu = () => {
         dispatch(show_sidebar())
+
+        const scrollPosition = window.pageYOffset;
+        document.body.style.position = 'fixed';
+        document.body.style.top = `-${scrollPosition}px`;
+        document.body.style.width = '100%';
+        document.body.style.overflow = 'hidden';
+        dispatch(position_headerButton(scrollPosition))
     }
 
     return (

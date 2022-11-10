@@ -11,6 +11,7 @@ export default function Sidebar() {
 
   const dispatch = useDispatch();
   const sidebar = useSelector(state => state.sidebar.value);
+  const headerButton = useSelector(state => state.headerButton.value);
 
   const stopPropagation = (event) => {
     event.stopPropagation()
@@ -18,6 +19,12 @@ export default function Sidebar() {
 
   const hideMenu = () => {
     dispatch(hide_sidebar())
+
+    document.body.style.removeProperty('position');
+    document.body.style.removeProperty('top');
+    document.body.style.removeProperty('width');
+    document.body.style.removeProperty('overflow');
+    window.scrollTo(0, headerButton);
   }
 
   return (

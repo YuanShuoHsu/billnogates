@@ -7,6 +7,7 @@ import sidebarReducer from './slice/sidebar'
 import headerReducer from './slice/header'
 import headerNavItemReducer from './slice/headerNavItem'
 import headerNavSubMenuReducer from './slice/headerNavSubMenu'
+import headerButtonReducer from "./slice/headerButton"
 
 export const store = configureStore({
     reducer: {
@@ -16,7 +17,8 @@ export const store = configureStore({
         sidebar: sidebarReducer,
         header: headerReducer,
         headerNavItem: headerNavItemReducer,
-        headerNavSubMenu: headerNavSubMenuReducer
+        headerNavSubMenu: headerNavSubMenuReducer,
+        headerButton: headerButtonReducer
     },
 })
 
