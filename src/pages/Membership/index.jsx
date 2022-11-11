@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 
-import { NavLink, Routes, Route } from "react-router-dom"
+import { NavLink, Routes, Route, Navigate } from "react-router-dom"
 
 import Searchbar from "../../components/Searchbar"
 import Cartbar from "../../components/Cartbar"
@@ -28,14 +28,16 @@ export default function Membership() {
                         <NavLink className={({ isActive }) => "link" + (isActive ? " active" : "")} to="login">
                             <button className='login'>登入</button>
                         </NavLink>
-                        <NavLink className={({isActive}) => "link" + (isActive ? " active" : "")} to="register" >
+                        <NavLink className={({ isActive }) => "link" + (isActive ? " active" : "")} to="register" >
                             <button className='register'>註冊</button>
                         </NavLink>
                     </div>
                     <div className='form'>
                         <Routes>
                             <Route path="login" element={<Login />} />
+                            <Route path="login/*" element={<Navigate replace to="" />} />
                             <Route path="register" element={<Register />} />
+                            <Route path="register/*" element={<Navigate replace to="" />} />
                             {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
                         </Routes>
                     </div>

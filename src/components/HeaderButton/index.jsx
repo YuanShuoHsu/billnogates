@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "../../firebase"
 
 import { Link } from "react-router-dom"
@@ -18,37 +18,38 @@ export default function HeaderButton() {
     const [currentUser, setCurrentUser] = useState(null)
 
     useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            if (user) {
-                // The user object has basic properties such as display name, email, etc.
-                // const displayName = user.displayName;
-                // const email = user.email;
-                // const photoURL = user.photoURL;
-                // const emailVerified = user.emailVerified;
-                // console.log(displayName)
-                // console.log(email)
-                // console.log(photoURL)
-                // console.log(emailVerified)
+        setCurrentUser(auth.currentUser)
+        // onAuthStateChanged(auth, (user) => {
+        //     if (user) {
+        //         // The user object has basic properties such as display name, email, etc.
+        //         // const displayName = user.displayName;
+        //         // const email = user.email;
+        //         // const photoURL = user.photoURL;
+        //         // const emailVerified = user.emailVerified;
+        //         // console.log(displayName)
+        //         // console.log(email)
+        //         // console.log(photoURL)
+        //         // console.log(emailVerified)
 
-                // user.providerData.forEach((profile) => {
-                //     console.log("Sign-in provider: " + profile.providerId);
-                //     console.log("Provider-specific UID: " + profile.uid);
-                //     console.log("Name: " + profile.displayName);
-                //     console.log("Email: " + profile.email);
-                //     console.log("Photo URL: " + profile.photoURL);
-                // });
+        //         // user.providerData.forEach((profile) => {
+        //         //     console.log("Sign-in provider: " + profile.providerId);
+        //         //     console.log("Provider-specific UID: " + profile.uid);
+        //         //     console.log("Name: " + profile.displayName);
+        //         //     console.log("Email: " + profile.email);
+        //         //     console.log("Photo URL: " + profile.photoURL);
+        //         // });
 
-                // User is signed in, see docs for a list of available properties
-                // https://firebase.google.com/docs/reference/js/firebase.User
-                // console.log(user)
-                // const uid = user.uid;
-                // console.log(uid)
-                setCurrentUser(user)
-            } else {
-                // User is signed out
-                // console.log("signed out")
-            }
-        });
+        //         // User is signed in, see docs for a list of available properties
+        //         // https://firebase.google.com/docs/reference/js/firebase.User
+        //         // console.log(user)
+        //         // const uid = user.uid;
+        //         // console.log(uid)
+        //         setCurrentUser(user)
+        //     } else {
+        //         // User is signed out
+        //         // console.log("signed out")
+        //     }
+        // });
     }, [])
 
     const handleSignOut = () => {
@@ -70,7 +71,7 @@ export default function HeaderButton() {
 
     const showCart = () => {
         dispatch(show_cartbar())
-        
+
         const scrollPosition = window.pageYOffset;
         document.body.style.position = 'fixed';
         document.body.style.top = `-${scrollPosition}px`;
@@ -115,7 +116,6 @@ export default function HeaderButton() {
                         </button>
                     </Link>
             }
-
             <button style={{ "--x": `${cartbarItem.length}` }} onClick={showCart} className={`cart ${cartbarItem.length === 0 ? "" : "active"}`}>
                 <svg className='cart-shopping' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512">
                     <path d="M24 0C10.7 0 0 10.7 0 24S10.7 48 24 48H76.1l60.3 316.5c2.2 11.3 12.1 19.5 23.6 19.5H488c13.3 0 24-10.7 24-24s-10.7-24-24-24H179.9l-9.1-48h317c14.3 0 26.9-9.5 30.8-23.3l54-192C578.3 52.3 563 32 541.8 32H122l-2.4-12.5C117.4 8.2 107.5 0 96 0H24zM176 512c26.5 0 48-21.5 48-48s-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48zm336-48c0-26.5-21.5-48-48-48s-48 21.5-48 48s21.5 48 48 48s48-21.5 48-48z" />

@@ -2,36 +2,39 @@ import React, { useState } from 'react'
 
 import SocialMedia from './SocialMedia'
 
-import { useNavigate } from "react-router-dom"
+// import { useNavigate } from "react-router-dom"
 
 // import { signInWithEmailAndPassword } from "firebase/auth";
 // import { signInWithEmailAndPassword, signOut } from "firebase/auth";
-// import { auth } from "../../../firebase"
+import { auth } from "../../../firebase"
 
 import "./index.scss"
 
 export default function Login() {
 
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
     const [phoneNumber, setPhoneNumber] = useState("")
     const [phoneError, setPhoneError] = useState("")
-    const [email, setEmail] = useState("")
+    // const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [passwordError, setPasswordError] = useState("")
     const [isLoading, setIsLoading] = useState(false)
 
     const savePhoneNumber = (event) => {
-        setPhoneNumber(event.target.value)
+        const { target } = event
+        setPhoneNumber(target.value)
     }
 
     const savePassword = (event) => {
-        setPassword(event.target.value)
+        const { target } = event
+        setPassword(target.value)
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
         setIsLoading(true)
+        console.log(auth)
         // handleSignInWithEmailAndPassword()
     }
 
@@ -39,14 +42,14 @@ export default function Login() {
         <div className='Login' >
             <form onSubmit={handleSubmit} className="form">
                 <div className='inputBox'>
-                    <input onChange={savePhoneNumber} className='input' type="text" required />
+                    <input onChange={savePhoneNumber} value={phoneNumber} className='input' type="text" required />
                     <span className='text'>手機號碼</span>
                 </div>
                 <div className='alert'>
                     <p className='text'>{phoneError}</p>
                 </div>
                 <div className='inputBox'>
-                    <input onChange={savePassword} className='input' type="text" required />
+                    <input onChange={savePassword} value={password} className='input' type="text" required />
                     <span className='text'>密碼</span>
                 </div>
                 <div className='alert'>

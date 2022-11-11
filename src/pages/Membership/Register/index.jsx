@@ -3,7 +3,7 @@ import SocialMedia from './SocialMedia';
 
 import { useNavigate } from "react-router-dom"
 
-import { RecaptchaVerifier, signInWithPhoneNumber, signInWithPopup, updatePassword, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
+import { RecaptchaVerifier, signInWithPhoneNumber, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase"
 
 import "./index.scss"
@@ -14,6 +14,7 @@ export default function Register() {
 
     const [phoneNumber, setPhoneNumber] = useState("")
     const [phoneError, setPhoneError] = useState("")
+    const [phoneToEmail, setPhoneToEmail] = useState("")
     const [timer, setTimer] = useState(60)
     const [timerIsShow, setTimerIsShow] = useState(false)
     const [timerIsFirst, setTimerIsFirst] = useState(true)
@@ -27,11 +28,13 @@ export default function Register() {
     const [inputType, setInputType] = useState("password")
 
     const savePhoneNumber = (event) => {
-        setPhoneNumber(event.target.value)
+        const { target } = event
+        setPhoneNumber(target.value)
     }
 
     const saveOTP = (event) => {
-        const otp = event.target.value
+        const { target } = event
+        const otp = target.value
         setOTP(otp)
         if (otp.length === 6) {
             OTPConfirmationResult(otp)
@@ -39,13 +42,17 @@ export default function Register() {
     }
 
     const savePassword = (event) => {
-        setPassword(event.target.value)
+        const { target } = event
+        setPassword(target.value)
     }
 
     const handleSubmit = (event) => {
         event.preventDefault()
         if (passwordIsShow === true) {
-            settingPassword()
+            createUserWithPhoneAndPassword()
+        }
+        else if (phoneNumber.length < 10) {
+            setPhoneError("請輸入臺灣手機號碼十位數")
         }
         else if (timerIsShow === false) {
             setTimerIsShow(true)
@@ -63,6 +70,8 @@ export default function Register() {
             }, 1000);
         }
     }
+
+    // 手機輸入時先驗證是否有此用戶
 
     const phoneNumberSignIn = () => {
         window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
@@ -105,6 +114,9 @@ export default function Register() {
             // User signed in successfully.
             const user = result.user;
             console.log(result, user)
+            setPhoneToEmail(phoneNumber)
+            setPhoneNumber("")
+            setOTP("")
             setPasswordIsShow(true)
         }).catch((error) => {
             // User couldn't sign in (bad verification code?)
@@ -114,18 +126,39 @@ export default function Register() {
         });
     }
 
-    const settingPassword = () => {
-        const user = auth.currentUser;
-        updatePassword(user, password).then(() => {
-            // Update successful.
-            console.log(password)
-            navigate("/")
-        }).catch((error) => {
-            // An error ocurred
-            // console.log(error, error.message)
-            const errorMessage = error.message;
-            setPasswordError(errorMessage)
-        });
+    // const settingPassword = () => {
+    //     const user = auth.currentUser;
+    //     updatePassword(user, password).then(() => {
+    //         // Update successful.
+    //         // createUserWithPhoneAndPassword()
+    //         setPassword("")
+    //         // navigate("/")
+    //     }).catch((error) => {
+    //         // An error ocurred
+    //         // console.log(error, error.message)
+    //         const errorMessage = error.message;
+    //         setPasswordError(errorMessage)
+    //         return
+    //     });
+    // }
+
+    const createUserWithPhoneAndPassword = () => {
+        const emailAddress = "@gmail.com"
+        const email = phoneToEmail + emailAddress
+        createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(userCredential, user)
+                setPassword("")
+                // navigate("/")
+            })
+            .catch((error) => {
+                // const errorCode = error.code;
+                const errorMessage = error.message;
+                // console.log(error, errorCode, errorMessage)
+                setPasswordError(errorMessage)
+            });
     }
 
     const toggleEye = () => {
@@ -145,7 +178,7 @@ export default function Register() {
                     passwordIsShow ?
                         <Fragment>
                             <div className='inputBox'>
-                                <input onChange={savePassword} className='input' type={inputType} required />
+                                <input onChange={savePassword} value={password} className='input' type={inputType} required />
                                 <span className='text'>密碼</span>
                                 {
                                     eyeIsShow ?
@@ -169,7 +202,7 @@ export default function Register() {
                         </Fragment> :
                         <Fragment>
                             <div className='inputBox'>
-                                <input onChange={savePhoneNumber} className='input' type="text" required />
+                                <input onChange={savePhoneNumber} value={phoneNumber} className='input' type="text" required />
                                 <span className='text'>手機號碼</span>
                             </div>
                             <div className='alert'>
