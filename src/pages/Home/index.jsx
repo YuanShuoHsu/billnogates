@@ -8,6 +8,7 @@ import Header from "../../components/Header"
 import Recommend from "../../components/Recommend"
 import Banner from "../../components/Banner"
 import Product from "../../components/Product"
+import Pagination from "../../components/Pagination"
 import Footer from "../../components/Footer"
 
 export default function Home() {
@@ -22,6 +23,7 @@ export default function Home() {
             <Banner />
             <Recommend />
             <Product />
+            <Pagination/>
             <Footer />
         </Fragment>
     )

@@ -1,0 +1,82 @@
+.Pagination {
+    position: relative;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+    background: #fff;
+    border-radius: 50px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    display: flex;
+
+    justify-content: center;
+
+    // align-items: center;
+    .page {
+        list-style: none;
+
+        &:hover,
+        &.active {
+            .button {
+                .content {
+                    background: #333;
+
+                    .text {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+        .button {
+            padding: 0;
+            border: none;
+            cursor: pointer;
+
+            .content {
+                width: 40px;
+                background: cadetblue;
+                transition: 0.2s;
+
+                .text {
+                    line-height: 40px;
+                    transition: 0.2s;
+                }
+            }
+        }
+    }
+
+    .pageNumber {
+        list-style: none;
+
+        &:hover,
+        &.active {
+            .button {
+                .content {
+                    background: #333;
+
+                    .text {
+                        color: #fff;
+                    }
+                }
+            }
+        }
+
+        .button {
+            padding: 0;
+            border: none;
+            cursor: pointer;
+
+            .content {
+                width: 40px;
+                background: cadetblue;
+                border-radius: 50%;
+                transition: 0.2s;
+
+                .text {
+                    line-height: 40px;
+                    transition: 0.2s;
+                }
+            }
+        }
+    }
+}

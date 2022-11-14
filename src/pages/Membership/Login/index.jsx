@@ -2,21 +2,19 @@ import React, { useState } from 'react'
 
 import SocialMedia from './SocialMedia'
 
-// import { useNavigate } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
-// import { signInWithEmailAndPassword } from "firebase/auth";
-// import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../../../firebase"
 
 import "./index.scss"
 
 export default function Login() {
 
-    // const navigate = useNavigate()
+    const navigate = useNavigate()
 
     const [phoneNumber, setPhoneNumber] = useState("")
-    const [phoneError, setPhoneError] = useState("")
-    // const [email, setEmail] = useState("")
+    const [phoneNumberError, setPhoneNumberError] = useState("")
     const [password, setPassword] = useState("")
     const [passwordError, setPasswordError] = useState("")
     const [isLoading, setIsLoading] = useState(false)
@@ -34,8 +32,39 @@ export default function Login() {
     const handleSubmit = (event) => {
         event.preventDefault()
         setIsLoading(true)
-        console.log(auth)
-        // handleSignInWithEmailAndPassword()
+        asignInWithPhoneAndPassword()
+    }
+
+    const asignInWithPhoneAndPassword = () => {
+        const emailAddress = "@gmail.com"
+        const email = phoneNumber + emailAddress
+        signInWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(userCredential, user)
+                setIsLoading(false)
+                alert("登入成功")
+                navigate("/")
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                // const errorMessage = error.message;
+                // console.log(error, errorCode, errorMessage)
+                setIsLoading(false)
+                switch (errorCode) {
+                    case "auth/invalid-email":
+                        setPhoneNumberError("手機號碼格式不正確")
+                        break
+                    case "auth/user-not-found":
+                        setPhoneNumberError("手機號碼尚未註冊")
+                        break
+                    case "auth/wrong-password":
+                        setPasswordError("密碼錯誤")
+                        break
+                    default:
+                }
+            });
     }
 
     return (
@@ -46,7 +75,7 @@ export default function Login() {
                     <span className='text'>手機號碼</span>
                 </div>
                 <div className='alert'>
-                    <p className='text'>{phoneError}</p>
+                    <p className='text'>{phoneNumberError}</p>
                 </div>
                 <div className='inputBox'>
                     <input onChange={savePassword} value={password} className='input' type="text" required />
