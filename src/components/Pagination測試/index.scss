@@ -1,0 +1,125 @@
+.Pagination {
+    position: relative;
+    padding: 0;
+    width: 100%;
+    height: 40px;
+    background: #fff;
+    border-radius: 50px;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.active {
+        display: none;
+    }
+
+    .page {
+        margin: 0 5px;
+        list-style: none;
+        opacity: 1;
+        pointer-events: auto;
+
+        &:hover {
+            .button {
+                .content {
+                    background: #333;
+
+                    .text {
+                        color: #fff;
+                    }
+
+                    .svg {
+                        fill: #fff;
+                    }
+                }
+            }
+        }
+
+        &.active {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .button {
+            padding: 0;
+            border: none;
+            background: aqua;
+            border-radius: 4px;
+            cursor: pointer;
+            overflow: hidden;
+
+            .content {
+                width: 50px;
+                height: 30px;
+                background: cadetblue;
+                border-radius: 4px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                transition: 0.2s;
+
+                .text {
+                    white-space: nowrap;
+                    color: #000;
+                    transition: 0.2s;
+                }
+
+                .svg {
+                    width: 10px;
+                    height: 10px;
+                    fill: #000;
+                    transition: 0.2s;
+
+                    path {
+                        pointer-events: none;
+                    }
+                }
+            }
+        }
+    }
+
+    .scroll {
+        display: flex;
+        max-width: 200px;
+        overflow-x: auto;
+
+        .pageNumber {
+            margin: 0 5px;
+            list-style: none;
+
+            &:hover,
+            &.active {
+                .button {
+                    .content {
+                        background: #333;
+
+                        .text {
+                            color: #fff;
+                        }
+                    }
+                }
+            }
+
+            .button {
+                padding: 0;
+                border: none;
+                border-radius: 50%;
+                cursor: pointer;
+                overflow: hidden;
+
+                .content {
+                    width: 30px;
+                    background: cadetblue;
+                    border-radius: 50%;
+                    transition: 0.2s;
+
+                    .text {
+                        line-height: 30px;
+                        transition: 0.2s;
+                    }
+                }
+            }
+        }
+    }
+}
