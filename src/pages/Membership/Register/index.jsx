@@ -30,6 +30,7 @@ export default function Register() {
     const [eyeIsShowAgain, setEyeIsShowAgain] = useState(false)
     const [inputType, setInputType] = useState("password")
     const [inputTypeAgain, setInputTypeAgain] = useState("password")
+    const [isLoading, setIsLoading] = useState(false)
 
     const savePhoneNumber = (event) => {
         const { target } = event
@@ -57,28 +58,33 @@ export default function Register() {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        const lowerLetter = /[a-z]/g
-        const upperLetter = /[A-Z]/g
-        const number = /[0-9]/g
-        if (!(
-            (password.match(lowerLetter) || password.match(upperLetter)) &&
-            password.match(number) &&
-            password.length >= 8)) {
-            setPasswordError("請輸入至少8位字母、數字")
-        }
-        else if (password !== passwordAgain) {
-            setPasswordError("")
-            setPasswordAgainError("確認密碼輸入錯誤")
-        }
-        else if (passwordIsShow === true) {
-            setPasswordAgainError("")
-            createUserWithPhoneAndPassword()
+
+        if (passwordIsShow === true) {
+            const lowerLetter = /[a-z]/g
+            const upperLetter = /[A-Z]/g
+            const number = /[0-9]/g
+            if (!(
+                (password.match(lowerLetter) || password.match(upperLetter)) &&
+                password.match(number) &&
+                password.length >= 8)) {
+                setPasswordError("請輸入至少8位字母、數字")
+            }
+            else if (password !== passwordAgain) {
+                setPasswordError("")
+                setPasswordAgainError("確認密碼輸入錯誤")
+            }
+            else {
+                setPasswordAgainError("")
+                setIsLoading(true)
+                createUserWithPhoneAndPassword()
+            }
         }
         else if (phoneNumber.length < 10) {
             setPhoneNumberError("請輸入臺灣手機號碼十位數")
         }
         else if (timerIsShow === false) {
             setPhoneNumberError("")
+            setIsLoading(true)
             setTimerIsShow(true)
             setTimerIsFirst(false)
             testCreateUser()
@@ -115,6 +121,7 @@ export default function Register() {
                         break
                     case "auth/wrong-password":
                         setPhoneNumberError("手機號碼已被註冊")
+                        setIsLoading(false)
                         break
                     default:
                 }
@@ -146,12 +153,14 @@ export default function Register() {
                 window.confirmationResult = confirmationResult;
                 setPhoneNumberError("")
                 setOTPIsShow(true)
+                setIsLoading(false)
                 // console.log(confirmationResult)
             }).catch((error) => {
                 // Error; SMS not sent
                 const errorMessage = error.message;
                 // console.log(error, errorMessage)
                 setPhoneNumberError(errorMessage)
+                setIsLoading(false)
             });
     }
 
@@ -201,6 +210,7 @@ export default function Register() {
                 // console.log(userCredential, user)
                 setPassword("")
                 setPasswordAgain("")
+                setIsLoading(false)
                 alert("註冊成功")
                 navigate("/")
             })
@@ -208,8 +218,8 @@ export default function Register() {
                 const errorCode = error.code;
                 // const errorMessage = error.message;
                 // console.log(error, errorCode, errorMessage)
-                // setPasswordError(errorMessage)
 
+                setIsLoading(false)
                 switch (errorCode) {
                     case "auth/invalid-email":
                         setPasswordError("手機號碼格式不正確")
@@ -287,7 +297,14 @@ export default function Register() {
                             </div>
                             <div className='register'>
                                 <button className='button'>
-                                    <span className='text'>註冊</span>
+                                    {
+                                        isLoading ?
+                                            <div className="loader">
+                                                <span className='circle'></span>
+                                                <span className='circle'></span>
+                                            </div> :
+                                            <span className='text'>註冊</span>
+                                    }
                                 </button>
                             </div>
                         </Fragment> :
@@ -315,11 +332,16 @@ export default function Register() {
                             <div className='register'>
                                 <button className='button' id='sign-in-button'>
                                     {
-                                        timerIsShow ?
-                                            <span className='text'>{timer}秒</span> :
-                                            timerIsFirst ?
-                                                <span className='text'>獲取驗證碼</span> :
-                                                <span className='text'>重發驗證碼</span>
+                                        isLoading ?
+                                            <div className="loader">
+                                                <span className='circle'></span>
+                                                <span className='circle'></span>
+                                            </div> :
+                                            timerIsShow ?
+                                                <span className='text'>{timer}秒</span> :
+                                                timerIsFirst ?
+                                                    <span className='text'>獲取驗證碼</span> :
+                                                    <span className='text'>重發驗證碼</span>
                                     }
                                 </button>
                             </div>
