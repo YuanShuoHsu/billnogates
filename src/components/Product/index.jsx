@@ -2,9 +2,8 @@ import React from 'react'
 
 import { Link } from "react-router-dom"
 
-// import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import { add_cartbarItem } from '../../store/slice/cartbarItem';
-// import { show_header } from '../../store/slice/header'
 
 import PRODUCTS from "../../dataset/product"
 
@@ -12,8 +11,9 @@ import "./index.scss"
 
 export default function Product() {
 
-    // const dispatch = useDispatch();
-    // const cartbarItem = useSelector(state => state.cartbarItem.value);
+    const pagination = useSelector(state => state.pagination.value);
+
+    const newProducts = PRODUCTS.slice((pagination - 1) * 10, pagination * 10)
 
     // const maxNumber = 10;
 
@@ -34,16 +34,16 @@ export default function Product() {
     //     }
     // }
 
-    const ccc = (item) => {
+    const data = (item) => {
         console.log(item)
     }
 
     return (
         <div className='Product'>
             {
-                PRODUCTS && PRODUCTS.map(item => (
+                newProducts && newProducts.map(item => (
                     <div className='box' key={item.id}>
-                        <Link onClick={() => ccc(item)} className='link' to={"/detailed/description"}>
+                        <Link onClick={() => data(item)} className='link' to={"/detailed/description"}>
                             <div className='photoContainer'>
                                 <img className='photo' src={item.image} alt={item.name} />
                             </div>
