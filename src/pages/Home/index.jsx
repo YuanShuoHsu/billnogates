@@ -7,6 +7,7 @@ import ScrollToTop from "../../components/ScrollToTop"
 import Header from "../../components/Header"
 import Recommend from "../../components/Recommend"
 import Banner from "../../components/Banner"
+import Arrangement from "../../components/Arrangement"
 import Product from "../../components/Product"
 import Pagination from "../../components/Pagination"
 import Footer from "../../components/Footer"
@@ -22,8 +23,9 @@ export default function Home() {
             <Recommend />
             <Banner />
             <Recommend />
+            <Arrangement />
             <Product />
-            <Pagination/>
+            <Pagination />
             <Footer />
         </Fragment>
     )
