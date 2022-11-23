@@ -1,0 +1,21 @@
+import { createSlice } from '@reduxjs/toolkit'
+
+import PRODUCTS from '../../dataset/product'
+
+const initialState = {
+    value: [...PRODUCTS],
+}
+
+export const arrangementSlice = createSlice({
+    name: 'arrangement',
+    initialState,
+    reducers: {
+        change_arrangement: (state, data) => {
+            state.value = [...data.payload]
+        },
+    },
+})
+
+export const { change_arrangement } = arrangementSlice.actions
+
+export default arrangementSlice.reducer
