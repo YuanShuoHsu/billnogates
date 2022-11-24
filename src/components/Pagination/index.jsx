@@ -34,10 +34,10 @@ export default function Pagination() {
             </SwiperSlide>
         )
     }
-    
+
     const scrollToElement = () => {
         setTimeout(() => {
-            document.getElementById("Arrangement").scrollIntoView({ behavior: "smooth", block: "start" });
+            document.getElementById("Arrangement").scrollIntoView({ behavior: "smooth" });
         }, 0)
     }
 
