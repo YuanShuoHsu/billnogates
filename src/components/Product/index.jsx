@@ -5,15 +5,17 @@ import { Link } from "react-router-dom"
 import { useSelector } from 'react-redux';
 // import { add_cartbarItem } from '../../store/slice/cartbarItem';
 
-import PRODUCTS from "../../dataset/product"
+// import PRODUCTS from "../../dataset/product"
 
 import "./index.scss"
 
 export default function Product() {
 
     const pagination = useSelector(state => state.pagination.value);
+    const arrangement = useSelector(state => state.arrangement.value);
+    // console.log(arrangement)
 
-    const newProducts = PRODUCTS.slice((pagination - 1) * 10, pagination * 10)
+    const newProducts = arrangement.slice((pagination - 1) * 10, pagination * 10)
 
     // const maxNumber = 10;
 

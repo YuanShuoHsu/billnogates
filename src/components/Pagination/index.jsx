@@ -13,10 +13,9 @@ import "swiper/scss/free-mode";
 
 import "./index.scss"
 
-
 export default function Pagination() {
 
-    const swiperRef = useRef(null)
+    const swiperRef = useRef()
 
     const dispatch = useDispatch();
     const pagination = useSelector(state => state.pagination.value);
@@ -35,9 +34,16 @@ export default function Pagination() {
             </SwiperSlide>
         )
     }
+    
+    const scrollToElement = () => {
+        setTimeout(() => {
+            document.getElementById("Arrangement").scrollIntoView({ behavior: "smooth", block: "start" });
+        }, 0)
+    }
 
     const handleNumber = (index) => {
         dispatch(number_pagination(index))
+        scrollToElement()
     }
 
     const handleFirstNumber = () => {

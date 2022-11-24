@@ -34,7 +34,7 @@ export default function Cartbar() {
     }
 
     return (
-        <div onClick={hideCartbar} className={`Cartbar ${cartbar}`}>
+        <div onClick={hideCartbar} className={`Cartbar ${cartbar ? "active" : ""}`}>
             <div onClick={stopPropagation} className='box'>
                 <h2 className='title'>您的購物車</h2>
                 {

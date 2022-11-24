@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { change_arrangement } from '../../store/slice/arrangement';
+import { recommend_arrangement, priceLow_arrangement, priceHigh_arrangement } from '../../store/slice/arrangement';
 
 import "./index.scss"
 
 export default function Arrangement() {
 
-    const [select, setSelect] = useState("recommend")
+    const [choose, setChoose] = useState("recommend")
 
     const dispatch = useDispatch();
     const arrangement = useSelector(state => state.arrangement.value);
@@ -16,28 +16,25 @@ export default function Arrangement() {
         const { target } = event
         switch (target.value) {
             case "recommend":
-                [...arrangement].sort((a, b) => (a.id - b.id))
-                dispatch(change_arrangement(arrangement))
+                dispatch(recommend_arrangement(arrangement))
                 break
             case "priceLow":
-                [...arrangement].sort((a, b) => (a.price - b.price))
-                dispatch(change_arrangement(arrangement))
+                dispatch(priceLow_arrangement(arrangement))
                 break
             case "priceHigh":
-                [...arrangement].sort((a, b) => (b.price - a.price))
-                dispatch(change_arrangement(arrangement))
+                dispatch(priceHigh_arrangement(arrangement))
                 break
             default:
         }
-        setSelect(target.value)
+        setChoose(target.value)
     }
 
     return (
-        <div className='Arrangement'>
+        <div className='Arrangement' id="Arrangement">
             <div className='box'>
                 <span className='text'>排列方式：</span>
                 <div className='content'>
-                    <select value={select} onChange={handleSelectChange} className='select' name="arrangement">
+                    <select value={choose} onChange={handleSelectChange} className='select' name="arrangement">
                         <option value="recommend">推薦</option>
                         <option value="priceLow">價錢，從低到高</option>
                         <option value="priceHigh">價錢，從高到低</option>
