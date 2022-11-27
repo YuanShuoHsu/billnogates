@@ -4,6 +4,12 @@
     }
 }
 
+@mixin phone {
+    @media(max-width:414px) {
+        @content;
+    }
+}
+
 .HeaderButton {
     margin: 0 6px;
     display: flex;
@@ -133,7 +139,14 @@
                 font-size: 16px;
                 font-weight: 400;
                 letter-spacing: 1px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
                 transition: 0.2s;
+
+                @include phone {
+                    width: 60px;
+                }
             }
         }
     }
