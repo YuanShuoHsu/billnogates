@@ -30,6 +30,13 @@
     }
 
     .swiper-pagination {
+        position: absolute;
+        bottom: 0;
+        height: calc(60px - 24px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
         .swiper-pagination-bullet {
             background: #0091DB;
             border: 1px solid #eee;

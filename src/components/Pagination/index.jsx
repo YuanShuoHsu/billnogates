@@ -37,7 +37,7 @@ export default function Pagination() {
 
     const scrollToElement = () => {
         setTimeout(() => {
-            document.getElementById("Arrangement").scrollIntoView({ behavior: "smooth" });
+            document.querySelector(".swiper-pagination").scrollIntoView({ behavior: "smooth" });
         }, 0)
     }
 

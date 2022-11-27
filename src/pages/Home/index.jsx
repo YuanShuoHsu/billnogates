@@ -22,7 +22,7 @@ export default function Home() {
             <Header />
             <Recommend />
             <Banner />
-            <Recommend />
+            <Recommend id="Recommend" />
             <Arrangement />
             <Product />
             <Pagination />
