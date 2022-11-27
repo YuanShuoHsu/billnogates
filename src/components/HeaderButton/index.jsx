@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 
-import { signOut } from "firebase/auth";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../../firebase"
 
 import { Link } from "react-router-dom"
@@ -18,49 +18,26 @@ export default function HeaderButton() {
     const [currentUser, setCurrentUser] = useState(null)
 
     useEffect(() => {
-        setCurrentUser(auth.currentUser)
-        // onAuthStateChanged(auth, (user) => {
-        //     if (user) {
-        //         // The user object has basic properties such as display name, email, etc.
-        //         // const displayName = user.displayName;
-        //         // const email = user.email;
-        //         // const photoURL = user.photoURL;
-        //         // const emailVerified = user.emailVerified;
-        //         // console.log(displayName)
-        //         // console.log(email)
-        //         // console.log(photoURL)
-        //         // console.log(emailVerified)
-
-        //         // user.providerData.forEach((profile) => {
-        //         //     console.log("Sign-in provider: " + profile.providerId);
-        //         //     console.log("Provider-specific UID: " + profile.uid);
-        //         //     console.log("Name: " + profile.displayName);
-        //         //     console.log("Email: " + profile.email);
-        //         //     console.log("Photo URL: " + profile.photoURL);
-        //         // });
-
-        //         // User is signed in, see docs for a list of available properties
-        //         // https://firebase.google.com/docs/reference/js/firebase.User
-        //         // console.log(user)
-        //         // const uid = user.uid;
-        //         // console.log(uid)
-        //         setCurrentUser(user)
-        //     } else {
-        //         // User is signed out
-        //         // console.log("signed out")
-        //     }
-        // });
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/firebase.User
+                setCurrentUser(user)
+            } else {
+                // User is signed out
+            }
+        });
     }, [])
 
-    const handleSignOut = () => {
-        signOut(auth).then(() => {
-            // Sign-out successful.
-            setCurrentUser(null)
-        }).catch((error) => {
-            // An error happened.
-            // console.log(error)
-        });
-    }
+    // const handleSignOut = () => {
+    // signOut(auth).then(() => {
+    //     // Sign-out successful.
+    //     setCurrentUser(null)
+    // }).catch((error) => {
+    //     // An error happened.
+    //     // console.log(error)
+    // });
+    // }
 
     const dispatch = useDispatch()
     const cartbarItem = useSelector(state => state.cartbarItem.value);
@@ -100,12 +77,12 @@ export default function HeaderButton() {
             </button> */}
             {
                 currentUser ?
-                    <Link onClick={handleSignOut} className='memberProfile' to="/">
+                    <Link className='memberProfile' to="/user">
                         <button className='customer'>
                             <svg className='user' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
                                 <path d="M224 256c70.7 0 128-57.3 128-128S294.7 0 224 0S96 57.3 96 128s57.3 128 128 128zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
                             </svg>
-                            <span className='name'>ook1725</span>
+                            <span className='name'>{currentUser.uid.slice(0, 10)}</span>
                         </button>
                     </Link> :
                     <Link className='membership' to="/membership/login">
