@@ -5,6 +5,7 @@ import Cartbar from "../../components/Cartbar"
 import Sidebar from "../../components/Sidebar"
 import ScrollToTop from "../../components/ScrollToTop"
 import Header from "../../components/Header"
+import Accouncement from '../../components/Accouncement'
 import Recommend from "../../components/Recommend"
 import Banner from "../../components/Banner"
 import Arrangement from "../../components/Arrangement"
@@ -20,9 +21,9 @@ export default function Home() {
             <Sidebar />
             <ScrollToTop />
             <Header />
-            <Recommend />
+            <Accouncement />
             <Banner />
-            <Recommend id="Recommend" />
+            <Recommend />
             <Arrangement />
             <Product />
             <Pagination />

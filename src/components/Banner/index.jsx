@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { Autoplay, FreeMode, Keyboard, Pagination, A11y } from 'swiper';
+import { Autoplay, FreeMode, Keyboard, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import IMAGES from "../../dataset/banner"
@@ -11,10 +11,11 @@ import 'swiper/scss/pagination';
 import "./index.scss"
 
 export default function Banner() {
+
   return (
     <Swiper
       className='Banner'
-      modules={[Autoplay, FreeMode, Keyboard, Pagination, A11y]}
+      modules={[Autoplay, FreeMode, Keyboard, Pagination]}
       spaceBetween={0}
       slidesPerView={1}
       autoHeight={true}

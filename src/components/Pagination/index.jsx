@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { number_pagination } from '../../store/slice/pagination';
 
-import { FreeMode, A11y } from 'swiper';
+import { FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import PRODUCTS from "../../dataset/product"
@@ -65,7 +65,7 @@ export default function Pagination() {
                 <span className='text'>首頁</span>
             </button>
             <Swiper
-                modules={[FreeMode, A11y]}
+                modules={[FreeMode]}
                 slidesPerView={numberLength < 5 ? numberLength : 5}
                 spaceBetween={0}
                 slideToClickedSlide={true}
