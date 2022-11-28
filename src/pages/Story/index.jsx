@@ -7,8 +7,8 @@ import ScrollToTop from "../../components/ScrollToTop"
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 
-import logo from "../../images/品牌.png"
-import headshot from "../../images/大頭照.png"
+import logo from "../../images/story/品牌.png"
+import headshot from "../../images/story/大頭照.png"
 
 import "./index.scss"
 

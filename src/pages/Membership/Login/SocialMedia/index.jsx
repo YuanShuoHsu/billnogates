@@ -5,8 +5,8 @@ import { useNavigate } from "react-router-dom"
 import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
 import { auth } from "../../../../firebase"
 
-import google from "../../../../images/google.png"
-import facebook from "../../../../images/facebook.png"
+import google from "../../../../images/membership/google.png"
+import facebook from "../../../../images/membership/facebook.png"
 
 import "./index.scss"
 

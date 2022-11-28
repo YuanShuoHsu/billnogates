@@ -21,7 +21,7 @@ export default function App() {
         <Route path="checkout" element={<Checkout />} />
         <Route path="story" element={<Story />} />
         <Route path="user" element={<User />} />
-        {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
+        <Route path="*" element={<Navigate replace to="/" />} />
       </Routes>
     </div>
   );

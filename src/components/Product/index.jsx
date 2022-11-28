@@ -15,7 +15,7 @@ export default function Product() {
     const arrangement = useSelector(state => state.arrangement.value);
     // console.log(arrangement)
 
-    const newProducts = arrangement.slice((pagination - 1) * 10, pagination * 10)
+    const newProducts = arrangement.slice((pagination - 1) * 24, pagination * 24)
 
     // const maxNumber = 10;
 

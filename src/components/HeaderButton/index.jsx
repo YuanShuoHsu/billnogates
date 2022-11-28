@@ -29,16 +29,6 @@ export default function HeaderButton() {
         });
     }, [])
 
-    // const handleSignOut = () => {
-    // signOut(auth).then(() => {
-    //     // Sign-out successful.
-    //     setCurrentUser(null)
-    // }).catch((error) => {
-    //     // An error happened.
-    //     // console.log(error)
-    // });
-    // }
-
     const dispatch = useDispatch()
     const cartbarItem = useSelector(state => state.cartbarItem.value);
 

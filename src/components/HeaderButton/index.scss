@@ -144,8 +144,8 @@
                 text-overflow: ellipsis;
                 transition: 0.2s;
 
-                @include phone {
-                    width: 60px;
+                @include desktop() {
+                    max-width: 80px;
                 }
             }
         }

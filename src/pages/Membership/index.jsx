@@ -38,7 +38,7 @@ export default function Membership() {
                             <Route path="login/*" element={<Navigate replace to="" />} />
                             <Route path="register" element={<Register />} />
                             <Route path="register/*" element={<Navigate replace to="" />} />
-                            {/* <Route path="*" element={<Navigate replace to="/" />} /> */}
+                            <Route path="*" element={<Navigate replace to="/membership/login" />} />
                         </Routes>
                     </div>
                 </div>

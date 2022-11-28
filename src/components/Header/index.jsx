@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux'
 // import { show_header, hide_header } from '../../store/slice/header'
 import { show_headerNavSubMenu, hide_headerNavSubMenu } from '../../store/slice/headerNavSubMenu'
 
-import logo from './../../images/logo.png';
+import logo from './../../images/home/logo.png';
 
 import "./index.scss"
 

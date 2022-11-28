@@ -19,7 +19,7 @@ export default function Pagination() {
 
     const dispatch = useDispatch();
     const pagination = useSelector(state => state.pagination.value);
-    const numberLength = Math.ceil(PRODUCTS.length / 10)
+    const numberLength = Math.ceil(PRODUCTS.length / 24)
 
     const pageList = []
 
