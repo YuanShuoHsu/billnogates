@@ -45,8 +45,8 @@ export default function Product() {
             <div className='grid'>
                 {
                     newProducts && newProducts.map(item => (
-                        <Link onClick={() => data(item)} className='link' to={"/detailed/description"}>
-                            <button className='card' key={item.id}>
+                        <Link onClick={() => data(item)} className='link' to={"/detailed/description"} key={item.id}>
+                            <button className='card' >
                                 <div className='box'>
                                     <img className='photo' src={item.image} alt={item.name} />
                                 </div>
