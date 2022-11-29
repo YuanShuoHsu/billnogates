@@ -1,7 +1,7 @@
 .Membership {
     position: relative;
     width: 100%;
-    height: calc(100vh - 80px - 80px);
+    min-height: calc(100vh - 60px - 60px);
     background: cadetblue;
     display: flex;
     justify-content: center;

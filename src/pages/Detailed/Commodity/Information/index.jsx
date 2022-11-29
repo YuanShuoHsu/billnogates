@@ -7,7 +7,7 @@ export default function Information() {
     const VDOM = (
         <Fragment>
             <p>Hello, React</p>
-            <img src={require("./../../../../images/home/logo.png")} alt="" />
+            <img className='photo' src={require("./../../../../images/home/logo.png")} alt="圖片" />
         </Fragment>
     )
 

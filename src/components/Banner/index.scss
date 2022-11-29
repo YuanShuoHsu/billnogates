@@ -58,7 +58,7 @@
         &::before {
             position: absolute;
             content: "";
-            width: calc(var(--x) * 18px + 8px);
+            width: calc(var(--x) * 20px + 8px);
             height: 20px;
             background: rgba(255, 255, 255, 0.5);
             border-radius: 20px;
@@ -66,6 +66,8 @@
         }
 
         .swiper-pagination-bullet {
+            width: 10px;
+            height: 10px;
             background: #0091DB;
             border: 1px solid #eee;
             pointer-events: auto;

@@ -6,7 +6,9 @@
 
 .Pagination {
     position: relative;
-    padding: 10px 0;
+    padding: 0 10px;
+    box-sizing: border-box;
+    margin: 0 0 10px 0;
     width: 100%;
     background: #fff;
     display: flex;
@@ -14,7 +16,6 @@
     align-items: center;
 
     .navigation {
-        margin: 0 5px;
         padding: 0 7.5px;
         height: 40px;
         background: #efefef;
@@ -59,7 +60,7 @@
     }
 
     .mySwiper {
-        margin: 0;
+        margin: 0 5px;
         width: calc(var(--x) * 40px);
         max-width: 200px;
         height: 40px;

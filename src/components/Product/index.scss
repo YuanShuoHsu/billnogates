@@ -35,7 +35,7 @@
         grid-template-columns: repeat(6, 1fr);
 
         @include screen() {
-            padding: 0 10px;
+            padding: 10px;
             grid-template-columns: repeat(4, 1fr);
             width: 100%;
         }
@@ -53,17 +53,34 @@
         }
 
         .card {
+            border-top: 1px solid #efefef;
+            border-left: 1px solid #efefef;
+            position: relative;
             background: #efefef;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
             border-radius: 4px;
             overflow: hidden;
             cursor: pointer;
             transition: 0.2s;
 
-            &:hover {
-                padding: 10px;
+            // ::before {
+            //     position: absolute;
+            //     content: "ccc";
+            //     width: 100%;
+            //     height: 100%;
+            //     background: rgba(255, 255, 255, 0.2);
+            //     backdrop-filter: blur(10px);
+            //     opacity: 0;
+            //     // z-index: 1;
+            //     transition: 0.2s;
+            // }
 
+            &:hover {
                 .link {
                     .box {
+                        margin: 10px;
+                        border-radius: 4px;
+
                         .photo {
                             transform: scale(1.2);
                         }

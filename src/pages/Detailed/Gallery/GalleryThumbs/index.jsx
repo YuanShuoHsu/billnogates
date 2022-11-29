@@ -52,32 +52,34 @@ export default function GalleryThumbs() {
                     <img src={images} alt='5' />
                 </SwiperSlide>
             </Swiper>
-            <Swiper
-                onSwiper={setThumbsSwiper}
-                className="mySwiper"
-                modules={[FreeMode, Thumbs]}
-                spaceBetween={0}
-                slidesPerView={4}
-                freeMode={true}
-                grabCursor={true}
-                watchSlidesProgress={true}
-            >
-                <SwiperSlide>
-                    <img src={images} alt='1' />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={images} alt='2' />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={images} alt='3' />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={images} alt='4' />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={images} alt='5' />
-                </SwiperSlide>
-            </Swiper>
+            <div className='scrollBox'>
+                <Swiper
+                    onSwiper={setThumbsSwiper}
+                    className="mySwiper"
+                    modules={[FreeMode, Thumbs]}
+                    spaceBetween={10}
+                    slidesPerView={4}
+                    freeMode={true}
+                    grabCursor={true}
+                    watchSlidesProgress={true}
+                >
+                    <SwiperSlide>
+                        <img src={images} alt='1' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={images} alt='2' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={images} alt='3' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={images} alt='4' />
+                    </SwiperSlide>
+                    <SwiperSlide>
+                        <img src={images} alt='5' />
+                    </SwiperSlide>
+                </Swiper>
+            </div>
         </div>
     )
 }
