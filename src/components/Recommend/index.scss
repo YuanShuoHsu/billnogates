@@ -34,9 +34,11 @@
     }
 
     .content {
-        font-size: 16px;
+        padding: 0 5px;
         background: #fff;
+        border-radius: 2px;
         color: #000;
+        font-size: 16px;
         white-space: nowrap;
         text-transform: uppercase;
         animation: scroll 20s linear infinite;

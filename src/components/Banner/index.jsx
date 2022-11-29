@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
 
 import { Autoplay, FreeMode, Keyboard, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -11,6 +11,12 @@ import 'swiper/scss/pagination';
 import "./index.scss"
 
 export default function Banner() {
+
+  const swiperRef = useRef()
+
+  useEffect(() => {
+    swiperRef.current.children[1].style = `--x: ${IMAGES.length}`
+  }, [])
 
   return (
     <Swiper
@@ -30,6 +36,7 @@ export default function Banner() {
       grabCursor={true}
       keyboard={{ nabled: true }}
       loop={true}
+      ref={swiperRef}
       pagination={{ clickable: true }}
     >
       {
