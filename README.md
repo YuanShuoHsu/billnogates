@@ -14,6 +14,29 @@ npm install @reduxjs/toolkit
 
 ```
 
+## 主題色
+```
+Blue
+#0091DB
+rgb(0, 145, 219)
+
+Pink
+#E4027F
+rgb(228, 2, 126)
+
+Yellow
+#FFE10A
+rgb(255, 225, 10)
+
+WhiteSmoke
+F5F5F5
+rgba(245, 245, 245, 0.8);
+
+Silver
+C0C0C0
+rgba(192, 192, 192, 0.2);
+```
+
 
 
 # Getting Started with Create React App
