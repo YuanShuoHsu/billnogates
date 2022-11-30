@@ -136,8 +136,7 @@
             .name {
                 margin: 0 2px;
                 color: #000;
-                font-size: 16px;
-                font-weight: 400;
+                font: normal normal 16px/normal sans-serif;
                 letter-spacing: 1px;
                 white-space: nowrap;
                 overflow: hidden;
@@ -158,11 +157,11 @@
                 counter-reset: x var(--x);
                 content: counter(x);
                 width: 15px;
-                line-height: 15px;
-                text-align: center;
-                color: #fff;
                 background: rgba(228, 2, 125, 0.8);
                 border-radius: 50%;
+                color: #fff;
+                font: normal normal 16px/15px sans-serif;
+                text-align: center;
                 pointer-events: none;
             }
         }

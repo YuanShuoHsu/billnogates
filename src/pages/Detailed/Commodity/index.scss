@@ -5,7 +5,6 @@
     .router {
         display: flex;
 
-
         .link {
             overflow: hidden;
 
@@ -29,6 +28,7 @@
                 height: 40px;
                 background: #efefef;
                 border: none;
+                color: #000;
                 cursor: pointer;
             }
         }
