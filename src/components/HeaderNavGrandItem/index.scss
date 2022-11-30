@@ -19,7 +19,8 @@
     .grandLink {
         padding: 0 10px;
         border-radius: 4px;
-        background: rgb(91, 168, 142);
+        max-width: 100%;
+        background: rgba(255, 225, 10, 0.8);
         transition: 0.2s;
 
         &:hover {
@@ -34,6 +35,8 @@
             color: #000;
             letter-spacing: 1px;
             white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 }
