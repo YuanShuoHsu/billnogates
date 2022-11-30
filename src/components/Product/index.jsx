@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
 import { Link } from "react-router-dom"
 
@@ -45,18 +45,16 @@ export default function Product() {
             <div className='grid'>
                 {
                     newProducts && newProducts.map(item => (
-                        // {/* <div className='ribbon'></div> */}
                         <Link onClick={() => data(item)} className='link' to={"/detailed/description"} key={item.id}>
                             <button className='card'>
-
+                                <span className='ribbon'></span>
                                 <div className='box'>
                                     <img className='photo' src={item.image} alt={item.name} />
                                 </div>
                                 <div className='foot'>
                                     <div className='content'>
-                                        <p className='name'>{item.name}</p>
-                                        <p className='price'>NT.{item.price}</p>
-
+                                        <p className='text'>{item.name}</p>
+                                        <p className='text'>NT.{item.price}</p>
                                     </div>
                                 </div>
                             </button>
