@@ -5,6 +5,8 @@
 
     &.active {
         .subLink {
+            background: rgba(255, 225, 10, 0.8);
+
             .angle-down {
                 transform: rotate(180deg);
             }
@@ -28,7 +30,8 @@
     .subLink {
         width: 100%;
         height: 40px;
-        background: burlywood;
+        background: rgba(192, 192, 192, 0.8);
+        backdrop-filter: blur(4px);
         display: flex;
         justify-content: center;
         align-items: center;
@@ -36,7 +39,7 @@
         transition: 0.2s;
 
         &:hover {
-            background: salmon;
+            background: rgba(228, 2, 127, 0.8);
         }
 
         .angle-down {

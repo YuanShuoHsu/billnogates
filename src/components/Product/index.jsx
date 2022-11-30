@@ -47,11 +47,14 @@ export default function Product() {
                     newProducts && newProducts.map(item => (
                         <Link onClick={() => data(item)} className='link' to={"/detailed/description"} key={item.id}>
                             <button className='card' >
+                                <span className='ribbon'></span>
                                 <div className='box'>
                                     <img className='photo' src={item.image} alt={item.name} />
                                 </div>
-                                <div className='name'>{item.name}</div>
-                                <div className='price'>NT.{item.price}</div>
+                                <div className='content'>
+                                    <div className='name'>{item.name}</div>
+                                    <div className='price'>NT.{item.price}</div>
+                                </div>
                             </button>
                         </Link>
                     ))

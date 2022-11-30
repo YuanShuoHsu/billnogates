@@ -53,7 +53,13 @@ export default function Header() {
             <div className='box'>
                 <Link className='brand' to="/">
                     <img className='logo' src={logo} alt="billnogates" />
-                    <span className='title'>Billnogates</span>
+                    <span className='title'>
+                        <span className='blue'>B</span>
+                        <span className='pink'>ill</span>
+                        <span className='yellow'>no</span>
+                        <span className='blue'>g</span>
+                        <span className='pink'>ates</span>
+                    </span>
                 </Link>
                 <div className='component'>
                     <HeaderNav />
