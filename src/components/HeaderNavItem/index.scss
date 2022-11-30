@@ -1,0 +1,66 @@
+@mixin desktop {
+    @media(max-width: 768px) {
+        @content;
+    }
+}
+
+.HeaderNavItem {
+    position: relative;
+    list-style: none;
+
+    .href {
+        text-decoration: none;
+
+        &.active {
+            .link {
+                background: rgba(0, 145, 219, 0.5);
+
+                .text {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .link {
+        padding: 0 20px;
+        height: 40px;
+        background: rgba(192, 192, 192, 0.2);
+        backdrop-filter: blur(4px);
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &.active {
+            background: rgba(255, 225, 10, 0.5);
+
+            .angle-down {
+                transform: rotate(180deg);
+            }
+        }
+
+        &:hover {
+            background: rgba(228, 2, 127, 0.5);
+        }
+
+        .text {
+            color: #000;
+            font-size: 16px;
+            font-weight: 400;
+            letter-spacing: 1px;
+            white-space: nowrap;
+            // transition: 0.2s;
+        }
+
+        .angle-down {
+            width: 16px;
+            height: 16px;
+            transition: 0.2s;
+
+            path {
+                pointer-events: none;
+            }
+        }
+    }
+}

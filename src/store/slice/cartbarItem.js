@@ -14,12 +14,9 @@ export const cartbarItemSlice = createSlice({
         delete_cartbarItem: (state, data) => {
             state.value = [...data.payload]
         },
-        increment_cartbarItem: (state, data) => {
-            console.log(data.payload)
-        }
     },
 })
 
-export const { add_cartbarItem, delete_cartbarItem, increment_cartbarItem } = cartbarItemSlice.actions
+export const { add_cartbarItem, delete_cartbarItem } = cartbarItemSlice.actions
 
 export default cartbarItemSlice.reducer

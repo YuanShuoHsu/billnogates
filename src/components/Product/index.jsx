@@ -1,43 +1,65 @@
 import React from 'react'
 
-import { useDispatch, useSelector } from 'react-redux';
-import { add_cartbarItem, increment_cartbarItem } from '../../store/slice/cartbarItem';
+import { Link } from "react-router-dom"
 
-import PRODUCTS from "../../dataset/product"
+import { useSelector } from 'react-redux';
+// import { add_cartbarItem } from '../../store/slice/cartbarItem';
+
+// import PRODUCTS from "../../dataset/product"
 
 import "./index.scss"
 
 export default function Product() {
 
-    const dispatch = useDispatch();
-    const cartbarItem = useSelector(state => state.cartbarItem.value);
+    const pagination = useSelector(state => state.pagination.value);
+    const arrangement = useSelector(state => state.arrangement.value);
+    // console.log(arrangement)
 
-    const addToCart = (item) => {
-        const findCartbarItem = cartbarItem.find(obj => (
-            obj.id === item.id
-        ))
-        if (findCartbarItem === undefined) {
-            dispatch(add_cartbarItem(item))
-        }
-        else {
-            dispatch(increment_cartbarItem(item))
-        }
+    const newProducts = arrangement.slice((pagination - 1) * 24, pagination * 24)
+
+    // const maxNumber = 10;
+
+    // const repeatElement = (cartbarItem, item) => {
+    //     let counter = 0;
+    //     cartbarItem.forEach(element => {
+    //         if (element === item) {
+    //             counter++
+    //         }
+    //     });
+    //     return counter;
+    // }
+
+    // const addToCart = (item) => {
+    //     if (repeatElement(cartbarItem, item) < maxNumber) {
+    //         dispatch(add_cartbarItem(item))
+    //         dispatch(show_header())
+    //     }
+    // }
+
+    const data = (item) => {
+        console.log(item)
     }
 
     return (
-        <div className='product'>
-            {
-                PRODUCTS && PRODUCTS.map(item => (
-                    <div className='box' key={item.id}>
-                        <div className='photoContainer'>
-                            <img className='photo' src={item.image} alt={item.name} />
-                        </div>
-                        <div className='name'>{item.name}</div>
-                        <div className='price'>${item.price}</div>
-                        <div onClick={() => addToCart(item)} className='addToCart'>加入購物車</div>
-                    </div>
-                ))
-            }
+        <div className='Product'>
+            <div className='grid'>
+                {
+                    newProducts && newProducts.map(item => (
+                        <Link onClick={() => data(item)} className='link' to={"/detailed/description"} key={item.id}>
+                            <button className='card' >
+                                <span className='ribbon'></span>
+                                <div className='box'>
+                                    <img className='photo' src={item.image} alt={item.name} />
+                                </div>
+                                <div className='content'>
+                                    <div className='name'>{item.name}</div>
+                                    <div className='price'>NT.{item.price}</div>
+                                </div>
+                            </button>
+                        </Link>
+                    ))
+                }
+            </div>
         </div>
     )
 }

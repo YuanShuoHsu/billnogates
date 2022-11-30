@@ -1,56 +1,183 @@
-.product {
+@mixin screen {
+    @media(max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media(max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin pad {
+    @media(max-width: 576px) {
+        @content;
+    }
+}
+
+@mixin others {
+    @media(max-width: 320px) {
+        @content;
+    }
+}
+
+.Product {
     position: relative;
-    margin: 10px;
-    display: grid;
-    gap: 10px;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    background: rgba(245, 245, 245, 0.8);
+    display: flex;
+    justify-content: center;
 
-    .box {
-        height: 360px;
-        background: skyblue;
-        border-radius: 10px;
-        overflow: hidden;
+    .grid {
+        padding: 10px 0;
+        width: 80%;
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(6, 1fr);
 
-        .photoContainer {
-            margin: 10px;
-            height: 240px;
-            background: #fff;
-            border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        @include screen() {
+            padding: 10px;
+            width: 100%;
+            grid-template-columns: repeat(4, 1fr);
+        }
 
-            .photo {
-                display: block;
+        @include desktop() {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        @include pad() {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include others() {
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        .link {
+            width: 100%;
+            height: 100%;
+            // text-decoration: none;
+            border-top: 1px solid #efefef;
+            border-right: 1px solid #fff;
+            border-bottom: 1px solid #fff;
+            border-left: 1px solid #efefef;
+            box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 4px;
+            // overflow: hidden;
+
+            .card {
+                position: relative;
+                padding: 0;
+                box-sizing: border-box;
                 width: 100%;
                 height: 100%;
-                object-fit: contain;
-            }
-        }
+                background: #efefef;
+                border: none;
+                overflow: hidden;
+                cursor: pointer;
 
-        .name {
-            line-height: 24px;
-            text-align: center;
-            background: salmon;
-        }
+                &:hover {
+                    .ribbon {
+                        opacity: 1;
+                    }
 
-        .price {
-            line-height: 24px;
-            text-align: center;
-            background: bisque;
-        }
+                    .box {
+                        margin: 10px;
+                        border-radius: 4px;
+                        border: 1px solid rgba(255, 255, 255, 0.5);
 
-        .addToCart {
-            line-height: 40px;
-            text-align: center;
-            background: #000;
-            color: #fff;
-            cursor: pointer;
-            transition: 0.2s;
+                        .photo {
+                            transform: scale(1.2);
+                        }
+                    }
+                }
 
-            &:hover {
+                .ribbon {
+                    position: absolute;
+                    top: 0px;
+                    left: 0px;
+                    width: 120px;
+                    height: 120px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+                    z-index: 1;
+                    opacity: 0;
+                    pointer-events: none;
+                    transition: 0.2s;
 
-                opacity: 0.8;
+                    &::before {
+                        position: absolute;
+                        content: "瀏覽規格";
+                        width: 150%;
+                        height: 40px;
+                        background: #62baea;
+                        border: 2px solid #fff;
+                        transform: rotate(-45deg) translateY(-20px);
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        color: #fff;
+                        font: normal bold 16px/normal sans-serif;
+                        letter-spacing: 2px;
+                        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+                    }
+                }
+
+                .box {
+                    border-top-right-radius: 4px;
+                    border-top-left-radius: 4px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    overflow: hidden;
+                    transition: 0.2s;
+
+                    .photo {
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        aspect-ratio: 1 / 1;
+                        object-fit: cover;
+                        transition: 0.2s;
+                    }
+                }
+
+                .content {
+                    padding: 10px;
+                    box-sizing: border-box;
+                    width: 100%;
+                    background: #efefef;
+                    overflow: hidden;
+
+                    .name {
+                        padding: 0 10px;
+                        box-sizing: border-box;
+                        width: auto;
+                        background: #E4027E;
+                        border-top-right-radius: 4px;
+                        border-top-left-radius: 4px;
+                        color: #fff;
+                        font: normal normal 16px/20px sans-serif;
+                        text-align: center;
+                        letter-spacing: 1px;
+                        white-space: nowrap;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                    }
+
+                    .price {
+                        padding: 0 10px;
+                        background: #E4027E;
+                        border-bottom-right-radius: 4px;
+                        border-bottom-left-radius: 4px;
+                        color: #fff;
+                        font: normal normal 16px/20px sans-serif;
+                        text-align: center;
+                        letter-spacing: 1px;
+                    }
+                }
             }
         }
     }

@@ -2,9 +2,10 @@ import React from 'react'
 
 import "./index.scss"
 
-export default function Recommend() {
+export default function Recommend(props) {
+  const { id } = props
   return (
-    <div className='recommend'>
+    <div className='Recommend' id={id}>
       <div className='content'>
         billnogates
         <span className='stroke'> store - </span>

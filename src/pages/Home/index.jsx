@@ -1,0 +1,33 @@
+import React, { Fragment } from 'react'
+
+import Searchbar from "../../components/Searchbar"
+import Cartbar from "../../components/Cartbar"
+import Sidebar from "../../components/Sidebar"
+import ScrollToTop from "../../components/ScrollToTop"
+import Header from "../../components/Header"
+import Accouncement from '../../components/Accouncement'
+import Recommend from "../../components/Recommend"
+import Banner from "../../components/Banner"
+import Arrangement from "../../components/Arrangement"
+import Product from "../../components/Product"
+import Pagination from "../../components/Pagination"
+import Footer from "../../components/Footer"
+
+export default function Home() {
+    return (
+        <Fragment>
+            <Searchbar />
+            <Cartbar />
+            <Sidebar />
+            <ScrollToTop />
+            <Header />
+            <Accouncement />
+            <Banner />
+            <Recommend />
+            <Arrangement />
+            <Product />
+            <Pagination />
+            <Footer />
+        </Fragment>
+    )
+}

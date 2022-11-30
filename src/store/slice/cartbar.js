@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    value: "",
+    value: false,
 }
 
 export const cartbarSlice = createSlice({
@@ -9,10 +9,10 @@ export const cartbarSlice = createSlice({
     initialState,
     reducers: {
         show_cartbar: (state) => {
-            state.value = "active"
+            state.value = true
         },
         hide_cartbar: (state) => {
-            state.value = ""
+            state.value = false
         }
     },
 })

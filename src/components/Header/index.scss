@@ -1,131 +1,84 @@
-@mixin desktop {
-    @media(max-width:768px) {
-        @content;
-    }
-}
-
-// @mixin mobile {
-//     @media(max-width:414px) {
-//         @content;
-//     }
-// }
-
-.header {
+.Header {
     position: sticky;
     top: 0;
     width: 100%;
-    height: 80px;
-    background: rgba(181, 182, 182, 0.8);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background: rgba(245, 245, 245, 0.8);
+    backdrop-filter: blur(4px);
     z-index: 2;
 
-    .brand {
-        margin: 6px;
+    .box {
+        height: 60px;
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        cursor: pointer;
 
-        &:hover {
-            .title {
+        .brand {
+            margin: 6px;
+            background: rgba(192, 192, 192, 0.2);
+            backdrop-filter: blur(4px);
+            border-radius: 4px;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
                 opacity: 0.8;
-                color: #E4027D;
+            }
+
+            .logo {
+                margin: 4px;
+                width: 40px;
+                height: 40px;
+                border-radius: 4px;
+            }
+
+            .title {
+                margin: 4px;
+                font: normal 800 20px/normal sans-serif;
+                letter-spacing: 1px;
+
+                .blue {
+                    color: #0091DB;
+                }
+
+                .pink {
+                    color: #E4027F;
+                }
+
+                .yellow {
+                    color: #FFE10A;
+                }
             }
         }
 
-        .logo {
-            margin: 4px;
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
-        }
-
-        .title {
-            margin: 4px;
-            font-size: 20px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: 0.2s;
+        .component {
+            display: flex;
+            align-items: center;
         }
     }
 
-    .navbarContainer {
+    .dropdown {
+        position: absolute;
+        top: 50px;
+        left: 0;
+        width: 100%;
         display: flex;
-        align-items: center;
+        flex-direction: column;
+        transition: 0.2s;
+        opacity: 0;
+        pointer-events: none;
 
-        .navbar {
-            @include desktop {
-                display: none;
-            }
+        &.active {
+            opacity: 1;
+            pointer-events: auto;
         }
 
-        .svgGroup {
-            margin: 0 6px;
-            display: flex;
-            white-space: nowrap;
-
-            .search,
-            .customer,
-            .cart,
-            .hamburger {
-                margin: 0 4px;
-                width: 30px;
-                height: 30px;
-                border-radius: 4px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                cursor: pointer;
-
-                &:hover {
-                    opacity: 0.8;
-
-                    .magnifying-glass,
-                    .user,
-                    .cart-shopping,
-                    .bars {
-                        fill: #E4027D;
-                    }
-                }
-
-                .magnifying-glass,
-                .user,
-                .cart-shopping,
-                .bars {
-                    width: 20px;
-                    height: 20px;
-                    transition: 0.2s;
-
-                    path {
-                        pointer-events: none;
-                    }
-                }
-            }
-
-            .cart {
-                &.active {
-                    &::before {
-                        position: absolute;
-                        counter-reset: x var(--x);
-                        content: counter(x);
-                        width: 15px;
-                        line-height: 15px;
-                        text-align: center;
-                        background: rgba(228, 2, 125, 0.8);
-                        border-radius: 50%;
-                        pointer-events: none;
-                    }
-                }
-            }
-
-            .hamburger {
-                display: none;
-
-                @include desktop {
-                    display: flex;
-                }
-            }
+        .space {
+            width: 100%;
+            height: 10px;
+            text-align: center;
         }
     }
 }

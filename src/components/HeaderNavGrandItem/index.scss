@@ -1,0 +1,39 @@
+.HeaderNavGrandItem {
+    position: relative;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+
+    .grandHref {
+        margin: 5px 0;
+        text-decoration: none;
+        border-radius: 4px;
+
+        &.active {
+            .grandLink {
+                background: burlywood;
+            }
+        }
+    }
+
+    .grandLink {
+        padding: 0 10px;
+        border-radius: 4px;
+        background: rgb(91, 168, 142);
+        transition: 0.2s;
+
+        &:hover {
+            background: salmon;
+        }
+
+        .grandText {
+            line-height: 40px;
+            text-align: center;
+            font-size: 16px;
+            font-weight: 400;
+            color: #000;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+    }
+}

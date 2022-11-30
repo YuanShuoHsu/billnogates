@@ -1,30 +1,54 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 
-import { useDispatch, useSelector } from 'react-redux';
-import { delete_cartbarItem } from '../../store/slice/cartbarItem';
+import { useDispatch } from 'react-redux';
+import { add_cartbarItem, delete_cartbarItem } from '../../store/slice/cartbarItem';
 
 import "./index.scss"
 
 export default function CartbarItem(props) {
-    const dispatch = useDispatch();
-    const cartbarItem = useSelector(state => state.cartbarItem.value);
-    console.log(cartbarItem)
 
-    const { item } = props
+    const dispatch = useDispatch();
+
+    const { cartbarItem, item } = props
 
     const [number, setNumber] = useState(1)
     const minNumber = 1
     const maxNumber = 10
 
+    useEffect(() => {
+        setNumber(repeatElement(cartbarItem, item))
+    }, [cartbarItem, item])
+
+    const deleteElement = (cartbarItem, item) => {
+        const newCartbarItem = [...cartbarItem];
+        for (let index = newCartbarItem.length; index > 0; index--) {
+            if (newCartbarItem[index - 1] === item) {
+                newCartbarItem.splice(index - 1, 1)
+                break
+            }
+        }
+        return newCartbarItem
+    }
+
+    const repeatElement = (cartbarItem, item) => {
+        let counter = 0;
+        cartbarItem.forEach(element => {
+            if (element === item) {
+                counter++
+            }
+        });
+        return counter;
+    }
+
     const decrement = () => {
-        if (number > minNumber) {
-            setNumber(number - 1)
+        if (minNumber < repeatElement(cartbarItem, item)) {
+            dispatch(delete_cartbarItem(deleteElement(cartbarItem, item)))
         }
     }
 
     const increment = () => {
-        if (number < maxNumber) {
-            setNumber(number + 1)
+        if (repeatElement(cartbarItem, item) < maxNumber) {
+            dispatch(add_cartbarItem(item))
         }
     }
 
@@ -36,7 +60,7 @@ export default function CartbarItem(props) {
     }
 
     return (
-        <div className='cartbarItem'>
+        <div className='CartbarItem' >
             <div className='order'>
                 <div className='product'>
                     <div className='photo'>

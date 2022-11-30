@@ -34,7 +34,7 @@ export default function Searchbar() {
     }
 
     return (
-        <div onClick={hideSearchbar} className={`searchbar ${searchbar}`}>
+        <div onClick={hideSearchbar} className={`Searchbar ${searchbar ? "active" : ""}`}>
             <div onClick={stopPropagation} className='box'>
                 <label className='searchLabel' htmlFor="search">
                     <div className='search'>

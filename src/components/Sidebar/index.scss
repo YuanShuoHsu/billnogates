@@ -4,64 +4,47 @@
     }
 }
 
-// @mixin mobile {
-//     @media(max-width:414px) {
-//         @content;
-//     }
-// }
-
-.sidebar {
+.Sidebar {
     position: fixed;
     top: 0;
-    left: -100%;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: #0091DB;
-    transition: 0.2s;
-    z-index: 3;
+    background: rgba(0, 0, 0, 0.5);
     display: none;
-    overflow-y: auto;
+    z-index: 3;
+    transition: 0.2s;
 
     @include desktop {
         display: block;
+        opacity: 0;
+        pointer-events: none;
+
+        &.active {
+            opacity: 1;
+            pointer-events: auto;
+        }
     }
 
-    &.active {
-        left: 0;
-    }
+    .box {
+        width: 300px;
+        height: 100%;
+        background: #fff;
+        display: flex;
+        flex-direction: column;
+        overflow-y: auto;
+        // -ms-overflow-style: none;
+        // /* IE and Edge */
+        // scrollbar-width: none;
+        // /* Firefox */
 
-    .landscape {
-        height: 120px;
+        // &::-webkit-scrollbar {
+        //     display: none;
+        // }
 
-        .close {
-            position: absolute;
-            top: 25px;
-            right: 10px;
-            width: 30px;
-            height: 30px;
-            border-radius: 4px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            cursor: pointer;
-
-            &:hover {
-                opacity: 0.8;
-
-                .xmark {
-                    fill: #E4027D;
-                }
-            }
-
-            .xmark {
-                width: 20px;
-                height: 20px;
-                transition: 0.2s;
-
-                path {
-                    pointer-events: none;
-                }
-            }
+        .landscape {
+            width: 100%;
+            min-height: 120px;
         }
     }
 }

@@ -1,26 +1,28 @@
-import Searchbar from "./components/Searchbar"
-import Cartbar from "./components/Cartbar"
-import Sidebar from "./components/Sidebar"
-import ScrollToTop from "./components/ScrollToTop"
-import Recommend from "./components/Recommend"
-import Header from "./components/Header"
-import Banner from "./components/Banner"
-import Product from "./components/Product"
-import Footer from "./components/Footer"
+import React from "react";
+
+import { Routes, Route, Navigate } from "react-router-dom"
+
+import Home from "./pages/Home";
+import Membership from "./pages/Membership";
+import Detailed from "./pages/Detailed";
+import Checkout from "./pages/Checkout";
+import Story from "./pages/Story";
+import User from "./pages/User";
 
 export default function App() {
   return (
     <div className="app">
-      <Searchbar />
-      <Cartbar />
-      <Sidebar />
-      <ScrollToTop />
-      <Header />
-      <Recommend />
-      <Banner />
-      <Recommend />
-      <Product />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="membership/*" element={<Membership />} />
+        <Route path="membership" element={<Navigate replace to="/membership/login" />} />
+        <Route path="detailed/*" element={<Detailed />} />
+        <Route path="detailed" element={<Navigate replace to="/detailed/description" />} />
+        <Route path="checkout" element={<Checkout />} />
+        <Route path="story" element={<Story />} />
+        <Route path="user" element={<User />} />
+        <Route path="*" element={<Navigate replace to="/" />} />
+      </Routes>
     </div>
   );
 }

@@ -1,0 +1,29 @@
+@mixin desktop {
+    @media(max-width:768px) {
+        @content;
+    }
+}
+
+.Gallery {
+    position: relative;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+
+    @include desktop {
+        flex-direction: column;
+    }
+
+    .box {
+        padding: 5px;
+        box-sizing: border-box;
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+
+        @include desktop {
+            width: 100%;
+        }
+    }
+}

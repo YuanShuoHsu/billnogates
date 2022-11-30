@@ -1,20 +1,20 @@
-// 商品圖片大小建議 180px : 240px = 3 : 4
+// 商品圖片大小建議 75dpi 1920 x 1080 = 16 : 9
 
 const IMAGES = [
     {
         id: 1,
-        image: require("../images/手創大人物.png"),
-        name: "手創大人物_工作區域"
+        image: require("../images/banner/手創展.png"),
+        name: "手創展"
     },
     {
         id: 2,
-        image: require("../images/手創大人物.png"),
-        name: "手創大人物_工作區域"
+        image: require("../images/banner/聯名漁夫帽.png"),
+        name: "聯名漁夫帽"
     },
     {
         id: 3,
-        image: require("../images/手創大人物.png"),
-        name: "手創大人物_工作區域"
+        image: require("../images/banner/漫時編織預購.png"),
+        name: "漫時編織預購"
     }
 ]
 

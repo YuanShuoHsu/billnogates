@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-    value: "",
+    value: false,
 }
 
 export const searchbarSlice = createSlice({
@@ -9,10 +9,10 @@ export const searchbarSlice = createSlice({
     initialState,
     reducers: {
         show_searchbar: (state) => {
-            state.value = "active"
+            state.value = true
         },
         hide_searchbar: (state) => {
-            state.value = ""
+            state.value = false
         }
     },
 })
