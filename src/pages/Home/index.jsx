@@ -8,6 +8,7 @@ import Header from "../../components/Header"
 import Accouncement from '../../components/Accouncement'
 import Recommend from "../../components/Recommend"
 import Banner from "../../components/Banner"
+import Supply from '../../components/Supply'
 import Arrangement from "../../components/Arrangement"
 import Product from "../../components/Product"
 import Pagination from "../../components/Pagination"
@@ -24,6 +25,7 @@ export default function Home() {
             <Accouncement />
             <Banner />
             <Recommend />
+            <Supply />
             <Arrangement />
             <Product />
             <Pagination />

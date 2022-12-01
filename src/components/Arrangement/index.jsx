@@ -31,6 +31,7 @@ export default function Arrangement() {
 
     return (
         <div className='Arrangement' id="Arrangement">
+            <div className='anchorPoint'></div>
             <div className='grid'>
                 <div className='box'>
                     <span className='text'>排列方式：</span>
