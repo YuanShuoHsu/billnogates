@@ -9,16 +9,26 @@
             overflow: hidden;
 
             &:first-child {
-                border-top-left-radius: 4px;
+                .button {
+                    border-top-left-radius: 4px;
+                }
             }
 
             &:last-child {
-                border-top-right-radius: 4px;
+                .button {
+                    border-top-right-radius: 4px;
+                }
+            }
+
+            &:hover {
+                .button {
+                    background: rgba(228, 2, 126, 0.5)
+                }
             }
 
             &.active {
                 .button {
-                    background: coral;
+                    background: rgba(192, 192, 192, 0.2);
                 }
             }
 
@@ -26,10 +36,12 @@
                 padding: 0;
                 width: 100px;
                 height: 40px;
-                background: #efefef;
+                background: rgba(245, 245, 245, 0.8);
                 border: none;
                 color: #000;
+                font: normal normal 16px/20px sans-serif;
                 cursor: pointer;
+                transition: 0.2s;
             }
         }
     }

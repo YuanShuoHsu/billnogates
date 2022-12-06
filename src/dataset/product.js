@@ -3,32 +3,38 @@ const PRODUCTS = [
         id: 1,
         image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"),
         name: "花椰菜菜子裡的小白蟲先生｛ 深/淺 ｝",
-        description: "一名手作創客，有一隻貓貓",
+        introduction: "一名手作創客，有一隻貓貓",
         price: 1280,
         gallery: [
             {
                 subId: 1,
-                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png")
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"),
+                name: "花椰菜帽1"
             },
             {
                 subId: 2,
-                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽2.png")
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽2.png"),
+                name: "花椰菜帽2"
             },
             {
                 subId: 3,
-                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽3.png")
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽3.png"),
+                name: "花椰菜帽3"
             },
             {
                 subId: 4,
-                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽4.png")
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽4.png"),
+                name: "花椰菜帽4"
             },
             {
                 subId: 5,
-                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽5.png")
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽5.png"),
+                name: "花椰菜帽5"
             },
             {
                 subId: 6,
-                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽6.png")
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽6.png"),
+                name: "花椰菜帽6"
             },
         ],
         description: [
@@ -38,7 +44,8 @@ const PRODUCTS = [
             },
             {
                 subId: 2,
-                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png")
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"),
+                name: "花椰菜帽1"
             }
         ],
         information: [
@@ -48,7 +55,8 @@ const PRODUCTS = [
             },
             {
                 subId: 2,
-                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png")
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"),
+                name: "花椰菜帽1"
             }
         ]
     },

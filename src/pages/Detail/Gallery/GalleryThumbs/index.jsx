@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 
+import { useParams } from 'react-router-dom';
+
+import PRODUCTS from "../../../../dataset/product"
+
 import { Keyboard, FreeMode, Pagination, Thumbs } from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -9,17 +13,15 @@ import "swiper/scss/thumbs";
 
 import "./index.scss"
 
-import images from "../../../../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"
-import PRODUCTS from "../../../../dataset/product"
-
 export default function GalleryThumbs() {
+
+    const { productId } = useParams()
 
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
-    // console.log(PRODUCTS)
-    // PRODUCTS.find((detailObj)=>{
-    //     return detailObj.id ===id;
-    // })
+    const findProduct = PRODUCTS.find(detailObj => (
+        detailObj.id === Number(productId)
+    ))
 
     return (
         <div className="GalleryThumbs">
@@ -35,27 +37,18 @@ export default function GalleryThumbs() {
                     sticky: true
                 }}
                 grabCursor={true}
-
                 pagination={{
                     type: "progressbar",
                 }}
                 thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
             >
-                <SwiperSlide>
-                    <img src={images} alt='1' />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={images} alt='2' />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={images} alt='3' />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={images} alt='4' />
-                </SwiperSlide>
-                <SwiperSlide>
-                    <img src={images} alt='5' />
-                </SwiperSlide>
+                {
+                    findProduct.gallery && findProduct.gallery.map(item => (
+                        <SwiperSlide key={item.subId}>
+                            <img src={item.image} alt={item.name} />
+                        </SwiperSlide>
+                    ))
+                }
             </Swiper>
             <div className='scrollBox'>
                 <Swiper
@@ -68,21 +61,13 @@ export default function GalleryThumbs() {
                     grabCursor={true}
                     watchSlidesProgress={true}
                 >
-                    <SwiperSlide>
-                        <img src={images} alt='1' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={images} alt='2' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={images} alt='3' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={images} alt='4' />
-                    </SwiperSlide>
-                    <SwiperSlide>
-                        <img src={images} alt='5' />
-                    </SwiperSlide>
+                    {
+                        findProduct.gallery && findProduct.gallery.map(item => (
+                            <SwiperSlide key={item.subId}>
+                                <img src={item.image} alt={item.name} />
+                            </SwiperSlide>
+                        ))
+                    }
                 </Swiper>
             </div>
         </div>

@@ -2,18 +2,15 @@ import React from 'react'
 
 import { Link } from "react-router-dom"
 
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 // import { add_cartbarItem } from '../../store/slice/cartbarItem';
-import { number_product } from "../../store/slice/product"
 
 import PRODUCTS from '../../dataset/product';
 
 import "./index.scss"
 
 export default function Product() {
-
-    const dispatch = useDispatch()
 
     const pagination = useSelector(state => state.pagination.value);
     const arrangement = useSelector(state => state.arrangement.value);
@@ -52,16 +49,12 @@ export default function Product() {
     //     }
     // }
 
-    const handleChoose = (item) => {
-        dispatch(number_product(item.id))
-    }
-
     return (
         <div className='Product'>
             <div className='grid'>
                 {
                     newProducts && newProducts.map(item => (
-                        <Link onClick={() => handleChoose(item)} className='link' to={`/detail/${item.id}/description`} key={item.id}>
+                        <Link className='link' to={`/detail/${item.id}/description`} key={item.id}>
                             <button className='card'>
                                 <span className='ribbon'></span>
                                 <div className='box'>

@@ -1,7 +1,5 @@
 import React, { Fragment } from 'react'
 
-import { useParams } from "react-router-dom"
-
 import Searchbar from "../../components/Searchbar"
 import Cartbar from "../../components/Cartbar"
 import Sidebar from "../../components/Sidebar"
@@ -15,8 +13,6 @@ import "./index.scss"
 import Commodity from './Commodity'
 
 export default function Detailed() {
-    let a=useParams();
-    console.log(a)
     return (
         <Fragment>
             <Searchbar />
