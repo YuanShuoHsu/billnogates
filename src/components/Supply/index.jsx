@@ -8,44 +8,44 @@ export default function Supply() {
             <div className='grid'>
                 <div className='card'>
                     <div className='imgBox'>
-                        <img className='image' src={IMAGES} alt="logo" />
+                        <img className='photo' src={IMAGES} alt="logo" />
                     </div>
                     <div className='box'>
                         <div className='content'>
-                            <h2>Make One</h2>
+                            <h2>老師教我做</h2>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore cum consequuntur, vero laudantium itaque minima similique enim eaque!</p>
                         </div>
                     </div>
                 </div>
                 <div className='card'>
                     <div className='imgBox'>
-                        <img className='image' src={IMAGES} alt="logo" />
+                        <img className='photo' src={IMAGES} alt="logo" />
                     </div>
                     <div className='box'>
                         <div className='content'>
-                            <h2>Make Two</h2>
+                            <h2>回家自己做</h2>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore cum consequuntur, vero laudantium itaque minima similique enim eaque!</p>
                         </div>
                     </div>
                 </div>
                 <div className='card'>
                     <div className='imgBox'>
-                        <img className='image' src={IMAGES} alt="logo" />
+                        <img className='photo' src={IMAGES} alt="logo" />
                     </div>
                     <div className='box'>
                         <div className='content'>
-                            <h2>Make Three</h2>
+                            <h2>現場擺攤日</h2>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore cum consequuntur, vero laudantium itaque minima similique enim eaque!</p>
                         </div>
                     </div>
                 </div>
                 <div className='card'>
                     <div className='imgBox'>
-                        <img className='image' src={IMAGES} alt="logo" />
+                        <img className='photo' src={IMAGES} alt="logo" />
                     </div>
                     <div className='box'>
                         <div className='content'>
-                            <h2>Make Four</h2>
+                            <h2>客製化服務</h2>
                             <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore cum consequuntur, vero laudantium itaque minima similique enim eaque!</p>
                         </div>
                     </div>

@@ -54,9 +54,6 @@
             grid-template-columns: repeat(1, 1fr);
         }
 
-
-
-
         .link {
             text-decoration: none;
 
@@ -123,6 +120,7 @@
                         align-items: center;
                         transform: rotate(-45deg) translateY(-20px);
                     }
+
                     &::after {
                         position: absolute;
                         content: "";
