@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom"
 
 import Home from "./pages/Home";
 import Membership from "./pages/Membership";
-import Detailed from "./pages/Detailed";
+import Detail from "./pages/Detail";
 import Checkout from "./pages/Checkout";
 import Story from "./pages/Story";
 import User from "./pages/User";
@@ -14,10 +14,17 @@ export default function App() {
     <div className="app">
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="membership/*" element={<Membership />} />
-        <Route path="membership" element={<Navigate replace to="/membership/login" />} />
-        <Route path="detailed/*" element={<Detailed />} />
-        <Route path="detailed" element={<Navigate replace to="/detailed/description" />} />
+        <Route path="membership">
+          <Route path="" element={<Navigate replace to="login" />} />
+          <Route path="*" element={<Membership />} />
+        </Route>
+        <Route path="detail" >
+          <Route path="" element={<Navigate replace to="1/description" />} />
+          <Route path=":userId">
+            <Route path="" element={<Navigate replace to="description" />} />
+            <Route path="*" element={<Detail />} />
+          </Route>
+        </Route>
         <Route path="checkout" element={<Checkout />} />
         <Route path="story" element={<Story />} />
         <Route path="user" element={<User />} />

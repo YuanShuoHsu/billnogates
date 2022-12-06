@@ -19,11 +19,15 @@ export default function Commodity() {
                 </NavLink>
             </div>
             <Routes>
-                <Route path="description" element={<Description />} />
-                <Route path="description/*" element={<Navigate replace to="" />} />
-                <Route path="information" element={<Information />} />
-                <Route path="information/*" element={<Navigate replace to="" />} />
-                <Route path="*" element={<Navigate replace to="/detailed/description" />} />
+                <Route path="description"  >
+                    <Route path="" element={<Description />} />
+                    <Route path="*" element={<Navigate replace to="" />} />
+                </Route>
+                <Route path="information" >
+                    <Route path="" element={<Information />} />
+                    <Route path="*" element={<Navigate replace to="" />} />
+                </Route>
+                <Route path="*" element={<Navigate replace to="description" />} />
             </Routes>
         </div>
     )

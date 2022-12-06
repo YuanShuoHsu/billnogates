@@ -34,11 +34,15 @@ export default function Membership() {
                     </div>
                     <div className='form'>
                         <Routes>
-                            <Route path="login" element={<Login />} />
-                            <Route path="login/*" element={<Navigate replace to="" />} />
-                            <Route path="register" element={<Register />} />
-                            <Route path="register/*" element={<Navigate replace to="" />} />
-                            <Route path="*" element={<Navigate replace to="/membership/login" />} />
+                            <Route path="login" >
+                                <Route path="" element={<Login />} />
+                                <Route path="*" element={<Navigate replace to="" />} />
+                            </Route>
+                            <Route path="register"  >
+                                <Route path="" element={<Register />} />
+                                <Route path="*" element={<Navigate replace to="" />} />
+                            </Route>
+                            <Route path="*" element={<Navigate replace to="login" />} />
                         </Routes>
                     </div>
                 </div>

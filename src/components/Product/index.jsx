@@ -37,7 +37,7 @@ export default function Product() {
     // }
 
     const data = (item) => {
-        console.log(item)
+        console.log(item.id)
     }
 
     return (
@@ -45,7 +45,7 @@ export default function Product() {
             <div className='grid'>
                 {
                     newProducts && newProducts.map(item => (
-                        <Link onClick={() => data(item)} className='link' to={"/detailed/description"} key={item.id}>
+                        <Link onClick={() => data(item)} className='link' to={`/detail/${item.id}/description`} key={item.id}>
                             <button className='card'>
                                 <span className='ribbon'></span>
                                 <div className='box'>
