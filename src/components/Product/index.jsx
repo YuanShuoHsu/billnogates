@@ -2,20 +2,36 @@ import React from 'react'
 
 import { Link } from "react-router-dom"
 
-import { useSelector } from 'react-redux';
-// import { add_cartbarItem } from '../../store/slice/cartbarItem';
+import { useDispatch, useSelector } from 'react-redux';
 
-// import PRODUCTS from "../../dataset/product"
+// import { add_cartbarItem } from '../../store/slice/cartbarItem';
+import { number_product } from "../../store/slice/product"
+
+import PRODUCTS from '../../dataset/product';
 
 import "./index.scss"
 
 export default function Product() {
 
+    const dispatch = useDispatch()
+
     const pagination = useSelector(state => state.pagination.value);
     const arrangement = useSelector(state => state.arrangement.value);
-    // console.log(arrangement)
 
-    const newProducts = arrangement.slice((pagination - 1) * 24, pagination * 24)
+    switch (arrangement) {
+        case "recommend":
+            PRODUCTS.sort((a, b) => (a.id - b.id))
+            break
+        case "priceLow":
+            PRODUCTS.sort((a, b) => (a.price - b.price))
+            break
+        case "priceHigh":
+            PRODUCTS.sort((a, b) => (b.price - a.price))
+            break
+        default:
+    }
+
+    const newProducts = PRODUCTS.slice((pagination - 1) * 24, pagination * 24)
 
     // const maxNumber = 10;
 
@@ -36,8 +52,8 @@ export default function Product() {
     //     }
     // }
 
-    const data = (item) => {
-        console.log(item.id)
+    const handleChoose = (item) => {
+        dispatch(number_product(item.id))
     }
 
     return (
@@ -45,7 +61,7 @@ export default function Product() {
             <div className='grid'>
                 {
                     newProducts && newProducts.map(item => (
-                        <Link onClick={() => data(item)} className='link' to={`/detail/${item.id}/description`} key={item.id}>
+                        <Link onClick={() => handleChoose(item)} className='link' to={`/detail/${item.id}/description`} key={item.id}>
                             <button className='card'>
                                 <span className='ribbon'></span>
                                 <div className='box'>

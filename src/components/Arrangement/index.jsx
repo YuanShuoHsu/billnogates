@@ -1,32 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { recommend_arrangement, priceLow_arrangement, priceHigh_arrangement } from '../../store/slice/arrangement';
+import { change_arrangement } from '../../store/slice/arrangement';
 
 import "./index.scss"
 
 export default function Arrangement() {
-
-    const [choose, setChoose] = useState("recommend")
 
     const dispatch = useDispatch();
     const arrangement = useSelector(state => state.arrangement.value);
 
     const handleSelectChange = (event) => {
         const { target } = event
-        switch (target.value) {
-            case "recommend":
-                dispatch(recommend_arrangement(arrangement))
-                break
-            case "priceLow":
-                dispatch(priceLow_arrangement(arrangement))
-                break
-            case "priceHigh":
-                dispatch(priceHigh_arrangement(arrangement))
-                break
-            default:
-        }
-        setChoose(target.value)
+        dispatch(change_arrangement(target.value))
     }
 
     return (
@@ -36,7 +22,7 @@ export default function Arrangement() {
                 <div className='box'>
                     <span className='text'>排列方式：</span>
                     <div className='content'>
-                        <select value={choose} onChange={handleSelectChange} className='select' name="arrangement">
+                        <select value={arrangement} onChange={handleSelectChange} className='select' name="arrangement">
                             <option value="recommend">推薦</option>
                             <option value="priceLow">價錢，從低到高</option>
                             <option value="priceHigh">價錢，從高到低</option>

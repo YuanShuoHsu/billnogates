@@ -9,6 +9,7 @@ import headerNavItemReducer from './slice/headerNavItem'
 import headerNavSubMenuReducer from './slice/headerNavSubMenu'
 import headerButtonReducer from "./slice/headerButton"
 import paginationReducer from "./slice/pagination"
+import productReducer from './slice/product'
 
 export const store = configureStore({
     reducer: {
@@ -21,6 +22,7 @@ export const store = configureStore({
         headerNavSubMenu: headerNavSubMenuReducer,
         headerButton: headerButtonReducer,
         pagination: paginationReducer,
+        product: productReducer,
     },
 })
 

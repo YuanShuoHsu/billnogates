@@ -10,11 +10,16 @@ import "swiper/scss/thumbs";
 import "./index.scss"
 
 import images from "../../../../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"
-// "../../images/網站banner 聯名漁夫帽.png"
+import PRODUCTS from "../../../../dataset/product"
 
 export default function GalleryThumbs() {
 
     const [thumbsSwiper, setThumbsSwiper] = useState(null);
+
+    // console.log(PRODUCTS)
+    // PRODUCTS.find((detailObj)=>{
+    //     return detailObj.id ===id;
+    // })
 
     return (
         <div className="GalleryThumbs">

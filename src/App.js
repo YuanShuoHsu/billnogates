@@ -13,14 +13,14 @@ export default function App() {
   return (
     <div className="app">
       <Routes>
-        <Route path="/" element={<Home />} />
+        <Route path="" element={<Home />} />
         <Route path="membership">
           <Route path="" element={<Navigate replace to="login" />} />
           <Route path="*" element={<Membership />} />
         </Route>
         <Route path="detail" >
           <Route path="" element={<Navigate replace to="1/description" />} />
-          <Route path=":userId">
+          <Route path=":productId">
             <Route path="" element={<Navigate replace to="description" />} />
             <Route path="*" element={<Detail />} />
           </Route>
@@ -28,7 +28,7 @@ export default function App() {
         <Route path="checkout" element={<Checkout />} />
         <Route path="story" element={<Story />} />
         <Route path="user" element={<User />} />
-        <Route path="*" element={<Navigate replace to="/" />} />
+        <Route path="*" element={<Navigate replace to="" />} />
       </Routes>
     </div>
   );

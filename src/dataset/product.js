@@ -5,6 +5,52 @@ const PRODUCTS = [
         name: "花椰菜菜子裡的小白蟲先生｛ 深/淺 ｝",
         description: "一名手作創客，有一隻貓貓",
         price: 1280,
+        gallery: [
+            {
+                subId: 1,
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png")
+            },
+            {
+                subId: 2,
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽2.png")
+            },
+            {
+                subId: 3,
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽3.png")
+            },
+            {
+                subId: 4,
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽4.png")
+            },
+            {
+                subId: 5,
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽5.png")
+            },
+            {
+                subId: 6,
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽6.png")
+            },
+        ],
+        description: [
+            {
+                subId: 1,
+                text: "Hello,world1"
+            },
+            {
+                subId: 2,
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png")
+            }
+        ],
+        information: [
+            {
+                subId: 1,
+                text: "Hello,world1"
+            },
+            {
+                subId: 2,
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png")
+            }
+        ]
     },
     {
         id: 2,
