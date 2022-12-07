@@ -4,6 +4,21 @@
     }
 }
 
+@mixin keyframes-animation($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin prefix-property($name, $value) {
+    -webkit-#{$name}: $value;
+    #{$name}: $value;
+}
+
 .GalleryThumbs {
     position: relative;
     width: 100%;
@@ -68,12 +83,10 @@
             height: 100%;
             background: rgba(192, 192, 192, 0.2);
             border-radius: 4px;
-            overflow: hidden;
 
             .swiper-slide {
                 background: #fff;
                 border-radius: 4px;
-                overflow: hidden;
 
                 display: -webkit-box;
                 display: -ms-flexbox;
@@ -94,14 +107,27 @@
                     height: 100%;
                     aspect-ratio: 1/1;
                     object-fit: cover;
+                    border-radius: 4px;
                     cursor: pointer;
                     opacity: 0.5;
+                    transition: 0.2s;
                 }
             }
 
             .swiper-slide-thumb-active {
                 img {
                     opacity: 1;
+                    animation: scroll 0.2s linear;
+
+                    @include keyframes-animation(scroll) {
+                        0% {
+                            @include prefix-property(transform, translateY(10px));
+                        }
+
+                        100% {
+                            @include prefix-property(transform, translateY(0));
+                        }
+                    }
                 }
             }
         }

@@ -21,8 +21,11 @@ export default function Detailed() {
             <ScrollToTop />
             <Header />
             <div className='Detail'>
-                <Gallery />
-                <Commodity />
+                <div className='grid'>
+
+                    <Gallery />
+                    <Commodity />
+                </div>
             </div>
             <Footer />
         </Fragment>

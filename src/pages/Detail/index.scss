@@ -1,5 +1,21 @@
+@mixin screen {
+    @media(max-width: 1200px) {
+        @content;
+    }
+}
+
 .Detail {
     position: relative;
     min-height: calc(100vh - 60px - 60px);
     background: rgba(245, 245, 245, 0.8);
+    display: flex;
+    justify-content: center;
+
+    .grid {
+        width: 80%;
+
+        @include screen() {
+            width: 100%;
+        }
+    }
 }
