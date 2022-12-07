@@ -44,14 +44,32 @@ const PRODUCTS = [
             },
             {
                 subId: 2,
-                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"),
-                name: "花椰菜帽1"
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽2.png"),
+                name: "花椰菜帽2"
+            },
+            {
+                subId: 3,
+                text: "Hello,world2"
+            },
+            {
+                subId: 4,
+                text: "Hello,world3"
+            },
+            {
+                subId: 5,
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽4.png"),
+                name: "花椰菜帽4"
+            },
+            {
+                subId: 6,
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽3.png"),
+                name: "花椰菜帽3"
             }
         ],
         information: [
             {
                 subId: 1,
-                text: "Hello,world1"
+                text: "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ex amet molestiae voluptatum cum omnis dolorum, reprehenderit modi totam nam ut culpa minus, magnam distinctio explicabo id error nostrum, recusandae alias."
             },
             {
                 subId: 2,

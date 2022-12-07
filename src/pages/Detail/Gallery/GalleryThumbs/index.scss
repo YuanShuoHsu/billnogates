@@ -117,9 +117,9 @@
             .swiper-slide-thumb-active {
                 img {
                     opacity: 1;
-                    animation: scroll 0.2s linear;
+                    animation: slide 0.2s linear;
 
-                    @include keyframes-animation(scroll) {
+                    @include keyframes-animation(slide) {
                         0% {
                             @include prefix-property(transform, translateY(10px));
                         }
