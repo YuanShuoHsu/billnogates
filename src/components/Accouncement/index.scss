@@ -8,7 +8,7 @@
     position: relative;
     width: 100%;
     height: 30px;
-    background: #E4027E;
+    background: #E4027F;
     z-index: 0;
 
     @include desktop() {
@@ -17,7 +17,7 @@
 
     .swiper-slide {
         text-align: center;
-        background: #E4027E;
+        background: #E4027F;
 
         display: -webkit-box;
         display: -ms-flexbox;

@@ -1,7 +1,7 @@
 .Header {
     position: sticky;
+    padding: 0 5px;
     top: 0;
-    width: 100%;
     background: rgba(245, 245, 245, 0.8);
     backdrop-filter: blur(4px);
     z-index: 2;
@@ -13,8 +13,10 @@
         align-items: center;
 
         .brand {
-            margin: 6px;
-            background: rgba(192, 192, 192, 0.2);
+            margin: 0 5px;
+            padding: 0 2.5px;
+            height: 40px;
+            background: transparent;
             backdrop-filter: blur(4px);
             border-radius: 4px;
             text-decoration: none;
@@ -25,17 +27,18 @@
 
             &:hover {
                 opacity: 0.8;
+                background: rgba(192, 192, 192, 0.2);
             }
 
             .logo {
-                margin: 4px;
-                width: 40px;
-                height: 40px;
+                padding: 0 2.5px;
+                width: 30px;
+                height: 30px;
                 border-radius: 4px;
             }
 
             .title {
-                margin: 4px;
+                padding: 0 2.5px;
                 font: normal 800 20px/normal sans-serif;
                 letter-spacing: 1px;
 
@@ -53,7 +56,7 @@
             }
         }
 
-        .component {
+        .content{
             display: flex;
             align-items: center;
         }

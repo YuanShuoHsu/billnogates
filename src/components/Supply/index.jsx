@@ -12,8 +12,8 @@ export default function Supply() {
                     </div>
                     <div className='box'>
                         <div className='content'>
-                            <h2>老師教我做</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore cum consequuntur, vero laudantium itaque minima similique enim eaque!</p>
+                            <h2 className='title'>老師教我做</h2>
+                            <p className='text'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore cum consequuntur!</p>
                         </div>
                     </div>
                 </div>
@@ -23,8 +23,8 @@ export default function Supply() {
                     </div>
                     <div className='box'>
                         <div className='content'>
-                            <h2>回家自己做</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore cum consequuntur, vero laudantium itaque minima similique enim eaque!</p>
+                            <h2 className='title'>回家自己做</h2>
+                            <p className='text'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore cum consequuntur!</p>
                         </div>
                     </div>
                 </div>
@@ -34,8 +34,8 @@ export default function Supply() {
                     </div>
                     <div className='box'>
                         <div className='content'>
-                            <h2>現場擺攤日</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore cum consequuntur, vero laudantium itaque minima similique enim eaque!</p>
+                            <h2 className='title'>現場擺攤日</h2>
+                            <p className='text'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore cum consequuntur!</p>
                         </div>
                     </div>
                 </div>
@@ -45,8 +45,8 @@ export default function Supply() {
                     </div>
                     <div className='box'>
                         <div className='content'>
-                            <h2>客製化服務</h2>
-                            <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore cum consequuntur, vero laudantium itaque minima similique enim eaque!</p>
+                            <h2 className='title'>客製化服務</h2>
+                            <p className='text'>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Labore cum consequuntur!</p>
                         </div>
                     </div>
                 </div>
