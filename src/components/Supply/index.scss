@@ -34,6 +34,10 @@
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+        border-top: 1px solid rgba(245, 245, 245, 0.8);
+        border-right: 1px solid #fff;
+        border-bottom: 1px solid #fff;
+        border-left: 1px solid rgba(245, 245, 245, 0.8);
         border-radius: 4px;
 
         @include screen() {
@@ -44,6 +48,7 @@
         @include desktop() {
             gap: 10px;
             grid-template-columns: repeat(1, 1fr);
+            border: none;
             border-radius: 0;
             box-shadow: none;
         }
@@ -86,6 +91,10 @@
 
             @include desktop() {
                 box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
+                border-top: 1px solid rgba(245, 245, 245, 0.8);
+                border-right: 1px solid #fff;
+                border-bottom: 1px solid #fff;
+                border-left: 1px solid rgba(245, 245, 245, 0.8);
                 border-radius: 4px;
                 flex-direction: row;
 
@@ -152,7 +161,7 @@
                 .content {
                     padding: 10px;
                     text-align: center;
-                    transition: 0.2s;
+                    // transition: 0.2s;
 
                     .title {
                         color: #000;

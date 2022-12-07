@@ -58,7 +58,7 @@ export default function Product() {
                             <button className='card'>
                                 <span className='ribbon'></span>
                                 <div className='box'>
-                                    <img className='photo' src={item.image} alt={item.name} />
+                                    <img className='image' src={item.image} alt={item.name} />
                                 </div>
                                 <div className='foot'>
                                     <div className='content'>
