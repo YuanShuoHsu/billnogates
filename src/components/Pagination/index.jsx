@@ -8,8 +8,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import PRODUCTS from "../../dataset/product"
 
-import "swiper/scss";
-import "swiper/scss/free-mode";
+import "swiper/css";
+import "swiper/css/free-mode";
 
 import "./index.scss"
 

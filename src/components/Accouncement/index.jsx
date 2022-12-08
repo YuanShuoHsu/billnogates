@@ -6,8 +6,8 @@ import { Autoplay, FreeMode } from "swiper";
 
 import Forms from "../../dataset/accouncement"
 
-import "swiper/scss";
-import "swiper/scss/free-mode";
+import "swiper/css";
+import "swiper/css/free-mode";
 
 import "./index.scss"
 

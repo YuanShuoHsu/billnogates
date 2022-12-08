@@ -1,13 +1,15 @@
 import React, { useRef, useEffect } from 'react'
 
-import { Autoplay, FreeMode, Keyboard, Pagination } from 'swiper';
+import { Autoplay, FreeMode, Keyboard, Lazy, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import IMAGES from "../../dataset/banner"
 
-import 'swiper/scss';
-import "swiper/scss/free-mode";
-import 'swiper/scss/pagination';
+import 'swiper/css';
+import "swiper/css/free-mode";
+import "swiper/css/lazy";
+import 'swiper/css/pagination';
+
 import "./index.scss"
 
 export default function Banner() {
@@ -21,7 +23,7 @@ export default function Banner() {
   return (
     <Swiper
       className='Banner'
-      modules={[Autoplay, FreeMode, Keyboard, Pagination]}
+      modules={[Autoplay, FreeMode, Keyboard, Lazy, Pagination]}
       spaceBetween={0}
       slidesPerView={1}
       autoHeight={true}
@@ -35,6 +37,11 @@ export default function Banner() {
       }}
       grabCursor={true}
       keyboard={{ nabled: true }}
+      lazy={{
+        loadPrevNext: true,
+        loadPrevNextAmount: 1,
+        loadOnTransitionStart: true,
+      }}
       loop={true}
       ref={swiperRef}
       pagination={{ clickable: true }}
@@ -42,7 +49,8 @@ export default function Banner() {
       {
         IMAGES && IMAGES.map(item => (
           <SwiperSlide key={item.id}>
-            <img src={item.image} alt={item.name} />
+            <img className="swiper-lazy" data-src={item.image} alt={item.name} />
+            <div className="swiper-lazy-preloader swiper-lazy-preloader-white" />
           </SwiperSlide>
         ))
       }
