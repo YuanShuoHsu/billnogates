@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
 import Searchbar from "../../components/Searchbar"
 import Cartbar from "../../components/Cartbar"
@@ -14,9 +14,11 @@ import Product from "../../components/Product"
 import Pagination from "../../components/Pagination"
 import Footer from "../../components/Footer"
 
+import "./index.scss"
+
 export default function Home() {
     return (
-        <Fragment>
+        <div className='Home'>
             <Searchbar />
             <Cartbar />
             <Sidebar />
@@ -25,11 +27,21 @@ export default function Home() {
             <Accouncement />
             <Banner />
             <Recommend />
-            <Supply />
-            <Arrangement />
-            <Product />
-            <Pagination />
+            <div className='main'>
+                <div className="grid">
+                    <Supply />
+                </div>
+                <div className='grid'>
+                    <Arrangement />
+                </div>
+                <div className='grid'>
+                    <Product />
+                </div>
+                <div className="grid">
+                    <Pagination />
+                </div>
+            </div>
             <Footer />
-        </Fragment>
+        </div>
     )
 }

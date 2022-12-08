@@ -51,26 +51,24 @@ export default function Product() {
 
     return (
         <div className='Product'>
-            <div className='grid'>
-                {
-                    newProducts && newProducts.map(item => (
-                        <Link className='link' to={`/detail/${item.id}/description`} key={item.id}>
-                            <button className='card'>
-                                <span className='ribbon'></span>
-                                <div className='box'>
-                                    <img className='image' src={item.image} alt={item.name} />
+            {
+                newProducts && newProducts.map(item => (
+                    <Link className='link' to={`/detail/${item.id}/description`} key={item.id}>
+                        <button className='card'>
+                            <span className='ribbon'></span>
+                            <div className='box'>
+                                <img className='image' src={item.image} alt={item.name} />
+                            </div>
+                            <div className='foot'>
+                                <div className='content'>
+                                    <p className='text'>{item.name}</p>
+                                    <p className='text'>NT.{item.price}</p>
                                 </div>
-                                <div className='foot'>
-                                    <div className='content'>
-                                        <p className='text'>{item.name}</p>
-                                        <p className='text'>NT.{item.price}</p>
-                                    </div>
-                                </div>
-                            </button>
-                        </Link>
-                    ))
-                }
-            </div>
+                            </div>
+                        </button>
+                    </Link>
+                ))
+            }
         </div>
     )
 }
