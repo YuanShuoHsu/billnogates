@@ -8,12 +8,26 @@ const PRODUCTS = [
         color: [
             {
                 subId: 1,
+                rgb: "#000",
+            },
+            {
+                subId: 2,
+                rgb: "#ccc",
             }
         ],
-        size: [
+        dimension: [
             {
                 subId: 1,
-            }
+                size: "S"
+            },
+            {
+                subId: 2,
+                size: "M"
+            },
+            {
+                subId: 3,
+                size: "L"
+            },
         ],
         gallery: [
             {

@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
 import Searchbar from "../../components/Searchbar"
 import Cartbar from "../../components/Cartbar"
@@ -14,19 +14,19 @@ import Commodity from './Commodity'
 
 export default function Detailed() {
     return (
-        <Fragment>
+        <div className='Detail'>
             <Searchbar />
             <Cartbar />
             <Sidebar />
             <ScrollToTopButton />
             <Header />
-            <div className='Detail'>
+            <div className='main'>
                 <div className='grid'>
                     <Gallery />
                     <Commodity />
                 </div>
             </div>
             <Footer />
-        </Fragment>
+        </div>
     )
 }

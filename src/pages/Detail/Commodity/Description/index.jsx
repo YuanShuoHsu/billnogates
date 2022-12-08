@@ -19,10 +19,10 @@ export default function Description() {
       {
         findProduct.description && findProduct.description.map(item => {
           if (item.text !== undefined) {
-            return (<p className='text' key={item.subId}>{item.text}</p>)
+            return <p className='text' key={item.subId}>{item.text}</p>
           }
           else if (item.image !== undefined) {
-            return (<img className='photo' key={item.subId} src={item.image} alt={item.name} />)
+            return <img className='photo' key={item.subId} src={item.image} alt={item.name} />
           }
           return item
         })

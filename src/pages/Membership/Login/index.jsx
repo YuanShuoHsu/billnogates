@@ -81,7 +81,7 @@ export default function Login() {
 
     return (
         <div className='Login' >
-            <form onSubmit={handleSubmit} className="form">
+            <form onSubmit={handleSubmit} className="content">
                 <div className='inputBox'>
                     <input onChange={savePhoneNumber} value={phoneNumber} className='input' type="text" required />
                     <span className='text'>手機號碼</span>

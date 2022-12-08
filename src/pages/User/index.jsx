@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import Header from "../../components/Header"
 
 import { useNavigate } from "react-router-dom"
@@ -24,11 +24,11 @@ export default function User() {
     }
 
     return (
-        <Fragment>
+        <div className='User'>
             <Header />
-            <div className='User'>
+            <div className='main'>
                 <button onClick={handleSignOut}>登出</button>
             </div>
-        </Fragment>
+        </div>
     )
 }

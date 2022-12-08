@@ -257,7 +257,7 @@ export default function Register() {
 
     return (
         <div className='Register'>
-            <form onSubmit={handleSubmit} className='form'>
+            <form onSubmit={handleSubmit} className='content'>
                 {
                     passwordIsShow ?
                         <Fragment>

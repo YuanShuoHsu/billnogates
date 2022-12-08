@@ -154,12 +154,12 @@
 
                 .content {
                     padding: 10px;
-                    background: #E4027E;
+                    background: #E4027F;
                     border-radius: 4px;
 
                     .text {
                         margin: 0;
-                        width: calc(80vw / 6 - 5 * 10px);
+                        width: calc(80vw / 6 - 5 * 10px - 2px);
                         color: #fff;
                         font: normal normal 16px/20px sans-serif;
                         letter-spacing: 1px;

@@ -6,17 +6,20 @@
 
 .Detail {
     position: relative;
-    min-height: calc(100vh - 60px - 60px);
     background: rgba(245, 245, 245, 0.8);
-    display: flex;
-    justify-content: center;
 
-    .grid {
+    .main {
         padding: 5px;
-        width: 80%;
+        min-height: calc(100vh - 60px - 60px);
+        display: flex;
+        justify-content: center;
 
-        @include screen() {
-            width: 100%;
+        .grid {
+            width: 80%;
+
+            @include screen() {
+                width: 100%;
+            }
         }
     }
 }

@@ -37,15 +37,20 @@ export default function GalleryOptions() {
       <h3>NT.{findProduct.price}</h3>
       <div className='content'>
         <span className='text'>顏色：</span>
-        <button className='button'>S</button>
-        <button className='button'>M</button>
-        <button className='button'>L</button>
+        {
+          findProduct.color && findProduct.color.map(item => (
+            <button style={{ background: item.rgb }} className='button' key={item.subId} />
+          ))
+        }
       </div>
       <div className='content'>
         <span className='text'>尺寸：</span>
-        <button className='button'>S</button>
-        <button className='button'>M</button>
-        <button className='button'>L</button>
+
+        {
+          findProduct.dimension && findProduct.dimension.map(item => (
+            <button className='button' key={item.subId}>{item.size}</button>
+          ))
+        }
       </div>
       <div className='count'>
         <span className='text'>數量：</span>

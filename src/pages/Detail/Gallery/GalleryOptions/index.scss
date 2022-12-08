@@ -25,12 +25,19 @@
             background: rgba(192, 192, 192, 0.2);
             border: none;
             border-radius: 4px;
+            color: #000;
+            font: normal normal 16px/normal sans-serif;
+            letter-spacing: 1px;
             cursor: pointer;
             transition: 0.2s;
 
             &:hover {
                 opacity: 0.8;
             }
+
+            // &.active {
+            //     border: 1px solid #fff;
+            // }
         }
     }
 
@@ -79,8 +86,8 @@
                 }
 
                 .svg {
-                    width: 20px;
-                    height: 20px;
+                    width: 15px;
+                    height: 15px;
                     fill: #000;
                     pointer-events: none;
 

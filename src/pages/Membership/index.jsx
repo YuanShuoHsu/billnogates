@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
 import { NavLink, Routes, Route, Navigate } from "react-router-dom"
 
@@ -16,20 +16,20 @@ import "./index.scss"
 
 export default function Membership() {
     return (
-        <Fragment>
+        <div className='Membership'>
             <Searchbar />
             <Cartbar />
             <Sidebar />
             <ScrollToTopButton />
             <Header />
-            <div className='Membership'>
-                <div className='box'>
+            <div className='main'>
+                <div className='grid'>
                     <div className='router'>
                         <NavLink className={({ isActive }) => "link" + (isActive ? " active" : "")} to="login">
-                            <button className='login'>登入</button>
+                            <button className='button'>登入</button>
                         </NavLink>
                         <NavLink className={({ isActive }) => "link" + (isActive ? " active" : "")} to="register" >
-                            <button className='register'>註冊</button>
+                            <button className='button'>註冊</button>
                         </NavLink>
                     </div>
                     <div className='form'>
@@ -48,6 +48,6 @@ export default function Membership() {
                 </div>
             </div>
             <Footer />
-        </Fragment>
+        </div>
     )
 }
