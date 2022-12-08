@@ -9,7 +9,7 @@ export default function Supply() {
         <div className='Supply'>
             <div className='card'>
                 <div className='imgBox'>
-                    <img className='photo' src={IMAGES} alt="logo" />
+                    <img className='photo' src={IMAGES} alt="logo" loading="lazy" />
                 </div>
                 <div className='box'>
                     <div className='content'>
@@ -20,7 +20,7 @@ export default function Supply() {
             </div>
             <div className='card'>
                 <div className='imgBox'>
-                    <img className='photo' src={IMAGES} alt="logo" />
+                    <img className='photo' src={IMAGES} alt="logo" loading="lazy" />
                 </div>
                 <div className='box'>
                     <div className='content'>
@@ -31,7 +31,7 @@ export default function Supply() {
             </div>
             <div className='card'>
                 <div className='imgBox'>
-                    <img className='photo' src={IMAGES} alt="logo" />
+                    <img className='photo' src={IMAGES} alt="logo" loading="lazy" />
                 </div>
                 <div className='box'>
                     <div className='content'>
@@ -42,7 +42,7 @@ export default function Supply() {
             </div>
             <div className='card'>
                 <div className='imgBox'>
-                    <img className='photo' src={IMAGES} alt="logo" />
+                    <img className='photo' src={IMAGES} alt="logo" loading="lazy" />
                 </div>
                 <div className='box'>
                     <div className='content'>

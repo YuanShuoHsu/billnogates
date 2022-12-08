@@ -49,7 +49,7 @@ export default function Banner() {
       {
         IMAGES && IMAGES.map(item => (
           <SwiperSlide key={item.id}>
-            <img className="swiper-lazy" data-src={item.image} alt={item.name} />
+            <img className="swiper-lazy" data-src={item.image} alt={item.name} loading="lazy" />
             <div className="swiper-lazy-preloader swiper-lazy-preloader-white" />
           </SwiperSlide>
         ))

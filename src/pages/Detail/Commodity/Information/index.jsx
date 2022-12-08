@@ -22,7 +22,7 @@ export default function Information() {
                         return (<p className='text' key={item.subId}>{item.text}</p>)
                     }
                     else if (item.image !== undefined) {
-                        return (<img className='photo' key={item.subId} src={item.image} alt={item.name} />)
+                        return (<img className='photo' key={item.subId} src={item.image} alt={item.name} loading="lazy"/>)
                     }
                     return item
                 })

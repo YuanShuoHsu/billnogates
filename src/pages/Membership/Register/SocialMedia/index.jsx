@@ -79,7 +79,7 @@ export default function SocialMedia() {
         <div className='SocialMedia'>
             <div className='buttonBox'>
                 <button onClick={handleGoogleSignIn} className='button'>
-                    <img className='brand' src={google} alt="google" />
+                    <img className='brand' src={google} alt="google" loading="lazy" />
                     <div className='textBox'>
                         <span className='text'>使用</span>
                         <span className='brandText'>google</span>
@@ -92,7 +92,7 @@ export default function SocialMedia() {
             </div>
             <div className='buttonBox'>
                 <button onClick={handleFacebookSignIn} className='button'>
-                    <img className='brand' src={facebook} alt="facebook" />
+                    <img className='brand' src={facebook} alt="facebook" loading="lazy" />
                     <div className='textBox'>
                         <span className='text'>使用</span>
                         <p className='brandText'>facebook</p>

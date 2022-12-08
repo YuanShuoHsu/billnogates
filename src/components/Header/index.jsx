@@ -30,7 +30,7 @@ export default function Header() {
         <div className='Header'>
             <div className='box'>
                 <Link className='brand' to="/">
-                    <img className='logo' src={logo} alt="billnogates" />
+                    <img className='logo' src={logo} alt="billnogates" loading="lazy" />
                     <span className='title'>
                         <span className='blue'>B</span>
                         <span className='pink'>ill</span>

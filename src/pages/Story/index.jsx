@@ -22,9 +22,8 @@ export default function Story() {
             <Header />
             <div className='main'>
                 <div className='grid'>
-
                     <div className='picture'>
-                        <img className='image' src={logo} alt="billnogates" />
+                        <img className='image' src={logo} alt="billnogates" loading="lazy" />
                     </div>
                     <div className='phrase'>
                         <span className='text'>沒有蓋子的腦 想像力泳池</span>
@@ -40,7 +39,7 @@ export default function Story() {
                         <span className='text'>&emsp;&emsp;『 billnogates比爾公主沒蓋子 』願成為一座纖維工藝的橋樑——品牌企圖跨域結合傳統工藝與數位自造，開創新的工藝視角，融入原生創意與多元媒材搭配。發展出獨有特色的創意生活品，讓纖維技術有更多被看見的方式！重新咀嚼纖維與日常的關係，輕快溫柔地推進纖維生活美學。</span>
                     </div>
                     <div className='picture'>
-                        <img className='image' src={headshot} alt="許元馨" />
+                        <img className='image' src={headshot} alt="許元馨" loading="lazy"/>
                     </div>
                     <div className='phrase'>
                         <span className='text'>許元馨 / 品牌創辦人</span>
