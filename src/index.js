@@ -7,6 +7,8 @@ import { Provider } from "react-redux"
 
 import { BrowserRouter } from "react-router-dom"
 
+import ScrollToTop from "./utils/ScrollToTop";
+
 import 'normalize.css';
 import './index.css';
 
@@ -15,6 +17,7 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
+        <ScrollToTop />
         <App />
       </BrowserRouter>
     </Provider>

@@ -3,7 +3,7 @@ import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom"
 
 import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
-import { auth } from "../../../../firebase"
+import { auth } from "../../../../utils/firebase"
 
 import google from "../../../../images/membership/google.png"
 import facebook from "../../../../images/membership/facebook.png"

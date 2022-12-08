@@ -12,6 +12,7 @@
     justify-content: center;
 
     .grid {
+        padding: 5px;
         width: 80%;
 
         @include screen() {

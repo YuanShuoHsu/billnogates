@@ -5,6 +5,16 @@ const PRODUCTS = [
         name: "花椰菜菜子裡的小白蟲先生｛ 深/淺 ｝",
         introduction: "一名手作創客，有一隻貓貓",
         price: 1280,
+        color: [
+            {
+                subId: 1,
+            }
+        ],
+        size: [
+            {
+                subId: 1,
+            }
+        ],
         gallery: [
             {
                 subId: 1,

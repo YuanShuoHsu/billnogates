@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import Searchbar from "../../components/Searchbar"
 import Cartbar from "../../components/Cartbar"
 import Sidebar from "../../components/Sidebar"
-import ScrollToTop from "../../components/ScrollToTop"
+import ScrollToTopButton from "../../components/ScrollToTopButton"
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 
@@ -18,7 +18,7 @@ export default function Story() {
             <Searchbar />
             <Cartbar />
             <Sidebar />
-            <ScrollToTop />
+            <ScrollToTopButton />
             <Header />
             <div className='Story'>
                 <div className='picture'>

@@ -4,7 +4,7 @@ import Header from "../../components/Header"
 import { useNavigate } from "react-router-dom"
 
 import { signOut } from "firebase/auth";
-import { auth } from "../../firebase"
+import { auth } from "../../utils/firebase"
 
 import "./index.scss"
 

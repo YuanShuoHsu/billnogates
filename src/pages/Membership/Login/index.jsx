@@ -5,7 +5,7 @@ import SocialMedia from './SocialMedia'
 import { useNavigate } from "react-router-dom"
 
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../../../firebase"
+import { auth } from "../../../utils/firebase"
 
 import "./index.scss"
 
