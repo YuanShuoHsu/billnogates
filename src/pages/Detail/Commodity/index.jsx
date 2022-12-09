@@ -11,10 +11,10 @@ export default function Commodity() {
     return (
         <div className='Commodity'>
             <div className='router'>
-                <NavLink className={({ isActive }) => "link" + (isActive ? " active" : "")} to="description">
+                <NavLink replace className={({ isActive }) => "link" + (isActive ? " active" : "")} to="description">
                     <button className='button'>商品描述</button>
                 </NavLink>
-                <NavLink className={({ isActive }) => "link" + (isActive ? " active" : "")} to="information">
+                <NavLink replace className={({ isActive }) => "link" + (isActive ? " active" : "")} to="information">
                     <button className='button'>商品資訊</button>
                 </NavLink>
             </div>

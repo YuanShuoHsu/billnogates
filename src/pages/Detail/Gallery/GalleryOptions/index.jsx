@@ -2,11 +2,18 @@ import React, { useState } from 'react'
 
 import { useParams } from 'react-router-dom'
 
+import { useDispatch, useSelector } from 'react-redux';
+
 import PRODUCTS from '../../../../dataset/product'
+
+import { add_cartbarItem } from "../../../../store/slice/cartbarItem"
 
 import "./index.scss"
 
 export default function GalleryOptions() {
+
+  const dispatch = useDispatch();
+  const cartbarItem = useSelector(state => state.cartbarItem.value);
 
   const [number, setNumber] = useState(1)
 
@@ -28,6 +35,24 @@ export default function GalleryOptions() {
   const increment = () => {
     if (number < maxNumber) {
       setNumber(number + 1)
+    }
+  }
+
+  const repeatElement = (cartbarItem, item) => {
+    let counter = 0;
+    cartbarItem.forEach(element => {
+      console.log(element,item)
+      if (element === item) {
+        counter++
+      }
+    });
+    return counter;
+  }
+
+  const addToCart = (item) => {
+    // console.log(item)
+    if (repeatElement(cartbarItem, item) < maxNumber) {
+      dispatch(add_cartbarItem(item))
     }
   }
 
@@ -70,7 +95,7 @@ export default function GalleryOptions() {
       </div>
       <div className='buyGroup'>
         <button className='button'>立即購買</button>
-        <button className='button'>加入購物車</button>
+        <button onClick={() => addToCart(findProduct)} className='button'>加入購物車</button>
       </div>
     </div>
   )

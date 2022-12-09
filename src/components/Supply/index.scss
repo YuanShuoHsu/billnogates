@@ -12,8 +12,6 @@
 
 .Supply {
     position: relative;
-    background: transparent;
-    backdrop-filter: blur(4px);
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
     border-top: 1px solid rgba(245, 245, 245, 0.8);
     border-right: 1px solid #fff;
@@ -121,7 +119,6 @@
             width: 100%;
             height: 50%;
             background: rgba(192, 192, 192, 0.2);
-            backdrop-filter: blur(4px);
             display: flex;
             flex-direction: column;
             justify-content: center;

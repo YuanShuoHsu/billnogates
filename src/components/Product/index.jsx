@@ -45,7 +45,6 @@ export default function Product() {
     // const addToCart = (item) => {
     //     if (repeatElement(cartbarItem, item) < maxNumber) {
     //         dispatch(add_cartbarItem(item))
-    //         dispatch(show_header())
     //     }
     // }
 

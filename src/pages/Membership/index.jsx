@@ -25,10 +25,10 @@ export default function Membership() {
             <div className='main'>
                 <div className='grid'>
                     <div className='router'>
-                        <NavLink className={({ isActive }) => "link" + (isActive ? " active" : "")} to="login">
+                        <NavLink replace className={({ isActive }) => "link" + (isActive ? " active" : "")} to="login">
                             <button className='button'>登入</button>
                         </NavLink>
-                        <NavLink className={({ isActive }) => "link" + (isActive ? " active" : "")} to="register" >
+                        <NavLink replace className={({ isActive }) => "link" + (isActive ? " active" : "")} to="register" >
                             <button className='button'>註冊</button>
                         </NavLink>
                     </div>
