@@ -4,8 +4,6 @@ import { Link } from "react-router-dom"
 
 import { useSelector } from 'react-redux';
 
-// import { add_cartbarItem } from '../../store/slice/cartbarItem';
-
 import PRODUCTS from '../../dataset/product';
 
 import "./index.scss"
@@ -29,24 +27,6 @@ export default function Product() {
     }
 
     const newProducts = PRODUCTS.slice((pagination - 1) * 24, pagination * 24)
-
-    // const maxNumber = 10;
-
-    // const repeatElement = (cartbarItem, item) => {
-    //     let counter = 0;
-    //     cartbarItem.forEach(element => {
-    //         if (element === item) {
-    //             counter++
-    //         }
-    //     });
-    //     return counter;
-    // }
-
-    // const addToCart = (item) => {
-    //     if (repeatElement(cartbarItem, item) < maxNumber) {
-    //         dispatch(add_cartbarItem(item))
-    //     }
-    // }
 
     return (
         <div className='Product'>

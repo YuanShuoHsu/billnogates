@@ -68,7 +68,7 @@ export default function CartbarItem(props) {
                     </div>
                     <div className='information'>
                         <h3 className='name'>{item.name}</h3>
-                        <p className='description'>{item.description}</p>
+                        <p className='description'>{item.introduction}</p>
                         <p className='price'>${item.price}</p>
                     </div>
                 </div>

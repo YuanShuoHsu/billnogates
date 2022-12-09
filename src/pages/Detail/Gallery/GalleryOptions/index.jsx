@@ -41,7 +41,7 @@ export default function GalleryOptions() {
   const repeatElement = (cartbarItem, item) => {
     let counter = 0;
     cartbarItem.forEach(element => {
-      console.log(element,item)
+      console.log(element, item)
       if (element === item) {
         counter++
       }
@@ -50,10 +50,14 @@ export default function GalleryOptions() {
   }
 
   const addToCart = (item) => {
-    // console.log(item)
-    if (repeatElement(cartbarItem, item) < maxNumber) {
-      dispatch(add_cartbarItem(item))
+    let temp = []
+    for (let count = 0; count < number; count++) {
+      temp = [...temp, item]
     }
+    console.log(temp)
+    // if (repeatElement(cartbarItem, item) < maxNumber) {
+    //   dispatch(add_cartbarItem(item))
+    // }
   }
 
   return (

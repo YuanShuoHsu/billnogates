@@ -9,6 +9,8 @@ export const cartbarItemSlice = createSlice({
     initialState,
     reducers: {
         add_cartbarItem: (state, data) => {
+            console.log(data.payload)
+            console.log([...state.value])
             state.value = [...state.value, data.payload]
         },
         delete_cartbarItem: (state, data) => {

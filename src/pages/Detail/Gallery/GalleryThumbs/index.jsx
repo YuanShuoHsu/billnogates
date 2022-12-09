@@ -4,12 +4,11 @@ import { useParams } from 'react-router-dom';
 
 import PRODUCTS from "../../../../dataset/product"
 
-import { Keyboard, FreeMode, Lazy, Pagination, Thumbs } from 'swiper';
+import { Keyboard, FreeMode, Pagination, Thumbs } from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css";
 import "swiper/css/free-mode";
-import "swiper/css/lazy";
 import "swiper/css/thumbs";
 
 import "./index.scss"
@@ -28,7 +27,7 @@ export default function GalleryThumbs() {
         <div className="GalleryThumbs">
             <Swiper
                 className="mySwiper2"
-                modules={[Keyboard, FreeMode, Pagination, Lazy, Thumbs]}
+                modules={[Keyboard, FreeMode, Pagination, Thumbs]}
                 spaceBetween={0}
                 keyboard={{
                     enabled: true,
@@ -41,18 +40,12 @@ export default function GalleryThumbs() {
                 pagination={{
                     type: "progressbar",
                 }}
-                lazy={{
-                    loadPrevNext: true,
-                    loadPrevNextAmount: 1,
-                    loadOnTransitionStart: true,
-                }}
                 thumbs={{ swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null }}
             >
                 {
                     findProduct.gallery && findProduct.gallery.map(item => (
                         <SwiperSlide key={item.subId}>
-                            <img className="swiper-lazy" data-src={item.image} alt={item.name} />
-                            <div className="swiper-lazy-preloader swiper-lazy-preloader-white" />
+                            <img src={item.image} alt={item.name} loading="lazy" />
                         </SwiperSlide>
                     ))
                 }
@@ -61,23 +54,17 @@ export default function GalleryThumbs() {
                 <Swiper
                     onSwiper={setThumbsSwiper}
                     className="mySwiper"
-                    modules={[FreeMode, Lazy, Thumbs]}
+                    modules={[FreeMode, Thumbs]}
                     spaceBetween={10}
                     slidesPerView={4}
                     freeMode={true}
                     grabCursor={true}
-                    lazy={{
-                        loadPrevNext: true,
-                        loadPrevNextAmount: 1,
-                        loadOnTransitionStart: true,
-                    }}
                     watchSlidesProgress={true}
                 >
                     {
                         findProduct.gallery && findProduct.gallery.map(item => (
                             <SwiperSlide key={item.subId}>
-                                <img className="swiper-lazy" data-src={item.image} alt={item.name} />
-                                <div className="swiper-lazy-preloader swiper-lazy-preloader-white" />
+                                <img src={item.image} alt={item.name} loading="lazy" />
                             </SwiperSlide>
                         ))
                     }

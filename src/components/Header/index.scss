@@ -14,46 +14,50 @@
         justify-content: space-between;
         align-items: center;
 
-        .brand {
-            margin: 0 5px;
-            padding: 0 2.5px;
-            height: 40px;
-            background: rgba(245, 245, 245, 0.8);
-            backdrop-filter: blur(4px);
-            border-radius: 4px;
+        .link {
             text-decoration: none;
-            display: flex;
-            align-items: center;
-            cursor: pointer;
-            transition: 0.2s;
 
-            &:hover {
-                opacity: 0.8;
-                background: rgba(192, 192, 192, 0.2);
-            }
-
-            .logo {
+            .brand {
+                margin: 0 5px;
                 padding: 0 2.5px;
-                width: 30px;
-                height: 30px;
+                height: 40px;
+                background: rgba(245, 245, 245, 0.8);
+                backdrop-filter: blur(4px);
+                border: none;
                 border-radius: 4px;
-            }
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                transition: 0.2s;
 
-            .title {
-                padding: 0 2.5px;
-                font: normal 800 20px/normal sans-serif;
-                letter-spacing: 1px;
-
-                .blue {
-                    color: #0091DB;
+                &:hover {
+                    opacity: 0.8;
+                    background: rgba(192, 192, 192, 0.2);
                 }
 
-                .pink {
-                    color: #E4027F;
+                .logo {
+                    padding: 0 2.5px;
+                    width: 30px;
+                    height: 30px;
+                    border-radius: 4px;
                 }
 
-                .yellow {
-                    color: #FFE10A;
+                .title {
+                    padding: 0 2.5px;
+                    font: normal 800 20px/normal sans-serif;
+                    letter-spacing: 1px;
+
+                    .blue {
+                        color: #0091DB;
+                    }
+
+                    .pink {
+                        color: #E4027F;
+                    }
+
+                    .yellow {
+                        color: #FFE10A;
+                    }
                 }
             }
         }
