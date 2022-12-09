@@ -41,7 +41,6 @@ export default function GalleryOptions() {
   const repeatElement = (cartbarItem, item) => {
     let counter = 0;
     cartbarItem.forEach(element => {
-      console.log(element, item)
       if (element === item) {
         counter++
       }
@@ -49,15 +48,21 @@ export default function GalleryOptions() {
     return counter;
   }
 
-  const addToCart = (item) => {
-    let temp = []
-    for (let count = 0; count < number; count++) {
-      temp = [...temp, item]
+  const handleAddToCart = (item) => {
+    if (repeatElement(cartbarItem, item) + number <= maxNumber) {
+      for (let count = 0; count < number; count++) {
+        dispatch(add_cartbarItem(item))
+      }
     }
-    console.log(temp)
-    // if (repeatElement(cartbarItem, item) < maxNumber) {
-    //   dispatch(add_cartbarItem(item))
-    // }
+    else if (repeatElement(cartbarItem, item) + number > maxNumber) {
+      for (let count = 0; count < maxNumber - repeatElement(cartbarItem, item); count++) {
+        dispatch(add_cartbarItem(item))
+      }
+    }
+  }
+
+  const handleBuyNow = (item) => {
+    handleAddToCart(item)
   }
 
   return (
@@ -98,8 +103,8 @@ export default function GalleryOptions() {
         </div>
       </div>
       <div className='buyGroup'>
-        <button className='button'>立即購買</button>
-        <button onClick={() => addToCart(findProduct)} className='button'>加入購物車</button>
+        <button onClick={() => handleBuyNow(findProduct)} className='button'>立即購買</button>
+        <button onClick={() => handleAddToCart(findProduct)} className='button'>加入購物車</button>
       </div>
     </div>
   )

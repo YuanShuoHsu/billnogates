@@ -46,7 +46,7 @@ export default function Cartbar() {
                                     <CartbarItem cartbarItem={cartbarItem} item={item} key={item.id} />
                                 ))
                             }
-                            <Link className="checklink" to="/checkout">
+                            <Link className="link" to="/checkout">
                                 <button className='checkout'>
                                     <span className='check'>結帳</span>
                                     <svg className='arrow-right-to-bracket' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
