@@ -31,7 +31,7 @@ export default function Product() {
     return (
         <div className='Product'>
             {
-                newProducts && newProducts.map(item => (
+                newProducts && newProducts.map(item =>
                     <Link className='link' to={`/detail/${item.id}/description`} key={item.id}>
                         <button className='card'>
                             <span className='ribbon'></span>
@@ -46,7 +46,7 @@ export default function Product() {
                             </div>
                         </button>
                     </Link>
-                ))
+                )
             }
         </div>
     )

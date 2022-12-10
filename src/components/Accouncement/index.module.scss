@@ -15,7 +15,7 @@
         height: 20px;
     }
 
-    .swiper-slide {
+    :global(.swiper-slide) {
         text-align: center;
         background: #E4027F;
 
@@ -36,18 +36,13 @@
             padding: 0 5px;
             background: #fff;
             border-radius: 2px;
-            font-size: 16px;
+            color: #000;
+            font: normal normal 16px/normal sans-serif;
+            letter-spacing: 1px;
 
             @include desktop() {
-                font-size: 12px;
+                font: normal normal 12px/normal sans-serif;
             }
-        }
-
-        img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
     }
 }

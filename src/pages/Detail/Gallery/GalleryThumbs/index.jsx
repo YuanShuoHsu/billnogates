@@ -7,9 +7,9 @@ import PRODUCTS from "../../../../dataset/product"
 import { Keyboard, FreeMode, Pagination, Thumbs } from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import "swiper/css";
-import "swiper/css/free-mode";
-import "swiper/css/thumbs";
+import "swiper/scss";
+import "swiper/scss/free-mode";
+import "swiper/scss/thumbs";
 
 import "./index.scss"
 
@@ -62,11 +62,11 @@ export default function GalleryThumbs() {
                     watchSlidesProgress={true}
                 >
                     {
-                        findProduct.gallery && findProduct.gallery.map(item => (
+                        findProduct.gallery && findProduct.gallery.map(item =>
                             <SwiperSlide key={item.subId}>
                                 <img src={item.image} alt={item.name} loading="lazy" />
                             </SwiperSlide>
-                        ))
+                        )
                     }
                 </Swiper>
             </div>

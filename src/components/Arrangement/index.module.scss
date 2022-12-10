@@ -1,6 +1,17 @@
+@mixin others {
+    @media(max-width: 320px) {
+        @content;
+    }
+}
+
 .Arrangement {
     position: relative;
     display: flex;
+
+    @include others() {
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
 
     .anchorPoint {
         position: absolute;

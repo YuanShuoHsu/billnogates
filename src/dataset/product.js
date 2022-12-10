@@ -1,3 +1,4 @@
+// 商品圖片大小建議 72dpi 1440 x 1080 = 4 : 3
 const PRODUCTS = [
     {
         id: 1,

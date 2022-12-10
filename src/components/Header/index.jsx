@@ -11,7 +11,7 @@ import { show_headerNavSubMenu, hide_headerNavSubMenu } from '../../store/slice/
 
 import logo from './../../images/home/logo.png';
 
-import "./index.scss"
+import styles from "./index.module.scss"
 
 export default function Header() {
 
@@ -27,27 +27,27 @@ export default function Header() {
     }
 
     return (
-        <div className='Header'>
-            <div className='box'>
-                <Link className='link' to="/">
-                    <button className='brand'>
-                        <img className='logo' src={logo} alt="billnogates" loading="lazy" />
-                        <span className='title'>
-                            <span className='blue'>B</span>
-                            <span className='pink'>ill</span>
-                            <span className='yellow'>no</span>
-                            <span className='blue'>g</span>
-                            <span className='pink'>ates</span>
+        <div className={styles.Header}>
+            <div className={styles.box}>
+                <Link className={styles.link} to="/">
+                    <button className={styles.brand}>
+                        <img className={styles.logo} src={logo} alt="billnogates" loading="lazy" />
+                        <span className={styles.title}>
+                            <span className={styles.blue}>B</span>
+                            <span className={styles.pink}>ill</span>
+                            <span className={styles.yellow}>no</span>
+                            <span className={styles.blue}>g</span>
+                            <span className={styles.pink}>ates</span>
                         </span>
                     </button>
                 </Link>
-                <div className='content'>
+                <div className={styles.content}>
                     <HeaderNav />
                     <HeaderButton />
                 </div>
             </div>
-            <div onMouseEnter={handleEnterHover} onMouseLeave={handleLeaveHover} className={`dropdown ${headerNavSubMenu ? "active" : ""}`}>
-                <div className='space'></div>
+            <div onMouseEnter={handleEnterHover} onMouseLeave={handleLeaveHover} className={`${styles.dropdown} ${headerNavSubMenu ? `${styles.active}` : ""}`}>
+                <div className={styles.space}></div>
                 <HeaderNavSubMenu />
             </div>
         </div>

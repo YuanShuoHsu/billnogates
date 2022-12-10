@@ -13,9 +13,9 @@ export default function HeaderNavSubMenu() {
     return (
         <ul className="HeaderNavSubMenu">
             {
-                headerNavItem.layers && headerNavItem.layers.map(subItem => (
+                headerNavItem.layers && headerNavItem.layers.map(subItem =>
                     <HeaderNavSubItem itemLink={headerNavItem.link} subItem={subItem} key={subItem.subId} />
-                ))
+                )
             }
         </ul>
     )

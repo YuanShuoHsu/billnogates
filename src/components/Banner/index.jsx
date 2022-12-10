@@ -5,11 +5,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 
 import IMAGES from "../../dataset/banner"
 
-import 'swiper/css';
-import "swiper/css/free-mode";
-import 'swiper/css/pagination';
+import 'swiper/scss';
+import "swiper/scss/free-mode";
+import 'swiper/scss/pagination';
 
-import "./index.scss"
+import styles from "./index.module.scss"
 
 export default function Banner() {
 
@@ -21,7 +21,7 @@ export default function Banner() {
 
   return (
     <Swiper
-      className='Banner'
+      className={styles.Banner}
       modules={[Autoplay, FreeMode, Keyboard, Pagination]}
       spaceBetween={0}
       slidesPerView={1}
@@ -41,11 +41,11 @@ export default function Banner() {
       pagination={{ clickable: true }}
     >
       {
-        IMAGES && IMAGES.map(item => (
+        IMAGES && IMAGES.map(item =>
           <SwiperSlide key={item.id}>
             <img src={item.image} alt={item.name} loading="lazy" />
           </SwiperSlide>
-        ))
+        )
       }
     </Swiper>
   )

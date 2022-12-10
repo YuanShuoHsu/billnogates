@@ -1,3 +1,9 @@
+@mixin others {
+    @media(max-width: 320px) {
+        @content;
+    }
+}
+
 .Header {
     position: sticky;
     padding: 0 5px;
@@ -7,6 +13,11 @@
     background: rgba(245, 245, 245, 0.8);
     backdrop-filter: blur(4px);
     z-index: 2;
+
+    @include others() {
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
 
     .box {
         height: 60px;

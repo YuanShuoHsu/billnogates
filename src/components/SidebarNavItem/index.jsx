@@ -42,9 +42,9 @@ export default function SidebarNavItem(props) {
                         </div>
                         <ul style={{ "--x": `${item.layers.length + subItemClick}` }} className="subMenu">
                             {
-                                item.layers.map(subItem => (
+                                item.layers.map(subItem =>
                                     <SidebarNavSubItem handleSubItemLayersLength={handleSubItemLayersLength} itemLink={item.link} subItem={subItem} key={subItem.subId} />
-                                ))
+                                )
                             }
                         </ul>
                     </li>

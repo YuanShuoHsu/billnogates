@@ -24,9 +24,9 @@ export default function HeaderNavSubItem(props) {
                         </div>
                         <ul style={{ "--x": `${subItem.subLayers.length}` }} className="grandMenu">
                             {
-                                subItem.subLayers.map(grandItem => (
+                                subItem.subLayers.map(grandItem =>
                                     <HeaderNavGrandItem itemLink={itemLink} subItemLink={subItem.subLink} grandItem={grandItem} key={grandItem.grandId} />
-                                ))
+                                )
                             }
                         </ul>
                     </Fragment>

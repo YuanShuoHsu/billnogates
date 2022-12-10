@@ -72,18 +72,18 @@ export default function GalleryOptions() {
       <div className='content'>
         <span className='text'>顏色：</span>
         {
-          findProduct.color && findProduct.color.map(item => (
+          findProduct.color && findProduct.color.map(item =>
             <button style={{ background: item.rgb }} className='button' key={item.subId} />
-          ))
+          )
         }
       </div>
       <div className='content'>
         <span className='text'>尺寸：</span>
 
         {
-          findProduct.dimension && findProduct.dimension.map(item => (
+          findProduct.dimension && findProduct.dimension.map(item =>
             <button className='button' key={item.subId}>{item.size}</button>
-          ))
+          )
         }
       </div>
       <div className='count'>

@@ -10,9 +10,9 @@ export default function HeaderNav() {
     <div className='HeaderNav'>
       <ul className='menu'>
         {
-          NAVS && NAVS.map(item => (
+          NAVS && NAVS.map(item =>
             <NavbarItem item={item} key={item.id} />
-          ))
+          )
         }
       </ul>
     </div>
