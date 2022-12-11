@@ -9,25 +9,30 @@ const PRODUCTS = [
         color: [
             {
                 subId: 1,
+                name: "深",
                 rgb: "#000",
             },
             {
                 subId: 2,
+                name: "淺",
                 rgb: "#ccc",
             }
         ],
         dimension: [
             {
                 subId: 1,
-                size: "S"
+                size: "S",
+                checked: false
             },
             {
                 subId: 2,
-                size: "M"
+                size: "M",
+                checked: false
             },
             {
                 subId: 3,
-                size: "L"
+                size: "L",
+                checked: false
             },
         ],
         gallery: [

@@ -16,7 +16,7 @@ export default function Accouncement() {
         <Swiper
             className={styles.Accouncement}
             modules={[Autoplay, FreeMode]}
-            spaceBetween={15}
+            spaceBetween={20}
             slidesPerView={1}
             speed={1000}
             autoplay={{

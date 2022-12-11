@@ -25,10 +25,12 @@ export default function Banner() {
       modules={[Autoplay, FreeMode, Keyboard, Pagination]}
       spaceBetween={0}
       slidesPerView={1}
+      speed={500}
       autoHeight={true}
       autoplay={{
         delay: 5000,
         disableOnInteraction: false,
+        waitForTransition: false,
       }}
       freeMode={{
         enabled: true,

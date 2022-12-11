@@ -14,11 +14,11 @@ import Product from "../../components/Product"
 import Pagination from "../../components/Pagination"
 import Footer from "../../components/Footer"
 
-import "./index.scss"
+import styles from "./index.module.scss"
 
 export default function Home() {
     return (
-        <div className='Home'>
+        <div className={styles.Home}>
             <Searchbar />
             <Cartbar />
             <Sidebar />
@@ -27,17 +27,17 @@ export default function Home() {
             <Accouncement />
             <Banner />
             <Recommend />
-            <div className='main'>
-                <div className="grid">
+            <div className={styles.main}>
+                <div className={styles.grid}>
                     <Supply />
                 </div>
-                <div className='grid'>
+                <div className={styles.grid}>
                     <Arrangement />
                 </div>
-                <div className='grid'>
+                <div className={styles.grid}>
                     <Product />
                 </div>
-                <div className="grid">
+                <div className={styles.grid}>
                     <Pagination />
                 </div>
             </div>

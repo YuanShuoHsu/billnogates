@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import { useParams } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,23 +8,41 @@ import PRODUCTS from '../../../../dataset/product'
 
 import { add_cartbarItem } from "../../../../store/slice/cartbarItem"
 
-import "./index.scss"
+import styles from "./index.module.scss"
 
 export default function GalleryOptions() {
 
-  const dispatch = useDispatch();
-  const cartbarItem = useSelector(state => state.cartbarItem.value);
-
+  const [color, setColor] = useState("")
+  const [size, setSize] = useState("")
   const [number, setNumber] = useState(1)
 
   const minNumber = 1
   const maxNumber = 10
+
+  const dispatch = useDispatch();
+  const cartbarItem = useSelector(state => state.cartbarItem.value);
 
   const { productId } = useParams()
 
   const findProduct = PRODUCTS.find(detailObj => (
     detailObj.id === Number(productId)
   ))
+
+  const navigate = useNavigate()
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+  }
+
+  const handleColorChange = (event) => {
+    const { target } = event
+    setColor(target.value)
+  }
+
+  const handleSizeChange = (event) => {
+    const { target } = event
+    setSize(target.value)
+  }
 
   const decrement = () => {
     if (minNumber < number) {
@@ -48,7 +66,7 @@ export default function GalleryOptions() {
     return counter;
   }
 
-  const handleAddToCart = (item) => {
+  const addToCart = (item) => {
     if (repeatElement(cartbarItem, item) + number <= maxNumber) {
       for (let count = 0; count < number; count++) {
         dispatch(add_cartbarItem(item))
@@ -61,51 +79,71 @@ export default function GalleryOptions() {
     }
   }
 
-  const handleBuyNow = (item) => {
-    handleAddToCart(item)
+  const handleBuyNow = () => {
+    if (color !== "" && size !== "") {
+      addToCart(findProduct)
+      navigate("/checkout")
+    }
+  }
+
+  const handleAddToCart = () => {
+    if (color !== "" && size !== "") {
+      addToCart(findProduct)
+    }
   }
 
   return (
-    <div className='GalleryOptions'>
-      <h2>{findProduct.name}</h2>
-      <h3>NT.{findProduct.price}</h3>
-      <div className='content'>
-        <span className='text'>顏色：</span>
+    <form onSubmit={handleSubmit} className={styles.GalleryOptions}>
+      <h2 className={styles.title}>{findProduct.name}</h2>
+      <h3 className={styles.title}>NT.{findProduct.price}</h3>
+      <div className={styles.content}>
+        <span className={styles.text}>顏色：</span>
         {
           findProduct.color && findProduct.color.map(item =>
-            <button style={{ background: item.rgb }} className='button' key={item.subId} />
+            <div className={styles.radio} key={item.subId}>
+              <input onChange={handleColorChange} className={styles.input} type="radio" name="color" value={item.name} id={item.name} checked={color === item.name} required />
+              <label style={{ background: item.rgb }} className={styles.label} htmlFor={item.name} />
+            </div>
           )
         }
       </div>
-      <div className='content'>
-        <span className='text'>尺寸：</span>
-
+      <div className={styles.content}>
+        <span className={styles.text}>尺寸：</span>
         {
           findProduct.dimension && findProduct.dimension.map(item =>
-            <button className='button' key={item.subId}>{item.size}</button>
+            <div className={styles.radio} key={item.subId}>
+              <input onChange={handleSizeChange} className={styles.input} type="radio" name="size" value={item.size} id={item.size} checked={size === item.size} required />
+              <label className={styles.label} htmlFor={item.size} >{item.size}</label>
+            </div>
           )
         }
       </div>
-      <div className='count'>
-        <span className='text'>數量：</span>
-        <div className='number'>
-          <button onClick={decrement} className='button'>
-            <svg className='svg' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+      <div className={styles.count}>
+        <span className={styles.text}>數量：</span>
+        <div className={styles.number}>
+          <button onClick={decrement} className={styles.button}>
+            <svg className={styles.svg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
               <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" />
             </svg>
           </button>
-          <input className='input' type="number" value={number} readOnly />
-          <button onClick={increment} className='button'>
-            <svg className='svg' xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+          <input className={styles.input} type="number" value={number} readOnly />
+          <button onClick={increment} className={styles.button}>
+            <svg className={styles.svg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
               <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
             </svg>
           </button>
         </div>
       </div>
-      <div className='buyGroup'>
-        <button onClick={() => handleBuyNow(findProduct)} className='button'>立即購買</button>
-        <button onClick={() => handleAddToCart(findProduct)} className='button'>加入購物車</button>
+      <div className={styles.buyGroup}>
+        <div className={styles.content}>
+          {/* <Link className={styles.link} to="/checkout"> */}
+          <button onClick={handleBuyNow} className={styles.button}>立即購買</button>
+          {/* </Link> */}
+        </div>
+        <div className={styles.content}>
+          <button onClick={handleAddToCart} className={styles.button}>加入購物車</button>
+        </div>
       </div>
-    </div>
+    </form>
   )
 }

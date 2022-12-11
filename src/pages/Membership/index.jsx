@@ -12,27 +12,27 @@ import Footer from "../../components/Footer"
 import Login from "./Login"
 import Register from "./Register"
 
-import "./index.scss"
+import styles from "./index.module.scss"
 
 export default function Membership() {
     return (
-        <div className='Membership'>
+        <div className={styles.Membership}>
             <Searchbar />
             <Cartbar />
             <Sidebar />
             <ScrollToTopButton />
             <Header />
-            <div className='main'>
-                <div className='grid'>
-                    <div className='router'>
-                        <NavLink replace className={({ isActive }) => "link" + (isActive ? " active" : "")} to="login">
-                            <button className='button'>登入</button>
+            <div className={styles.main}>
+                <div className={styles.grid}>
+                    <div className={styles.router}>
+                        <NavLink replace className={({ isActive }) => `${styles.link}` + (isActive ? ` ${styles.active}` : "")} to="login">
+                            <button className={styles.button}>登入</button>
                         </NavLink>
-                        <NavLink replace className={({ isActive }) => "link" + (isActive ? " active" : "")} to="register" >
-                            <button className='button'>註冊</button>
+                        <NavLink replace className={({ isActive }) => `${styles.link}` + (isActive ? ` ${styles.active}` : "")} to="register" >
+                            <button className={styles.button}>註冊</button>
                         </NavLink>
                     </div>
-                    <div className='form'>
+                    <div className={styles.form}>
                         <Routes>
                             <Route path="login" >
                                 <Route path="" element={<Login />} />
