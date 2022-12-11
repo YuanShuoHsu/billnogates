@@ -6,7 +6,9 @@
     border-radius: 4px;
 
     .title {
+        color: #000;
         font: normal normal normal/normal sans-serif;
+        letter-spacing: 1px;
     }
 
     .content {
@@ -36,6 +38,7 @@
                     +label {
                         border: 1px solid #E4027F;
                         box-sizing: border-box;
+                        color: #E4027F;
                     }
                 }
             }
@@ -47,9 +50,11 @@
                 height: 40px;
                 background: rgba(192, 192, 192, 0.2);
                 border-radius: 4px;
-                text-align: center;
                 color: #000;
-                font: normal normal 16px/40px sans-serif;
+                font: normal normal 16px/normal sans-serif;
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 cursor: pointer;
                 transition: 0.2s;
 
@@ -58,7 +63,6 @@
                 }
             }
         }
-
     }
 
     .count {
