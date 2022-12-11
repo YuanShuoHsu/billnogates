@@ -17,7 +17,7 @@ export default function Arrangement() {
 
     return (
         <div className={styles.Arrangement} id="Arrangement">
-            <div className={styles.anchorPoint} />
+            <div className="anchorPoint" />
             <div className={styles.box}>
                 <span className={styles.text}>排列方式：</span>
                 <div className={styles.content}>

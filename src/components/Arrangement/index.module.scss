@@ -13,7 +13,7 @@
         overflow-y: hidden;
     }
 
-    .anchorPoint {
+    :global(.anchorPoint) {
         position: absolute;
         top: -60px;
         left: 0;

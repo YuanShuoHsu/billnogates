@@ -69,7 +69,7 @@
         box-sizing: border-box;
         border-radius: 20px;
 
-        .swiper-slide {
+        :global(.swiper-slide) {
             /* Center slide text vertically */
             display: -webkit-box;
             display: -ms-flexbox;

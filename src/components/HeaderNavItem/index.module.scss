@@ -35,7 +35,7 @@
         &.active {
             background: rgba(255, 225, 10, 0.5);
 
-            .angle-down {
+            .svg{
                 transform: rotate(180deg);
             }
         }
@@ -46,16 +46,15 @@
 
         .text {
             color: #000;
-            font-size: 16px;
-            font-weight: 400;
+            font: normal normal 16px/normal sans-serif;
             letter-spacing: 1px;
             white-space: nowrap;
-            // transition: 0.2s;
         }
 
-        .angle-down {
+        .svg {
             width: 16px;
             height: 16px;
+            fill: #000;
             transition: 0.2s;
 
             path {
