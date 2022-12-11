@@ -47,12 +47,6 @@
                     transform: scale(1.1);
                 }
             }
-
-            // .box {
-            //     .content {
-            //         transform: scale(1.1);
-            //     }
-            // }
         }
 
         @include desktop() {
@@ -129,10 +123,10 @@
             .content {
                 padding: 10px;
                 text-align: center;
-                // transition: 0.2s;
 
                 .title {
                     color: #000;
+                    font: normal normal normal/normal sans-serif;
                     letter-spacing: 1px;
                 }
 

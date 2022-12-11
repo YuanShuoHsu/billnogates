@@ -39,17 +39,17 @@
         background: #fff;
         border-radius: 2px;
         color: #000;
-        font-size: 16px;
+        font: normal normal 16px/normal sans-serif;
         white-space: nowrap;
         text-transform: uppercase;
-        animation: 20s linear 0s infinite normal none running scroll;
+        animation: 20s linear 0s infinite normal none running ticker;
         pointer-events: none;
 
         @include desktop() {
             font-size: 12px;
         }
 
-        @include keyframes-animation(scroll) {
+        @include keyframes-animation(ticker) {
             0% {
                 @include prefix-property(transform, translateX(100%));
                 @include prefix-property(filter, hue-rotate(0deg));
@@ -62,7 +62,7 @@
         }
 
         @include desktop {
-            @include keyframes-animation(scroll) {
+            @include keyframes-animation(ticker) {
                 0% {
                     @include prefix-property(transform, translateX(50%));
                     @include prefix-property(filter, hue-rotate(0deg));
@@ -81,8 +81,7 @@
         }
 
         .hue {
-            color: #0f0;
-            // -webkit-text-stroke: 1px #000;
+            color: #E4027F;
         }
     }
 }

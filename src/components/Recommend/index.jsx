@@ -1,6 +1,6 @@
 import React from 'react'
 
-import "./index.scss"
+import styles from "./index.module.scss"
 
 export default function Recommend(props) {
 
@@ -30,20 +30,20 @@ export default function Recommend(props) {
   }
 
   return (
-    <div onDoubleClick={handleStop} onClick={handleReverse} className='Recommend' id={id}>
-      <div className='content'>
-        billnogates
-        <span className='stroke'> store - </span>
-        <span className='hue'> store - </span>
-        billnogates
-        <span className='stroke'> store - </span>
-        <span className='hue'> store - </span>
-        billnogates
-        <span className='stroke'> store - </span>
-        <span className='hue'> store - </span>
-        billnogates
-        <span className='stroke'> store - </span>
-        <span className='hue'> store - </span>
+    <div onDoubleClick={handleStop} onClick={handleReverse} className={styles.Recommend} id={id}>
+      <div className={styles.content}>
+        <span>billnogates</span>
+        <span className={styles.stroke}> store </span>
+        <span className={styles.hue}> - store - </span>
+        <span>billnogates</span>
+        <span className={styles.stroke}> store - </span>
+        <span className={styles.hue}> store - </span>
+        <span>billnogates</span>
+        <span className={styles.stroke}> store - </span>
+        <span className={styles.hue}> store - </span>
+        <span>billnogates</span>
+        <span className={styles.stroke}> store </span>
+        <span className={styles.hue}>  - store - </span>
       </div>
     </div>
   )

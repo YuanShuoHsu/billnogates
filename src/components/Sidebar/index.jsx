@@ -5,7 +5,7 @@ import SidebarNav from '../SidebarNav';
 import { useDispatch, useSelector } from 'react-redux';
 import { hide_sidebar } from '../../store/slice/sidebar';
 
-import "./index.scss"
+import styles from "./index.module.scss"
 
 export default function Sidebar() {
 
@@ -28,9 +28,9 @@ export default function Sidebar() {
   }
 
   return (
-    <div onClick={hideMenu} className={`Sidebar ${sidebar ? "active" : ""}`}>
-      <div onClick={stopPropagation} className='box'>
-        <div className='landscape'></div>
+    <div onClick={hideMenu} className={`${styles.Sidebar} ${sidebar ? `${styles.active}` : ""}`}>
+      <div onClick={stopPropagation} className={styles.box}>
+        <div className={styles.landscape} />
         <SidebarNav />
       </div>
     </div>

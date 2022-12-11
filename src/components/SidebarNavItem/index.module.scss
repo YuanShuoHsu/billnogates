@@ -7,7 +7,7 @@
         .link {
             background: rgba(255, 225, 10, 0.5);
 
-            .angle-down {
+            .svg {
                 transform: rotate(180deg);
             }
         }
@@ -46,9 +46,10 @@
             background: rgba(228, 2, 127, 0.5);
         }
 
-        .angle-down {
+        .svg {
             width: 16px;
             height: 16px;
+            fill: #000;
             transition: 0.2s;
 
             path {
@@ -57,9 +58,8 @@
         }
 
         .text {
-            font-size: 16px;
-            font-weight: 400;
             color: #000;
+            font: normal normal 16px/normal sans-serif;
             letter-spacing: 1px;
             transition: 0.2s;
         }
