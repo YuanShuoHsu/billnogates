@@ -1,6 +1,6 @@
 import React from 'react'
-import * as ReactDOMServer from "react-dom/server";
 
+import { renderToStaticMarkup } from "react-dom/server";
 
 import { Autoplay, FreeMode, Keyboard, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,26 +15,20 @@ import styles from "./index.module.scss"
 
 export default function Banner() {
 
-  // const swiperRef = useRef()
-
-  // useEffect(() => {
-  //   swiperRef.current.children[1].style = `--x: ${BANNERS.length}`
-  // }, [])
-
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
       const newBullet = BANNERS.bullets && BANNERS.bullets.map(item => {
         if (index % BANNERS.bullets.length === item.id - 1) {
-          return ReactDOMServer.renderToStaticMarkup(
-            <span className={`${className}`}>
+          return renderToStaticMarkup(
+            <span className={className} >
               <img src={item.image} alt={item.name} />
             </span>
           );
         }
         return item
       });
-      return newBullet[index]
+      return newBullet[index % BANNERS.bullets.length]
     }
   };
 
