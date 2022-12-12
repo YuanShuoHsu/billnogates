@@ -21,6 +21,7 @@
             align-items: center;
 
             .photo {
+                position: relative;
                 margin: 5px;
                 width: 50%;
                 height: 100%;
@@ -29,6 +30,7 @@
                 align-items: center;
                 border-radius: 4px;
                 overflow: hidden;
+                z-index: 3;
 
                 .image {
                     display: block;
