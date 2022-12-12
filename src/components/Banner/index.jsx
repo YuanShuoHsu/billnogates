@@ -1,9 +1,11 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
+import * as ReactDOMServer from "react-dom/server";
+
 
 import { Autoplay, FreeMode, Keyboard, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import IMAGES from "../../dataset/banner"
+import BANNERS from "../../dataset/banner"
 
 import 'swiper/scss';
 import "swiper/scss/free-mode";
@@ -13,11 +15,28 @@ import styles from "./index.module.scss"
 
 export default function Banner() {
 
-  const swiperRef = useRef()
+  // const swiperRef = useRef()
 
-  useEffect(() => {
-    swiperRef.current.children[1].style = `--x: ${IMAGES.length}`
-  }, [])
+  // useEffect(() => {
+  //   swiperRef.current.children[1].style = `--x: ${BANNERS.length}`
+  // }, [])
+
+  const pagination = {
+    clickable: true,
+    renderBullet: function (index, className) {
+      const newBullet = BANNERS.bullets && BANNERS.bullets.map(item => {
+        if (index % BANNERS.bullets.length === item.id - 1) {
+          return ReactDOMServer.renderToStaticMarkup(
+            <span className={`${className}`}>
+              <img src={item.image} alt={item.name} />
+            </span>
+          );
+        }
+        return item
+      });
+      return newBullet[index]
+    }
+  };
 
   return (
     <Swiper
@@ -39,11 +58,10 @@ export default function Banner() {
       grabCursor={true}
       keyboard={{ nabled: true }}
       loop={true}
-      ref={swiperRef}
-      pagination={{ clickable: true }}
+      pagination={pagination}
     >
       {
-        IMAGES && IMAGES.map(item =>
+        BANNERS.slides && BANNERS.slides.map(item =>
           <SwiperSlide key={item.id}>
             <img src={item.image} alt={item.name} loading="lazy" />
           </SwiperSlide>

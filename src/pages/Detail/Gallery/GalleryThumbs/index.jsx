@@ -9,9 +9,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/scss";
 import "swiper/scss/free-mode";
+import "swiper/scss/pagination";
 import "swiper/scss/thumbs";
 
-import "./index.scss"
+import styles from "./index.module.scss"
 
 export default function GalleryThumbs() {
 
@@ -24,11 +25,13 @@ export default function GalleryThumbs() {
     ))
 
     return (
-        <div className="GalleryThumbs">
+        <div className={styles.GalleryThumbs}>
             <Swiper
-                className="mySwiper2"
+                className={styles.mySwiper2}
                 modules={[Keyboard, FreeMode, Pagination, Thumbs]}
                 spaceBetween={0}
+                slidesPerView={1}
+                speed={500}
                 keyboard={{
                     enabled: true,
                 }}
@@ -50,13 +53,14 @@ export default function GalleryThumbs() {
                     ))
                 }
             </Swiper>
-            <div className='scrollBox'>
+            <div className={styles.scrollBox}>
                 <Swiper
                     onSwiper={setThumbsSwiper}
-                    className="mySwiper"
+                    className={styles.mySwiper}
                     modules={[FreeMode, Thumbs]}
                     spaceBetween={10}
                     slidesPerView={4}
+                    speed={500}
                     freeMode={true}
                     grabCursor={true}
                     watchSlidesProgress={true}

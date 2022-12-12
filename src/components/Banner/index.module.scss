@@ -57,33 +57,32 @@
         align-items: center;
         pointer-events: none;
 
-        &::before {
-            position: absolute;
-            content: "";
-            width: calc(var(--x) * 20px + 8px + 10px);
-            height: 20px;
-            background: rgba(255, 255, 255, 0.5);
-            border-radius: 20px;
-            pointer-events: auto;
-        }
+        // &::before {
+        //     position: absolute;
+        //     content: "";
+        //     width: calc(var(--x) * 20px + 8px + 10px);
+        //     height: 20px;
+        //     background: rgba(255, 255, 255, 0.5);
+        //     border-radius: 20px;
+        //     pointer-events: auto;
+        // }
 
         :global(.swiper-pagination-bullet) {
-            margin: 4px;
-            width: 10px;
-            height: 10px;
-            background: #0091DB;
-            border: 1px solid #eee;
-            pointer-events: auto;
-            opacity: 0.5;
-            z-index: 1;
+            width: 30px;
+            height: 30px;
+            opacity: 1;
             transition: 0.2s;
+            pointer-events: auto;
+
+            :global(img) {
+                // content: url(../../images/banner/bullets/腦袋按鈕2.svg);
+            }
         }
 
         :global(.swiper-pagination-bullet-active) {
-            width: 20px;
-            background: #E4027F;
-            border-radius: 10px;
-            opacity: 1;
+            :global(img) {
+                // content: url(../../images/banner/bullets/腦袋按鈕4.svg);
+            }
         }
     }
 }
