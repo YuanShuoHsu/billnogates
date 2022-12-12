@@ -14,7 +14,6 @@ import 'swiper/scss/pagination';
 import styles from "./index.module.scss"
 
 export default function Banner() {
-
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
