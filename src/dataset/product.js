@@ -70,11 +70,11 @@ const PRODUCTS = [
         description: [
             {
                 subId: 1,
-                text: "Hello,world1"
+                text: "Hello,world1\n連續敘述用 \\ n 換行"
             },
             {
                 subId: 2,
-                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽2.png"),
+                horizontal: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽2.png"),
                 name: "花椰菜帽2"
             },
             {
@@ -87,12 +87,12 @@ const PRODUCTS = [
             },
             {
                 subId: 5,
-                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽4.png"),
+                horizontal: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽4.png"),
                 name: "花椰菜帽4"
             },
             {
                 subId: 6,
-                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽3.png"),
+                vertical: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽3.png"),
                 name: "花椰菜帽3"
             }
         ],
@@ -103,7 +103,7 @@ const PRODUCTS = [
             },
             {
                 subId: 2,
-                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"),
+                vertical: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"),
                 name: "花椰菜帽1"
             }
         ]

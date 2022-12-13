@@ -26,7 +26,7 @@ export default function GalleryOptions() {
 
   const findProduct = PRODUCTS.find(detailObj => (
     detailObj.id === Number(productId)
-  ))
+  )) || {}
 
   const navigate = useNavigate()
 

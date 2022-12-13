@@ -19,10 +19,10 @@ export default function App() {
           <Route path="*" element={<Membership />} />
         </Route>
         <Route path="detail" >
-          <Route path="" element={<Navigate replace to="1/description" />} />
-          <Route path=":productId">
-            <Route path="" element={<Navigate replace to="description" />} />
-            <Route path="*" element={<Detail />} />
+          <Route path="" element={<Navigate replace to="1" state={{ link: "description" }} />} />
+          <Route path=":productId" state={{ link: "description" }}>
+            <Route path="" element={<Detail />} />
+            <Route path="*" element={<Navigate replace to="" state={{ link: "description" }} />} />
           </Route>
         </Route>
         <Route path="checkout" element={<Checkout />} />

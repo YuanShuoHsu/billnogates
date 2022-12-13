@@ -22,7 +22,7 @@ export default function GalleryThumbs() {
 
     const findProduct = PRODUCTS.find(detailObj => (
         detailObj.id === Number(productId)
-    ))
+    )) || {}
 
     return (
         <div className={styles.GalleryThumbs}>

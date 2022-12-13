@@ -8,11 +8,11 @@ import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 
 import Gallery from "./Gallery"
-
-import "./index.scss"
 import Commodity from './Commodity'
 
-export default function Detailed() {
+import "./index.scss"
+
+export default function Detail() {
     return (
         <div className='Detail'>
             <Searchbar />
