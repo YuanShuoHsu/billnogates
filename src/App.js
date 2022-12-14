@@ -15,8 +15,8 @@ export default function App() {
       <Routes>
         <Route path="" element={<Home />} />
         <Route path="membership">
-          <Route path="" element={<Membership />} />
-          <Route path="*" element={<Navigate replace to="" />} />
+          <Route path="" element={<Navigate replace to="login" />} />
+          <Route path="*" element={<Membership />} />
         </Route>
         <Route path="detail" >
           <Route path="" element={<Navigate replace to="1" />} />
