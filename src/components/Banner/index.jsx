@@ -5,7 +5,7 @@ import { renderToStaticMarkup } from "react-dom/server";
 import { Autoplay, FreeMode, Keyboard, Pagination } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import BANNERS from "../../dataset/banner"
+import SLIDES from "../../dataset/banner"
 
 import 'swiper/scss';
 import "swiper/scss/free-mode";
@@ -14,20 +14,42 @@ import 'swiper/scss/pagination';
 import styles from "./index.module.scss"
 
 export default function Banner() {
+
+  const bullets = [
+    {
+      id: 1,
+      image: require("../../images/banner/bullets/腦袋按鈕1.svg").default,
+      name: "腦袋按鈕1"
+    },
+    {
+      id: 2,
+      image: require("../../images/banner/bullets/腦袋按鈕2.svg").default,
+      name: "腦袋按鈕2"
+    },
+    {
+      id: 3,
+      image: require("../../images/banner/bullets/腦袋按鈕3.svg").default,
+      name: "腦袋按鈕3"
+    },
+  ]
+
+  const judgeBulletNumberIndex = (index, className, item) => {
+    if (index % bullets.length === item.id - 1) {
+      return renderToStaticMarkup(
+        <span className={className} >
+          <img src={item.image} alt={item.name} />
+        </span>
+      );
+    }
+  }
+
   const pagination = {
     clickable: true,
     renderBullet: function (index, className) {
-      const newBullet = BANNERS.bullets && BANNERS.bullets.map(item => {
-        if (index % BANNERS.bullets.length === item.id - 1) {
-          return renderToStaticMarkup(
-            <span className={className} >
-              <img src={item.image} alt={item.name} />
-            </span>
-          );
-        }
-        return item
+      const newBullet = bullets && bullets.map(item => {
+        return judgeBulletNumberIndex(index, className, item)
       });
-      return newBullet[index % BANNERS.bullets.length]
+      return newBullet[index % bullets.length]
     }
   };
 
@@ -54,7 +76,7 @@ export default function Banner() {
       pagination={pagination}
     >
       {
-        BANNERS.slides && BANNERS.slides.map(item =>
+        SLIDES && SLIDES.map(item =>
           <SwiperSlide key={item.id}>
             <img src={item.image} alt={item.name} loading="lazy" />
           </SwiperSlide>

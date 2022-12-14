@@ -32,7 +32,7 @@ export default function Product() {
         <div className={styles.Product}>
             {
                 newProducts && newProducts.map(item =>
-                    <Link className={styles.link} to={`detail/${item.id}`} state={{ link: "description" }} key={item.id}>
+                    <Link className={styles.link} to={`detail/${item.id}`} state={{ link: true }} key={item.id}>
                         <button className={styles.card}>
                             <span className={styles.ribbon} />
                             <div className={styles.box}>

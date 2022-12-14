@@ -1,41 +1,39 @@
 import React from 'react'
 
-import { useLocation, useParams } from 'react-router-dom';
-
-import PRODUCTS from '../../../../dataset/product'
+import { useLocation } from 'react-router-dom';
 
 import "./index.scss"
 
-export default function Description() {
+export default function Description(props) {
 
-  const { productId } = useParams()
-  const { state } = useLocation();
+  const { findResult } = props
 
-  console.log(state)
+  const { state } = useLocation()
+  const { link } = state
 
-  const findProduct = PRODUCTS.find(detailObj => (
-    detailObj.id === Number(productId)
-  )) || {}
-
-  console.log(findProduct)
+  const judgeClassName = (item) => {
+    if (item.text !== undefined) {
+      return <p className='text' key={item.subId}>{item.text}</p>
+    }
+    else if (item.horizontal !== undefined) {
+      return <img className='horizontal' key={item.subId} src={item.horizontal} alt={item.name} loading="lazy" />
+    }
+    else if (item.vertical !== undefined) {
+      return <img className='vertical' key={item.subId} src={item.vertical} alt={item.name} loading="lazy" />
+    }
+  }
 
   return (
     <div className='Description'>
-      <span>Hello</span>
-      {/* {
-        findProduct.description && findProduct.description.map(item => {
-          if (item.text !== undefined) {
-            return <p className='text' key={item.subId}>{item.text}</p>
-          }
-          else if (item.horizontal !== undefined) {
-            return <img className='horizontal' key={item.subId} src={item.horizontal} alt={item.name} loading="lazy" />
-          }
-          else if (item.vertical !== undefined) {
-            return <img className='vertical' key={item.subId} src={item.vertical} alt={item.name} loading="lazy" />
-          }
-          return item
-        })
-      } */}
+      {
+        link ?
+          findResult.description && findResult.description.map(item => {
+            return judgeClassName(item)
+          }) :
+          findResult.information && findResult.information.map(item => {
+            return judgeClassName(item)
+          })
+      }
     </div>
   )
 }

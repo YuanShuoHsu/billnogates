@@ -1,16 +1,16 @@
 import React, { useState } from 'react'
 
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux';
-
-import PRODUCTS from '../../../../dataset/product'
 
 import { add_cartbarItem } from "../../../../store/slice/cartbarItem"
 
 import styles from "./index.module.scss"
 
-export default function GalleryOptions() {
+export default function GalleryOptions(props) {
+
+  const { findResult } = props
 
   const [color, setColor] = useState("")
   const [size, setSize] = useState("")
@@ -21,12 +21,6 @@ export default function GalleryOptions() {
 
   const dispatch = useDispatch();
   const cartbarItem = useSelector(state => state.cartbarItem.value);
-
-  const { productId } = useParams()
-
-  const findProduct = PRODUCTS.find(detailObj => (
-    detailObj.id === Number(productId)
-  )) || {}
 
   const navigate = useNavigate()
 
@@ -81,25 +75,25 @@ export default function GalleryOptions() {
 
   const handleBuyNow = () => {
     if (color !== "" && size !== "") {
-      addToCart(findProduct)
+      addToCart(findResult)
       navigate("/checkout")
     }
   }
 
   const handleAddToCart = () => {
     if (color !== "" && size !== "") {
-      addToCart(findProduct)
+      addToCart(findResult)
     }
   }
 
   return (
     <form onSubmit={handleSubmit} className={styles.GalleryOptions}>
-      <h2 className={styles.title}>{findProduct.name}</h2>
-      <h3 className={styles.title}>NT.{findProduct.price}</h3>
+      <h2 className={styles.title}>{findResult.name}</h2>
+      <h3 className={styles.title}>NT.{findResult.price}</h3>
       <div className={styles.content}>
         <span className={styles.text}>顏色：</span>
         {
-          findProduct.color && findProduct.color.map(item =>
+          findResult.color && findResult.color.map(item =>
             <div className={styles.radio} key={item.subId}>
               <input onChange={handleColorChange} className={styles.input} type="radio" name="color" value={item.name} id={item.name} checked={color === item.name} required />
               <label style={{ background: item.rgb }} className={styles.label} htmlFor={item.name} />
@@ -110,7 +104,7 @@ export default function GalleryOptions() {
       <div className={styles.content}>
         <span className={styles.text}>尺寸：</span>
         {
-          findProduct.dimension && findProduct.dimension.map(item =>
+          findResult.dimension && findResult.dimension.map(item =>
             <div className={styles.radio} key={item.subId}>
               <input onChange={handleSizeChange} className={styles.input} type="radio" name="size" value={item.size} id={item.size} checked={size === item.size} required />
               <label className={styles.label} htmlFor={item.size} >{item.size}</label>
@@ -136,9 +130,7 @@ export default function GalleryOptions() {
       </div>
       <div className={styles.buyGroup}>
         <div className={styles.content}>
-          {/* <Link className={styles.link} to="/checkout"> */}
           <button onClick={handleBuyNow} className={styles.button}>立即購買</button>
-          {/* </Link> */}
         </div>
         <div className={styles.content}>
           <button onClick={handleAddToCart} className={styles.button}>加入購物車</button>

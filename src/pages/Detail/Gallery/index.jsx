@@ -5,17 +5,17 @@ import GalleryOptions from './GalleryOptions'
 
 import "./index.scss"
 
-export default function Gallery() {
+export default function Gallery(props) {
 
-    console.log("gallery")
+    const { findResult } = props
     
     return (
         <div className='Gallery'>
             <div className='box'>
-                <GalleryThumbs />
+                <GalleryThumbs findResult={findResult} />
             </div>
             <div className='box'>
-                <GalleryOptions />
+                <GalleryOptions findResult={findResult} />
             </div>
         </div>
     )
