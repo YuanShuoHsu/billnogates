@@ -14,7 +14,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 import PRODUCTS from '../../dataset/product'
 
-import "./index.scss"
+import styles from "./index.module.scss"
 
 export default function Detail() {
 
@@ -28,19 +28,19 @@ export default function Detail() {
         )) || {}
         setFindResult(findProduct)
         if (Object.keys(findProduct).length === 0) {
-            navigate("/detail/1", { state: { link: true } })
+            navigate("/detail/1")
         }
     }, [productId, navigate])
 
     return (
-        <div className='Detail'>
+        <div className={styles.Detail}>
             <Searchbar />
             <Cartbar />
             <Sidebar />
             <ScrollToTopButton />
             <Header />
-            <div className='main'>
-                <div className='grid'>
+            <div className={styles.main}>
+                <div className={styles.grid}>
                     <Gallery findResult={findResult} />
                     <Commodity findResult={findResult} />
                 </div>

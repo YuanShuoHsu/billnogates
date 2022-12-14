@@ -1,29 +1,26 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import Description from './Description'
 
-import { NavLink, useLocation } from "react-router-dom"
-
-import "./index.scss"
+import styles from "./index.module.scss"
 
 export default function Commodity(props) {
 
+    const [activeButton, setActiveButton] = useState(true)
+
     const { findResult } = props
 
-    const { state } = useLocation()
-    const { link } = state
+    const handleActiveButton = (boolean) => {
+        setActiveButton(boolean)
+    }
 
     return (
-        <div className='Commodity'>
-            <div className='router'>
-                <NavLink replace className={() => `link ${link ? "active" : ""}`} to="" state={{ link: true }}>
-                    <button className='button'>商品描述</button>
-                </NavLink>
-                <NavLink replace className={() => `link ${link ? "" : "active"}`} to="" state={{ link: false }}>
-                    <button className='button'>商品資訊</button>
-                </NavLink>
+        <div className={styles.Commodity}>
+            <div className={styles.buttonGroup}>
+                <button onClick={() => handleActiveButton(true)} className={`${styles.button} ${activeButton ? styles.active : ""}`}>商品描述</button>
+                <button onClick={() => handleActiveButton(false)} className={`${styles.button} ${activeButton ? "" : styles.active}`}>商品資訊</button>
             </div>
-            <Description findResult={findResult} />
+            <Description findResult={findResult} activeButton={activeButton} />
         </div>
     )
 }

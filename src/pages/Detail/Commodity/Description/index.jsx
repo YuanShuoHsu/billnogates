@@ -1,32 +1,27 @@
 import React from 'react'
 
-import { useLocation } from 'react-router-dom';
-
-import "./index.scss"
+import styles from "./index.module.scss"
 
 export default function Description(props) {
 
-  const { findResult } = props
-
-  const { state } = useLocation()
-  const { link } = state
+  const { findResult, activeButton } = props
 
   const judgeClassName = (item) => {
     if (item.text !== undefined) {
-      return <p className='text' key={item.subId}>{item.text}</p>
+      return <p className={styles.text} key={item.subId}>{item.text}</p>
     }
     else if (item.horizontal !== undefined) {
-      return <img className='horizontal' key={item.subId} src={item.horizontal} alt={item.name} loading="lazy" />
+      return <img className={styles.horizontal} key={item.subId} src={item.horizontal} alt={item.name} loading="lazy" />
     }
     else if (item.vertical !== undefined) {
-      return <img className='vertical' key={item.subId} src={item.vertical} alt={item.name} loading="lazy" />
+      return <img className={styles.vertical} key={item.subId} src={item.vertical} alt={item.name} loading="lazy" />
     }
   }
 
   return (
-    <div className='Description'>
+    <div className={styles.Description}>
       {
-        link ?
+        activeButton ?
           findResult.description && findResult.description.map(item => {
             return judgeClassName(item)
           }) :

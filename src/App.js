@@ -15,14 +15,14 @@ export default function App() {
       <Routes>
         <Route path="" element={<Home />} />
         <Route path="membership">
-          <Route path="" element={<Navigate replace to="login" />} />
-          <Route path="*" element={<Membership />} />
+          <Route path="" element={<Membership />} />
+          <Route path="*" element={<Navigate replace to="" />} />
         </Route>
         <Route path="detail" >
-          <Route path="" element={<Navigate replace to="1" state={{ link: true }} />} />
-          <Route path=":productId" state={{ link: true }}>
+          <Route path="" element={<Navigate replace to="1" />} />
+          <Route path=":productId">
             <Route path="" element={<Detail />} />
-            <Route path="*" element={<Navigate replace to="" state={{ link: true }} />} />
+            <Route path="*" element={<Navigate replace to="" />} />
           </Route>
         </Route>
         <Route path="checkout" element={<Checkout />} />
