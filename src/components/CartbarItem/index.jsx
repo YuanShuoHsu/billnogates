@@ -22,7 +22,7 @@ export default function CartbarItem(props) {
     const deleteElement = (cartbarItem, item) => {
         const newCartbarItem = [...cartbarItem];
         for (let index = newCartbarItem.length; index > 0; index--) {
-            if (newCartbarItem[index - 1] === item) {
+            if (JSON.stringify(newCartbarItem[index - 1]) === JSON.stringify(item)) {
                 newCartbarItem.splice(index - 1, 1)
                 break
             }
@@ -33,7 +33,7 @@ export default function CartbarItem(props) {
     const repeatElement = (cartbarItem, item) => {
         let counter = 0;
         cartbarItem.forEach(element => {
-            if (element === item) {
+            if (JSON.stringify(element) === JSON.stringify(item)) {
                 counter++
             }
         });
@@ -53,9 +53,9 @@ export default function CartbarItem(props) {
     }
 
     const handleDelete = (item) => {
-        const newCartbarItem = cartbarItem.filter(obj => (
-            obj.id !== item.id
-        ))
+        const newCartbarItem = cartbarItem.filter(obj =>
+            JSON.stringify(obj) !== JSON.stringify(item)
+        )
         dispatch(delete_cartbarItem(newCartbarItem))
     }
 
@@ -68,7 +68,7 @@ export default function CartbarItem(props) {
                     </div>
                     <div className={styles.information}>
                         <h3 className={styles.name}>{item.name}</h3>
-                        <p className={styles.description}>{item.introduction}</p>
+                        <p className={styles.choose}>{item.choose[0]}、{item.choose[1]}</p>
                         <p className={styles.price}>${item.price}</p>
                     </div>
                 </div>

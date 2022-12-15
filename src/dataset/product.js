@@ -4,17 +4,16 @@ const PRODUCTS = [
         id: 1,
         image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"),
         name: "花椰菜菜子裡的小白蟲先生｛ 深/淺 ｝",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 1280,
         color: [
             {
                 subId: 1,
-                name: "深",
+                name: "深色",
                 rgb: "#000",
             },
             {
                 subId: 2,
-                name: "淺",
+                name: "淺色",
                 rgb: "#ccc",
             }
         ],
@@ -70,28 +69,24 @@ const PRODUCTS = [
         description: [
             {
                 subId: 1,
-                text: "Hello,world1\n連續敘述用 \\ n 換行"
+                text: "有天看著碗裡的蔬菜們，腦中跑出一幕幕畫面，如果沒有農藥的花椰菜會不會因為菜蟲在他的頭上而想抓癢呢？如果番茄蒂頭被風吹走了他會追得到嗎？秋葵會不會因為笑到流口水被自己的黏液弄到滑倒，如果這一切都有可能發生，是不是生活中不敢吃的菜菜們都會變得可愛，來跟可愛的菜菜們當朋友吧！"
             },
             {
                 subId: 2,
-                horizontal: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽2.png"),
+                vertical: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽2.png"),
                 name: "花椰菜帽2"
             },
             {
                 subId: 3,
-                text: "Hello,world2"
+                horizontal: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"),
+                name: "花椰菜帽1"
             },
             {
                 subId: 4,
-                text: "Hello,world3"
+                text: "花椰菜菜子與小白蟲先生有著不單純的寄生關係，花椰菜菜子有小白蟲先生的陪伴，卻又因小白蟲先生的存在搔癢難耐，愛得癢癢的（？又愛又恨的寄生戀愛情迷。"
             },
             {
                 subId: 5,
-                horizontal: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽4.png"),
-                name: "花椰菜帽4"
-            },
-            {
-                subId: 6,
                 vertical: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽3.png"),
                 name: "花椰菜帽3"
             }
@@ -112,7 +107,6 @@ const PRODUCTS = [
         id: 2,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -148,7 +142,6 @@ const PRODUCTS = [
         id: 3,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -184,7 +177,6 @@ const PRODUCTS = [
         id: 4,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -220,7 +212,6 @@ const PRODUCTS = [
         id: 5,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -256,7 +247,6 @@ const PRODUCTS = [
         id: 6,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -292,7 +282,6 @@ const PRODUCTS = [
         id: 7,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -328,7 +317,6 @@ const PRODUCTS = [
         id: 8,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -364,7 +352,6 @@ const PRODUCTS = [
         id: 9,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -400,7 +387,6 @@ const PRODUCTS = [
         id: 10,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -436,7 +422,6 @@ const PRODUCTS = [
         id: 11,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -472,7 +457,6 @@ const PRODUCTS = [
         id: 12,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -508,7 +492,6 @@ const PRODUCTS = [
         id: 13,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -544,7 +527,6 @@ const PRODUCTS = [
         id: 14,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -580,7 +562,6 @@ const PRODUCTS = [
         id: 15,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -616,7 +597,6 @@ const PRODUCTS = [
         id: 16,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -652,7 +632,6 @@ const PRODUCTS = [
         id: 17,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -688,7 +667,6 @@ const PRODUCTS = [
         id: 18,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -724,7 +702,6 @@ const PRODUCTS = [
         id: 19,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -760,7 +737,6 @@ const PRODUCTS = [
         id: 20,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -796,7 +772,6 @@ const PRODUCTS = [
         id: 21,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -832,7 +807,6 @@ const PRODUCTS = [
         id: 22,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -868,7 +842,6 @@ const PRODUCTS = [
         id: 23,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -904,7 +877,6 @@ const PRODUCTS = [
         id: 24,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -940,7 +912,6 @@ const PRODUCTS = [
         id: 25,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -976,7 +947,6 @@ const PRODUCTS = [
         id: 26,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -1012,7 +982,6 @@ const PRODUCTS = [
         id: 27,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -1048,7 +1017,6 @@ const PRODUCTS = [
         id: 28,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -1084,7 +1052,6 @@ const PRODUCTS = [
         id: 29,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -1120,7 +1087,6 @@ const PRODUCTS = [
         id: 30,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -1156,7 +1122,6 @@ const PRODUCTS = [
         id: 31,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -1192,7 +1157,6 @@ const PRODUCTS = [
         id: 32,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -1228,7 +1192,6 @@ const PRODUCTS = [
         id: 33,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -1264,7 +1227,6 @@ const PRODUCTS = [
         id: 34,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -1300,7 +1262,6 @@ const PRODUCTS = [
         id: 35,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -1336,7 +1297,6 @@ const PRODUCTS = [
         id: 36,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -1372,7 +1332,6 @@ const PRODUCTS = [
         id: 37,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -1408,7 +1367,6 @@ const PRODUCTS = [
         id: 38,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -1444,7 +1402,6 @@ const PRODUCTS = [
         id: 39,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -1480,7 +1437,6 @@ const PRODUCTS = [
         id: 40,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -1516,7 +1472,6 @@ const PRODUCTS = [
         id: 41,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -1552,7 +1507,6 @@ const PRODUCTS = [
         id: 42,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -1588,7 +1542,6 @@ const PRODUCTS = [
         id: 43,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -1624,7 +1577,6 @@ const PRODUCTS = [
         id: 44,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -1660,7 +1612,6 @@ const PRODUCTS = [
         id: 45,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -1696,7 +1647,6 @@ const PRODUCTS = [
         id: 46,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -1732,7 +1682,6 @@ const PRODUCTS = [
         id: 47,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -1768,7 +1717,6 @@ const PRODUCTS = [
         id: 48,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -1804,7 +1752,6 @@ const PRODUCTS = [
         id: 49,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -1840,7 +1787,6 @@ const PRODUCTS = [
         id: 50,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -1876,7 +1822,6 @@ const PRODUCTS = [
         id: 51,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -1912,7 +1857,6 @@ const PRODUCTS = [
         id: 52,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -1948,7 +1892,6 @@ const PRODUCTS = [
         id: 53,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -1984,7 +1927,6 @@ const PRODUCTS = [
         id: 54,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -2020,7 +1962,6 @@ const PRODUCTS = [
         id: 55,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -2056,7 +1997,6 @@ const PRODUCTS = [
         id: 56,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -2092,7 +2032,6 @@ const PRODUCTS = [
         id: 57,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -2128,7 +2067,6 @@ const PRODUCTS = [
         id: 58,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -2164,7 +2102,6 @@ const PRODUCTS = [
         id: 59,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -2200,7 +2137,6 @@ const PRODUCTS = [
         id: 60,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -2236,7 +2172,6 @@ const PRODUCTS = [
         id: 61,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -2272,7 +2207,6 @@ const PRODUCTS = [
         id: 62,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -2308,7 +2242,6 @@ const PRODUCTS = [
         id: 63,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -2344,7 +2277,6 @@ const PRODUCTS = [
         id: 64,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -2380,7 +2312,6 @@ const PRODUCTS = [
         id: 65,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -2416,7 +2347,6 @@ const PRODUCTS = [
         id: 66,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -2452,7 +2382,6 @@ const PRODUCTS = [
         id: 67,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -2488,7 +2417,6 @@ const PRODUCTS = [
         id: 68,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -2524,7 +2452,6 @@ const PRODUCTS = [
         id: 69,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -2560,7 +2487,6 @@ const PRODUCTS = [
         id: 70,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -2596,7 +2522,6 @@ const PRODUCTS = [
         id: 71,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -2632,7 +2557,6 @@ const PRODUCTS = [
         id: 72,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -2668,7 +2592,6 @@ const PRODUCTS = [
         id: 73,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -2704,7 +2627,6 @@ const PRODUCTS = [
         id: 74,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -2740,7 +2662,6 @@ const PRODUCTS = [
         id: 75,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -2776,7 +2697,6 @@ const PRODUCTS = [
         id: 76,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -2812,7 +2732,6 @@ const PRODUCTS = [
         id: 77,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -2848,7 +2767,6 @@ const PRODUCTS = [
         id: 78,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -2884,7 +2802,6 @@ const PRODUCTS = [
         id: 79,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -2920,7 +2837,6 @@ const PRODUCTS = [
         id: 80,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -2956,7 +2872,6 @@ const PRODUCTS = [
         id: 81,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -2992,7 +2907,6 @@ const PRODUCTS = [
         id: 82,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -3028,7 +2942,6 @@ const PRODUCTS = [
         id: 83,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -3064,7 +2977,6 @@ const PRODUCTS = [
         id: 84,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -3100,7 +3012,6 @@ const PRODUCTS = [
         id: 85,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -3136,7 +3047,6 @@ const PRODUCTS = [
         id: 86,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -3172,7 +3082,6 @@ const PRODUCTS = [
         id: 87,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -3208,7 +3117,6 @@ const PRODUCTS = [
         id: 88,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -3244,7 +3152,6 @@ const PRODUCTS = [
         id: 89,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -3280,7 +3187,6 @@ const PRODUCTS = [
         id: 90,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -3316,7 +3222,6 @@ const PRODUCTS = [
         id: 91,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -3352,7 +3257,6 @@ const PRODUCTS = [
         id: 92,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -3388,7 +3292,6 @@ const PRODUCTS = [
         id: 93,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -3424,7 +3327,6 @@ const PRODUCTS = [
         id: 94,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -3460,7 +3362,6 @@ const PRODUCTS = [
         id: 95,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -3496,7 +3397,6 @@ const PRODUCTS = [
         id: 96,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -3532,7 +3432,6 @@ const PRODUCTS = [
         id: 97,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -3568,7 +3467,6 @@ const PRODUCTS = [
         id: 98,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -3604,7 +3502,6 @@ const PRODUCTS = [
         id: 99,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -3640,7 +3537,6 @@ const PRODUCTS = [
         id: 100,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {
@@ -3676,7 +3572,6 @@ const PRODUCTS = [
         id: 101,
         image: require("../images/home/logo.png"),
         name: "元馨",
-        introduction: "一名手作創客，有一隻貓貓",
         price: 150,
         gallery: [
             {
@@ -3712,7 +3607,6 @@ const PRODUCTS = [
         id: 102,
         image: require("../images/home/logo.png"),
         name: "元碩",
-        introduction: "一名前端工程師，喜歡彈鋼琴",
         price: 180,
         gallery: [
             {
@@ -3748,7 +3642,6 @@ const PRODUCTS = [
         id: 103,
         image: require("../images/home/logo.png"),
         name: "阿蜜",
-        introduction: "一名超級阿嬤，很會交朋友",
         price: 300,
         gallery: [
             {
@@ -3784,7 +3677,6 @@ const PRODUCTS = [
         id: 104,
         image: require("../images/home/logo.png"),
         name: "阿嬌",
-        introduction: "一名家庭主婦，焦慮感十足",
         price: 600,
         gallery: [
             {

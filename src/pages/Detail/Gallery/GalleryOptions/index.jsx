@@ -53,7 +53,7 @@ export default function GalleryOptions(props) {
   const repeatElement = (cartbarItem, item) => {
     let counter = 0;
     cartbarItem.forEach(element => {
-      if (element === item) {
+      if (JSON.stringify(element) === JSON.stringify(item)) {
         counter++
       }
     });
@@ -82,7 +82,9 @@ export default function GalleryOptions(props) {
 
   const handleAddToCart = () => {
     if (color !== "" && size !== "") {
-      addToCart(findResult)
+      const newFindResult = JSON.parse(JSON.stringify(findResult))
+      newFindResult.choose = [color, size]
+      addToCart(newFindResult)
     }
   }
 

@@ -16,8 +16,13 @@ export default function Cartbar() {
     const cartbarItem = useSelector(state => state.cartbarItem.value);
     const headerButton = useSelector(state => state.headerButton.value);
 
-    const set = new Set()
-    const setCartbarItem = cartbarItem.filter(item => !set.has(item.id) ? set.add(item.id) : false)
+    const setCartbarItem = [
+        ...new Set(
+            cartbarItem.map(item =>
+                JSON.stringify(item)
+            )
+        )
+    ].map(item => JSON.parse(item));
 
     const hideCartbar = () => {
         dispatch(hide_cartbar())
@@ -42,9 +47,9 @@ export default function Cartbar() {
                         <p className={styles.text} >目前還是空的</p> :
                         <Fragment>
                             {
-                                setCartbarItem && setCartbarItem.map(item => (
-                                    <CartbarItem cartbarItem={cartbarItem} item={item} key={item.id} />
-                                ))
+                                setCartbarItem && setCartbarItem.map(item =>
+                                    <CartbarItem cartbarItem={cartbarItem} item={item} key={`${item.id} ${item.choose}`} />
+                                )
                             }
                             <Link className={styles.link} to="/checkout">
                                 <button className={styles.button}>
@@ -55,7 +60,6 @@ export default function Cartbar() {
                                 </button>
                             </Link>
                         </Fragment>
-
                 }
             </div>
         </div>
