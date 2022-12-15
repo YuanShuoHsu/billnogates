@@ -76,20 +76,24 @@
         }
 
         .content {
-            margin: 5px;
+            padding: 5px;
             display: flex;
             justify-content: space-between;
             align-items: center;
 
             .calculator {
-                width: 120px;
+                width: calc(50% - 5px);
                 display: flex;
 
                 .operator {
                     width: 30px;
-                    line-height: 30px;
-                    text-align: center;
-                    background: #B5B6B6;
+                    height: 30px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background: rgba(192, 192, 192, 0.2);
+                    cursor: pointer;
+                    transition: 0.2s;
 
                     &:first-child {
                         border-top-left-radius: 4px;
@@ -100,9 +104,6 @@
                         border-top-right-radius: 4px;
                         border-bottom-right-radius: 4px;
                     }
-
-                    cursor: pointer;
-                    transition: 0.2s;
 
                     &:hover {
                         opacity: 0.8;
@@ -124,11 +125,14 @@
                     padding: 0;
                     width: calc(100% - 30px * 2);
                     height: 30px;
-                    background: #E4027E;
-                    text-align: center;
+                    background: #fff;
                     border: none;
                     border-radius: 0;
                     outline: none;
+                    text-align: center;
+                    color: #000;
+                    font: normal normal 16px/normal sans-serif;
+                    letter-spacing: 1px;
                     -moz-appearance: textfield;
 
                     &::-webkit-outer-spin-button,
@@ -140,10 +144,8 @@
             }
 
             .total {
-                line-height: 30px;
                 color: #000;
-                font-size: 16px;
-                font-weight: 400;
+                font: normal normal 16px/30px sans-serif;
                 letter-spacing: 1px;
             }
 
@@ -160,7 +162,7 @@
                 &:hover {
                     opacity: 0.8;
 
-                    .trash-can {
+                    .svg {
                         fill: #E4027E;
                     }
                 }
@@ -168,7 +170,9 @@
                 .svg {
                     width: 24px;
                     height: 24px;
+                    fill: #000;
                     transition: 0.2s;
+                    pointer-events: none;
 
                     path {
                         pointer-events: none;
