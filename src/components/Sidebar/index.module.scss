@@ -37,9 +37,9 @@
         overflow-y: auto;
 
         .landscape {
-            background: transparent;
             width: 100%;
             min-height: 120px;
+            opacity: 0;
         }
     }
 }
