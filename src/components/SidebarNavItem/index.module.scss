@@ -51,6 +51,7 @@
             height: 16px;
             fill: #000;
             transition: 0.2s;
+            pointer-events: none;
 
             path {
                 pointer-events: none;
