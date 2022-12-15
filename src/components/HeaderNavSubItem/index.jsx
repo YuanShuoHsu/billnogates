@@ -3,30 +3,30 @@ import React, { Fragment } from 'react'
 import { NavLink } from "react-router-dom"
 import HeaderNavGrandItem from '../HeaderNavGrandItem'
 
-import "./index.scss"
+import styles from "./index.module.scss"
 
 export default function HeaderNavSubItem(props) {
 
     const { itemLink, subItem } = props
 
     return (
-        <li className='HeaderNavSubItem' key={subItem.subId}>
+        <li className={styles.HeaderNavSubItem} key={subItem.subId}>
             {
                 subItem.subLayers === undefined ?
-                    <NavLink className={({ isActive }) => "subHref" + (isActive ? " active" : "")} to={`/${itemLink}/${subItem.subLink}`}>
-                        <div className='subLink'>
-                            <span className='subText'>{subItem.subNav}</span>
+                    <NavLink className={({ isActive }) => `${styles.subHref}` + (isActive ? ` ${styles.active}` : "")} to={`/${itemLink}/${subItem.subLink}`}>
+                        <div className={styles.subLink}>
+                            <span className={styles.subText}>{subItem.subNav}</span>
                         </div>
                     </NavLink> :
                     <Fragment>
-                        <div className="subLink">
-                            <span className='subText'>{subItem.subNav}</span>
+                        <div className={styles.subLink}>
+                            <span className={styles.subText}>{subItem.subNav}</span>
                         </div>
-                        <ul style={{ "--x": `${subItem.subLayers.length}` }} className="grandMenu">
+                        <ul style={{ "--x": `${subItem.subLayers.length}` }} className={styles.grandMenu}>
                             {
-                                subItem.subLayers.map(grandItem => (
+                                subItem.subLayers.map(grandItem =>
                                     <HeaderNavGrandItem itemLink={itemLink} subItemLink={subItem.subLink} grandItem={grandItem} key={grandItem.grandId} />
-                                ))
+                                )
                             }
                         </ul>
                     </Fragment>

@@ -7,37 +7,16 @@ import HeaderNavSubMenu from '../HeaderNavSubMenu'
 import { Link } from "react-router-dom"
 
 import { useDispatch, useSelector } from 'react-redux'
-// import { show_header, hide_header } from '../../store/slice/header'
 import { show_headerNavSubMenu, hide_headerNavSubMenu } from '../../store/slice/headerNavSubMenu'
 
 import logo from './../../images/home/logo.png';
 
-import "./index.scss"
+import styles from "./index.module.scss"
 
 export default function Header() {
 
-    // const [lastScrollTop, setLastScrollTop] = useState(0)
-
     const dispatch = useDispatch()
-    // const header = useSelector(state => state.header.value);
     const headerNavSubMenu = useSelector(state => state.headerNavSubMenu.value);
-
-    // useEffect(() => {
-    //     window.addEventListener("scroll", handleScroll);
-    //     return () => window.removeEventListener("scroll", handleScroll);
-    // })
-
-    // const handleScroll = () => {
-    //     const scrollTop = window.pageYOffset || document.documentElement.scrollTop
-    //     if (scrollTop - lastScrollTop > 10 && scrollTop > 80 && header !== false) {
-    //         dispatch(hide_header())
-    //         dispatch(hide_headerNavSubMenu())
-    //     }
-    //     else if (lastScrollTop - scrollTop > 5 && header !== true) {
-    //         dispatch(show_header())
-    //     }
-    //     setLastScrollTop(scrollTop)
-    // }
 
     const handleEnterHover = () => {
         dispatch(show_headerNavSubMenu())
@@ -48,26 +27,27 @@ export default function Header() {
     }
 
     return (
-        // <div style={{ top: `${header ? "0" : "-80px"}` }} className='Header'>
-        <div className='Header'>
-            <div className='box'>
-                <Link className='brand' to="/">
-                    <img className='logo' src={logo} alt="billnogates" />
-                    <span className='title'>
-                        <span className='blue'>B</span>
-                        <span className='pink'>ill</span>
-                        <span className='yellow'>no</span>
-                        <span className='blue'>g</span>
-                        <span className='pink'>ates</span>
-                    </span>
+        <div className={styles.Header}>
+            <div className={styles.box}>
+                <Link className={styles.link} to="/">
+                    <button className={styles.brand}>
+                        <img className={styles.logo} src={logo} alt="billnogates" loading="lazy" />
+                        <span className={styles.title}>
+                            <span className={styles.blue}>B</span>
+                            <span className={styles.pink}>ill</span>
+                            <span className={styles.yellow}>no</span>
+                            <span className={styles.blue}>g</span>
+                            <span className={styles.pink}>ates</span>
+                        </span>
+                    </button>
                 </Link>
-                <div className='component'>
+                <div className={styles.content}>
                     <HeaderNav />
                     <HeaderButton />
                 </div>
             </div>
-            <div onMouseEnter={handleEnterHover} onMouseLeave={handleLeaveHover} className={`dropdown ${headerNavSubMenu ? "active" : ""}`}>
-                <div className='space'></div>
+            <div onMouseEnter={handleEnterHover} onMouseLeave={handleLeaveHover} className={`${styles.dropdown} ${headerNavSubMenu ? `${styles.active}` : ""}`}>
+                <div className={styles.space}></div>
                 <HeaderNavSubMenu />
             </div>
         </div>

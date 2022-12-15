@@ -1,49 +1,68 @@
+@mixin screen {
+    @media(max-width: 1200px) {
+        @content;
+    }
+}
+
 .Story {
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: rgba(245, 245, 245, 0.8);
 
-    .text {
-        color: #000;
-        font-size: 16px;
-        font-weight: 400;
-        letter-spacing: 1px;
-    }
-
-    .picture {
-        margin: 10px;
-        padding: 10px;
-        width: 80%;
-
-        .image {
-            width: 100%;
-            border-radius: 50%;
-        }
-    }
-
-    .phrase {
-        margin: 0px 0 40px 0;
-        padding: 10px;
+    .main {
         display: flex;
-        flex-direction: column;
-    }
+        justify-content: center;
 
-    .highlights {
-        margin: 10px;
-        padding: 0 5px;
-        border-right: 1px solid #000;
-        border-left: 1px solid #000;
-    }
+        .grid {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
 
-    .narration {
-        margin:  0 0 40px 0;
-        padding: 10px;
-        display: flex;
-        flex-direction: column;
+            @include screen() {
+                width: 100%;
+            }
 
-        .text {
-            line-height: 24px;
+            .text {
+                color: #000;
+                font: normal normal 16px/normal sans-serif;
+                letter-spacing: 1px;
+            }
+
+            .picture {
+                margin: 10px;
+                padding: 10px;
+                width: 80%;
+
+                .image {
+                    width: 100%;
+                    border-radius: 50%;
+                }
+            }
+
+            .phrase {
+                margin: 0px 0 40px 0;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .highlights {
+                margin: 10px;
+                padding: 0 5px;
+                border-right: 1px solid #000;
+                border-left: 1px solid #000;
+            }
+
+            .narration {
+                margin: 0 0 40px 0;
+                padding: 10px;
+                display: flex;
+                flex-direction: column;
+
+                .text {
+                    line-height: 24px;
+                }
+            }
         }
     }
 }

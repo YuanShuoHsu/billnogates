@@ -3,12 +3,12 @@ import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom"
 
 import { signInWithPopup, GoogleAuthProvider, FacebookAuthProvider } from "firebase/auth";
-import { auth } from "../../../../firebase"
+import { auth } from "../../../../utils/firebase"
 
 import google from "../../../../images/membership/google.png"
 import facebook from "../../../../images/membership/facebook.png"
 
-import "./index.scss"
+import styles from"./index.module.scss"
 
 export default function SocialMedia() {
 
@@ -76,32 +76,32 @@ export default function SocialMedia() {
             });
     }
     return (
-        <div className='SocialMedia'>
-            <div className='buttonBox'>
-                <button onClick={handleGoogleSignIn} className='button'>
-                    <img className='brand' src={google} alt="google" />
-                    <div className='textBox'>
-                        <span className='text'>使用</span>
-                        <span className='brandText'>google</span>
-                        <span className='text'>帳號註冊</span>
+        <div className={styles.SocialMedia}>
+            <div className={styles.buttonBox}>
+                <button onClick={handleGoogleSignIn} className={styles.button}>
+                    <img className={styles.brand} src={google} alt="google" loading="lazy" />
+                    <div className={styles.textBox}>
+                        <span className={styles.text}>使用</span>
+                        <span className={styles.brandText}>google</span>
+                        <span className={styles.text}>帳號註冊</span>
                     </div>
                 </button>
             </div>
-            <div className='alert'>
-                <p className='text'>{googleError}</p>
+            <div className={styles.alert}>
+                <p className={styles.text}>{googleError}</p>
             </div>
-            <div className='buttonBox'>
-                <button onClick={handleFacebookSignIn} className='button'>
-                    <img className='brand' src={facebook} alt="facebook" />
-                    <div className='textBox'>
-                        <span className='text'>使用</span>
-                        <p className='brandText'>facebook</p>
-                        <span className='text'>帳號註冊</span>
+            <div className={styles.buttonBox}>
+                <button onClick={handleFacebookSignIn} className={styles.button}>
+                    <img className={styles.brand} src={facebook} alt="facebook" loading="lazy" />
+                    <div className={styles.textBox}>
+                        <span className={styles.text}>使用</span>
+                        <p className={styles.brandText}>facebook</p>
+                        <span className={styles.text}>帳號註冊</span>
                     </div>
                 </button>
             </div>
-            <div className='alert'>
-                <p className='text'>{facebookError}</p>
+            <div className={styles.alert}>
+                <p className={styles.text}>{facebookError}</p>
             </div>
         </div>
     )

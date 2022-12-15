@@ -4,7 +4,7 @@ import { Routes, Route, Navigate } from "react-router-dom"
 
 import Home from "./pages/Home";
 import Membership from "./pages/Membership";
-import Detailed from "./pages/Detailed";
+import Detail from "./pages/Detail";
 import Checkout from "./pages/Checkout";
 import Story from "./pages/Story";
 import User from "./pages/User";
@@ -13,15 +13,22 @@ export default function App() {
   return (
     <div className="app">
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="membership/*" element={<Membership />} />
-        <Route path="membership" element={<Navigate replace to="/membership/login" />} />
-        <Route path="detailed/*" element={<Detailed />} />
-        <Route path="detailed" element={<Navigate replace to="/detailed/description" />} />
+        <Route path="" element={<Home />} />
+        <Route path="membership">
+          <Route path="" element={<Navigate replace to="login" />} />
+          <Route path="*" element={<Membership />} />
+        </Route>
+        <Route path="detail" >
+          <Route path="" element={<Navigate replace to="1" />} />
+          <Route path=":productId">
+            <Route path="" element={<Detail />} />
+            <Route path="*" element={<Navigate replace to="" />} />
+          </Route>
+        </Route>
         <Route path="checkout" element={<Checkout />} />
         <Route path="story" element={<Story />} />
         <Route path="user" element={<User />} />
-        <Route path="*" element={<Navigate replace to="/" />} />
+        <Route path="*" element={<Navigate replace to="" />} />
       </Routes>
     </div>
   );

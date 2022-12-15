@@ -1,0 +1,13 @@
+.Footer {
+    position: relative;
+    padding: 10px;
+    box-sizing: border-box;
+    width: 100%;
+    background: rgba(192, 192, 192, 0.2);
+
+    .text {
+        margin: 0;
+        font: normal normal 16px/20px sans-serif;
+        text-align: center;
+    }
+}

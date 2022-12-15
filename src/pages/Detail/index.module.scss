@@ -1,0 +1,25 @@
+@mixin screen {
+    @media(max-width: 1200px) {
+        @content;
+    }
+}
+
+.Detail {
+    position: relative;
+    background: rgba(245, 245, 245, 0.8);
+
+    .main {
+        padding: 5px;
+        min-height: calc(100vh - 60px - 60px);
+        display: flex;
+        justify-content: center;
+
+        .grid {
+            width: 80%;
+
+            @include screen() {
+                width: 100%;
+            }
+        }
+    }
+}
