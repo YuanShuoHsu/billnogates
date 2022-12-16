@@ -43,7 +43,7 @@
         white-space: nowrap;
         text-transform: uppercase;
         animation: 20s linear 0s infinite normal none running ticker;
-        // pointer-events: none;
+        pointer-events: none;
 
         @include desktop() {
             font: normal normal 12px/16px sans-serif;

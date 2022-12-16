@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-import Searchbar from "../../components/Searchbar"
 import Cartbar from "../../components/Cartbar"
 import Sidebar from "../../components/Sidebar"
 import ScrollToTopButton from "../../components/ScrollToTopButton"
@@ -34,7 +33,6 @@ export default function Detail() {
 
     return (
         <div className={styles.Detail}>
-            <Searchbar />
             <Cartbar />
             <Sidebar />
             <ScrollToTopButton />

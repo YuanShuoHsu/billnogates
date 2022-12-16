@@ -2,7 +2,6 @@ import React from 'react'
 
 import { NavLink, Routes, Route, Navigate } from "react-router-dom"
 
-import Searchbar from "../../components/Searchbar"
 import Cartbar from "../../components/Cartbar"
 import Sidebar from "../../components/Sidebar"
 import ScrollToTopButton from "../../components/ScrollToTopButton"
@@ -17,7 +16,6 @@ import styles from "./index.module.scss"
 export default function Membership() {
     return (
         <div className={styles.Membership}>
-            <Searchbar />
             <Cartbar />
             <Sidebar />
             <ScrollToTopButton />

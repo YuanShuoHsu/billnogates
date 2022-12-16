@@ -1,6 +1,5 @@
 import React from 'react'
 
-import Searchbar from "../../components/Searchbar"
 import Cartbar from "../../components/Cartbar"
 import Sidebar from "../../components/Sidebar"
 import ScrollToTopButton from "../../components/ScrollToTopButton"
@@ -19,7 +18,6 @@ import styles from "./index.module.scss"
 export default function Home() {
     return (
         <div className={styles.Home}>
-            <Searchbar />
             <Cartbar />
             <Sidebar />
             <ScrollToTopButton />

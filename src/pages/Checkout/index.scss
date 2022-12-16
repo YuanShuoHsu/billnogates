@@ -1,77 +1,104 @@
+@mixin screen {
+    @media(max-width: 1200px) {
+        @content;
+    }
+}
+
 .Checkout {
     position: relative;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: rgba(245, 245, 245, 0.8);
 
-    .privacy {
-        width: 80%;
-        background: cadetblue;
+    .main {
         padding: 5px;
-
-        .title {
-            padding: 0 5px;
-        }
-
-        .name {
-            display: flex;
-            flex-direction: row;
-
-            .lastName,
-            .firstName {
-                margin: 5px;
-                padding: 0 10px;
-                width: 50%;
-                height: 40px;
-                border: none;
-                border-radius: 4px;
-                outline: none;
-            }
-        }
-
-        .contact {
-            display: flex;
-            flex-direction: column;
-            padding: 0 5px;
-
-            .email,
-            .phone {
-                margin: 5px 0;
-                padding: 10px;
-                box-sizing: border-box;
-                width: 100%;
-                height: 40px;
-                border: none;
-                border-radius: 4px;
-                outline: none;
-            }
-        }
-    }
-
-    .remark {
-        width: 80%;
-        background: cornsilk;
-        padding: 5px;
-
         display: flex;
         flex-direction: column;
+        align-items: center;
 
-        .title {
-            padding: 0 5px;
-        }
+        .grid {
+            padding: 5px 0;
+            width: 80%;
 
-        .message {
-            padding: 5px;
-
-            .comments {
-                padding: 0 10px;
+            @include screen() {
+                padding: 5px;
                 box-sizing: border-box;
                 width: 100%;
-                height: 40px;
-                border: none;
-                border-radius: 4px;
-                outline: none;
+            }
+
+            .privacy {
+                padding: 5px;
+                background: rgba(192, 192, 192, 0.2);
+
+                .title {
+                    padding: 0 5px;
+                }
+
+                .name {
+                    display: flex;
+                    flex-direction: row;
+
+                    .lastName,
+                    .firstName {
+                        margin: 5px;
+                        padding: 0 10px;
+                        width: 50%;
+                        height: 40px;
+                        border: none;
+                        border-radius: 4px;
+                        outline: none;
+                    }
+                }
+
+                .contact {
+                    display: flex;
+                    flex-direction: column;
+                    padding: 0 5px;
+
+                    .email,
+                    .phone {
+                        margin: 5px 0;
+                        padding: 0 10px;
+                        box-sizing: border-box;
+                        width: 100%;
+                        height: 40px;
+                        border: none;
+                        border-radius: 4px;
+                        outline: none;
+                    }
+                }
+            }
+
+            .box {
+                .title {
+                    padding: 0 5px;
+                    color: #000;
+                    font: normal normal normal/normal sans-serif;
+                    letter-spacing: 1px;
+                }
+            }
+
+            .remark {
+                padding: 5px;
+                background: rgba(192, 192, 192, 0.2);
+                display: flex;
+                flex-direction: column;
+
+                .title {
+                    padding: 0 5px;
+                }
+
+                .message {
+                    padding: 5px;
+
+                    .comments {
+                        padding: 0 10px;
+                        box-sizing: border-box;
+                        width: 100%;
+                        height: 40px;
+                        border: none;
+                        border-radius: 4px;
+                        outline: none;
+                    }
+                }
             }
         }
     }

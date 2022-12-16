@@ -30,7 +30,9 @@ export default function Sidebar() {
   return (
     <div onClick={hideMenu} className={`${styles.Sidebar} ${sidebar ? `${styles.active}` : ""}`}>
       <div onClick={stopPropagation} className={styles.box}>
-        <div className={styles.landscape} />
+        <div className={styles.landscape} >
+          <img src={require("../../images/sidebar/腦袋本人.svg").default} alt="" />
+        </div>
         <SidebarNav />
       </div>
     </div>

@@ -6,7 +6,6 @@ import { auth } from "../../utils/firebase"
 import { Link } from "react-router-dom"
 
 import { useDispatch, useSelector } from 'react-redux'
-// import { show_searchbar } from "../../store/slice/searchbar"
 import { show_cartbar } from "../../store/slice/cartbar"
 import { show_sidebar } from '../../store/slice/sidebar'
 import { position_headerButton } from '../../store/slice/headerButton'
@@ -31,10 +30,6 @@ export default function HeaderButton() {
 
     const dispatch = useDispatch()
     const cartbarItem = useSelector(state => state.cartbarItem.value);
-
-    // const showSearch = () => {
-    //     dispatch(show_searchbar())
-    // }
 
     const handleShowCartbar = () => {
         dispatch(show_cartbar())
