@@ -3,11 +3,13 @@ import React from 'react'
 import HeaderNav from "../HeaderNav"
 import HeaderButton from '../HeaderButton'
 import HeaderNavSubMenu from '../HeaderNavSubMenu'
+import Search from "../Search"
 
 import { Link } from "react-router-dom"
 
 import { useDispatch, useSelector } from 'react-redux'
 import { show_headerNavSubMenu, hide_headerNavSubMenu } from '../../store/slice/headerNavSubMenu'
+import { show_search, hide_search } from '../../store/slice/search'
 
 import logo from './../../images/home/logo.png';
 
@@ -17,13 +19,22 @@ export default function Header() {
 
     const dispatch = useDispatch()
     const headerNavSubMenu = useSelector(state => state.headerNavSubMenu.value);
+    const search = useSelector(state => state.search.value);
 
-    const handleEnterHover = () => {
+    const handleMenuEnterHover = () => {
         dispatch(show_headerNavSubMenu())
     }
 
-    const handleLeaveHover = () => {
+    const handleMenuLeaveHover = () => {
         dispatch(hide_headerNavSubMenu())
+    }
+
+    const handleSearchEnterHover = () => {
+        dispatch(show_search())
+    }
+
+    const handleSearchLeaveHover = () => {
+        dispatch(hide_search())
     }
 
     return (
@@ -46,9 +57,13 @@ export default function Header() {
                     <HeaderButton />
                 </div>
             </div>
-            <div onMouseEnter={handleEnterHover} onMouseLeave={handleLeaveHover} className={`${styles.dropdown} ${headerNavSubMenu ? `${styles.active}` : ""}`}>
+            <div onMouseEnter={handleMenuEnterHover} onMouseLeave={handleMenuLeaveHover} className={`${styles.dropdown} ${headerNavSubMenu ? `${styles.active}` : ""}`}>
                 <div className={styles.space}></div>
                 <HeaderNavSubMenu />
+            </div>
+            <div onMouseEnter={handleSearchEnterHover} onMouseLeave={handleSearchLeaveHover} className={`${styles.dropdown} ${search ? `${styles.active}` : ""}`}>
+                <div className={styles.space}></div>
+                <Search />
             </div>
         </div>
     )

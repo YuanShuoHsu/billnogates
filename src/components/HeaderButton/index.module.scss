@@ -23,6 +23,7 @@
         text-decoration: none;
     }
 
+    .search,
     .customer,
     .cart,
     .hamburger {
@@ -58,6 +59,14 @@
             path {
                 pointer-events: none;
             }
+        }
+    }
+
+    .search {
+        display: flex;
+
+        @include desktop {
+            display: none;
         }
     }
 

@@ -17,7 +17,7 @@ export default function Sidebar() {
     event.stopPropagation()
   }
 
-  const hideMenu = () => {
+  const handleHideSidebar = () => {
     dispatch(hide_sidebar())
 
     document.body.style.removeProperty('position');
@@ -28,10 +28,13 @@ export default function Sidebar() {
   }
 
   return (
-    <div onClick={hideMenu} className={`${styles.Sidebar} ${sidebar ? `${styles.active}` : ""}`}>
+    <div onClick={handleHideSidebar} className={`${styles.Sidebar} ${sidebar ? `${styles.active}` : ""}`}>
       <div onClick={stopPropagation} className={styles.box}>
         <div className={styles.landscape} >
-          <img src={require("../../images/sidebar/腦袋本人.svg").default} alt="" />
+          <img src={require("../../images/sidebar/腦袋本人.svg").default} alt="腦袋本人" />
+        </div>
+        <div className={styles.search}>
+          <input className={styles.input} placeholder="搜尋產品" type="text" />
         </div>
         <SidebarNav />
       </div>

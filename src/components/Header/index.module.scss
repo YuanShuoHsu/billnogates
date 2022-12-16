@@ -93,6 +93,7 @@
         &.active {
             opacity: 1;
             pointer-events: auto;
+            z-index: 2;
         }
 
         .space {

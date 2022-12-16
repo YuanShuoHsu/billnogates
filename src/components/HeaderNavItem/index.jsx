@@ -6,6 +6,7 @@ import { change_headerNavItem } from '../../store/slice/headerNavItem'
 import { show_headerNavSubMenu, hide_headerNavSubMenu } from '../../store/slice/headerNavSubMenu'
 
 import styles from "./index.module.scss"
+import { hide_search } from '../../store/slice/search'
 
 export default function HeaderNavItem(props) {
 
@@ -15,6 +16,7 @@ export default function HeaderNavItem(props) {
     const { item } = props
 
     const handleEnterHover = async () => {
+        dispatch(hide_search())
         await dispatch(change_headerNavItem(item))
         dispatch(show_headerNavSubMenu())
     }
