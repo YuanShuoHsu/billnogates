@@ -4,15 +4,24 @@ import SidebarNavSubItem from '../SidebarNavSubItem'
 
 import { NavLink } from "react-router-dom"
 
+import { useDispatch } from 'react-redux';
+import { hide_sidebar } from '../../store/slice/sidebar';
+
 import styles from "./index.module.scss"
 
 export default function SidebarNavItem(props) {
+
+    const dispatch = useDispatch()
 
     const { item } = props
 
     const [itemClick, setItemClick] = useState(false)
 
     const [subItemClick, setSubItemClick] = useState(0)
+
+    const handleHideSidebar = () => {
+        dispatch(hide_sidebar())
+    }
 
     const handleClick = (itemClick) => {
         setItemClick(itemClick)
@@ -26,7 +35,7 @@ export default function SidebarNavItem(props) {
         <Fragment>
             {
                 item.layers === undefined ?
-                    <li className={styles.SidebarNavItem} key={item.id}>
+                    <li onClick={handleHideSidebar} className={styles.SidebarNavItem} key={item.id}>
                         <NavLink className={({ isActive }) => `${styles.href}` + (isActive ? ` ${styles.active}` : "")} to={`/${item.link}`}>
                             <div className={styles.link}>
                                 <span className={styles.text}>{item.nav}</span>

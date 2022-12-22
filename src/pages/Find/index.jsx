@@ -21,9 +21,9 @@ export default function Find() {
     const { state } = location
     const { keyWord } = state || {}
 
-    const findProduct = PRODUCTS.filter(item => {
-        return keyWord ? item.name.toLowerCase().includes(keyWord.toLowerCase()) : null
-    })
+    const findProduct = PRODUCTS.filter(item =>
+        keyWord ? item.name.toLowerCase().includes(keyWord.toLowerCase()) : null
+    )
 
     return (
         <div className={styles.Find}>

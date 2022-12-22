@@ -2,15 +2,25 @@ import React, { useState, Fragment } from 'react'
 
 import SidebarNavGrandItem from "../SidebarNavGrandItem"
 
+import { useDispatch } from 'react-redux';
+import { hide_sidebar } from '../../store/slice/sidebar';
+
 import { NavLink } from "react-router-dom"
 
 import styles from "./index.module.scss"
 
 export default function SidebarNavSubItem(props) {
 
+    const dispatch = useDispatch()
+
     const { handleSubItemLayersLength, itemLink, subItem } = props
 
     const [subItemClick, setSubItemClick] = useState(false)
+
+
+    const handleHideSidebar = () => {
+        dispatch(hide_sidebar())
+    }
 
     const handleClick = (event, subItemClick) => {
         event.stopPropagation()
@@ -28,7 +38,7 @@ export default function SidebarNavSubItem(props) {
         <Fragment>
             {
                 subItem.subLayers === undefined ?
-                    <li className={styles.SidebarNavSubItem} key={subItem.subId}>
+                    <li onClick={handleHideSidebar} className={styles.SidebarNavSubItem} key={subItem.subId}>
                         <NavLink className={({ isActive }) => `${styles.subHref}` + (isActive ? ` ${styles.active}` : "")} to={`/${itemLink}/${subItem.subLink}`}>
                             <div className={styles.subLink}>
                                 <span className={styles.subText}>{subItem.subNav}</span>
