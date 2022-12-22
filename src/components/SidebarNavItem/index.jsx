@@ -4,7 +4,7 @@ import SidebarNavSubItem from '../SidebarNavSubItem'
 
 import { NavLink } from "react-router-dom"
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { hide_sidebar } from '../../store/slice/sidebar';
 
 import styles from "./index.module.scss"
@@ -12,6 +12,7 @@ import styles from "./index.module.scss"
 export default function SidebarNavItem(props) {
 
     const dispatch = useDispatch()
+    const headerButton = useSelector(state => state.headerButton.value);
 
     const { item } = props
 
@@ -21,6 +22,12 @@ export default function SidebarNavItem(props) {
 
     const handleHideSidebar = () => {
         dispatch(hide_sidebar())
+
+        document.body.style.removeProperty('position');
+        document.body.style.removeProperty('top');
+        document.body.style.removeProperty('width');
+        document.body.style.removeProperty('overflow');
+        window.scrollTo(0, headerButton);
     }
 
     const handleClick = (itemClick) => {

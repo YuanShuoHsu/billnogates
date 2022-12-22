@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { hide_sidebar } from '../../store/slice/sidebar';
 
 import { NavLink } from "react-router-dom"
@@ -12,14 +12,21 @@ export default function SidebarNavGrandItem(props) {
     const { itemLink, subItemLink, grandItem } = props
 
     const dispatch = useDispatch()
+    const headerButton = useSelector(state => state.headerButton.value);
 
-    const stopPropagation = (event) => {
+    const handleHideSidebar = (event) => {
         event.stopPropagation()
         dispatch(hide_sidebar())
+
+        document.body.style.removeProperty('position');
+        document.body.style.removeProperty('top');
+        document.body.style.removeProperty('width');
+        document.body.style.removeProperty('overflow');
+        window.scrollTo(0, headerButton);
     }
 
     return (
-        <li onClick={stopPropagation} className={styles.SidebarNavGrandItem} key={grandItem.grandId}>
+        <li onClick={handleHideSidebar} className={styles.SidebarNavGrandItem} key={grandItem.grandId}>
             <NavLink className={({ isActive }) => `${styles.grandHref}` + (isActive ? ` ${styles.active}` : "")} to={`/${itemLink}/${subItemLink}/${grandItem.grandLink}`}>
                 <div className={styles.grandLink}>
                     <span className={styles.grandText}>{grandItem.grandNav}</span>
