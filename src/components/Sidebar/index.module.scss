@@ -4,6 +4,21 @@
     }
 }
 
+@mixin keyframes-animation($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin prefix-property($name, $value) {
+    -webkit-#{$name}: $value;
+    #{$name}: $value;
+}
+
 .Sidebar {
     position: fixed;
     top: 0;
@@ -24,6 +39,44 @@
         &.active {
             opacity: 1;
             pointer-events: auto;
+
+            .box {
+                .landscape {
+                    img {
+                        animation: 0.8s linear 0s 1 normal none running rubberBand;
+                    }
+
+                    @include keyframes-animation(rubberBand) {
+                        0% {
+                            @include prefix-property(transform, scale3d(1, 1, 1));
+                        }
+
+                        30% {
+                            @include prefix-property(transform, scale3d(1.25, 0.75, 1));
+                        }
+
+                        40% {
+                            @include prefix-property(transform, scale3d(0.75, 1.25, 1));
+                        }
+
+                        50% {
+                            @include prefix-property(transform, scale3d(1.15, 0.85, 1));
+                        }
+
+                        65% {
+                            @include prefix-property(transform, scale3d(0.95, 1.05, 1));
+                        }
+
+                        75% {
+                            @include prefix-property(transform, scale3d(1.05, 0.95, 1));
+                        }
+
+                        100% {
+                            @include prefix-property(transform, scale3d(1, 1, 1));
+                        }
+                    }
+                }
+            }
         }
     }
 
@@ -56,6 +109,7 @@
                 aspect-ratio: 1/1;
                 object-fit: contain;
                 transition: 0.2s;
+                pointer-events: none
             }
         }
 
