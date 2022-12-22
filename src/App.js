@@ -5,6 +5,7 @@ import { Routes, Route, Navigate } from "react-router-dom"
 import Home from "./pages/Home";
 import Membership from "./pages/Membership";
 import Detail from "./pages/Detail";
+import Find from "./pages/Find";
 import Checkout from "./pages/Checkout";
 import Story from "./pages/Story";
 import User from "./pages/User";
@@ -24,6 +25,10 @@ export default function App() {
             <Route path="" element={<Detail />} />
             <Route path="*" element={<Navigate replace to="" />} />
           </Route>
+        </Route>
+        <Route path="find" >
+          <Route path="" element={<Find />} />
+          <Route path="*" element={<Navigate replace to="" />} />
         </Route>
         <Route path="checkout" element={<Checkout />} />
         <Route path="story" element={<Story />} />

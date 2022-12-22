@@ -1,5 +1,6 @@
 import React from 'react'
 
+import SidebarSearch from '../SidebarSearch';
 import SidebarNav from '../SidebarNav';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -33,9 +34,7 @@ export default function Sidebar() {
         <div className={styles.landscape} >
           <img src={require("../../images/sidebar/腦袋本人.svg").default} alt="腦袋本人" />
         </div>
-        <div className={styles.search}>
-          <input className={styles.input} placeholder="搜尋產品" type="text" />
-        </div>
+        <SidebarSearch />
         <SidebarNav />
       </div>
     </div>

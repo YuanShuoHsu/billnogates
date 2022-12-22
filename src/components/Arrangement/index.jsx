@@ -1,14 +1,18 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux';
 import { change_arrangement } from '../../store/slice/arrangement';
 
-import styles from"./index.module.scss"
+import styles from "./index.module.scss"
 
 export default function Arrangement() {
 
     const dispatch = useDispatch();
     const arrangement = useSelector(state => state.arrangement.value);
+
+    useEffect(() => {
+        dispatch(change_arrangement("recommend"))
+    }, [dispatch])
 
     const handleSelectChange = (event) => {
         const { target } = event

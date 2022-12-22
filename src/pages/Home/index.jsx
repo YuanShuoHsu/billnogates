@@ -13,6 +13,8 @@ import Product from "../../components/Product"
 import Pagination from "../../components/Pagination"
 import Footer from "../../components/Footer"
 
+import PRODUCTS from '../../dataset/product'
+
 import styles from "./index.module.scss"
 
 export default function Home() {
@@ -33,10 +35,10 @@ export default function Home() {
                     <Arrangement />
                 </div>
                 <div className={styles.grid}>
-                    <Product />
+                    <Product PRODUCTS={PRODUCTS} />
                 </div>
                 <div className={styles.grid}>
-                    <Pagination />
+                    <Pagination PRODUCTS={PRODUCTS} />
                 </div>
             </div>
             <Footer />

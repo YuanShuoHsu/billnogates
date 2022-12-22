@@ -4,11 +4,11 @@ import { Link } from "react-router-dom"
 
 import { useSelector } from 'react-redux';
 
-import PRODUCTS from '../../dataset/product';
-
 import styles from "./index.module.scss"
 
-export default function Product() {
+export default function Product(props) {
+
+    const { PRODUCTS } = props
 
     const pagination = useSelector(state => state.pagination.value);
     const arrangement = useSelector(state => state.arrangement.value);

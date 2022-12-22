@@ -3,7 +3,7 @@ import React from 'react'
 import HeaderNav from "../HeaderNav"
 import HeaderButton from '../HeaderButton'
 import HeaderNavSubMenu from '../HeaderNavSubMenu'
-import Search from "../Search"
+import HeaderSearch from "../HeaderSearch"
 
 import { Link } from "react-router-dom"
 
@@ -63,7 +63,7 @@ export default function Header() {
             </div>
             <div onMouseEnter={handleSearchEnterHover} onMouseLeave={handleSearchLeaveHover} className={`${styles.dropdown} ${search ? `${styles.active}` : ""}`}>
                 <div className={styles.space}></div>
-                <Search />
+                <HeaderSearch />
             </div>
         </div>
     )

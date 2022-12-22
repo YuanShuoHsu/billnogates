@@ -6,14 +6,14 @@ import { number_pagination } from '../../store/slice/pagination';
 import { FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import PRODUCTS from "../../dataset/product"
-
 import "swiper/scss";
 import "swiper/scss/free-mode";
 
 import styles from "./index.module.scss"
 
-export default function Pagination() {
+export default function Pagination(props) {
+
+    const { PRODUCTS } = props
 
     const swiperRef = useRef()
 
