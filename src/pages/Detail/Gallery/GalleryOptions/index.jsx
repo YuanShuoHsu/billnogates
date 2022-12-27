@@ -75,7 +75,9 @@ export default function GalleryOptions(props) {
 
   const handleBuyNow = () => {
     if (color !== "" && size !== "") {
-      addToCart(findResult)
+      const newFindResult = JSON.parse(JSON.stringify(findResult))
+      newFindResult.choose = [color, size]
+      addToCart(newFindResult)
       navigate("/checkout")
     }
   }

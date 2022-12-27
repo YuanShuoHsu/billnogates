@@ -35,7 +35,7 @@
                 pointer-events: none;
 
                 &:checked {
-                    +label {
+                    +.label {
                         border: 1px solid #E4027F;
                         box-sizing: border-box;
                         color: #E4027F;

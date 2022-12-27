@@ -21,14 +21,17 @@ export default function HeaderSearch() {
             target.value = ""
             return
         }
+
         navigate("/find", { state: { keyWord: target.value } })
+        
         target.value = ""
+        
         dispatch(hide_search())
     }
 
     return (
         <div className={styles.HeaderSearch}>
-            <input onKeyUp={handleHeaderSearch} className={styles.input} placeholder="搜尋產品" type="text" />
+            <input onKeyUp={handleHeaderSearch} className={styles.input} placeholder="搜尋商品" type="text" />
         </div>
     )
 }

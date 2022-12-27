@@ -34,7 +34,7 @@ export default function Find() {
             <div className={styles.main}>
                 {
                     findProduct.length === 0 ?
-                        <h2 className={styles.title}>無符合"{keyWord}"產品</h2> :
+                        <h2 className={styles.title}>無符合「{keyWord}」商品</h2> :
                         <Fragment>
                             <div className={styles.grid}>
                                 <Arrangement />
