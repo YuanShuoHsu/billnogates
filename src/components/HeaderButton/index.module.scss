@@ -72,32 +72,37 @@
 
     .customer {
         &.active {
-            width: auto;
-        }
-
-        &:hover {
-            .name {
-                color: #E4027F;
-            }
-        }
-
-        .name {
             padding: 0 2.5px;
-            color: #000;
-            font: normal normal 16px/normal sans-serif;
-            letter-spacing: 1px;
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
-            transition: 0.2s;
-            pointer-events: none;
+            width: auto;
 
-            @include screen() {
-                max-width: 80px;
+            &:hover {
+                .name {
+                    color: #E4027F;
+                }
             }
 
-            @include pad() {
-                max-width: 40px;
+            .svg {
+                padding: 0 2.5px;
+            }
+
+            .name {
+                padding: 0 2.5px;
+                color: #000;
+                font: normal normal 16px/normal sans-serif;
+                letter-spacing: 1px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                transition: 0.2s;
+                pointer-events: none;
+
+                @include screen() {
+                    max-width: 80px;
+                }
+
+                @include pad() {
+                    max-width: 40px;
+                }
             }
         }
     }

@@ -37,7 +37,6 @@
                 &:checked {
                     +.label {
                         border: 1px solid #E4027F;
-                        box-sizing: border-box;
                         color: #E4027F;
                     }
                 }
@@ -45,10 +44,12 @@
 
             .label {
                 margin: 0 5px;
+                box-sizing: border-box;
                 width: 40px;
                 min-width: 40px;
                 height: 40px;
                 background: rgba(192, 192, 192, 0.2);
+                border: 1px solid transparent;
                 border-radius: 4px;
                 color: #000;
                 font: normal normal 16px/normal sans-serif;
