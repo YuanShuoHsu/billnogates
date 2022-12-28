@@ -10,7 +10,7 @@ import Header from "../../components/Header"
 import Footer from "../../components/Footer"
 
 
-import CartbarItem from '../../components/CartbarItem';
+import Order from './Order';
 
 import "./index.scss"
 
@@ -88,7 +88,7 @@ export default function Checkout() {
                         <div className='product'>
                             {
                                 setCartbarItem && setCartbarItem.map(item =>
-                                    <CartbarItem cartbarItem={cartbarItem} item={item} key={`${item.id} ${item.send}`} />
+                                    <Order cartbarItem={cartbarItem} item={item} key={`${item.id} ${item.send}`} />
                                 )
                             }
                         </div>
