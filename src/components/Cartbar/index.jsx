@@ -48,19 +48,39 @@ export default function Cartbar() {
         window.scrollTo(0, headerButton);
     }
 
+    const renderTotal = () => {
+        let sum = 0
+        cartbarItem && cartbarItem.forEach(item =>
+            sum += item.price
+        )
+        return sum
+    }
+
     return (
         <div onClick={hideCartbar} className={`${styles.Cartbar} ${cartbar ? `${styles.active}` : ""}`}>
             <div onClick={stopPropagation} className={styles.box}>
                 <h2 className={styles.title}>您的購物車</h2>
                 {
                     setCartbarItem.length === 0 ?
-                        <p className={styles.text} >目前還是空的</p> :
+                        <p className={styles.p} >目前還是空的</p> :
                         <Fragment>
-                            {
-                                setCartbarItem && setCartbarItem.map(item =>
-                                    <CartbarItem cartbarItem={cartbarItem} item={item} key={`${item.id} ${item.choose}`} />
-                                )
-                            }
+                            <div className={styles.content}>
+                                {
+                                    setCartbarItem && setCartbarItem.map(item =>
+                                        <CartbarItem cartbarItem={cartbarItem} item={item} key={`${item.id} ${item.choose}`} />
+                                    )
+                                }
+                                <div className={styles.item}>
+                                    <div className={styles.total}>
+                                        <span className={styles.text}>
+                                            合計：NT.
+                                            {
+                                                renderTotal()
+                                            }
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
                             <Link className={styles.link} to="/checkout">
                                 <button onClick={handleHideCartbar} className={styles.button}>
                                     <span className={styles.text}>結帳</span>

@@ -25,12 +25,35 @@
         flex-direction: column;
         overflow-y: auto;
 
-        .title {
+        .title,
+        .p {
             padding: 0 10px;
+            color: #000;
+            font: normal normal normal/normal sans-serif;
+            letter-spacing: 1px;
         }
 
-        .text {
-            padding: 0 10px;
+        .content {
+            padding: 5px;
+            background: rgba(245, 245, 245, 0.8);
+            backdrop-filter: blur(4px);
+
+            .item {
+                padding: 5px;
+                display: flex;
+                justify-content: flex-end;
+
+                .total {
+                    width: 50%;
+                    text-align: center;
+
+                    .text {
+                        color: #000;
+                        font: normal normal 16px/30px sans-serif;
+                        letter-spacing: 1px;
+                    }
+                }
+            }
         }
 
         .link {

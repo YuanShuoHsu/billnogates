@@ -97,6 +97,10 @@
                 pointer-events: none;
 
                 @include screen() {
+                    max-width: 40px;
+                }
+
+                @include desktop() {
                     max-width: 80px;
                 }
 

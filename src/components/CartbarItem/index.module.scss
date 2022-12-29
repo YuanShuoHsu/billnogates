@@ -1,182 +1,176 @@
 .CartbarItem {
     position: relative;
 
-    .order {
-        padding: 5px;
-        background: rgba(245, 245, 245, 0.8);
-        backdrop-filter: blur(4px);
-
-        &:hover {
-            .box {
-                .photo {
-                    .image {
-                        transform: scale(1.2);
-                    }
-                }
-            }
-        }
-
+    &:hover {
         .box {
-            display: flex;
-            align-items: center;
-
             .photo {
-                position: relative;
-                margin: 5px;
-                width: 50%;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                border-radius: 4px;
-                overflow: hidden;
-                z-index: 3;
-
                 .image {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    aspect-ratio: 1/1;
-                    object-fit: cover;
-                    transition: 0.2s;
-                }
-            }
-
-            .information {
-                padding: 5px;
-                box-sizing: border-box;
-                width: 50%;
-                height: 100%;
-
-                .name {
-                    color: #000;
-                    font: normal normal normal/normal sans-serif;
-                    white-space: nowrap;
-                    overflow: hidden;
-                    text-overflow: ellipsis;
-                }
-
-                .choose {
-                    color: #000;
-                    font: normal normal 16px/normal sans-serif;
-                    letter-spacing: 1px;
-                    overflow: hidden;
-                    display: -webkit-box;
-                    -webkit-line-clamp: 3; // 行數
-                    -webkit-box-orient: vertical;
-                    white-space: normal;
-                }
-
-                .price {
-                    color: #000;
-                    font: normal normal 16px/normal sans-serif;
-                    letter-spacing: 1px;
+                    transform: scale(1.2);
                 }
             }
         }
+    }
 
-        .content {
-            padding: 5px;
+    .box {
+        display: flex;
+        align-items: center;
+
+        .photo {
+            position: relative;
+            margin: 5px;
+            width: 50%;
+            height: 100%;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
+            border-radius: 4px;
+            overflow: hidden;
+            z-index: 3;
 
-            .calculator {
-                width: calc(50% - 5px);
-                display: flex;
+            .image {
+                display: block;
+                width: 100%;
+                height: 100%;
+                aspect-ratio: 1/1;
+                object-fit: cover;
+                transition: 0.2s;
+            }
+        }
 
-                .operator {
-                    width: 30px;
-                    height: 30px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    background: rgba(192, 192, 192, 0.2);
-                    cursor: pointer;
-                    transition: 0.2s;
+        .information {
+            padding: 5px;
+            box-sizing: border-box;
+            width: 50%;
+            height: 100%;
 
-                    &:first-child {
-                        border-top-left-radius: 4px;
-                        border-bottom-left-radius: 4px;
-                    }
-
-                    &:last-child {
-                        border-top-right-radius: 4px;
-                        border-bottom-right-radius: 4px;
-                    }
-
-                    &:hover {
-                        opacity: 0.8;
-                    }
-
-                    .svg {
-                        width: 10px;
-                        height: 10px;
-                        fill: #000;
-                        pointer-events: none;
-
-                        path {
-                            pointer-events: none;
-                        }
-                    }
-                }
-
-                .number {
-                    padding: 0;
-                    width: calc(100% - 30px * 2);
-                    height: 30px;
-                    background: #fff;
-                    border: none;
-                    border-radius: 0;
-                    outline: none;
-                    text-align: center;
-                    color: #000;
-                    font: normal normal 16px/normal sans-serif;
-                    letter-spacing: 1px;
-                    -moz-appearance: textfield;
-
-                    &::-webkit-outer-spin-button,
-                    &::-webkit-inner-spin-button {
-                        margin: 0;
-                        -webkit-appearance: none;
-                    }
-                }
+            .name {
+                color: #000;
+                font: normal normal normal/normal sans-serif;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
             }
 
-            .total {
+            .choose {
                 color: #000;
-                font: normal normal 16px/30px sans-serif;
+                font: normal normal 16px/normal sans-serif;
+                letter-spacing: 1px;
+                overflow: hidden;
+                display: -webkit-box;
+                -webkit-line-clamp: 3; // 行數
+                -webkit-box-orient: vertical;
+                white-space: normal;
+            }
+
+            .price {
+                color: #000;
+                font: normal normal 16px/normal sans-serif;
                 letter-spacing: 1px;
             }
+        }
+    }
 
-            .delete {
+    .content {
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .calculator {
+            width: calc(50% - 5px);
+            display: flex;
+
+            .operator {
                 width: 30px;
                 height: 30px;
-                border-radius: 4px;
                 display: flex;
                 justify-content: center;
                 align-items: center;
+                background: rgba(192, 192, 192, 0.2);
                 cursor: pointer;
                 transition: 0.2s;
 
+                &:first-child {
+                    border-top-left-radius: 4px;
+                    border-bottom-left-radius: 4px;
+                }
+
+                &:last-child {
+                    border-top-right-radius: 4px;
+                    border-bottom-right-radius: 4px;
+                }
+
                 &:hover {
                     opacity: 0.8;
-
-                    .svg {
-                        fill: #E4027E;
-                    }
                 }
 
                 .svg {
-                    width: 24px;
-                    height: 24px;
+                    width: 10px;
+                    height: 10px;
                     fill: #000;
-                    transition: 0.2s;
                     pointer-events: none;
 
                     path {
                         pointer-events: none;
                     }
+                }
+            }
+
+            .number {
+                padding: 0;
+                width: calc(100% - 30px * 2);
+                height: 30px;
+                background: #fff;
+                border: none;
+                border-radius: 0;
+                outline: none;
+                text-align: center;
+                color: #000;
+                font: normal normal 16px/normal sans-serif;
+                letter-spacing: 1px;
+                -moz-appearance: textfield;
+
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    margin: 0;
+                    -webkit-appearance: none;
+                }
+            }
+        }
+
+        .total {
+            color: #000;
+            font: normal normal 16px/30px sans-serif;
+            letter-spacing: 1px;
+        }
+
+        .delete {
+            width: 30px;
+            height: 30px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.2s;
+
+            &:hover {
+                opacity: 0.8;
+
+                .svg {
+                    fill: #E4027E;
+                }
+            }
+
+            .svg {
+                width: 24px;
+                height: 24px;
+                fill: #000;
+                transition: 0.2s;
+                pointer-events: none;
+
+                path {
+                    pointer-events: none;
                 }
             }
         }

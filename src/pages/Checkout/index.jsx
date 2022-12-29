@@ -29,6 +29,14 @@ export default function Checkout() {
         )
     ].map(item => JSON.parse(item));
 
+    const renderTotal = () => {
+        let sum = 0
+        cartbarItem && cartbarItem.forEach(item =>
+            sum += item.price
+        )
+        return sum
+    }
+
     const handleSend = (event) => {
         const { target } = event
         setSend(target.value)
@@ -85,13 +93,27 @@ export default function Checkout() {
                 <div className='grid'>
                     <div className='buy'>
                         <h2 className='title'>購買商品</h2>
-                        <div className='product'>
-                            {
-                                setCartbarItem && setCartbarItem.map(item =>
-                                    <Order cartbarItem={cartbarItem} item={item} key={`${item.id} ${item.send}`} />
-                                )
-                            }
-                        </div>
+                        {
+                            setCartbarItem.length === 0 ?
+                                <p className="p" >目前還是空的</p> :
+                                <div className='product'>
+                                    {
+                                        setCartbarItem && setCartbarItem.map(item =>
+                                            <Order cartbarItem={cartbarItem} item={item} key={`${item.id} ${item.send}`} />
+                                        )
+                                    }
+                                    <div className="item">
+                                        <div className="total">
+                                            <span className="text">
+                                                合計：NT.
+                                                {
+                                                    renderTotal()
+                                                }
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                        }
                     </div>
                 </div>
                 <div className='grid'>

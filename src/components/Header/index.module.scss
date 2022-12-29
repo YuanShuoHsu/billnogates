@@ -1,5 +1,5 @@
-@mixin others {
-    @media(max-width: 320px) {
+@mixin iphone {
+    @media(max-width: 414px) {
         @content;
     }
 }
@@ -14,7 +14,7 @@
     backdrop-filter: blur(4px);
     z-index: 2;
 
-    @include others() {
+    @include iphone() {
         overflow-x: auto;
         overflow-y: hidden;
     }
