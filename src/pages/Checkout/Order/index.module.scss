@@ -9,7 +9,7 @@
     border-bottom: 1px solid;
     border-image: linear-gradient(90deg, transparent, rgba(228, 2, 126, 1), transparent) 1;
     display: flex;
-
+    
     @include pad() {
         border: none;
         flex-direction: column;

@@ -55,6 +55,7 @@ export default function Cartbar() {
         )
         return sum
     }
+    console.log(setCartbarItem)
 
     return (
         <div onClick={hideCartbar} className={`${styles.Cartbar} ${cartbar ? `${styles.active}` : ""}`}>
