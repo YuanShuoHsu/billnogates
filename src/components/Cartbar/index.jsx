@@ -70,7 +70,8 @@ export default function Cartbar() {
                                         <CartbarItem cartbarItem={cartbarItem} item={item} key={`${item.id} ${item.choose}`} />
                                     )
                                 }
-                                <div className={styles.item}>
+                            </div>
+                            <div className={styles.item}>
                                     <div className={styles.total}>
                                         <span className={styles.text}>
                                             合計：NT.
@@ -80,7 +81,6 @@ export default function Cartbar() {
                                         </span>
                                     </div>
                                 </div>
-                            </div>
                             <Link className={styles.link} to="/checkout">
                                 <button onClick={handleHideCartbar} className={styles.button}>
                                     <span className={styles.text}>結帳</span>

@@ -37,33 +37,47 @@
             padding: 5px;
             background: rgba(245, 245, 245, 0.8);
             backdrop-filter: blur(4px);
+        }
 
-            .item {
-                padding: 5px;
-                display: flex;
-                justify-content: flex-end;
+        .item {
+            position: sticky;
+            left: 0;
+            bottom: 40px;
+            padding: 5px;
+            box-sizing: border-box;
+            width: 100%;
+            background: rgba(245, 245, 245, 0.8);
+            backdrop-filter: blur(4px);
+            display: flex;
+            justify-content: flex-end;
 
-                .total {
-                    width: 50%;
-                    text-align: center;
+            .total {
+                padding: 0 5px;
+                box-sizing: border-box;
+                width: 50%;
+                text-align: center;
 
-                    .text {
-                        color: #000;
-                        font: normal normal 16px/30px sans-serif;
-                        letter-spacing: 1px;
-                    }
+                .text {
+                    color: #000;
+                    font: normal normal 16px/30px sans-serif;
+                    letter-spacing: 1px;
                 }
             }
         }
 
         .link {
+            position: sticky;
+            left: 0;
+            bottom: 0;
+            width: 100%;
             text-decoration: none;
 
             .button {
                 padding: 0;
                 width: 100%;
                 height: 40px;
-                background: #E4027D;
+                background: rgba(228, 2, 126, 0.8);
+                backdrop-filter: blur(4px);
                 border: none;
                 display: flex;
                 justify-content: center;
