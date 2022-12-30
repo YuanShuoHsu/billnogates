@@ -87,7 +87,7 @@
         backdrop-filter: blur(4px);
         display: flex;
         flex-direction: column;
-        overflow-y: auto;
+        overflow: hidden auto;
 
         .landscape {
             width: 100%;

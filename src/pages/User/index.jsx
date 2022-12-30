@@ -1,5 +1,10 @@
 import React from 'react'
+
+import Cartbar from "../../components/Cartbar"
+import Sidebar from "../../components/Sidebar"
+import ScrollToTopButton from "../../components/ScrollToTopButton"
 import Header from "../../components/Header"
+import Footer from "../../components/Footer"
 
 import { useNavigate } from "react-router-dom"
 
@@ -25,10 +30,14 @@ export default function User() {
 
     return (
         <div className='User'>
+            <Cartbar />
+            <Sidebar />
+            <ScrollToTopButton />
             <Header />
             <div className='main'>
                 <button onClick={handleSignOut}>登出</button>
             </div>
+            <Footer />
         </div>
     )
 }

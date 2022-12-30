@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 import SidebarSearch from '../SidebarSearch';
 import SidebarNav from '../SidebarNav';
@@ -9,6 +9,14 @@ import { hide_sidebar } from '../../store/slice/sidebar';
 import styles from "./index.module.scss"
 
 export default function Sidebar() {
+
+  useEffect(() => {
+    window.matchMedia("(max-width: 768px)").addEventListener('change', event => {
+      if (!event.matches) {
+        handleHideSidebar()
+      }
+    })
+  }, [])
 
   const dispatch = useDispatch();
   const sidebar = useSelector(state => state.sidebar.value);

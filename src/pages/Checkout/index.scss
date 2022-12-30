@@ -53,7 +53,7 @@
                     background: #fff;
                     backdrop-filter: blur(4px);
                     border-radius: 4px;
-                    overflow-y: auto;
+                    overflow: hidden auto;
 
                     .item {
                         position: sticky;

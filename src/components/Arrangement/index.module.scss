@@ -9,8 +9,7 @@
     display: flex;
 
     @include others() {
-        overflow-x: auto;
-        overflow-y: hidden;
+        overflow: auto hidden;
     }
 
     :global(.anchorPoint) {
