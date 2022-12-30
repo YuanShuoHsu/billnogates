@@ -61,7 +61,7 @@ export default function GalleryOptions(props) {
 
     if (findNewCartbarItem === undefined) {
       newFindResult.number = number;
-      dispatch(change_cartbarItem([...newCartbarItem, newFindResult]))
+      dispatch(change_cartbarItem([newFindResult, ...newCartbarItem]))
     }
     else if (findNewCartbarItem !== undefined) {
       if (findNewCartbarItem.number + number <= maxNumber) {
