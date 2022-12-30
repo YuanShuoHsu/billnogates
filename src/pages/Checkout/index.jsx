@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 
-
 import { useSelector } from 'react-redux';
 
 import Cartbar from "../../components/Cartbar"
@@ -8,7 +7,6 @@ import Sidebar from "../../components/Sidebar"
 import ScrollToTopButton from "../../components/ScrollToTopButton"
 import Header from "../../components/Header"
 import Footer from "../../components/Footer"
-
 
 import Order from './Order';
 
@@ -21,18 +19,10 @@ export default function Checkout() {
 
     const cartbarItem = useSelector(state => state.cartbarItem.value);
 
-    const setCartbarItem = [
-        ...new Set(
-            cartbarItem.map(item =>
-                JSON.stringify(item)
-            )
-        )
-    ].map(item => JSON.parse(item));
-
     const renderTotal = () => {
         let sum = 0
         cartbarItem && cartbarItem.forEach(item =>
-            sum += item.price
+            sum += item.number * item.price
         )
         return sum
     }
@@ -94,12 +84,12 @@ export default function Checkout() {
                     <div className='buy'>
                         <h2 className='title'>購買商品</h2>
                         {
-                            setCartbarItem.length === 0 ?
+                            cartbarItem.length === 0 ?
                                 <p className="p" >目前還是空的</p> :
                                 <div className='product'>
                                     {
-                                        setCartbarItem && setCartbarItem.map(item =>
-                                            <Order cartbarItem={cartbarItem} item={item} key={`${item.id} ${item.send}`} />
+                                        cartbarItem && cartbarItem.map(item =>
+                                            <Order item={item} key={`${item.id} ${item.choose}`} />
                                         )
                                     }
                                     <div className="item">

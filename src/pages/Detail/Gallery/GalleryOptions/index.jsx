@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { add_cartbarItem } from "../../../../store/slice/cartbarItem"
+import { change_cartbarItem } from "../../../../store/slice/cartbarItem"
 
 import styles from "./index.module.scss"
 
@@ -50,43 +50,41 @@ export default function GalleryOptions(props) {
     }
   }
 
-  const repeatElement = (cartbarItem, item) => {
-    let counter = 0;
-    cartbarItem.forEach(element => {
-      if (JSON.stringify(element) === JSON.stringify(item)) {
-        counter++
-      }
-    });
-    return counter;
-  }
+  const addToCart = () => {
+    const newCartbarItem = JSON.parse(JSON.stringify(cartbarItem))
+    const newFindResult = JSON.parse(JSON.stringify(findResult))
+    newFindResult.choose = [color, size]
 
-  const addToCart = (item) => {
-    if (repeatElement(cartbarItem, item) + number <= maxNumber) {
-      for (let count = 0; count < number; count++) {
-        dispatch(add_cartbarItem(item))
-      }
+    const findNewCartbarItem = newCartbarItem.find(item =>
+      item.id === newFindResult.id && JSON.stringify(item.choose) === JSON.stringify(newFindResult.choose)
+    )
+
+    if (findNewCartbarItem === undefined) {
+      newFindResult.number = number;
+      dispatch(change_cartbarItem([...newCartbarItem, newFindResult]))
     }
-    else if (repeatElement(cartbarItem, item) + number > maxNumber) {
-      for (let count = 0; count < maxNumber - repeatElement(cartbarItem, item); count++) {
-        dispatch(add_cartbarItem(item))
+    else if (findNewCartbarItem !== undefined) {
+      if (findNewCartbarItem.number + number <= maxNumber) {
+        findNewCartbarItem.number += number;
+
       }
+      else if (findNewCartbarItem.number + number > maxNumber) {
+        findNewCartbarItem.number += maxNumber - findNewCartbarItem.number;
+      }
+      dispatch(change_cartbarItem([...newCartbarItem]))
     }
   }
 
   const handleBuyNow = () => {
     if (color !== "" && size !== "") {
-      const newFindResult = JSON.parse(JSON.stringify(findResult))
-      newFindResult.choose = [color, size]
-      addToCart(newFindResult)
+      addToCart()
       navigate("/checkout")
     }
   }
 
   const handleAddToCart = () => {
     if (color !== "" && size !== "") {
-      const newFindResult = JSON.parse(JSON.stringify(findResult))
-      newFindResult.choose = [color, size]
-      addToCart(newFindResult)
+      addToCart()
     }
   }
 

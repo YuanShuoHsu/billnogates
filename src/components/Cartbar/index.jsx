@@ -16,14 +16,6 @@ export default function Cartbar() {
     const cartbarItem = useSelector(state => state.cartbarItem.value);
     const headerButton = useSelector(state => state.headerButton.value);
 
-    const setCartbarItem = [
-        ...new Set(
-            cartbarItem.map(item =>
-                JSON.stringify(item)
-            )
-        )
-    ].map(item => JSON.parse(item));
-
     const hideCartbar = () => {
         dispatch(hide_cartbar())
 
@@ -51,37 +43,36 @@ export default function Cartbar() {
     const renderTotal = () => {
         let sum = 0
         cartbarItem && cartbarItem.forEach(item =>
-            sum += item.price
+            sum += item.number * item.price
         )
         return sum
     }
-    console.log(setCartbarItem)
 
     return (
         <div onClick={hideCartbar} className={`${styles.Cartbar} ${cartbar ? `${styles.active}` : ""}`}>
             <div onClick={stopPropagation} className={styles.box}>
                 <h2 className={styles.title}>您的購物車</h2>
                 {
-                    setCartbarItem.length === 0 ?
+                    cartbarItem.length === 0 ?
                         <p className={styles.p} >目前還是空的</p> :
                         <Fragment>
                             <div className={styles.content}>
                                 {
-                                    setCartbarItem && setCartbarItem.map(item =>
+                                    cartbarItem && cartbarItem.map(item =>
                                         <CartbarItem cartbarItem={cartbarItem} item={item} key={`${item.id} ${item.choose}`} />
                                     )
                                 }
                             </div>
                             <div className={styles.item}>
-                                    <div className={styles.total}>
-                                        <span className={styles.text}>
-                                            合計：NT.
-                                            {
-                                                renderTotal()
-                                            }
-                                        </span>
-                                    </div>
+                                <div className={styles.total}>
+                                    <span className={styles.text}>
+                                        合計：NT.
+                                        {
+                                            renderTotal()
+                                        }
+                                    </span>
                                 </div>
+                            </div>
                             <Link className={styles.link} to="/checkout">
                                 <button onClick={handleHideCartbar} className={styles.button}>
                                     <span className={styles.text}>結帳</span>
