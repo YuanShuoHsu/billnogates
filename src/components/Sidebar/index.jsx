@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useCallback } from 'react'
 
 import SidebarSearch from '../SidebarSearch';
 import SidebarNav from '../SidebarNav';
@@ -10,23 +10,11 @@ import styles from "./index.module.scss"
 
 export default function Sidebar() {
 
-  useEffect(() => {
-    window.matchMedia("(max-width: 768px)").addEventListener('change', event => {
-      if (!event.matches) {
-        handleHideSidebar()
-      }
-    })
-  }, [])
-
   const dispatch = useDispatch();
   const sidebar = useSelector(state => state.sidebar.value);
   const headerButton = useSelector(state => state.headerButton.value);
 
-  const stopPropagation = (event) => {
-    event.stopPropagation()
-  }
-
-  const handleHideSidebar = () => {
+  const handleHideSidebar = useCallback(() => {
     dispatch(hide_sidebar())
 
     document.body.style.removeProperty('position');
@@ -34,6 +22,18 @@ export default function Sidebar() {
     document.body.style.removeProperty('width');
     document.body.style.removeProperty('overflow');
     window.scrollTo(0, headerButton);
+  }, [dispatch, headerButton])
+
+  useEffect(() => {
+    window.matchMedia("(max-width: 768px)").addEventListener('change', event => {
+      if (!event.matches) {
+        handleHideSidebar()
+      }
+    })
+  }, [handleHideSidebar])
+
+  const stopPropagation = (event) => {
+    event.stopPropagation()
   }
 
   return (
