@@ -1,7 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit'
 
+const data =
+    window.localStorage.getItem("CARTBAR_PRODUCTS") !== null
+        ? JSON.parse(window.localStorage.getItem("CARTBAR_PRODUCTS"))
+        : []
+
 const initialState = {
-    value: [],
+    value: data,
 }
 
 export const cartbarItemSlice = createSlice({

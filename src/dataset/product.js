@@ -105,26 +105,94 @@ const PRODUCTS = [
     },
     {
         id: 2,
-        image: require("../images/home/logo.png"),
-        name: "元碩",
-        price: 180,
+        image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"),
+        name: "花椰菜菜子裡的小白蟲先生｛ 深/淺 ｝",
+        price: 1280,
+        color: [
+            {
+                subId: 1,
+                name: "深色",
+                rgb: "#000",
+            },
+            {
+                subId: 2,
+                name: "淺色",
+                rgb: "#ccc",
+            }
+        ],
+        dimension: [
+            {
+                subId: 1,
+                size: "S",
+                checked: false
+            },
+            {
+                subId: 2,
+                size: "M",
+                checked: false
+            },
+            {
+                subId: 3,
+                size: "L",
+                checked: false
+            },
+        ],
         gallery: [
             {
                 subId: 1,
-                image: require("../images/home/logo.png"),
-                name: "元碩",
-            },
-        ],
-        description: [
-            {
-                subId: 1,
-                text: "Hello,world1"
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"),
+                name: "花椰菜帽1"
             },
             {
                 subId: 2,
                 image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽2.png"),
                 name: "花椰菜帽2"
             },
+            {
+                subId: 3,
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽3.png"),
+                name: "花椰菜帽3"
+            },
+            {
+                subId: 4,
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽4.png"),
+                name: "花椰菜帽4"
+            },
+            {
+                subId: 5,
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽5.png"),
+                name: "花椰菜帽5"
+            },
+            {
+                subId: 6,
+                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽6.png"),
+                name: "花椰菜帽6"
+            },
+        ],
+        description: [
+            {
+                subId: 1,
+                text: "有天看著碗裡的蔬菜們，腦中跑出一幕幕畫面，如果沒有農藥的花椰菜會不會因為菜蟲在他的頭上而想抓癢呢？如果番茄蒂頭被風吹走了他會追得到嗎？秋葵會不會因為笑到流口水被自己的黏液弄到滑倒，如果這一切都有可能發生，是不是生活中不敢吃的菜菜們都會變得可愛，來跟可愛的菜菜們當朋友吧！"
+            },
+            {
+                subId: 2,
+                vertical: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽2.png"),
+                name: "花椰菜帽2"
+            },
+            {
+                subId: 3,
+                horizontal: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"),
+                name: "花椰菜帽1"
+            },
+            {
+                subId: 4,
+                text: "花椰菜菜子與小白蟲先生有著不單純的寄生關係，花椰菜菜子有小白蟲先生的陪伴，卻又因小白蟲先生的存在搔癢難耐，愛得癢癢的（？又愛又恨的寄生戀愛情迷。"
+            },
+            {
+                subId: 5,
+                vertical: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽3.png"),
+                name: "花椰菜帽3"
+            }
         ],
         information: [
             {
@@ -133,7 +201,7 @@ const PRODUCTS = [
             },
             {
                 subId: 2,
-                image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"),
+                vertical: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"),
                 name: "花椰菜帽1"
             }
         ]
