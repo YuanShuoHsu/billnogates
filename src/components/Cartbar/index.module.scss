@@ -43,7 +43,7 @@
             position: sticky;
             left: 0;
             bottom: 40px;
-            padding: 5px;
+            padding:0 5px;
             box-sizing: border-box;
             width: 100%;
             background: rgba(245, 245, 245, 0.8);
@@ -59,7 +59,7 @@
 
                 .text {
                     color: #000;
-                    font: normal normal 16px/30px sans-serif;
+                    font: normal normal 16px/40px sans-serif;
                     letter-spacing: 1px;
                 }
             }

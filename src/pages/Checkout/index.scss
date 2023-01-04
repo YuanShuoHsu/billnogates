@@ -60,7 +60,7 @@
                         position: sticky;
                         left: 0;
                         bottom: -5px;
-                        padding: 5px;
+                        padding: 0 5px;
                         box-sizing: border-box;
                         width: 100%;
                         background: rgba(255, 255, 255, 0.8);
@@ -72,10 +72,32 @@
                         .total {
                             width: 50%;
                             text-align: center;
+                            white-space: nowrap;
+                            transition: 0.2s;
+
+                            &.active {
+                                width: 100%;
+                            }
 
                             .text {
                                 color: #000;
-                                font: normal normal 16px/30px sans-serif;
+                                font: normal normal 16px/40px sans-serif;
+                                letter-spacing: 1px;
+                            }
+
+                            .number {
+                                color: #000;
+                                font: normal normal 16px/40px sans-serif;
+                                letter-spacing: 1px;
+
+                                &.active {
+                                    text-decoration: line-through;
+                                }
+                            }
+
+                            .fee {
+                                color: #E4027F;
+                                font: normal normal 16px/40px sans-serif;
                                 letter-spacing: 1px;
                             }
                         }
