@@ -55,6 +55,7 @@
                     backdrop-filter: blur(4px);
                     border-radius: 4px;
                     overflow: hidden auto;
+                    scroll-behavior: smooth;
 
                     .item {
                         position: sticky;

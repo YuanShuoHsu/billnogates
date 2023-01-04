@@ -5,7 +5,7 @@ import Sidebar from "../../components/Sidebar"
 import ScrollToTopButton from "../../components/ScrollToTopButton"
 import Header from "../../components/Header"
 import Accouncement from '../../components/Accouncement'
-import Recommend from "../../components/Recommend"
+import Ticker from "../../components/Ticker"
 import Banner from "../../components/Banner"
 import Supply from '../../components/Supply'
 import Arrangement from "../../components/Arrangement"
@@ -26,7 +26,7 @@ export default function Home() {
             <Header />
             <Accouncement />
             <Banner />
-            <Recommend />
+            <Ticker />
             <div className={styles.main}>
                 <div className={styles.grid}>
                     <Supply />

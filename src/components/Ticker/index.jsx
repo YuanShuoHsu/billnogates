@@ -30,7 +30,7 @@ export default function Recommend(props) {
   }
 
   return (
-    <div onDoubleClick={handleStop} onClick={handleReverse} className={styles.Recommend} id={id}>
+    <div onDoubleClick={handleStop} onClick={handleReverse} className={styles.Ticker} id={id}>
       <div className={styles.content}>
         <span>billnogates</span>
         <span className={styles.stroke}> store </span>
