@@ -11,8 +11,11 @@ import Find from "./pages/Find";
 import Checkout from "./pages/Checkout";
 import Story from "./pages/Story";
 import User from "./pages/User";
+import Maintenance from "./components/Maintenance";
 
 export default function App() {
+
+  const maintain = false;
 
   const cartbarItem = useSelector(state => state.cartbarItem.value);
 
@@ -22,6 +25,10 @@ export default function App() {
 
   return (
     <div className="app">
+      {
+        maintain ?
+          <Maintenance /> : null
+      }
       <Routes>
         <Route path="" element={<Home />} />
         <Route path="membership">
