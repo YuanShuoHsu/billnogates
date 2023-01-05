@@ -8,15 +8,15 @@ export const searchSlice = createSlice({
     name: 'search',
     initialState,
     reducers: {
-        show_search: (state) => {
+        showSearch: state => {
             state.value = true
         },
-        hide_search: (state) => {
+        hideSearch: state => {
             state.value = false
         }
     },
 })
 
-export const { show_search, hide_search } = searchSlice.actions
+export const { showSearch, hideSearch } = searchSlice.actions
 
 export default searchSlice.reducer

@@ -8,12 +8,12 @@ export const paginationSlice = createSlice({
     name: 'pagination',
     initialState,
     reducers: {
-        number_pagination: (state, data) => {
+        changePagination: (state, data) => {
             state.value = data.payload
         },
     },
 })
 
-export const { number_pagination } = paginationSlice.actions
+export const { changePagination } = paginationSlice.actions
 
 export default paginationSlice.reducer

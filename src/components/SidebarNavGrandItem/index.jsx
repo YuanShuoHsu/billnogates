@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { hide_sidebar } from '../../store/slice/sidebar';
+import { hideSidebar } from '../../store/slice/sidebar';
 
 import { NavLink } from "react-router-dom"
 
@@ -16,7 +16,7 @@ export default function SidebarNavGrandItem(props) {
 
     const handleHideSidebar = (event) => {
         event.stopPropagation()
-        dispatch(hide_sidebar())
+        dispatch(hideSidebar())
 
         document.body.style.removeProperty('position');
         document.body.style.removeProperty('top');

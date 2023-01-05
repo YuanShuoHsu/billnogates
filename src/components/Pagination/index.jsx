@@ -1,7 +1,7 @@
 import React, { useRef } from 'react'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { number_pagination } from '../../store/slice/pagination';
+import { changePagination } from '../../store/slice/pagination';
 
 import { FreeMode } from 'swiper';
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -42,7 +42,7 @@ export default function Pagination(props) {
     }
 
     const handleNumber = (index) => {
-        dispatch(number_pagination(index))
+        dispatch(changePagination(index))
         scrollToElement()
     }
 

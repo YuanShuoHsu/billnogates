@@ -3,7 +3,7 @@ import React, { useState, Fragment } from 'react'
 import SidebarNavGrandItem from "../SidebarNavGrandItem"
 
 import { useDispatch, useSelector } from 'react-redux';
-import { hide_sidebar } from '../../store/slice/sidebar';
+import { hideSidebar } from '../../store/slice/sidebar';
 
 import { NavLink } from "react-router-dom"
 
@@ -20,7 +20,7 @@ export default function SidebarNavSubItem(props) {
 
 
     const handleHideSidebar = () => {
-        dispatch(hide_sidebar())
+        dispatch(hideSidebar())
 
         document.body.style.removeProperty('position');
         document.body.style.removeProperty('top');

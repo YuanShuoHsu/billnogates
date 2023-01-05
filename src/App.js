@@ -1,8 +1,6 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 import { Routes, Route, Navigate } from "react-router-dom"
-
-import { useSelector } from 'react-redux';
 
 import Home from "./pages/Home";
 import Membership from "./pages/Membership";
@@ -16,12 +14,6 @@ import Maintenance from "./components/Maintenance";
 export default function App() {
 
   const maintain = false;
-
-  const cartbarItem = useSelector(state => state.cartbarItem.value);
-
-  useEffect(() => {
-    window.localStorage.setItem("CARTBAR_PRODUCTS", JSON.stringify(cartbarItem))
-  }, [cartbarItem])
 
   return (
     <div className="app">

@@ -1,7 +1,7 @@
 import React from 'react'
 
 import { useDispatch } from 'react-redux';
-import { change_cartbarItem } from '../../store/slice/cartbarItem';
+import { decrementCartbarItem, incrementCartbarItem, deleteCartbarItem } from '../../store/slice/cartbarItem';
 
 import styles from "./index.module.scss"
 
@@ -15,36 +15,15 @@ export default function CartbarItem(props) {
     const maxNumber = 10
 
     const decrement = () => {
-        const newCartbarItem = JSON.parse(JSON.stringify(cartbarItem))
-
-        const findNewCartbarItem = newCartbarItem.find(element =>
-            element.id === item.id && JSON.stringify(element.choose) === JSON.stringify(item.choose)
-        )
-
-        if (findNewCartbarItem.number > minNumber) {
-            findNewCartbarItem.number -= 1;
-            dispatch(change_cartbarItem([...newCartbarItem]))
-        }
+        dispatch(decrementCartbarItem({cartbarItem, item, minNumber}))
     }
 
     const increment = () => {
-        const newCartbarItem = JSON.parse(JSON.stringify(cartbarItem))
-
-        const findNewCartbarItem = newCartbarItem.find(obj =>
-            obj.id === item.id && JSON.stringify(obj.choose) === JSON.stringify(item.choose)
-        )
-
-        if (findNewCartbarItem.number < maxNumber) {
-            findNewCartbarItem.number += 1;
-            dispatch(change_cartbarItem([...newCartbarItem]))
-        }
+        dispatch(incrementCartbarItem({ cartbarItem, item, maxNumber }))
     }
 
-    const handleDelete = (item) => {
-        const newCartbarItem = cartbarItem.filter(obj =>
-            JSON.stringify(obj) !== JSON.stringify(item)
-        )
-        dispatch(change_cartbarItem(newCartbarItem))
+    const handleDelete = () => {
+        dispatch(deleteCartbarItem({ cartbarItem, item }))
     }
 
     return (

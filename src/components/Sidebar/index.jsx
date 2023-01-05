@@ -4,7 +4,7 @@ import SidebarSearch from '../SidebarSearch';
 import SidebarNav from '../SidebarNav';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { hide_sidebar } from '../../store/slice/sidebar';
+import { hideSidebar } from '../../store/slice/sidebar';
 
 import styles from "./index.module.scss"
 
@@ -15,7 +15,7 @@ export default function Sidebar() {
   const headerButton = useSelector(state => state.headerButton.value);
 
   const handleHideSidebar = useCallback(() => {
-    dispatch(hide_sidebar())
+    dispatch(hideSidebar())
 
     document.body.style.removeProperty('position');
     document.body.style.removeProperty('top');

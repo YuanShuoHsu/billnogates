@@ -6,10 +6,10 @@ import { auth } from "../../utils/firebase"
 import { Link } from "react-router-dom"
 
 import { useDispatch, useSelector } from 'react-redux'
-import { hide_search, show_search } from "../../store/slice/search"
-import { show_cartbar } from "../../store/slice/cartbar"
-import { show_sidebar } from '../../store/slice/sidebar'
-import { position_headerButton } from '../../store/slice/headerButton'
+import { showSearch, hideSearch } from "../../store/slice/search"
+import { showCartbar } from "../../store/slice/cartbar"
+import { showSidebar } from '../../store/slice/sidebar'
+import { positionHeaderButton } from '../../store/slice/headerButton'
 
 import styles from "./index.module.scss"
 
@@ -32,34 +32,22 @@ export default function HeaderButton() {
     const dispatch = useDispatch()
     const cartbarItem = useSelector(state => state.cartbarItem.value);
 
-    const handleHideHeaderSearch = () => {
-        dispatch(hide_search())
+    const handleShowHeaderSearch = () => {
+        dispatch(showSearch())
     }
 
-    const handleShowHeaderSearch = () => {
-        dispatch(show_search())
+    const handleHideHeaderSearch = () => {
+        dispatch(hideSearch())
     }
 
     const handleShowCartbar = () => {
-        dispatch(show_cartbar())
-
-        const scrollPosition = window.pageYOffset;
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollPosition}px`;
-        document.body.style.width = '100%';
-        document.body.style.overflow = 'hidden';
-        dispatch(position_headerButton(scrollPosition))
+        dispatch(showCartbar())
+        dispatch(positionHeaderButton())
     }
 
     const handleShowSidebar = () => {
-        dispatch(show_sidebar())
-
-        const scrollPosition = window.pageYOffset;
-        document.body.style.position = 'fixed';
-        document.body.style.top = `-${scrollPosition}px`;
-        document.body.style.width = '100%';
-        document.body.style.overflow = 'hidden';
-        dispatch(position_headerButton(scrollPosition))
+        dispatch(showSidebar())
+        dispatch(positionHeaderButton())
     }
 
     const renderCartbarNumber = () => {
@@ -72,7 +60,7 @@ export default function HeaderButton() {
 
     return (
         <div className={styles.HeaderButton}>
-            <button onMouseLeave={handleHideHeaderSearch} aria-label="show Search" onClick={handleShowHeaderSearch} className={styles.search}>
+            <button onClick={handleShowHeaderSearch} onMouseLeave={handleHideHeaderSearch} aria-label="show Search" className={styles.search}>
                 <svg className={styles.svg} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                     <path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z" />
                 </svg>

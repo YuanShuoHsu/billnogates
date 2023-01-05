@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useDispatch} from 'react-redux'
 
-import { hide_search} from "../../store/slice/search"
+import { hideSearch} from "../../store/slice/search"
 
 import styles from "./index.module.scss"
 
@@ -26,7 +26,7 @@ export default function HeaderSearch() {
         
         target.value = ""
         
-        dispatch(hide_search())
+        dispatch(hideSearch())
     }
 
     return (

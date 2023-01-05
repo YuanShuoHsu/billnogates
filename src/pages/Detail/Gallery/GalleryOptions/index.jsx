@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux';
 
-import { change_cartbarItem } from "../../../../store/slice/cartbarItem"
+import { addToCartbarItem } from "../../../../store/slice/cartbarItem"
 
 import styles from "./index.module.scss"
 
@@ -51,28 +51,7 @@ export default function GalleryOptions(props) {
   }
 
   const addToCart = () => {
-    const newCartbarItem = JSON.parse(JSON.stringify(cartbarItem))
-    const newFindResult = JSON.parse(JSON.stringify(findResult))
-    newFindResult.choose = [color, size]
-
-    const findNewCartbarItem = newCartbarItem.find(item =>
-      item.id === newFindResult.id && JSON.stringify(item.choose) === JSON.stringify(newFindResult.choose)
-    )
-
-    if (findNewCartbarItem === undefined) {
-      newFindResult.number = number;
-      dispatch(change_cartbarItem([newFindResult, ...newCartbarItem]))
-    }
-    else if (findNewCartbarItem !== undefined) {
-      if (findNewCartbarItem.number + number <= maxNumber) {
-        findNewCartbarItem.number += number;
-
-      }
-      else if (findNewCartbarItem.number + number > maxNumber) {
-        findNewCartbarItem.number += maxNumber - findNewCartbarItem.number;
-      }
-      dispatch(change_cartbarItem([...newCartbarItem]))
-    }
+    dispatch(addToCartbarItem({ cartbarItem, findResult, color, size, number, maxNumber }))
   }
 
   const handleBuyNow = () => {

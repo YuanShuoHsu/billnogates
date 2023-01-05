@@ -3,7 +3,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
-import { hide_sidebar } from '../../store/slice/sidebar';
+import { hideSidebar } from '../../store/slice/sidebar';
 
 import styles from "./index.module.scss"
 
@@ -14,6 +14,16 @@ export default function SidebarSearch() {
     const dispatch = useDispatch();
     const headerButton = useSelector(state => state.headerButton.value);
 
+    const handleHideSidebar = () => {
+        dispatch(hideSidebar())
+
+        document.body.style.removeProperty('position');
+        document.body.style.removeProperty('top');
+        document.body.style.removeProperty('width');
+        document.body.style.removeProperty('overflow');
+        window.scrollTo(0, headerButton);
+    }
+
     const handleSidebarSearch = (event) => {
         const { keyCode, target } = event
         if (keyCode !== 13) return
@@ -23,16 +33,10 @@ export default function SidebarSearch() {
         }
 
         navigate("/find", { state: { keyWord: target.value } })
-        
+
         target.value = ""
 
-        dispatch(hide_sidebar())
-
-        document.body.style.removeProperty('position');
-        document.body.style.removeProperty('top');
-        document.body.style.removeProperty('width');
-        document.body.style.removeProperty('overflow');
-        window.scrollTo(0, headerButton);
+        handleHideSidebar()
     }
 
     return (

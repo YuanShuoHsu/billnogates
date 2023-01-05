@@ -8,8 +8,8 @@ import HeaderSearch from "../HeaderSearch"
 import { Link } from "react-router-dom"
 
 import { useDispatch, useSelector } from 'react-redux'
-import { show_headerNavSubMenu, hide_headerNavSubMenu } from '../../store/slice/headerNavSubMenu'
-import { show_search, hide_search } from '../../store/slice/search'
+import { showHeaderNavSubMenu, hideHeaderNavSubMenu } from '../../store/slice/headerNavSubMenu'
+import { showSearch, hideSearch } from '../../store/slice/search'
 
 import logo from './../../images/home/logo.png';
 
@@ -22,19 +22,19 @@ export default function Header() {
     const search = useSelector(state => state.search.value);
 
     const handleMenuEnterHover = () => {
-        dispatch(show_headerNavSubMenu())
+        dispatch(showHeaderNavSubMenu())
     }
 
     const handleMenuLeaveHover = () => {
-        dispatch(hide_headerNavSubMenu())
+        dispatch(hideHeaderNavSubMenu())
     }
 
     const handleSearchEnterHover = () => {
-        dispatch(show_search())
+        dispatch(showSearch())
     }
 
     const handleSearchLeaveHover = () => {
-        dispatch(hide_search())
+        dispatch(hideSearch())
     }
 
     return (

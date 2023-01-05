@@ -2,8 +2,8 @@ import React, { Fragment } from 'react'
 
 import { NavLink } from "react-router-dom"
 import { useDispatch, useSelector } from 'react-redux'
-import { change_headerNavItem } from '../../store/slice/headerNavItem'
-import { show_headerNavSubMenu, hide_headerNavSubMenu } from '../../store/slice/headerNavSubMenu'
+import { changeHeaderNavItem } from '../../store/slice/headerNavItem'
+import { showHeaderNavSubMenu, hideHeaderNavSubMenu } from '../../store/slice/headerNavSubMenu'
 
 import styles from "./index.module.scss"
 
@@ -15,12 +15,12 @@ export default function HeaderNavItem(props) {
     const { item } = props
 
     const handleEnterHover = async () => {
-        await dispatch(change_headerNavItem(item))
-        dispatch(show_headerNavSubMenu())
+        await dispatch(changeHeaderNavItem(item))
+        dispatch(showHeaderNavSubMenu())
     }
 
     const handleLeaveHover = () => {
-        dispatch(hide_headerNavSubMenu())
+        dispatch(hideHeaderNavSubMenu())
     }
 
     return (

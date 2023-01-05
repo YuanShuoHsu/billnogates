@@ -8,15 +8,15 @@ export const headerNavSubMenuSlice = createSlice({
     name: 'headerNavSubMenu',
     initialState,
     reducers: {
-        show_headerNavSubMenu: (state) => {
+        showHeaderNavSubMenu: state => {
             state.value = true
         },
-        hide_headerNavSubMenu: (state) => {
+        hideHeaderNavSubMenu: state => {
             state.value = false
         }
     },
 })
 
-export const { show_headerNavSubMenu, hide_headerNavSubMenu } = headerNavSubMenuSlice.actions
+export const { showHeaderNavSubMenu, hideHeaderNavSubMenu } = headerNavSubMenuSlice.actions
 
 export default headerNavSubMenuSlice.reducer

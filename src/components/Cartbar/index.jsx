@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import { Link } from "react-router-dom"
 
 import { useDispatch, useSelector } from 'react-redux';
-import { hide_cartbar } from '../../store/slice/cartbar';
+import { hideCartbar } from '../../store/slice/cartbar';
 
 import CartbarItem from '../CartbarItem';
 
@@ -16,28 +16,12 @@ export default function Cartbar() {
     const cartbarItem = useSelector(state => state.cartbarItem.value);
     const headerButton = useSelector(state => state.headerButton.value);
 
-    const hideCartbar = () => {
-        dispatch(hide_cartbar())
-
-        document.body.style.removeProperty('position');
-        document.body.style.removeProperty('top');
-        document.body.style.removeProperty('width');
-        document.body.style.removeProperty('overflow');
-        window.scrollTo(0, headerButton);
+    const handleHideCartbar = () => {
+        dispatch(hideCartbar(headerButton))
     }
 
     const stopPropagation = (event) => {
         event.stopPropagation()
-    }
-
-    const handleHideCartbar = () => {
-        dispatch(hide_cartbar())
-
-        document.body.style.removeProperty('position');
-        document.body.style.removeProperty('top');
-        document.body.style.removeProperty('width');
-        document.body.style.removeProperty('overflow');
-        window.scrollTo(0, headerButton);
     }
 
     const renderTotal = () => {
@@ -49,7 +33,7 @@ export default function Cartbar() {
     }
 
     return (
-        <div onClick={hideCartbar} className={`${styles.Cartbar} ${cartbar ? `${styles.active}` : ""}`}>
+        <div onClick={handleHideCartbar} className={`${styles.Cartbar} ${cartbar ? `${styles.active}` : ""}`}>
             <div onClick={stopPropagation} className={styles.box}>
                 <h2 className={styles.title}>您的購物車</h2>
                 {

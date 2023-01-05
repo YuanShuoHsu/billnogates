@@ -8,12 +8,17 @@ export const headerButtonSlice = createSlice({
     name: 'headerButton',
     initialState,
     reducers: {
-        position_headerButton: (state, data) => {
-            state.value = data.payload
+        positionHeaderButton: state => {
+            const scrollPosition = window.pageYOffset;
+            document.body.style.position = 'fixed';
+            document.body.style.top = `-${scrollPosition}px`;
+            document.body.style.width = '100%';
+            document.body.style.overflow = 'hidden';
+            state.value = scrollPosition
         },
     },
 })
 
-export const { position_headerButton } = headerButtonSlice.actions
+export const { positionHeaderButton } = headerButtonSlice.actions
 
 export default headerButtonSlice.reducer
