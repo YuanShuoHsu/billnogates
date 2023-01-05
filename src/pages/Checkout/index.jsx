@@ -118,22 +118,24 @@ export default function Checkout() {
                                             <span className="text">
                                                 合計：
                                             </span>
-                                            <span className={`number ${deliveryFee !== 0 ? "active" : ""}`}>
+                                            <span className={`number ${deliveryFee !== 0 && renderTotal() < 1000 ? "active" : ""}`}>
                                                 NT.{renderTotal()}
                                             </span>
                                             {
-                                                deliveryFee !== 0 ?
-                                                    <Fragment>
-                                                        <span className="fee">
-                                                            +{deliveryFee}
-                                                        </span>
-                                                        < span className="text">
-                                                            =
-                                                        </span>
-                                                        <span className="fee">
-                                                            NT.{renderTotal() + deliveryFee}
-                                                        </span>
-                                                    </Fragment>
+                                                deliveryFee !== 0
+                                                    ? renderTotal() < 1000 ?
+                                                        <Fragment>
+                                                            <span className="fee">
+                                                                +{deliveryFee}
+                                                            </span>
+                                                            < span className="text">
+                                                                =
+                                                            </span>
+                                                            <span className="fee">
+                                                                NT.{renderTotal() + deliveryFee}
+                                                            </span>
+                                                        </Fragment> :
+                                                        <span className='fee'> 免運</span>
                                                     : null
                                             }
                                         </div>
