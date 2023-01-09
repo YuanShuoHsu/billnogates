@@ -118,21 +118,25 @@ export default function Checkout() {
                                             <span className="text">
                                                 合計：
                                             </span>
-                                            <span className={`number ${deliveryFee !== 0 && renderTotal() < 1000 ? "active" : ""}`}>
-                                                NT.{renderTotal()}
+                                            <span className={`number`}>
+                                                {/* ${deliveryFee !== 0 && renderTotal() < 1000 ? "active" : ""} */}
+                                                NT${renderTotal()}
                                             </span>
                                             {
                                                 deliveryFee !== 0
                                                     ? renderTotal() < 1000 ?
                                                         <Fragment>
+                                                            < span className="text">
+                                                                +
+                                                            </span>
                                                             <span className="fee">
-                                                                +{deliveryFee}
+                                                                運費${deliveryFee}
                                                             </span>
                                                             < span className="text">
                                                                 =
                                                             </span>
                                                             <span className="fee">
-                                                                NT.{renderTotal() + deliveryFee}
+                                                                NT${renderTotal() + deliveryFee}
                                                             </span>
                                                         </Fragment> :
                                                         <span className='fee'> 免運</span>

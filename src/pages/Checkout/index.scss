@@ -74,6 +74,8 @@
                             width: 50%;
                             text-align: center;
                             white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
                             transition: 0.2s;
 
                             &.active {
@@ -91,9 +93,9 @@
                                 font: normal normal 16px/40px sans-serif;
                                 letter-spacing: 1px;
 
-                                &.active {
-                                    text-decoration: line-through;
-                                }
+                                // &.active {
+                                //     text-decoration: line-through;
+                                // }
                             }
 
                             .fee {

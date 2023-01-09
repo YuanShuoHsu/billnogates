@@ -107,7 +107,7 @@ const PRODUCTS = [
         id: 2,
         image: require("../images/product/花椰菜菜子裡的小白蟲先生/花椰菜帽1.png"),
         name: "花椰菜菜子裡的小白蟲先生｛ 深/淺 ｝",
-        price: 1280,
+        price: 128,
         color: [
             {
                 subId: 1,
