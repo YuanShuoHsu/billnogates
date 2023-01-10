@@ -41,7 +41,7 @@ export default function SidebarSearch() {
 
     return (
         <div className={styles.SidebarSearch}>
-            <input onKeyUp={handleSidebarSearch} className={styles.input} placeholder="搜尋商品" type="text" />
+            <input onKeyUp={handleSidebarSearch} className={styles.input} placeholder="搜尋商品" type="text" maxLength={20} />
         </div>
     )
 }

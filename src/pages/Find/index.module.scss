@@ -17,12 +17,13 @@
         align-items: center;
 
         .title {
-            width: calc(100vw - 10px);
+            padding: 0 5px;
+            box-sizing: border-box;
+            width: 100%;
             color: #000;
             text-align: center;
             font: normal normal normal/normal sans-serif;
             letter-spacing: 1px;
-            white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
             direction: ltr;

@@ -2,9 +2,9 @@ import React from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
-import { useDispatch} from 'react-redux'
+import { useDispatch } from 'react-redux'
 
-import { hideSearch} from "../../store/slice/search"
+import { hideSearch } from "../../store/slice/search"
 
 import styles from "./index.module.scss"
 
@@ -23,15 +23,15 @@ export default function HeaderSearch() {
         }
 
         navigate("/find", { state: { keyWord: target.value } })
-        
+
         target.value = ""
-        
+
         dispatch(hideSearch())
     }
 
     return (
         <div className={styles.HeaderSearch}>
-            <input onKeyUp={handleHeaderSearch} className={styles.input} placeholder="搜尋商品" type="text" />
+            <input onKeyUp={handleHeaderSearch} className={styles.input} placeholder="搜尋商品" type="text" maxLength={20} />
         </div>
     )
 }
