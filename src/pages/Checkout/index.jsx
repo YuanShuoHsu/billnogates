@@ -1,6 +1,11 @@
-import React, { useState, Fragment } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
+
+import { useNavigate } from 'react-router-dom'
 
 import { useSelector } from 'react-redux';
+
+import { onAuthStateChanged } from "firebase/auth";
+import { auth } from "../../utils/firebase"
 
 import Cartbar from "../../components/Cartbar"
 import Sidebar from "../../components/Sidebar"
@@ -13,6 +18,21 @@ import Order from './Order';
 import "./index.scss"
 
 export default function Checkout() {
+
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        onAuthStateChanged(auth, user => {
+            if (user) {
+                // User is signed in, see docs for a list of available properties
+                // https://firebase.google.com/docs/reference/js/firebase.User
+            } else {
+                // User is signed out
+                alert("請先登入會員")
+                navigate("/membership/login")
+            }
+        });
+    }, [navigate])
 
     const [send, setSend] = useState("")
     const [pay, setPay] = useState("")
@@ -31,7 +51,23 @@ export default function Checkout() {
     const handleSubmit = (event) => {
         if (cartbarItem.length !== 0) {
             event.preventDefault()
-            console.log(event)
+            switch (send) {
+                case "Chunghwa_Post":
+                    break
+                case "7-eleven":
+                    break
+                case "FamilyMart":
+                    break
+                default:
+                    break
+            }
+            switch (pay) {
+                case "bankTransfer":
+                    navigate("/remittance")
+                    break
+                default:
+                    break
+            }
         }
     }
 
@@ -119,7 +155,6 @@ export default function Checkout() {
                                                 合計：
                                             </span>
                                             <span className={`number`}>
-                                                {/* ${deliveryFee !== 0 && renderTotal() < 1000 ? "active" : ""} */}
                                                 NT${renderTotal()}
                                             </span>
                                             {

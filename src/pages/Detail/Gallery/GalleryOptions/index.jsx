@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux';
 
+import { auth } from "../../../../utils/firebase"
+
 import { addToCartbarItem } from "../../../../store/slice/cartbarItem"
 
 import styles from "./index.module.scss"
@@ -56,8 +58,18 @@ export default function GalleryOptions(props) {
 
   const handleBuyNow = () => {
     if (color !== "" && size !== "") {
-      addToCart()
-      navigate("/checkout")
+      const user = auth.currentUser;
+      if (user) {
+        // User is signed in, see docs for a list of available properties
+        // https://firebase.google.com/docs/reference/js/firebase.User
+        addToCart()
+        navigate("/checkout")
+      }
+      else {
+        // No user is signed in.
+        alert("請先登入會員")
+        navigate("/membership/login")
+      }
     }
   }
 

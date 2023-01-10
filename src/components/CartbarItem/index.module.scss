@@ -49,17 +49,13 @@
                 white-space: nowrap;
                 overflow: hidden;
                 text-overflow: ellipsis;
+                direction: ltr;
             }
 
             .choose {
                 color: #000;
                 font: normal normal 16px/normal sans-serif;
                 letter-spacing: 1px;
-                overflow: hidden;
-                display: -webkit-box;
-                -webkit-line-clamp: 3; // 行數
-                -webkit-box-orient: vertical;
-                white-space: normal;
             }
 
             .price {

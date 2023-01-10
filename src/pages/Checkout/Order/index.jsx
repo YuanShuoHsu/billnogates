@@ -15,7 +15,7 @@ export default function Order(props) {
                 <div className={styles.information}>
                     <h3 className={styles.name}>{item.name}</h3>
                     <p className={styles.choose}>{item.choose[0]}、{item.choose[1]}</p>
-                    <p className={styles.price}>${item.price}</p>
+                    <p className={styles.price}>NT${item.price}</p>
                 </div>
             </div>
             <div className={styles.box}>

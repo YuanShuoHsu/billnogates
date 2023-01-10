@@ -50,7 +50,7 @@ export default function Cartbar() {
                             <div className={styles.item}>
                                 <div className={styles.total}>
                                     <span className={styles.text}>
-                                        合計：NT.
+                                        合計：NT$
                                         {
                                             renderTotal()
                                         }

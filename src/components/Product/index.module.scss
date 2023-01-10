@@ -27,22 +27,22 @@
     background: transparent;
     display: grid;
     gap: 10px;
-    grid-template-columns: repeat(6, 1fr);
+    grid-template-columns: repeat(6, minmax(0, 1fr));
 
     @include screen() {
-        grid-template-columns: repeat(4, 1fr);
+        grid-template-columns: repeat(4, minmax(0, 1fr));
     }
 
     @include desktop() {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, minmax(0, 1fr));
     }
 
     @include pad() {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     @include others() {
-        grid-template-columns: repeat(1, 1fr);
+        grid-template-columns: repeat(1, minmax(0, 1fr));
     }
 
     .link {
@@ -173,29 +173,13 @@
 
                     .text {
                         margin: 0;
-                        width: calc(80vw / 6 - 5 * 10px - 2px);
                         color: #fff;
                         font: normal normal 16px/20px sans-serif;
                         letter-spacing: 1px;
                         white-space: nowrap;
                         overflow: hidden;
                         text-overflow: ellipsis;
-
-                        @include screen() {
-                            width: calc((100vw - 10px) / 4 - 5 * 10px - 2px);
-                        }
-
-                        @include desktop() {
-                            width: calc((100vw - 10px) / 3 - 5 * 10px - 2px);
-                        }
-
-                        @include pad() {
-                            width: calc((100vw - 10px) / 2 - 5 * 10px - 2px);
-                        }
-
-                        @include others() {
-                            width: calc(100vw - 6 * 10px - 2px);
-                        }
+                        direction: ltr;
                     }
                 }
             }

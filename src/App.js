@@ -7,8 +7,10 @@ import Membership from "./pages/Membership";
 import Detail from "./pages/Detail";
 import Find from "./pages/Find";
 import Checkout from "./pages/Checkout";
+import Remittance from "./pages/Remittance";
 import Story from "./pages/Story";
 import User from "./pages/User";
+
 import Maintenance from "./components/Maintenance";
 
 export default function App() {
@@ -39,6 +41,7 @@ export default function App() {
           <Route path="*" element={<Navigate replace to="" />} />
         </Route>
         <Route path="checkout" element={<Checkout />} />
+        <Route path="remittance" element={<Remittance />} />
         <Route path="story" element={<Story />} />
         <Route path="user" element={<User />} />
         <Route path="*" element={<Navigate replace to="" />} />
