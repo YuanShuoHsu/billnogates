@@ -44,7 +44,6 @@ export default function Login() {
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
-                console.log(userCredential, user)
                 setIsLoading(false)
                 alert("登入成功")
                 navigate("/")

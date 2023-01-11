@@ -40,6 +40,8 @@ export default function Checkout() {
 
     const cartbarItem = useSelector(state => state.cartbarItem.value);
 
+    console.log(cartbarItem)
+
     const renderTotal = () => {
         let sum = 0
         cartbarItem && cartbarItem.forEach(item =>

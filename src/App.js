@@ -29,18 +29,21 @@ export default function App() {
           <Route path="" element={<Navigate replace to="login" />} />
           <Route path="*" element={<Membership />} />
         </Route>
-        <Route path="detail" >
+        <Route path="detail">
           <Route path="" element={<Navigate replace to="1" />} />
           <Route path=":productId">
             <Route path="" element={<Detail />} />
             <Route path="*" element={<Navigate replace to="" />} />
           </Route>
         </Route>
-        <Route path="find" >
+        <Route path="find">
           <Route path="" element={<Find />} />
           <Route path="*" element={<Navigate replace to="" />} />
         </Route>
-        <Route path="checkout" element={<Checkout />} />
+        <Route path="checkout">
+          <Route path="" element={<Checkout />} />
+          <Route path="*" element={<Navigate replace to="" />} />
+        </Route>
         <Route path="remittance" element={<Remittance />} />
         <Route path="story" element={<Story />} />
         <Route path="user" element={<User />} />

@@ -84,26 +84,30 @@ export default function GalleryOptions(props) {
       <h2 className={styles.title}>{findResult.name}</h2>
       <h3 className={styles.title}>NT.{findResult.price}</h3>
       <div className={styles.content}>
-        <span className={styles.text}>顏色：</span>
-        {
-          findResult.color && findResult.color.map(item =>
-            <div className={styles.radio} key={item.subId}>
-              <input onChange={handleColorChange} className={styles.input} type="radio" name="color" value={item.name} id={item.name} checked={color === item.name} required />
-              <label style={{ background: item.rgb }} className={styles.label} htmlFor={item.name} />
-            </div>
-          )
-        }
+        <span className={styles.text}>品項：</span>
+        <div className={styles.wrap}>
+          {
+            findResult.dimension && findResult.dimension.map(item =>
+              <div className={styles.radio} key={item.subId}>
+                <input onChange={handleSizeChange} className={styles.input} type="radio" name="size" value={item.size} id={item.size} checked={size === item.size} required />
+                <label className={`${styles.label} ${styles.round}`} htmlFor={item.size} >{item.size}</label>
+              </div>
+            )
+          }
+        </div>
       </div>
       <div className={styles.content}>
-        <span className={styles.text}>尺寸：</span>
-        {
-          findResult.dimension && findResult.dimension.map(item =>
-            <div className={styles.radio} key={item.subId}>
-              <input onChange={handleSizeChange} className={styles.input} type="radio" name="size" value={item.size} id={item.size} checked={size === item.size} required />
-              <label className={styles.label} htmlFor={item.size} >{item.size}</label>
-            </div>
-          )
-        }
+        <span className={styles.text}>顏色：</span>
+        <div className={styles.wrap}>
+          {
+            findResult.color && findResult.color.map(item =>
+              <div className={styles.radio} key={item.subId}>
+                <input onChange={handleColorChange} className={styles.input} type="radio" name="color" value={item.name} id={item.name} checked={color === item.name} required />
+                <label style={{ background: item.rgb }} className={`${styles.label} ${styles.circle}`} htmlFor={item.name} />
+              </div>
+            )
+          }
+        </div>
       </div>
       <div className={styles.count}>
         <span className={styles.text}>數量：</span>

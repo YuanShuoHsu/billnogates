@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 import { useNavigate } from 'react-router-dom'
 
@@ -14,24 +14,42 @@ export default function HeaderSearch() {
 
     const dispatch = useDispatch()
 
+    const [isOnComposition, setIsOnComposition] = useState(false)
+
+    const handleComposition = (event) => {
+        const { type } = event
+        if (type === 'compositionend') {
+            setIsOnComposition(false)
+        }
+        else {
+            setIsOnComposition(true)
+        }
+    }
+
     const handleHeaderSearch = (event) => {
         const { keyCode, target } = event
-        if (keyCode !== 13) return
-        if (target.value.trim() === "") {
+        if (!isOnComposition) {
+            if (keyCode !== 13) return
+            if (target.value.trim() === "") {
+                target.value = ""
+                return
+            }
+
+            navigate("/find", { state: { keyWord: target.value } })
+
             target.value = ""
-            return
+
+            dispatch(hideSearch())
         }
-
-        navigate("/find", { state: { keyWord: target.value } })
-
-        target.value = ""
-
-        dispatch(hideSearch())
     }
 
     return (
         <div className={styles.HeaderSearch}>
-            <input onKeyUp={handleHeaderSearch} className={styles.input} placeholder="搜尋商品" type="text" maxLength={20} />
+            <input
+                onCompositionStart={handleComposition}
+                onCompositionEnd={handleComposition}
+                onKeyDown={handleHeaderSearch}
+                className={styles.input} placeholder="搜尋商品" type="text" maxLength={25} />
         </div>
     )
 }
