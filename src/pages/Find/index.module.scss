@@ -9,16 +9,14 @@
     background: rgba(245, 245, 245, 0.8);
 
     .main {
+        padding: 10px;
         min-height: calc(100vh - 60px - 60px);
-        padding: 5px;
-        box-sizing: border-box;
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 10px;
 
         .title {
-            padding: 0 5px;
-            box-sizing: border-box;
             width: 100%;
             color: #000;
             text-align: center;
@@ -30,12 +28,9 @@
         }
 
         .grid {
-            padding: 5px 0;
             width: 80%;
 
             @include screen() {
-                padding: 5px;
-                box-sizing: border-box;
                 width: 100%;
             }
         }

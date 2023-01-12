@@ -11,10 +11,10 @@ export default function Appendix(props) {
       return <p className={styles.text} key={item.subId}>{item.text}</p>
     }
     else if (item.horizontal !== undefined) {
-      return <img className={styles.horizontal} key={item.subId} src={item.horizontal} alt={item.name} loading="lazy" />
+      return <img className={`${styles.image} ${styles.horizontal}`} key={item.subId} src={item.horizontal} alt={item.name} loading="lazy" />
     }
     else if (item.vertical !== undefined) {
-      return <img className={styles.vertical} key={item.subId} src={item.vertical} alt={item.name} loading="lazy" />
+      return <img className={`${styles.image} ${styles.vertical}`} key={item.subId} src={item.vertical} alt={item.name} loading="lazy" />
     }
   }
 
