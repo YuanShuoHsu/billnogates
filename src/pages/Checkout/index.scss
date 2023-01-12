@@ -253,20 +253,29 @@
             }
         }
 
-        .button {
-            padding: 0 10px;
-            width: 100%;
-            background: #E4027F;
-            border: none;
-            border-radius: 4px;
-            color: #fff;
-            font: normal normal 16px/40px sans-serif;
-            letter-spacing: 1px;
-            transition: 0.2s;
-            cursor: pointer;
 
-            &:hover {
-                opacity: 0.8;
+        .buy {
+            width: 80%;
+
+            @include screen() {
+                width: 100%;
+            }
+
+            .button {
+                padding: 0 10px;
+                width: 100%;
+                background: #E4027F;
+                border: none;
+                border-radius: 4px;
+                color: #fff;
+                font: normal normal 16px/40px sans-serif;
+                letter-spacing: 1px;
+                transition: 0.2s;
+                cursor: pointer;
+
+                &:hover {
+                    opacity: 0.8;
+                }
             }
         }
     }

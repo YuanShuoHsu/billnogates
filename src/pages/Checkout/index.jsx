@@ -251,7 +251,9 @@ export default function Checkout() {
                                     </div>
                                 </div>
                             </div>
-                            <button className='button'>立即下單</button>
+                            <div className='buy'>
+                                <button className='button'>立即下單</button>
+                            </div>
                         </Fragment>
                 }
             </form >

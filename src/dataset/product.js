@@ -29,56 +29,6 @@ const PRODUCTS = [
             {
                 subId: 3,
                 size: "L"
-            },
-            {
-                subId: 4,
-                size: "S"
-            },
-            {
-                subId: 5,
-                size: "M"
-            },
-            {
-                subId: 6,
-                size: "L"
-            },
-            {
-                subId: 7,
-                size: "S"
-            },
-            {
-                subId: 8,
-                size: "M"
-            },
-            {
-                subId: 9,
-                size: "L"
-            },
-            ,
-            {
-                subId: 10,
-                size: "S"
-            },
-            {
-                subId: 11,
-                size: "M"
-            },
-            {
-                subId: 12,
-                size: "L"
-            },
-            ,
-            {
-                subId: 13,
-                size: "S"
-            },
-            {
-                subId: 14,
-                size: "M"
-            },
-            {
-                subId: 15,
-                size: "L"
             }
         ],
         gallery: [
