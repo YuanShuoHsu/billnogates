@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from "./index.module.scss"
 
-export default function Description(props) {
+export default function Appendix(props) {
 
   const { findResult, activeButton } = props
 
@@ -19,7 +19,7 @@ export default function Description(props) {
   }
 
   return (
-    <div className={styles.Description}>
+    <div className={styles.Appendix}>
       {
         activeButton ?
           findResult.description && findResult.description.map(item => {

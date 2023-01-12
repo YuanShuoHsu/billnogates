@@ -20,24 +20,16 @@ const PRODUCTS = [
         dimension: [
             {
                 subId: 1,
-                size: "Sasavsa"
+                size: "S"
             },
             {
                 subId: 2,
-                size: "Mknlsvnds"
+                size: "M"
             },
             {
                 subId: 3,
                 size: "L"
-            },
-            {
-                subId: 4,
-                size: "malcnaknvn"
-            },
-            {
-                subId: 5,
-                size: "ascacasc"
-            },
+            }
         ],
         gallery: [
             {

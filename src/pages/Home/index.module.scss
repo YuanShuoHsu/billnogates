@@ -9,18 +9,16 @@
     background: rgba(245, 245, 245, 0.8);
 
     .main {
-        padding: 5px;
+        padding: 10px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 10px;
 
         .grid {
-            padding: 5px 0;
             width: 80%;
 
             @include screen() {
-                padding: 5px;
-                box-sizing: border-box;
                 width: 100%;
             }
         }

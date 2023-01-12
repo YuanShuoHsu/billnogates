@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import Description from './Description'
+import Appendix from './Appendix'
 
 import styles from "./index.module.scss"
 
@@ -20,7 +20,7 @@ export default function Commodity(props) {
                 <button onClick={() => handleActiveButton(true)} className={`${styles.button} ${activeButton ? styles.active : ""}`}>商品描述</button>
                 <button onClick={() => handleActiveButton(false)} className={`${styles.button} ${activeButton ? "" : styles.active}`}>商品資訊</button>
             </div>
-            <Description findResult={findResult} activeButton={activeButton} />
+            <Appendix findResult={findResult} activeButton={activeButton} />
         </div>
     )
 }

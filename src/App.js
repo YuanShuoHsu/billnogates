@@ -44,9 +44,18 @@ export default function App() {
           <Route path="" element={<Checkout />} />
           <Route path="*" element={<Navigate replace to="" />} />
         </Route>
-        <Route path="remittance" element={<Remittance />} />
-        <Route path="story" element={<Story />} />
-        <Route path="user" element={<User />} />
+        <Route path="remittance"  >
+          <Route path="" element={<Remittance />} />
+          <Route path="*" element={<Navigate replace to="" />} />
+        </Route>
+        <Route path="story">
+          <Route path="" element={<Story />} />
+          <Route path="*" element={<Navigate replace to="" />} />
+        </Route>
+        <Route path="user"  >
+          <Route path="" element={<User />} />
+          <Route path="*" element={<Navigate replace to="" />} />
+        </Route>
         <Route path="*" element={<Navigate replace to="" />} />
       </Routes>
     </div>

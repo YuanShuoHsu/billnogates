@@ -41,14 +41,14 @@ export default function Login() {
         const emailAddress = "@gmail.com"
         const email = phoneNumber + emailAddress
         signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
+            .then(userCredential => {
                 // Signed in 
-                const user = userCredential.user;
+                // const user = userCredential.user;
                 setIsLoading(false)
                 alert("登入成功")
                 navigate("/")
             })
-            .catch((error) => {
+            .catch(error => {
                 const errorCode = error.code;
                 // const errorMessage = error.message;
                 // console.log(error, errorCode, errorMessage)

@@ -106,12 +106,12 @@ export default function Register() {
         const testEmail = phoneNumber + emailAddress
         const testPassword = "123456"
         signInWithEmailAndPassword(auth, testEmail, testPassword)
-            .then((userCredential) => {
+            .then(userCredential => {
                 // Signed in 
                 // const user = userCredential.user;
                 // console.log(userCredential, user)
             })
-            .catch((error) => {
+            .catch(error => {
                 const errorCode = error.code;
                 // const errorMessage = error.message;
                 // console.log(error, errorCode, errorMessage)
@@ -131,7 +131,7 @@ export default function Register() {
     const phoneNumberSignIn = () => {
         window.recaptchaVerifier = new RecaptchaVerifier('sign-in-button', {
             'size': 'invisible',
-            'callback': (response) => {
+            'callback': response => {
                 // reCAPTCHA solved, allow signInWithPhoneNumber.
                 // console.log("callback")
             },
@@ -147,7 +147,7 @@ export default function Register() {
         const tempPhone = countryCode + newPhoneNumber
 
         signInWithPhoneNumber(auth, tempPhone, appVerifier)
-            .then((confirmationResult) => {
+            .then(confirmationResult => {
                 // SMS sent. Prompt user to type the code from the message, then sign the
                 // user in with confirmationResult.confirm(code).
                 window.confirmationResult = confirmationResult;
@@ -155,7 +155,7 @@ export default function Register() {
                 setOTPIsShow(true)
                 setIsLoading(false)
                 // console.log(confirmationResult)
-            }).catch((error) => {
+            }).catch(error => {
                 // Error; SMS not sent
                 const errorMessage = error.message;
                 // console.log(error, errorMessage)
@@ -164,10 +164,10 @@ export default function Register() {
             });
     }
 
-    const OTPConfirmationResult = (otp) => {
+    const OTPConfirmationResult = otp => {
         const confirmationResult = window.confirmationResult
         // console.log(OTP)
-        confirmationResult.confirm(otp).then((result) => {
+        confirmationResult.confirm(otp).then(result => {
             // User signed in successfully.
             // const user = result.user;
             // console.log(result, user)
@@ -176,7 +176,7 @@ export default function Register() {
             setPhoneNumber("")
             setOTP("")
             setPasswordIsShow(true)
-        }).catch((error) => {
+        }).catch(error => {
             // User couldn't sign in (bad verification code?)
             const errorMessage = error.message;
             // console.log(error, errorMessage)
@@ -204,7 +204,7 @@ export default function Register() {
         const emailAddress = "@gmail.com"
         const email = phoneToEmail + emailAddress
         createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
+            .then(userCredential => {
                 // Signed in 
                 // const user = userCredential.user;
                 // console.log(userCredential, user)
@@ -214,7 +214,7 @@ export default function Register() {
                 alert("註冊成功")
                 navigate("/")
             })
-            .catch((error) => {
+            .catch(error => {
                 const errorCode = error.code;
                 // const errorMessage = error.message;
                 // console.log(error, errorCode, errorMessage)
