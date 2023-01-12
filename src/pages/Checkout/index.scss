@@ -23,6 +23,7 @@
             width: 80%;
             background: rgba(192, 192, 192, 0.2);
             border-radius: 4px;
+            // overflow: hidden auto;
 
             @include screen() {
                 width: 100%;
@@ -43,7 +44,8 @@
             .product {
                 position: relative;
                 padding: 10px;
-                max-height: calc(100vh - 60px - 60px - 70px);
+                box-sizing: border-box;
+                max-height: calc(100vh - 60px - 20px - 20px - 20px - 20px - 27.59px);
                 background: #fff;
                 backdrop-filter: blur(4px);
                 border-radius: 4px;
