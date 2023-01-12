@@ -1,8 +1,9 @@
 .Commodity {
     position: relative;
-    padding: 5px;
 
     .buttonGroup {
+        display: flex;
+
         .button {
             padding: 0;
             width: 100px;

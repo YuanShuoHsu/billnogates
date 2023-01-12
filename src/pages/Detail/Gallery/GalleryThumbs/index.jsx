@@ -45,27 +45,28 @@ export default function GalleryThumbs(props) {
                     ))
                 }
             </Swiper>
-            <div className={styles.scrollBox}>
-                <Swiper
-                    onSwiper={setThumbsSwiper}
-                    className={styles.mySwiper}
-                    modules={[FreeMode, Thumbs]}
-                    spaceBetween={10}
-                    slidesPerView={4}
-                    speed={500}
-                    freeMode={true}
-                    grabCursor={true}
-                    watchSlidesProgress={true}
-                >
-                    {
-                        findResult.gallery && findResult.gallery.map(item =>
-                            <SwiperSlide key={item.subId}>
-                                <img src={item.image} alt={item.name} loading="lazy" />
-                            </SwiperSlide>
-                        )
-                    }
-                </Swiper>
-            </div>
+            <Swiper
+                onSwiper={setThumbsSwiper}
+                className={styles.mySwiper}
+                modules={[FreeMode, Thumbs]}
+                spaceBetween={10}
+                slidesPerView={4}
+                speed={500}
+                freeMode={{
+                    enabled: true,
+                    sticky: true
+                }}
+                grabCursor={true}
+                watchSlidesProgress={true}
+            >
+                {
+                    findResult.gallery && findResult.gallery.map(item =>
+                        <SwiperSlide key={item.subId}>
+                            <img src={item.image} alt={item.name} loading="lazy" />
+                        </SwiperSlide>
+                    )
+                }
+            </Swiper>
         </div>
     )
 }

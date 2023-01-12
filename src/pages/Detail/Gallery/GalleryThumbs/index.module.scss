@@ -22,10 +22,14 @@
 .GalleryThumbs {
     position: relative;
     width: 100%;
-    border-radius: 4px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
 
     .mySwiper2 {
         width: 100%;
+        height: 80%;
         background: rgba(192, 192, 192, 0.2);
         border-radius: 4px;
         overflow: hidden;
@@ -74,59 +78,54 @@
         }
     }
 
-    .scrollBox {
-        padding: 10px 0 0 0;
+    .mySwiper {
         width: 100%;
+        height: 20%;
+        background: rgba(192, 192, 192, 0.2);
+        border-radius: 4px;
 
-        .mySwiper {
-            width: 100%;
-            height: 100%;
-            background: rgba(192, 192, 192, 0.2);
+        :global(.swiper-slide) {
+            background: #fff;
             border-radius: 4px;
 
-            :global(.swiper-slide) {
-                background: #fff;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+
+            :global(img) {
+                display: block;
+                width: 100%;
+                height: 100%;
+                aspect-ratio: 1/1;
+                object-fit: cover;
                 border-radius: 4px;
-
-                display: -webkit-box;
-                display: -ms-flexbox;
-                display: -webkit-flex;
-                display: flex;
-                -webkit-box-pack: center;
-                -ms-flex-pack: center;
-                -webkit-justify-content: center;
-                justify-content: center;
-                -webkit-box-align: center;
-                -ms-flex-align: center;
-                -webkit-align-items: center;
-                align-items: center;
-
-                :global(img) {
-                    display: block;
-                    width: 100%;
-                    height: 100%;
-                    aspect-ratio: 1/1;
-                    object-fit: cover;
-                    border-radius: 4px;
-                    cursor: pointer;
-                    opacity: 0.5;
-                    transition: 0.2s;
-                }
+                cursor: pointer;
+                opacity: 0.5;
+                transition: 0.2s;
             }
+        }
 
-            :global(.swiper-slide-thumb-active) {
-                :global(img) {
-                    opacity: 1;
-                    animation: slide 0.2s linear;
+        :global(.swiper-slide-thumb-active) {
+            :global(img) {
+                opacity: 1;
+                animation: slide 0.2s linear;
 
-                    @include keyframes-animation(slide) {
-                        0% {
-                            @include prefix-property(transform, translateY(10px));
-                        }
+                @include keyframes-animation(slide) {
+                    0% {
+                        @include prefix-property(transform, translateY(10px));
+                    }
 
-                        100% {
-                            @include prefix-property(transform, translateY(0));
-                        }
+                    100% {
+                        @include prefix-property(transform, translateY(0));
                     }
                 }
             }

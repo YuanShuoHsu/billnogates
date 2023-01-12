@@ -40,6 +40,8 @@ export default function Detail() {
             <div className={styles.main}>
                 <div className={styles.grid}>
                     <Gallery findResult={findResult} />
+                </div>
+                <div className={styles.grid}>
                     <Commodity findResult={findResult} />
                 </div>
             </div>

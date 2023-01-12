@@ -7,19 +7,16 @@
 .Gallery {
     position: relative;
     display: flex;
-    flex-direction: row;
+    gap: 10px;
 
     @include desktop {
         flex-direction: column;
     }
 
     .box {
-        padding: 5px;
-        box-sizing: border-box;
         width: 50%;
         display: flex;
-        justify-content: center;
-        align-content: center;
+        overflow: hidden;
 
         @include desktop {
             width: 100%;
