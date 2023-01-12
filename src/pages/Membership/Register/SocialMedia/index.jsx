@@ -25,7 +25,7 @@ export default function SocialMedia() {
         const provider = new GoogleAuthProvider();
 
         signInWithPopup(auth, provider)
-            .then((result) => {
+            .then(result => {
                 // This gives you a Google Access Token. You can use it to access the Google API.
                 // const credential = GoogleAuthProvider.credentialFromResult(result);
                 // const token = credential.accessToken;
@@ -33,7 +33,7 @@ export default function SocialMedia() {
                 // const user = result.user;
                 // console.log(result, token, user)
                 navigate("/")
-            }).catch((error) => {
+            }).catch(error => {
                 // Handle Errors here.
                 // const errorCode = error.code;
                 const errorMessage = error.message;
@@ -53,7 +53,7 @@ export default function SocialMedia() {
     const facebookSignIn = () => {
         const provider = new FacebookAuthProvider();
         signInWithPopup(auth, provider)
-            .then((result) => {
+            .then(result => {
                 // The signed-in user info.
                 // const user = result.user;
 
@@ -63,7 +63,7 @@ export default function SocialMedia() {
                 // console.log(result, user, accessToken)
                 navigate("/")
             })
-            .catch((error) => {
+            .catch(error => {
                 // Handle Errors here.
                 // const errorCode = error.code;
                 const errorMessage = error.message;

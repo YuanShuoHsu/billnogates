@@ -109,7 +109,7 @@ export default function Login() {
                     <button className={styles.button}>
                         {
                             isLoading ?
-                                <div className="loader">
+                                <div className={styles.loader}>
                                     <span className={styles.circle}></span>
                                     <span className={styles.circle}></span>
                                 </div> :

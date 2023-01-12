@@ -22,7 +22,7 @@ export default function User() {
             // Sign-out successful.
             alert("登出成功")
             navigate("/")
-        }).catch((error) => {
+        }).catch(error => {
             // An error happened.
             // console.log(error)
         });
