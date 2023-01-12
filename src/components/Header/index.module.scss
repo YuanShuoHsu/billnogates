@@ -6,7 +6,7 @@
 
 .Header {
     position: sticky;
-    padding: 0 5px;
+    padding: 0 10px;
     box-sizing: border-box;
     top: 0;
     width: 100%;
@@ -28,8 +28,7 @@
             text-decoration: none;
 
             .brand {
-                margin: 0 5px;
-                padding: 0 2.5px;
+                padding: 0 5px;
                 height: 40px;
                 background: rgba(245, 245, 245, 0.8);
                 backdrop-filter: blur(4px);
@@ -37,6 +36,7 @@
                 border-radius: 4px;
                 display: flex;
                 align-items: center;
+                gap: 5px;
                 cursor: pointer;
                 transition: 0.2s;
 
@@ -46,15 +46,13 @@
                 }
 
                 .logo {
-                    padding: 0 2.5px;
                     width: 30px;
                     height: 30px;
                     border-radius: 4px;
                 }
 
                 .title {
-                    padding: 0 2.5px;
-                    font: normal 800 20px/normal sans-serif;
+                    font: normal 800 20px/40px sans-serif;
                     letter-spacing: 1px;
 
                     .blue {

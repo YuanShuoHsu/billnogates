@@ -26,25 +26,35 @@
         overflow: hidden auto;
         scroll-behavior: smooth;
 
-        .title,
-        .p {
+        .title {
             padding: 0 10px;
             color: #000;
             font: normal normal normal/normal sans-serif;
             letter-spacing: 1px;
         }
 
+        .null {
+            margin: 0;
+            padding: 0 10px;
+            color: #000;
+            font: normal normal 16px/40px sans-serif;
+            letter-spacing: 1px;
+        }
+
         .content {
-            padding: 5px;
+            padding: 10px;
             background: rgba(192, 192, 192, 0.2);
             backdrop-filter: blur(4px);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
 
         .item {
             position: sticky;
             left: 0;
             bottom: 40px;
-            padding:0 5px;
+            padding: 0 10px;
             box-sizing: border-box;
             width: 100%;
             background: rgba(245, 245, 245, 0.8);
@@ -53,8 +63,6 @@
             justify-content: flex-end;
 
             .total {
-                padding: 0 5px;
-                box-sizing: border-box;
                 width: 50%;
                 text-align: center;
 

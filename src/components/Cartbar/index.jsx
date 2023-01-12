@@ -38,7 +38,7 @@ export default function Cartbar() {
                 <h2 className={styles.title}>您的購物車</h2>
                 {
                     cartbarItem.length === 0 ?
-                        <p className={styles.p} >目前還是空的</p> :
+                        <p className={styles.null} >目前還是空的</p> :
                         <Fragment>
                             <div className={styles.content}>
                                 {

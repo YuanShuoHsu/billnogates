@@ -30,7 +30,9 @@ export default function Order(props) {
                     </div>
                 </div>
             </div>
-            <div className={styles.line}></div>
+            <div className={styles.gap}>
+                <span className={styles.line}></span>
+            </div>
         </div>
     )
 }
