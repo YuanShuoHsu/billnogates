@@ -1,0 +1,73 @@
+@mixin desktop {
+    @media(max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin others {
+    @media(max-width: 320px) {
+        @content;
+    }
+}
+
+.Purchase {
+    position: relative;
+    padding: 0 10px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    overflow: hidden auto;
+
+    .text {
+        color: #000;
+        font: normal normal 16px/40px sans-serif;
+        letter-spacing: 1px;
+    }
+
+    .link {
+        text-decoration: none;
+
+        .box {
+            padding: 0 10px;
+            border-radius: 4px;
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 10px;
+            cursor: pointer;
+            transition: 0.2s;
+
+            @include desktop() {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+
+            @include others() {
+                grid-template-columns: repeat(1, minmax(0, 1fr));
+            }
+
+            &:hover {
+                background: rgba(192, 192, 192, 0.2);
+            }
+
+            .subtitle {
+                color: #000;
+                font: normal normal normal/normal sans-serif;
+                letter-spacing: 1px;
+            }
+
+            .subtext {
+                margin: 0;
+                color: rgba(0, 0, 0, 0.5);
+                font: normal normal 16px/40px sans-serif;
+                letter-spacing: 1px;
+                word-wrap: break-word;
+            }
+        }
+    }
+
+    .line {
+        width: 100%;
+        min-height: 1px;
+        background: linear-gradient(90deg, transparent, rgba(228, 2, 126, 1), transparent);
+    }
+}

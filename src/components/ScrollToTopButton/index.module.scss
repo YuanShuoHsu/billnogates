@@ -1,0 +1,60 @@
+.ScrollToTopButton {
+    position: fixed;
+    right: 40px;
+    bottom: 140px;
+    width: 40px;
+    height: 40px;
+    background: rgba(245, 245, 245, 0.8);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(228, 2, 126, 0.5);
+    box-sizing: border-box;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+    transition: 0.2s;
+    z-index: 2;
+
+    &.active {
+        opacity: 1;
+        pointer-events: auto;
+
+        &:hover {
+            opacity: 0.8;
+
+            .svg {
+                fill: #E4027F;
+            }
+
+            .text {
+                color: #E4027F;
+            }
+        }
+    }
+
+    .svg {
+        width: 12px;
+        height: 12px;
+        fill: #000;
+        transition: 0.2s;
+        pointer-events: none;
+
+        path {
+            pointer-events: none;
+        }
+    }
+
+    .text {
+        margin: 0;
+        color: #000;
+        font: normal normal 12px/20px sans-serif;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.2s;
+        pointer-events: none;
+    }
+}

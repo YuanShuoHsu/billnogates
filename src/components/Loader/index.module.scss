@@ -1,0 +1,65 @@
+@mixin keyframes-animation($name) {
+    @-webkit-keyframes #{$name} {
+        @content;
+    }
+
+    @keyframes #{$name} {
+        @content;
+    }
+}
+
+@mixin prefix-property($name, $value) {
+    -webkit-#{$name}: $value;
+    #{$name}: $value;
+}
+
+.loader {
+    position: relative;
+    width: 40px;
+    height: 20px;
+
+    .circle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        display: block;
+        background: #0091DB;
+        border-radius: 50%;
+        animation: loading1 ease-in-out 1s infinite;
+
+        @include keyframes-animation(loading1) {
+
+            0%,
+            100% {
+                @include prefix-property(transform, translateX(0px));
+            }
+
+            50% {
+                @include prefix-property(transform, translateX(20px));
+            }
+        }
+
+        &:last-child {
+            left: 50%;
+            background: rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: loading2 ease-in-out 1s infinite;
+            animation-delay: -0.5s;
+
+            @include keyframes-animation(loading2) {
+
+                0%,
+                100% {
+                    @include prefix-property(transform, translateX(-20px));
+                }
+
+                50% {
+                    @include prefix-property(transform, translateX(0px));
+                }
+            }
+        }
+    }
+}

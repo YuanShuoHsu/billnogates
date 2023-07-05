@@ -1,0 +1,78 @@
+@mixin others {
+    @media(max-width: 320px) {
+        @content;
+    }
+}
+
+.Arrangement {
+    position: relative;
+    display: flex;
+
+    @include others() {
+        overflow: auto hidden;
+    }
+
+    :global(.anchorPoint) {
+        position: absolute;
+        top: -60px;
+        left: 0;
+    }
+
+    .box {
+        padding: 0 10px;
+        height: 40px;
+        background: rgba(198, 198, 198, 0.2);
+        backdrop-filter: blur(4px);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+
+        .text {
+            font: normal normal 16px/normal sans-serif;
+            white-space: nowrap;
+        }
+
+        .content {
+            position: relative;
+            display: flex;
+            align-items: center;
+
+            .select {
+                padding: 0 10px;
+                width: 150px;
+                height: 30px;
+                background: #fff;
+                border: none;
+                border-radius: 4px;
+                color: #000;
+                font: normal normal 16px/normal sans-serif;
+                appearance: none;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                outline: none;
+                cursor: pointer;
+
+                &:hover {
+                    &~.svg {
+                        transform: rotate(180deg);
+                    }
+                }
+            }
+
+            .svg {
+                position: absolute;
+                margin: 0 5px;
+                right: 0;
+                width: 15px;
+                height: 15px;
+                fill: #000;
+                pointer-events: none;
+                transition: 0.2s;
+
+                path {
+                    pointer-events: none;
+                }
+            }
+        }
+    }
+}

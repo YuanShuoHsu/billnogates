@@ -1,0 +1,123 @@
+@mixin screen {
+    @media(max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media(max-width: 768px) {
+        @content;
+    }
+}
+
+@mixin pad {
+    @media(max-width: 576px) {
+        @content;
+    }
+}
+
+@mixin others {
+    @media(max-width: 320px) {
+        @content;
+    }
+}
+
+.Remittance {
+    position: relative;
+    background: rgba(245, 245, 245, 0.8);
+
+    .main {
+        padding: 10px;
+        box-sizing: border-box;
+        min-height: calc(100vh - 60px - 60px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+
+        .grid {
+            width: 80%;
+
+            @include screen() {
+                width: 100%;
+            }
+
+            .complete,
+            .bank,
+            .detail {
+                padding: 10px;
+                background: rgba(192, 192, 192, 0.2);
+                border-radius: 4px;
+
+                .title {
+                    color: #000;
+                    font: normal normal normal/normal sans-serif;
+                    letter-spacing: 1px;
+                }
+
+                .text {
+                    margin: 0;
+                    color: #000;
+                    font: normal normal 16px/40px sans-serif;
+                    letter-spacing: 1px;
+                }
+
+                .quotation {
+                    padding: 0 10px;
+                    background: #fff;
+                    border-radius: 4px;
+                    display: flex;
+                    align-items: center;
+
+                    .svg {
+                        padding: 10px;
+                        box-sizing: border-box;
+                        width: 40px;
+                        height: 40px;
+                        min-width: 40px;
+                        min-height: 40px;
+                        fill: #E4027F;
+                    }
+
+                    .ellipsis {
+                        color: #000;
+                        font: normal normal 16px/40px sans-serif;
+                        letter-spacing: 1px;
+                        white-space: nowrap;
+                        text-overflow: ellipsis;
+                        overflow: hidden;
+                        direction: rtl;
+                    }
+                }
+
+                .wrap {
+                    display: grid;
+                    grid-template-columns: repeat(3, minmax(0, 1fr));
+                    gap: 10px;
+
+                    @include desktop() {
+                        grid-template-columns: repeat(2, minmax(0, 1fr));
+                    }
+
+                    @include others() {
+                        grid-template-columns: repeat(1, minmax(0, 1fr));
+                    }
+
+                    .subtitle {
+                        color: #000;
+                        font: normal normal normal/normal sans-serif;
+                        letter-spacing: 1px;
+                    }
+
+                    .subtext {
+                        margin: 0;
+                        color: rgba(0, 0, 0, 0.5);
+                        font: normal normal 16px/40px sans-serif;
+                        letter-spacing: 1px;
+                        word-wrap: break-word;
+                    }
+                }
+            }
+        }
+    }
+}

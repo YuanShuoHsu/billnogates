@@ -1,0 +1,59 @@
+.HeaderNavItem {
+    position: relative;
+    list-style: none;
+
+    .href {
+        text-decoration: none;
+
+        &.active {
+            .link {
+                background: rgba(0, 145, 219, 0.5);
+
+                .text {
+                    color: #fff;
+                }
+            }
+        }
+    }
+
+    .link {
+        padding: 0 20px;
+        height: 40px;
+        background: rgba(192, 192, 192, 0.2);
+        backdrop-filter: blur(4px);
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &.active {
+            background: rgba(255, 225, 10, 0.5);
+
+            .svg{
+                transform: rotate(180deg);
+            }
+        }
+
+        &:hover {
+            background: rgba(228, 2, 126, 0.5);
+        }
+
+        .text {
+            color: #000;
+            font: normal normal 16px/normal sans-serif;
+            letter-spacing: 1px;
+            white-space: nowrap;
+        }
+
+        .svg {
+            width: 16px;
+            height: 16px;
+            fill: #000;
+            transition: 0.2s;
+
+            path {
+                pointer-events: none;
+            }
+        }
+    }
+}

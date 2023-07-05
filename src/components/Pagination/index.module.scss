@@ -1,0 +1,113 @@
+@mixin others {
+    @media(max-width: 320px) {
+        @content;
+    }
+}
+
+.Pagination {
+    position: relative;
+    height: 40px;
+    background: transparent;
+    backdrop-filter: blur(4px);
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+
+    .navigation {
+        padding: 0 10px;
+        height: 40px;
+        background: rgba(198, 198, 198, 0.2);
+        border: none;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        cursor: pointer;
+        transition: 0.2s;
+        opacity: 1;
+        pointer-events: auto;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        &.active {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .svg {
+            width: 10px;
+            height: 10px;
+            fill: #000;
+
+            path {
+                pointer-events: none;
+            }
+        }
+
+        .text {
+            color: #000;
+            font: normal normal 16px/normal sans-serif;
+            white-space: nowrap;
+
+            @include others() {
+                display: none;
+            }
+        }
+    }
+
+    .mySwiper {
+        margin: 0;
+        width: calc(var(--x) * 40px);
+        max-width: 200px;
+        height: 40px;
+        background: #fff;
+        border: 1px solid #efefef;
+        box-sizing: border-box;
+        border-radius: 20px;
+
+        :global(.swiper-slide) {
+            /* Center slide text vertically */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            .button {
+                padding: 0;
+                width: 30px;
+                height: 30px;
+                min-width: 30px;
+                min-height: 30px;
+                background: rgba(228, 2, 127, 0.2);
+                border: none;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                transition: 0.2s;
+
+                &:hover {
+                    opacity: 0.8;
+                }
+
+                &.active {
+                    background: #E4027F;
+
+                    .text {
+                        color: #fff;
+                    }
+                }
+
+                .text {
+                    color: #000;
+                    font: normal normal 12px/normal sans-serif;
+                    transition: 0.2s;
+                }
+            }
+        }
+    }
+}

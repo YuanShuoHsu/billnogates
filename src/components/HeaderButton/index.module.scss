@@ -1,0 +1,133 @@
+@mixin screen {
+    @media(max-width: 1200px) {
+        @content;
+    }
+}
+
+@mixin desktop {
+    @media(max-width:768px) {
+        @content;
+    }
+}
+
+@mixin pad {
+    @media(max-width: 576px) {
+        @content;
+    }
+}
+
+.HeaderButton {
+    display: flex;
+    gap: 10px;
+
+    .link {
+        text-decoration: none;
+    }
+
+    .button {
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        background: rgba(245, 245, 245, 0.8);
+        backdrop-filter: blur(4px);
+        border: none;
+        border-radius: 4px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover {
+            opacity: 0.8;
+            background: rgba(192, 192, 192, 0.2);
+
+            .svg {
+                fill: #E4027F;
+            }
+        }
+
+        .svg {
+            width: 20px;
+            height: 20px;
+            fill: #000;
+            transition: 0.2s;
+
+            path {
+                pointer-events: none;
+            }
+        }
+
+        &.search {
+            display: flex;
+    
+            @include desktop {
+                display: none;
+            }
+        }
+    
+        &.customer {
+            &.active {
+                padding: 0 5px;
+                gap: 5px;
+                width: auto;
+    
+                &:hover {
+                    .name {
+                        color: #E4027F;
+                    }
+                }
+    
+                .name {
+                    color: #000;
+                    font: normal normal 16px/normal sans-serif;
+                    letter-spacing: 1px;
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    direction: ltr;
+                    transition: 0.2s;
+                    pointer-events: none;
+    
+                    @include screen() {
+                        max-width: 40px;
+                    }
+    
+                    @include desktop() {
+                        max-width: 80px;
+                    }
+    
+                    @include pad() {
+                        max-width: 40px;
+                    }
+                }
+            }
+        }
+    
+        &.cart {
+            &.active {
+                &::before {
+                    position: absolute;
+                    counter-reset: x var(--x);
+                    content: counter(x);
+                    width: 16px;
+                    background: rgba(228, 2, 126, 0.8);
+                    backdrop-filter: blur(4px);
+                    border-radius: 50%;
+                    color: #fff;
+                    font: normal normal 16px/16px sans-serif;
+                    text-align: center;
+                    pointer-events: none;
+                }
+            }
+        }
+    
+        &.hamburger {
+            display: none;
+    
+            @include desktop {
+                display: flex;
+            }
+        }
+    }
+}
