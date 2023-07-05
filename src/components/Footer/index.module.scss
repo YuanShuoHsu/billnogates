@@ -1,17 +1,19 @@
-.Footer {
-    position: relative;
-    padding: 10px;
-    box-sizing: border-box;
-    width: 100%;
-    background: rgba(192, 192, 192, 0.2);
-    backdrop-filter: blur(4px);
-    z-index: 2;
-    overflow: auto hidden;
+.footer {
+  position: relative;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: rgba(192, 192, 192, 0.2);
+  backdrop-filter: blur(4px);
+  z-index: 2;
+  overflow: auto hidden;
 
-    .text {
-        margin: 0;
-        font: normal normal 16px/20px sans-serif;
-        text-align: center;
-        white-space: nowrap;
-    }
+  &__text {
+    margin: 0;
+    font-size: 16px;
+    line-height: 20px;
+    font-family: sans-serif;
+    text-align: center;
+    white-space: nowrap;
+  }
 }

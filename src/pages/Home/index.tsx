@@ -1,5 +1,3 @@
-import React from 'react'
-
 import Cartbar from "../../components/Cartbar"
 import Sidebar from "../../components/Sidebar"
 import ScrollToTopButton from "../../components/ScrollToTopButton"

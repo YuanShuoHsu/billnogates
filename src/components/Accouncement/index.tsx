@@ -18,7 +18,7 @@ export default function Accouncement() {
         disableOnInteraction: false,
         waitForTransition: false,
       }}
-      className={styles.Accouncement}
+      className={styles.accouncement}
       direction={"vertical"}
       freeMode={{
         enabled: true,

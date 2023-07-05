@@ -1,104 +1,62 @@
 @mixin iphone {
-    @media(max-width: 414px) {
-        @content;
-    }
+  @media (max-width: 414px) {
+    @content;
+  }
 }
 
 .Header {
-    position: sticky;
-    padding: 0 10px;
-    box-sizing: border-box;
-    top: 0;
+  position: sticky;
+  padding: 0 10px;
+  box-sizing: border-box;
+  top: 0;
+  width: 100%;
+  background: rgba(245, 245, 245, 0.8);
+  backdrop-filter: blur(4px);
+  z-index: 2;
+
+  @include iphone() {
+    overflow: auto hidden;
+  }
+
+  .box {
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+
+    .link {
+      text-decoration: none;
+    }
+
+    .content {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+  }
+
+  .dropdown {
+    position: absolute;
+    top: 50px;
+    left: 0;
     width: 100%;
-    background: rgba(245, 245, 245, 0.8);
-    backdrop-filter: blur(4px);
-    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s;
+    opacity: 0;
+    pointer-events: none;
 
-    @include iphone() {
-        overflow: auto hidden;
+    &.active {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 2;
     }
 
-    .box {
-        height: 60px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-
-        .link {
-            text-decoration: none;
-
-            .brand {
-                padding: 0 5px;
-                height: 40px;
-                background: rgba(245, 245, 245, 0.8);
-                backdrop-filter: blur(4px);
-                border: none;
-                border-radius: 4px;
-                display: flex;
-                align-items: center;
-                gap: 5px;
-                cursor: pointer;
-                transition: 0.2s;
-
-                &:hover {
-                    opacity: 0.8;
-                    background: rgba(192, 192, 192, 0.2);
-                }
-
-                .logo {
-                    width: 30px;
-                    height: 30px;
-                    border-radius: 4px;
-                }
-
-                .title {
-                    font: normal 800 20px/40px sans-serif;
-                    letter-spacing: 1px;
-
-                    .blue {
-                        color: #0091DB;
-                    }
-
-                    .pink {
-                        color: #E4027F;
-                    }
-
-                    .yellow {
-                        color: #FFE10A;
-                    }
-                }
-            }
-        }
-
-        .content {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+    .space {
+      width: 100%;
+      height: 10px;
+      text-align: center;
     }
-
-    .dropdown {
-        position: absolute;
-        top: 50px;
-        left: 0;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        transition: 0.2s;
-        opacity: 0;
-        pointer-events: none;
-
-        &.active {
-            opacity: 1;
-            pointer-events: auto;
-            z-index: 2;
-        }
-
-        .space {
-            width: 100%;
-            height: 10px;
-            text-align: center;
-        }
-    }
+  }
 }
