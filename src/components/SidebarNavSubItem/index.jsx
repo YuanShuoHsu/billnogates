@@ -18,7 +18,6 @@ export default function SidebarNavSubItem(props) {
 
   const handleHideSidebar = () => {
     dispatch(hideSidebar());
-    document.body.style.overflow = "auto";
   };
 
   const handleClick = (event, subItemClick) => {

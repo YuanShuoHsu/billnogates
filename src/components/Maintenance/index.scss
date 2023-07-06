@@ -1,87 +1,87 @@
 @mixin keyframes-animation($name) {
-    @-webkit-keyframes #{$name} {
-        @content;
-    }
+  @-webkit-keyframes #{$name} {
+    @content;
+  }
 
-    @keyframes #{$name} {
-        @content;
-    }
+  @keyframes #{$name} {
+    @content;
+  }
 }
 
 @mixin prefix-property($name, $value) {
-    -webkit-#{$name}: $value;
-    #{$name}: $value;
+  -webkit-#{$name}: $value;
+  #{$name}: $value;
 }
 
 .Maintenance {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #E4027F;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #e4027f;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+
+  .text {
+    color: #fff;
+    font: normal normal normal/normal sans-serif;
+    letter-spacing: 1px;
+  }
+
+  .box {
+    padding: 0;
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
 
-    .text {
-        color: #fff;
-        font: normal normal normal/normal sans-serif;
-        letter-spacing: 1px;
-    }
+    .dot {
+      list-style: none;
+      margin: 0 5px;
+      width: 20px;
+      height: 20px;
+      background: #fff;
+      border-radius: 50%;
+      animation: 1.4s linear 0s infinite normal none running loading;
 
-    .box {
-        padding: 0;
-        display: flex;
+      &:nth-child(1) {
+        animation-delay: 0s;
+      }
 
-        .dot {
-            list-style: none;
-            margin: 0 5px;
-            width: 20px;
-            height: 20px;
-            background: #fff;
-            border-radius: 50%;
-            animation: 1.4s linear 0s infinite normal none running loading;
+      &:nth-child(2) {
+        animation-delay: -1.2s;
+      }
 
-            &:nth-child(1) {
-                animation-delay: 0s;
-            }
+      &:nth-child(3) {
+        animation-delay: -1s;
+      }
 
-            &:nth-child(2) {
-                animation-delay: -1.2s;
-            }
+      &:nth-child(4) {
+        animation-delay: -0.8s;
+      }
 
-            &:nth-child(3) {
-                animation-delay: -1s;
-            }
+      &:nth-child(5) {
+        animation-delay: -0.6s;
+      }
 
-            &:nth-child(4) {
-                animation-delay: -0.8s;
-            }
-
-            &:nth-child(5) {
-                animation-delay: -0.6s;
-            }
-
-            @include keyframes-animation(loading) {
-                0% {
-                    @include prefix-property(transform, translateY(0));
-                }
-
-                60% {
-                    @include prefix-property(transform, translateY(0));
-                }
-
-                80% {
-                    @include prefix-property(transform, translateY(-20px));
-                }
-
-                100% {
-                    @include prefix-property(transform, translateX(0));
-                }
-            }
+      @include keyframes-animation(loading) {
+        0% {
+          @include prefix-property(transform, translateY(0));
         }
+
+        60% {
+          @include prefix-property(transform, translateY(0));
+        }
+
+        80% {
+          @include prefix-property(transform, translateY(-20px));
+        }
+
+        100% {
+          @include prefix-property(transform, translateX(0));
+        }
+      }
     }
+  }
 }

@@ -10,9 +10,11 @@ export const cartbarSlice = createSlice({
   reducers: {
     showCartbar: (state) => {
       state.value = true;
+      document.body.style.overflow = "hidden";
     },
     hideCartbar: (state) => {
       state.value = false;
+      document.body.style.overflow = "auto";
     },
   },
 });

@@ -14,7 +14,6 @@ export default function Sidebar() {
 
   const handleHideSidebar = useCallback(() => {
     dispatch(hideSidebar());
-    document.body.style.overflow = "auto";
   }, [dispatch]);
 
   useEffect(() => {

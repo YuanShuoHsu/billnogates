@@ -1,23 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import 'normalize.css';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDOM from "react-dom/client";
+import "normalize.css";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
 
-import store from "./store"
-import { Provider } from "react-redux"
-import { BrowserRouter } from "react-router-dom"
-
-import ScrollToTop from "./utils/ScrollToTop";
+import store from "./store";
+import { Provider } from "react-redux";
+import { BrowserRouter } from "react-router-dom";
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+  document.getElementById("root") as HTMLElement
 );
 root.render(
-<Provider store={store}>
+  <Provider store={store}>
     <BrowserRouter>
-      <ScrollToTop />
       <App />
     </BrowserRouter>
   </Provider>

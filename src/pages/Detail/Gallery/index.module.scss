@@ -1,25 +1,25 @@
 @mixin desktop {
-    @media(max-width:768px) {
-        @content;
-    }
+  @media (max-width: 768px) {
+    @content;
+  }
 }
 
 .Gallery {
-    position: relative;
+  position: relative;
+  display: flex;
+  gap: 10px;
+
+  @include desktop {
+    flex-direction: column;
+  }
+
+  .box {
+    width: 50%;
     display: flex;
-    gap: 10px;
+    overflow: hidden;
 
     @include desktop {
-        flex-direction: column;
+      width: 100%;
     }
-
-    .box {
-        width: 50%;
-        display: flex;
-        overflow: hidden;
-
-        @include desktop {
-            width: 100%;
-        }
-    }
+  }
 }

@@ -16,7 +16,6 @@ export default function Cartbar() {
 
   const handleHideCartbar = () => {
     dispatch(hideCartbar());
-    document.body.style.overflow = "auto";
   };
 
   const stopPropagation = (event) => {

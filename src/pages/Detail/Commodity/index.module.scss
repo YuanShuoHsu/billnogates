@@ -1,35 +1,35 @@
 .Commodity {
-    position: relative;
+  position: relative;
 
-    .buttonGroup {
-        display: flex;
+  .buttonGroup {
+    display: flex;
 
-        .button {
-            padding: 0;
-            width: 100px;
-            height: 40px;
-            background: rgba(245, 245, 245, 0.8);
-            border: none;
-            color: #000;
-            font: normal normal 16px/normal sans-serif;
-            cursor: pointer;
-            transition: 0.2s;
+    .button {
+      padding: 0;
+      width: 100px;
+      height: 40px;
+      background: rgba(245, 245, 245, 0.8);
+      border: none;
+      color: #000;
+      font: normal normal 16px / normal sans-serif;
+      cursor: pointer;
+      transition: 0.2s;
 
-            &:first-child {
-                border-top-left-radius: 4px;
-            }
+      &:first-child {
+        border-top-left-radius: 4px;
+      }
 
-            &:last-child {
-                border-top-right-radius: 4px;
-            }
+      &:last-child {
+        border-top-right-radius: 4px;
+      }
 
-            &.active {
-                background: rgba(192, 192, 192, 0.2);
-            }
+      &.active {
+        background: rgba(192, 192, 192, 0.2);
+      }
 
-            &:hover {
-                background: rgba(228, 2, 126, 0.5);
-            }
-        }
+      &:hover {
+        background: rgba(228, 2, 126, 0.5);
+      }
     }
+  }
 }

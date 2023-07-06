@@ -14,7 +14,6 @@ export default function SidebarSearch() {
 
   const handleHideSidebar = () => {
     dispatch(hideSidebar());
-    document.body.style.overflow = "auto";
   };
 
   const [isOnComposition, setIsOnComposition] = useState(false);

@@ -1,8 +1,8 @@
 .Recaptcha {
-    position: relative;
-    z-index: 1;
+  position: relative;
+  z-index: 1;
 
-    :global(.grecaptcha-badge) {
-        bottom: 60px !important;
-    }
+  :global(.grecaptcha-badge) {
+    bottom: 60px !important;
+  }
 }

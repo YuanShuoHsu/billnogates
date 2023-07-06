@@ -1,318 +1,317 @@
 @mixin screen {
-    @media(max-width: 1200px) {
-        @content;
-    }
+  @media (max-width: 1200px) {
+    @content;
+  }
 }
 
 .Checkout {
-    position: relative;
-    background: rgba(245, 245, 245, 0.8);
+  position: relative;
+  background: rgba(245, 245, 245, 0.8);
 
-    .main {
+  .main {
+    padding: 10px;
+    box-sizing: border-box;
+    min-height: calc(100vh - 60px - 60px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+
+    .grid {
+      padding: 10px;
+      box-sizing: border-box;
+      width: 80%;
+      max-height: calc(100vh - 60px - 20px);
+      background: rgba(192, 192, 192, 0.2);
+      border-radius: 4px;
+      display: flex;
+      flex-direction: column;
+
+      @include screen() {
+        width: 100%;
+      }
+
+      .title {
+        color: #000;
+        font: normal normal normal/normal sans-serif;
+        letter-spacing: 1px;
+      }
+
+      .p {
+        margin: 0;
+        color: #000;
+        font: normal normal 16px/40px sans-serif;
+        letter-spacing: 1px;
+      }
+
+      .product {
+        position: relative;
         padding: 10px;
-        box-sizing: border-box;
-        min-height: calc(100vh - 60px - 60px);
+        background: #fff;
+        border-radius: 4px;
+        overflow: hidden auto;
+        scroll-behavior: smooth;
+
+        .item {
+          position: sticky;
+          left: 0;
+          bottom: -10px;
+          width: 100%;
+          background: rgba(245, 245, 245, 0.8);
+          backdrop-filter: blur(4px);
+          display: flex;
+          justify-content: flex-end;
+          z-index: 2;
+
+          .total {
+            width: 100%;
+            text-align: center;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            direction: rtl;
+            transition: 0.2s;
+
+            .text {
+              color: #000;
+              font: normal normal 16px/40px sans-serif;
+              letter-spacing: 1px;
+
+              &.fee {
+                margin: 0 5px;
+                padding: 0 5px;
+                background: #e4027f;
+                border-radius: 2px;
+                color: #fff;
+              }
+            }
+          }
+        }
+      }
+
+      .coupon {
         display: flex;
-        flex-direction: column;
-        align-items: center;
         gap: 10px;
 
-        .grid {
-            padding: 10px;
+        .input {
+          padding: 0 10px;
+          width: 80%;
+          color: #000;
+          font: normal normal 16px/40px sans-serif;
+          letter-spacing: 1px;
+        }
+
+        .button {
+          width: 20%;
+          min-width: 80px;
+          padding: 0 10px;
+          color: #fff;
+          font: normal normal 16px/40px sans-serif;
+          letter-spacing: 1px;
+          background: #e4027f;
+          border: none;
+          border-radius: 4px;
+          white-space: nowrap;
+          cursor: pointer;
+          transition: 0.2s;
+
+          &:hover {
+            opacity: 0.8;
+          }
+        }
+      }
+
+      .information {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        .name {
+          display: flex;
+          flex-direction: row;
+          gap: 10px;
+
+          .lastName,
+          .firstName {
+            padding: 0 10px;
+            width: 50%;
+            height: 40px;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+          }
+        }
+
+        .contact {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          .email,
+          .phone {
+            padding: 0 10px;
             box-sizing: border-box;
-            width: 80%;
-            max-height: calc(100vh - 60px - 20px);
+            width: 100%;
+            height: 40px;
+            border: none;
+            border-radius: 4px;
+            outline: none;
+          }
+        }
+      }
+
+      .box {
+        display: grid;
+        gap: 10px;
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+
+        .radio {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+
+          .input {
+            position: absolute;
+            opacity: 0;
+            pointer-events: none;
+
+            &:checked {
+              + .label {
+                border: 1px solid #e4027f;
+                color: #e4027f;
+              }
+            }
+          }
+
+          .label {
+            padding: 0 5px;
+            box-sizing: border-box;
+            width: 100%;
+            height: 40px;
             background: rgba(192, 192, 192, 0.2);
+            border: 1px solid transparent;
             border-radius: 4px;
             display: flex;
-            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            cursor: pointer;
+            transition: 0.2s;
 
-            @include screen() {
+            &:hover {
+              opacity: 0.8;
+            }
+
+            .imageBox {
+              padding: 5px;
+              box-sizing: border-box;
+              width: 40px;
+              height: 40px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              overflow: hidden;
+
+              .image {
+                display: block;
                 width: 100%;
-            }
-
-            .title {
-                color: #000;
-                font: normal normal normal/normal sans-serif;
-                letter-spacing: 1px;
-            }
-
-            .p {
-                margin: 0;
-                color: #000;
-                font: normal normal 16px/40px sans-serif;
-                letter-spacing: 1px;
-            }
-
-            .product {
-                position: relative;
-                padding: 10px;
-                background: #fff;
+                height: 100%;
+                object-fit: contain;
                 border-radius: 4px;
-                overflow: hidden auto;
-                scroll-behavior: smooth;
-
-                .item {
-                    position: sticky;
-                    left: 0;
-                    bottom: -10px;
-                    width: 100%;
-                    background: rgba(245, 245, 245, 0.8);
-                    backdrop-filter: blur(4px);
-                    display: flex;
-                    justify-content: flex-end;
-                    z-index: 2;
-
-                    .total {
-                        width: 100%;
-                        text-align: center;
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        direction: rtl;
-                        transition: 0.2s;
-
-                        .text {
-                            color: #000;
-                            font: normal normal 16px/40px sans-serif;
-                            letter-spacing: 1px;
-
-                            &.fee {
-                                margin: 0 5px;
-                                padding: 0 5px;
-                                background: #E4027F;
-                                border-radius: 2px;
-                                color: #fff;
-                            }
-                        }
-                    }
-                }
+              }
             }
 
-            .coupon {
-                display: flex;
-                gap: 10px;
+            .svg {
+              padding: 5px;
+              box-sizing: border-box;
+              width: 40px;
+              height: 40px;
+              fill: #000;
+              pointer-events: none;
 
-                .input {
-                    padding: 0 10px;
-                    width: 80%;
-                    color: #000;
-                    font: normal normal 16px/40px sans-serif;
-                    letter-spacing: 1px;
-                }
-
-                .button {
-                    width: 20%;
-                    min-width: 80px;
-                    padding: 0 10px;
-                    color: #fff;
-                    font: normal normal 16px/40px sans-serif;
-                    letter-spacing: 1px;
-                    background: #E4027F;
-                    border: none;
-                    border-radius: 4px;
-                    white-space: nowrap;
-                    cursor: pointer;
-                    transition: 0.2s;
-
-                    &:hover {
-                        opacity: 0.8;
-                    }
-                }
+              path {
+                pointer-events: none;
+              }
             }
 
-            .information {
-                display: flex;
-                flex-direction: column;
-                gap: 10px;
-
-                .name {
-                    display: flex;
-                    flex-direction: row;
-                    gap: 10px;
-
-                    .lastName,
-                    .firstName {
-                        padding: 0 10px;
-                        width: 50%;
-                        height: 40px;
-                        border: none;
-                        border-radius: 4px;
-                        outline: none;
-                    }
-                }
-
-                .contact {
-                    display: flex;
-                    flex-direction: column;
-                    gap: 10px;
-
-                    .email,
-                    .phone {
-                        padding: 0 10px;
-                        box-sizing: border-box;
-                        width: 100%;
-                        height: 40px;
-                        border: none;
-                        border-radius: 4px;
-                        outline: none;
-                    }
-                }
+            .text {
+              width: calc(100% - 40px);
+              text-align: center;
+              color: #000;
+              font: normal normal 16px/40px sans-serif;
+              letter-spacing: 1px;
+              white-space: nowrap;
             }
+          }
+        }
+      }
 
-            .box {
-                display: grid;
-                gap: 10px;
-                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      .content {
+        .href {
+          margin: 10px 0 0 0;
+          padding: 0 10px;
+          display: flex;
+          align-items: center;
 
-                .radio {
-                    position: relative;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
+          .a {
+            color: #e4027f;
+            text-decoration: none;
+            font: normal normal 16px / normal sans-serif;
+            letter-spacing: 1px;
+          }
 
-                    .input {
-                        position: absolute;
-                        opacity: 0;
-                        pointer-events: none;
-
-                        &:checked {
-                            +.label {
-                                border: 1px solid #E4027F;
-                                color: #E4027F;
-                            }
-                        }
-                    }
-
-                    .label {
-                        padding: 0 5px;
-                        box-sizing: border-box;
-                        width: 100%;
-                        height: 40px;
-                        background: rgba(192, 192, 192, 0.2);
-                        border: 1px solid transparent;
-                        border-radius: 4px;
-                        display: flex;
-                        justify-content: flex-start;
-                        align-items: center;
-                        cursor: pointer;
-                        transition: 0.2s;
-
-                        &:hover {
-                            opacity: 0.8;
-                        }
-
-                        .imageBox {
-                            padding: 5px;
-                            box-sizing: border-box;
-                            width: 40px;
-                            height: 40px;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            overflow: hidden;
-
-                            .image {
-                                display: block;
-                                width: 100%;
-                                height: 100%;
-                                object-fit: contain;
-                                border-radius: 4px;
-                            }
-
-                        }
-
-                        .svg {
-                            padding: 5px;
-                            box-sizing: border-box;
-                            width: 40px;
-                            height: 40px;
-                            fill: #000;
-                            pointer-events: none;
-
-                            path {
-                                pointer-events: none;
-                            }
-                        }
-
-                        .text {
-                            width: calc(100% - 40px);
-                            text-align: center;
-                            color: #000;
-                            font: normal normal 16px/40px sans-serif;
-                            letter-spacing: 1px;
-                            white-space: nowrap;
-                        }
-                    }
-                }
-            }
-
-            .content {
-                .href {
-                    margin: 10px 0 0 0;
-                    padding: 0 10px;
-                    display: flex;
-                    align-items: center;
-
-                    .a {
-                        color: #E4027F;
-                        text-decoration: none;
-                        font: normal normal 16px/normal sans-serif;
-                        letter-spacing: 1px;
-                    }
-
-                    .svg {
-                        width: 20px;
-                        height: 20px;
-                        fill: #E4027F;
-                    }
-                }
-
-                .input {
-                    margin: 10px 0 0 0;
-                    padding: 0 10px;
-                    height: 40px;
-                    width: 100%;
-                    border-radius: 4px;
-                    border: none;
-                    outline: none;
-                }
-            }
-
-            .input {
-                padding: 0 10px;
-                box-sizing: border-box;
-                width: 100%;
-                height: 40px;
-                border: none;
-                border-radius: 4px;
-                outline: none;
-            }
+          .svg {
+            width: 20px;
+            height: 20px;
+            fill: #e4027f;
+          }
         }
 
-        .buy {
-            width: 80%;
-
-            @include screen() {
-                width: 100%;
-            }
-
-            .button {
-                padding: 0 10px;
-                width: 100%;
-                background: #E4027F;
-                border: none;
-                border-radius: 4px;
-                color: #fff;
-                font: normal normal 16px/40px sans-serif;
-                letter-spacing: 1px;
-                transition: 0.2s;
-                cursor: pointer;
-
-                &:hover {
-                    opacity: 0.8;
-                }
-            }
+        .input {
+          margin: 10px 0 0 0;
+          padding: 0 10px;
+          height: 40px;
+          width: 100%;
+          border-radius: 4px;
+          border: none;
+          outline: none;
         }
+      }
+
+      .input {
+        padding: 0 10px;
+        box-sizing: border-box;
+        width: 100%;
+        height: 40px;
+        border: none;
+        border-radius: 4px;
+        outline: none;
+      }
     }
+
+    .buy {
+      width: 80%;
+
+      @include screen() {
+        width: 100%;
+      }
+
+      .button {
+        padding: 0 10px;
+        width: 100%;
+        background: #e4027f;
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        font: normal normal 16px/40px sans-serif;
+        letter-spacing: 1px;
+        transition: 0.2s;
+        cursor: pointer;
+
+        &:hover {
+          opacity: 0.8;
+        }
+      }
+    }
+  }
 }

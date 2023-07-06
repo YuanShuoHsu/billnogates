@@ -13,7 +13,6 @@ export default function SidebarNavGrandItem(props) {
   const handleHideSidebar = (event) => {
     event.stopPropagation();
     dispatch(hideSidebar());
-    document.body.style.overflow = "auto";
   };
 
   return (

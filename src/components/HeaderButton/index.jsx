@@ -95,12 +95,10 @@ export default function HeaderButton() {
 
   const handleShowCartbar = () => {
     dispatch(showCartbar());
-    document.body.style.overflow = "hidden";
   };
 
   const handleShowSidebar = () => {
     dispatch(showSidebar());
-    document.body.style.overflow = "hidden";
   };
 
   const renderCartbarNumber = () => {

@@ -1,19 +1,19 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    value: {},
-}
+  value: {},
+};
 
 export const headerNavItemSlice = createSlice({
-    name: 'headerNavItem',
-    initialState,
-    reducers: {
-        changeHeaderNavItem: (state, data) => {
-            state.value = data.payload
-        }
+  name: "headerNavItem",
+  initialState,
+  reducers: {
+    changeHeaderNavItem: (state, data) => {
+      state.value = data.payload;
     },
-})
+  },
+});
 
-export const { changeHeaderNavItem } = headerNavItemSlice.actions
+export const { changeHeaderNavItem } = headerNavItemSlice.actions;
 
-export default headerNavItemSlice.reducer
+export default headerNavItemSlice.reducer;
