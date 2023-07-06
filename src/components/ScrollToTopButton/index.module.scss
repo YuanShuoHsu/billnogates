@@ -1,60 +1,61 @@
-.ScrollToTopButton {
-    position: fixed;
-    right: 40px;
-    bottom: 140px;
-    width: 40px;
-    height: 40px;
-    background: rgba(245, 245, 245, 0.8);
-    backdrop-filter: blur(4px);
-    border: 1px solid rgba(228, 2, 126, 0.5);
-    box-sizing: border-box;
-    border-radius: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    pointer-events: none;
-    cursor: pointer;
-    transition: 0.2s;
-    z-index: 2;
+.scrollToTopButton {
+  position: fixed;
+  right: 40px;
+  bottom: 140px;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(245, 245, 245, 0.8);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(228, 2, 126, 0.5);
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  cursor: pointer;
+  transition: 0.2s;
+  z-index: 2;
 
-    &.active {
-        opacity: 1;
-        pointer-events: auto;
+  &:hover {
+    opacity: 0.8;
 
-        &:hover {
-            opacity: 0.8;
-
-            .svg {
-                fill: #E4027F;
-            }
-
-            .text {
-                color: #E4027F;
-            }
-        }
+    .scrollToTopButton__container {
+      .scrollToTopButton__icon {
+        fill: #e4027f;
+      }
     }
 
-    .svg {
-        width: 12px;
-        height: 12px;
-        fill: #000;
-        transition: 0.2s;
-        pointer-events: none;
-
-        path {
-            pointer-events: none;
-        }
+    .scrollToTopButton__text {
+      color: #e4027f;
     }
+  }
 
-    .text {
-        margin: 0;
-        color: #000;
-        font: normal normal 12px/20px sans-serif;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        transition: 0.2s;
-        pointer-events: none;
+  &--active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &__container {
+    width: 12px;
+    height: 12px;
+
+    .scrollToTopButton__icon {
+      width: 100%;
+      height: 100%;
+      fill: #000;
+      transition: fill 0.2s;
     }
+  }
+
+  &__text {
+    color: #000;
+    font-size: 12px;
+    line-height: 20px;
+    font-family: sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.2s;
+  }
 }
