@@ -13,20 +13,20 @@ export default function Cartbar() {
   const dispatch = useDispatch();
   const cartbar = useSelector((state) => state.cartbar.value);
   const cartbarItem = useSelector((state) => state.cartbarItem.value);
-  const headerButton = useSelector((state) => state.headerButton.value);
 
   const handleHideCartbar = () => {
-    dispatch(hideCartbar(headerButton));
+    dispatch(hideCartbar());
+    document.body.style.overflow = "auto";
   };
 
-  const stopPropagation = (event: MouseEvent) => {
+  const stopPropagation = (event) => {
     event.stopPropagation();
   };
 
-  const renderTotal = (): number => {
+  const renderTotal = () => {
     let sum = 0;
     cartbarItem &&
-      cartbarItem.forEach((item: Item) => (sum += item.number * item.price));
+      cartbarItem.forEach((item) => (sum += item.number * item.price));
     return sum;
   };
 
@@ -35,7 +35,7 @@ export default function Cartbar() {
       onClick={handleHideCartbar}
       className={`${styles.Cartbar} ${cartbar ? `${styles.active}` : ""}`}
     >
-      <div onClick={() => stopPropagation} className={styles.box}>
+      <div onClick={stopPropagation} className={styles.box}>
         <div className={styles.container}>
           <h2 className={styles.title}>您的購物車</h2>
         </div>
@@ -47,7 +47,7 @@ export default function Cartbar() {
           <Fragment>
             <div className={styles.content}>
               {cartbarItem &&
-                cartbarItem.map((item: Item) => (
+                cartbarItem.map((item) => (
                   <CartbarItem
                     cartbarItem={cartbarItem}
                     item={item}
