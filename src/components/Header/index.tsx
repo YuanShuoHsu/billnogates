@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import HeaderBrand from "../HeaderBrand";
 import HeaderNav from "../HeaderNav";
 import HeaderButton from "../HeaderButton";
+import HeaderDropdown from "../HeaderDropdown";
 import HeaderNavSubMenu from "../HeaderNavSubMenu";
 import HeaderSearch from "../HeaderSearch";
 
@@ -40,34 +41,30 @@ export default function Header() {
   };
 
   return (
-    <div className={styles.Header}>
-      <div className={styles.box}>
-        <Link className={styles.link} to="/">
+    <div className={styles.header}>
+      <div className={styles.header__box}>
+        <Link className={styles.header__link} to="/">
           <HeaderBrand />
         </Link>
-        <div className={styles.content}>
+        <div className={styles.header__content}>
           <HeaderNav />
           <HeaderButton />
         </div>
       </div>
-      <div
-        onMouseEnter={handleMenuEnterHover}
-        onMouseLeave={handleMenuLeaveHover}
-        className={`${styles.dropdown} ${
-          headerNavSubMenu ? `${styles.active}` : ""
-        }`}
+      <HeaderDropdown
+        handleEnter={handleMenuEnterHover}
+        handleLeave={handleMenuLeaveHover}
+        condition={headerNavSubMenu}
       >
-        <div className={styles.space}></div>
         <HeaderNavSubMenu />
-      </div>
-      <div
-        onMouseEnter={handleSearchEnterHover}
-        onMouseLeave={handleSearchLeaveHover}
-        className={`${styles.dropdown} ${search ? `${styles.active}` : ""}`}
+      </HeaderDropdown>
+      <HeaderDropdown
+        handleEnter={handleSearchEnterHover}
+        handleLeave={handleSearchLeaveHover}
+        condition={search}
       >
-        <div className={styles.space}></div>
         <HeaderSearch />
-      </div>
+      </HeaderDropdown>
     </div>
   );
 }

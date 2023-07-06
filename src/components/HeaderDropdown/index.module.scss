@@ -1,0 +1,22 @@
+.headerDropdown {
+    position: absolute;
+    top: 50px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: 0.2s;
+    opacity: 0;
+    pointer-events: none;
+
+    &--active {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: 2;
+    }
+
+    &__space {
+      width: 100%;
+      height: 10px;
+    }
+  }

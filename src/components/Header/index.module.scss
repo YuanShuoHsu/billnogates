@@ -1,62 +1,47 @@
-@mixin iphone {
-  @media (max-width: 414px) {
+$breakpoints: (
+  // xs: 0,
+  sm: 576px,
+  // md: 768px,
+  // lg: 992px,
+  // xl: 1200px,
+  // xxl: 1400px,
+);
+
+@mixin respond-to($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
     @content;
   }
 }
 
-.Header {
+.header {
   position: sticky;
   padding: 0 10px;
   box-sizing: border-box;
   top: 0;
   width: 100%;
-  background: rgba(245, 245, 245, 0.8);
+  background-color: rgba(245, 245, 245, 0.8);
   backdrop-filter: blur(4px);
-  z-index: 2;
+  z-index: 3;
 
-  @include iphone() {
+  @include respond-to(sm) {
     overflow: auto hidden;
   }
 
-  .box {
+  &__box {
     height: 60px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 10px;
 
-    .link {
+    .header__link {
       text-decoration: none;
     }
 
-    .content {
+    .header__content {
       display: flex;
       align-items: center;
       gap: 10px;
-    }
-  }
-
-  .dropdown {
-    position: absolute;
-    top: 50px;
-    left: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    transition: 0.2s;
-    opacity: 0;
-    pointer-events: none;
-
-    &.active {
-      opacity: 1;
-      pointer-events: auto;
-      z-index: 2;
-    }
-
-    .space {
-      width: 100%;
-      height: 10px;
-      text-align: center;
     }
   }
 }
