@@ -1,4 +1,4 @@
-const SERVICES = [
+const services = [
     {
         id: 1,
         image: require("../images/supply/材料販售.jpg"),
@@ -29,4 +29,4 @@ const SERVICES = [
     }
 ]
 
-export default SERVICES
+export default services

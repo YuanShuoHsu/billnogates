@@ -3,7 +3,7 @@ type Form = {
   text: string;
 };
 
-const Forms: Form[] = [
+const forms: Form[] = [
   {
     id: 1,
     text: "歡迎來到比爾公主沒蓋子的梅織粉俱樂部",
@@ -18,4 +18,4 @@ const Forms: Form[] = [
   },
 ];
 
-export default Forms;
+export default forms;

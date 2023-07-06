@@ -7,7 +7,7 @@ import styles from "./index.module.scss";
 
 import { Autoplay, FreeMode } from "swiper/modules";
 
-import Forms from "../../dataset/accouncement";
+import forms from "../../dataset/accouncement";
 
 export default function Accouncement() {
   return (
@@ -31,8 +31,8 @@ export default function Accouncement() {
       spaceBetween={20}
       speed={1000}
     >
-      {Forms &&
-        Forms.map((item) => (
+      {forms &&
+        forms.map((item) => (
           <SwiperSlide key={item.id}>
             <span className={styles.text}>{item.text}</span>
           </SwiperSlide>

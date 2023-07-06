@@ -1,5 +1,5 @@
-import { renderToStaticMarkup } from "react-dom/server";
 import { ReactNode } from "react";
+import { renderToStaticMarkup } from "react-dom/server";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 
@@ -11,13 +11,7 @@ import styles from "./index.module.scss";
 
 import { Autoplay, FreeMode, Keyboard, Pagination } from "swiper/modules";
 
-import SLIDES from "../../dataset/banner";
-
-interface Bullet {
-  id: number;
-  image: string;
-  name: string;
-}
+import { slides, bullets, Bullet } from "../../dataset/banner";
 
 interface PaginationOptions {
   clickable: boolean;
@@ -25,24 +19,6 @@ interface PaginationOptions {
 }
 
 export default function Banner() {
-  const bullets: Bullet[] = [
-    {
-      id: 1,
-      image: require("../../images/banner/bullets/腦袋按鈕1.svg").default,
-      name: "腦袋按鈕1",
-    },
-    {
-      id: 2,
-      image: require("../../images/banner/bullets/腦袋按鈕2.svg").default,
-      name: "腦袋按鈕2",
-    },
-    {
-      id: 3,
-      image: require("../../images/banner/bullets/腦袋按鈕3.svg").default,
-      name: "腦袋按鈕3",
-    },
-  ];
-
   const renderCorrectBullet = (
     index: number,
     className: string,
@@ -89,8 +65,8 @@ export default function Banner() {
       spaceBetween={0}
       speed={500}
     >
-      {SLIDES &&
-        SLIDES.map((item) => (
+      {slides &&
+        slides.map((item) => (
           <SwiperSlide key={item.id}>
             <img src={item.image} alt={item.name} />
           </SwiperSlide>
