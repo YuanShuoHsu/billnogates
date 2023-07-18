@@ -1,19 +1,24 @@
-@mixin desktop {
-  @media (max-width: 768px) {
+$breakpoints: (
+  // xs: 0,
+  others: 320px,
+  // sm: 576px,
+  md: 768px,
+  // lg: 992px,
+  // xl: 1200px,
+  // xxl: 1400px,
+);
+
+@mixin respond-to($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
     @content;
   }
 }
 
-@mixin others {
-  @media (max-width: 320px) {
-    @content;
-  }
-}
 .card {
   position: relative;
   width: 100%;
   height: 100%;
-  background: rgba(192, 192, 192, 0.2);
+  background-color: rgba(192, 192, 192, 0.2);
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -34,14 +39,14 @@
   }
 
   &:hover {
-    .imgBox {
-      .photo {
+    .card__imgBox {
+      .card__image {
         transform: scale(1.1);
       }
     }
   }
 
-  @include desktop() {
+  @include respond-to(md) {
     box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2);
     border-top: 1px solid rgba(245, 245, 245, 0.8);
     border-right: 1px solid #fff;
@@ -56,7 +61,7 @@
     }
   }
 
-  @include others() {
+  @include respond-to(others) {
     flex-direction: column;
 
     &:nth-child(even) {
@@ -64,7 +69,7 @@
     }
   }
 
-  .imgBox {
+  &__imgBox {
     width: 100%;
     height: 50%;
     display: flex;
@@ -73,17 +78,17 @@
     overflow: hidden;
     pointer-events: none;
 
-    @include desktop() {
+    @include respond-to(md) {
       width: 50%;
       height: 100%;
     }
 
-    @include others() {
+    @include respond-to(others) {
       width: 100%;
       height: 50%;
     }
 
-    .photo {
+    .card__image {
       width: 100%;
       height: 100%;
       aspect-ratio: 1/1;
@@ -92,10 +97,10 @@
     }
   }
 
-  .box {
+  &__contentBox {
     width: 100%;
     height: 50%;
-    background: rgba(192, 192, 192, 0.2);
+    background-color: rgba(192, 192, 192, 0.2);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -103,31 +108,21 @@
     overflow: hidden;
     pointer-events: none;
 
-    @include desktop() {
+    @include respond-to(md) {
       width: 50%;
       height: 100%;
     }
 
-    @include others() {
+    @include respond-to(others) {
       width: 100%;
       height: 50%;
     }
 
-    .content {
+    .card__content {
       padding: 10px;
       text-align: center;
-
-      .title {
-        color: #000;
-        font: normal normal normal/normal sans-serif;
-        letter-spacing: 1px;
-      }
-
-      .text {
-        color: #000;
-        font: normal normal 16px / normal sans-serif;
-        letter-spacing: 1px;
-      }
+      font-family: sans-serif;
+      letter-spacing: 1px;
     }
   }
 }

@@ -1,78 +1,78 @@
-@mixin desktop {
-  @media (max-width: 768px) {
+$breakpoints: (
+  // xs: 0,
+  // sm: 576px,
+  md: 768px,
+  // lg: 992px,
+  // xl: 1200px,
+  // xxl: 1400px,
+);
+
+@mixin respond-to($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
     @content;
   }
 }
 
 @mixin keyframes-animation($name) {
-  @-webkit-keyframes #{$name} {
-    @content;
-  }
-
   @keyframes #{$name} {
     @content;
   }
 }
 
-@mixin prefix-property($name, $value) {
-  -webkit-#{$name}: $value;
-  #{$name}: $value;
-}
-
-.Sidebar {
+.sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(4px);
-  z-index: 3;
-  transition: 0.2s;
   display: none;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.2s;
+  z-index: 3;
 
-  @include desktop {
+  @include respond-to(md) {
     display: block;
-    opacity: 0;
-    pointer-events: none;
-
-    &.active {
+   
+    &--active {
       opacity: 1;
       pointer-events: auto;
 
-      .box {
-        .landscape {
-          img {
-            animation: 0.8s linear 0s 1 normal none running rubberBand;
+      .sidebar__box {
+        .sidebar__landscape {
+          .sidebar__image {
+            animation: 0.8s linear running rubberBand;
           }
 
           @include keyframes-animation(rubberBand) {
             0% {
-              @include prefix-property(transform, scale3d(1, 1, 1));
+              transform: scale3d(1, 1, 1);
             }
 
             30% {
-              @include prefix-property(transform, scale3d(1.25, 0.75, 1));
+              transform: scale3d(1.25, 0.75, 1);
             }
 
             40% {
-              @include prefix-property(transform, scale3d(0.75, 1.25, 1));
+              transform: scale3d(0.75, 1.25, 1);
             }
 
             50% {
-              @include prefix-property(transform, scale3d(1.15, 0.85, 1));
+              transform: scale3d(1.15, 0.85, 1);
             }
 
             65% {
-              @include prefix-property(transform, scale3d(0.95, 1.05, 1));
+              transform: scale3d(0.95, 1.05, 1);
             }
 
             75% {
-              @include prefix-property(transform, scale3d(1.05, 0.95, 1));
+              transform: scale3d(1.05, 0.95, 1);
             }
 
             100% {
-              @include prefix-property(transform, scale3d(1, 1, 1));
+              transform: scale3d(1, 1, 1);
             }
           }
         }
@@ -80,17 +80,17 @@
     }
   }
 
-  .box {
+  &__box {
     width: 300px;
     height: 100%;
-    background: rgba(245, 245, 245, 0.8);
+    background-color: rgba(245, 245, 245, 0.8);
     backdrop-filter: blur(4px);
     display: flex;
     flex-direction: column;
     overflow: hidden auto;
     scroll-behavior: smooth;
 
-    .landscape {
+    .sidebar__landscape {
       width: 100%;
       height: 225px;
       display: flex;
@@ -98,12 +98,12 @@
       align-items: center;
 
       &:hover {
-        img {
+        .sidebar__image {
           transform: scale(1.1);
         }
       }
 
-      img {
+      .sidebar__image {
         display: block;
         width: 100%;
         height: 100%;

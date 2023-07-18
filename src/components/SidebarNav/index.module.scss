@@ -1,8 +1,8 @@
-.SidebarNav {
+.sidebarNav {
   position: relative;
   width: 100%;
 
-  .menu {
+  &__menu {
     margin: 0;
     padding: 0;
     display: flex;

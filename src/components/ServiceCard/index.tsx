@@ -15,13 +15,13 @@ interface ServiceCardProps {
 export default function ServiceCard({ item }: ServiceCardProps) {
   return (
     <div className={styles.card} key={item.id}>
-      <div className={styles.imgBox}>
-        <img className={styles.photo} src={item.image} alt={item.name} />
+      <div className={styles.card__imgBox}>
+        <img className={styles.card__image} src={item.image} alt={item.name} />
       </div>
-      <div className={styles.box}>
-        <div className={styles.content}>
-          <h2 className={styles.title}>{item.title}</h2>
-          <p className={styles.text}>{item.text}</p>
+      <div className={styles.card__contentBox}>
+        <div className={styles.card__content}>
+          <h2>{item.title}</h2>
+          <p>{item.text}</p>
         </div>
       </div>
     </div>

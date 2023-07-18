@@ -1,40 +1,42 @@
-.SidebarNavItem {
+.sidebarNavItem {
   position: relative;
   width: 100%;
   list-style: none;
 
-  &.active {
-    .link {
-      background: rgba(255, 225, 10, 0.5);
-
-      .svg {
-        transform: rotate(180deg);
-      }
-    }
-
-    .subMenu {
-      height: calc(var(--x) * 40px);
-    }
-  }
-
-  .href {
+  &__href {
     text-decoration: none;
 
-    &.active {
-      .link {
-        background: rgba(0, 145, 219, 0.5);
+    &--active {
+      .sidebarNavItem__link {
+        background-color: rgba(0, 145, 219, 0.5);
 
-        .text {
+        .sidebarNavItem__text {
           color: #fff;
         }
       }
     }
   }
 
-  .link {
+  &--active {
+    .sidebarNavItem__link--active {
+      background-color: rgba(255, 225, 10, 0.5);
+
+      .sidebarNavItem__svgBox {
+        .sidebarNavItem__svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+
+    .sidebarNavItem__subMenu {
+      height: calc(var(--x) * 40px);
+    }
+  }
+
+  &__link {
     padding: 0 20px;
     height: 40px;
-    background: rgba(192, 192, 192, 0.2);
+    background-color: rgba(192, 192, 192, 0.2);
     backdrop-filter: blur(4px);
     display: flex;
     justify-content: flex-start;
@@ -42,29 +44,29 @@
     cursor: pointer;
     transition: 0.2s;
 
-    &.active {
+    &--active {
       justify-content: space-between;
+
+      .sidebarNavItem__svgBox {
+        width: 16px;
+        height: 16px;
+
+        .sidebarNavItem__svg {
+          width: 100%;
+          height: 100%;
+          transition: 0.2s;
+        }
+      }
     }
 
     &:hover {
       background: rgba(228, 2, 127, 0.5);
     }
 
-    .svg {
-      width: 16px;
-      height: 16px;
-      fill: #000;
-      transition: 0.2s;
-      pointer-events: none;
-
-      path {
-        pointer-events: none;
-      }
-    }
-
-    .text {
+    .sidebarNavItem__text {
       color: #000;
-      font: normal normal 16px / normal sans-serif;
+      font-size: 16px;
+      font-family: sans-serif;
       letter-spacing: 1px;
       white-space: nowrap;
       overflow: hidden;
@@ -74,7 +76,7 @@
     }
   }
 
-  .subMenu {
+  &__subMenu {
     position: relative;
     margin: 0;
     padding: 0;

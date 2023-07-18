@@ -18,7 +18,7 @@ export default function SidebarNavGrandItem(props) {
   return (
     <li
       onClick={handleHideSidebar}
-      className={styles.SidebarNavGrandItem}
+      className={styles.sidebarNavGrandItem}
       key={grandItem.grandId}
     >
       <NavLink
