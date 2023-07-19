@@ -1,26 +1,27 @@
-.sidebarNavGrandItem {
+.sidebarNavSubItemWithoutSubLayers {
   position: relative;
   width: 100%;
   list-style: none;
 
-  &__grandHref {
+  &__subHref {
     text-decoration: none;
 
-    .sidebarNavGrandItem__grandLink {
-      padding: 0 10px;
+    .sidebarNavSubItemWithoutSubLayers__subLink {
+      padding: 0 40px;
       height: 40px;
-      background-color: rgba(192, 192, 192, 0.8);
+      background-color: rgba(192, 192, 192, 0.5);
       backdrop-filter: blur(4px);
       display: flex;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
+      cursor: pointer;
       transition: 0.2s;
 
       &:hover {
-        background-color: rgba(228, 2, 127, 1);
+        background-color: rgba(228, 2, 127, 0.8);
       }
 
-      .sidebarNavGrandItem__grandText {
+      .sidebarNavSubItemWithoutSubLayers__subText {
         color: #000;
         font-size: 16px;
         font-family: sans-serif;
@@ -34,10 +35,10 @@
     }
 
     &--active {
-      .sidebarNavGrandItem__grandLink {
-        background-color: rgba(0, 145, 219, 1);
+      .sidebarNavSubItemWithoutSubLayers__subLink {
+        background-color: rgba(0, 145, 219, 0.8);
 
-        .sidebarNavGrandItem__grandText {
+        .sidebarNavSubItemWithoutSubLayers__subText {
           color: #fff;
         }
       }

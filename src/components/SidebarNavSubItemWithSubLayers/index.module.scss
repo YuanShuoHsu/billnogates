@@ -1,0 +1,56 @@
+.sidebarNavItemWithLayers {
+  position: relative;
+  width: 100%;
+  list-style: none;
+
+  &__subLink--active {
+    padding: 0 40px;
+    height: 40px;
+    background-color: rgba(192, 192, 192, 0.5);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      background-color: rgba(228, 2, 127, 0.8);
+    }
+
+    .sidebarNavItemWithLayers__subText {
+      color: #000;
+      font-size: 16px;
+      font-family: sans-serif;
+      letter-spacing: 1px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      direction: ltr;
+      transition: 0.2s;
+    }
+
+    .sidebarNavItemWithLayers__svgBox {
+      width: 16px;
+      height: 16px;
+
+      .sidebarNavItemWithLayers__svg {
+        width: 100%;
+        height: 100%;
+        transition: 0.2s;
+      }
+    }
+  }
+
+  &--active {
+    .sidebarNavItemWithLayers__subLink--active {
+      background-color: rgba(255, 225, 10, 0.8);
+
+      .sidebarNavItemWithLayers__svgBox {
+        .sidebarNavItemWithLayers__svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

@@ -5,7 +5,7 @@ import { hideSidebar } from "../../store/slice/sidebar";
 import { RootState } from "../../store";
 
 import SidebarSearch from "../SidebarSearch";
-import SidebarNav from "../SidebarNav";
+import SidebarNavMenu from "../SidebarNavMenu";
 import brainImage from "../../images/sidebar/腦袋本人.svg";
 
 import styles from "./index.module.scss";
@@ -53,7 +53,7 @@ export default function Sidebar() {
           />
         </div>
         <SidebarSearch />
-        <SidebarNav />
+        <SidebarNavMenu />
       </div>
     </div>
   );
