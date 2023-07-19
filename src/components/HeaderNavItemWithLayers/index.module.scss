@@ -1,0 +1,49 @@
+.headerNavItemWithLayers {
+  position: relative;
+  list-style: none;
+
+  &__link {
+    padding: 0 20px;
+    height: 40px;
+    background: rgba(192, 192, 192, 0.2);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.2s;
+
+    &:hover {
+      background: rgba(228, 2, 126, 0.5);
+    }
+
+    .headerNavItemWithLayers__text {
+      color: #000;
+      font-size: 16px;
+      font-family: sans-serif;
+      letter-spacing: 1px;
+      white-space: nowrap;
+    }
+
+    .headerNavItemWithLayers__svgBox {
+      width: 16px;
+      height: 16px;
+
+      .headerNavItemWithLayers__svg {
+        width: 100%;
+        height: 100%;
+        fill: #000;
+        transition: 0.2s;
+      }
+    }
+
+    &--active {
+      background: rgba(255, 225, 10, 0.5);
+
+      .headerNavItemWithLayers__svgBox {
+        .headerNavItemWithLayers__svg {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}

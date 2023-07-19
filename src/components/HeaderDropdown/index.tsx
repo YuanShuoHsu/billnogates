@@ -19,7 +19,7 @@ export default function HeaderDropdown({
       onMouseEnter={handleEnter}
       onMouseLeave={handleLeave}
       className={`${styles.headerDropdown} ${
-        condition ? `${styles["headerDropdown--active"]}` : ""
+        condition ? styles["headerDropdown--active"] : ""
       }`}
     >
       <div className={styles.headerDropdown__space} />

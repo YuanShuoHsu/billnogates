@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import HeaderBrand from "../HeaderBrand";
-import HeaderNav from "../HeaderNav";
+import HeaderNav from "../HeaderNavMenu";
 import HeaderButton from "../HeaderButton";
 import HeaderDropdown from "../HeaderDropdown";
 import HeaderNavSubMenu from "../HeaderNavSubMenu";
