@@ -16,6 +16,8 @@ npm install @reduxjs/toolkit
 
 npm install swiper
 
+npm install firebase
+
 ```
 
 ## 主題色

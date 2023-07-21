@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 
 import HeaderBrand from "../HeaderBrand";
-import HeaderNav from "../HeaderNavMenu";
+import HeaderNavMenu from "../HeaderNavMenu";
 import HeaderButton from "../HeaderButton";
 import HeaderDropdown from "../HeaderDropdown";
 import HeaderNavSubMenu from "../HeaderNavSubMenu";
@@ -41,15 +41,15 @@ export default function Header() {
   };
 
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <div className={styles.header__box}>
         <Link className={styles.header__link} to="/">
           <HeaderBrand />
         </Link>
-        <div className={styles.header__content}>
-          <HeaderNav />
+        <nav className={styles.header__content}>
+          <HeaderNavMenu />
           <HeaderButton />
-        </div>
+        </nav>
       </div>
       <HeaderDropdown
         handleEnter={handleMenuEnterHover}
@@ -65,6 +65,6 @@ export default function Header() {
       >
         <HeaderSearch />
       </HeaderDropdown>
-    </div>
+    </header>
   );
 }

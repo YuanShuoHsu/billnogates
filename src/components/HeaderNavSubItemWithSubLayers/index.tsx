@@ -1,4 +1,4 @@
-import HeaderNavGrandItem from "../HeaderNavGrandItem";
+import HeaderNavGrandMenu from "../HeaderNavGrandMenu";
 
 import styles from "./index.module.scss";
 
@@ -20,25 +20,13 @@ export default function HeaderNavSubItemWithSubLayers({
   itemLink,
   subItem,
 }: HeaderNavSubItemWithSubLayersProps) {
-  const GrandMenuStyle = {
-    "--x": subItem.subLayers?.length,
-  } as React.CSSProperties;
 
   return (
-    <li className={styles.headerNavSubItem}>
-      <div className={styles.subLink}>
-        <span className={styles.subText}>{subItem.subNav}</span>
+    <li className={styles.headerNavSubItemWithSubLayers}>
+      <div className={styles.headerNavSubItemWithSubLayers__subLink}>
+        <span className={styles.headerNavSubItemWithSubLayers__subText}>{subItem.subNav}</span>
       </div>
-      <ul style={GrandMenuStyle} className={styles.grandMenu}>
-        {subItem.subLayers?.map((grandItem) => (
-          <HeaderNavGrandItem
-            itemLink={itemLink}
-            subItemLink={subItem.subLink}
-            grandItem={grandItem}
-            key={grandItem.grandId}
-          />
-        ))}
-      </ul>
+      <HeaderNavGrandMenu itemLink={itemLink} subItem={subItem}/>
     </li>
   );
 }

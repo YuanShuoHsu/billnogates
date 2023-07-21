@@ -38,13 +38,8 @@ export default function Product(props) {
   const renderPriceRange = (item) => {
     const prices = item.dimension.map((item) => item.price);
 
-    const maxPrice = prices.reduce((max, price) => {
-      return price > max ? price : max;
-    });
-
-    const minPrice = prices.reduce((min, price) => {
-      return price < min ? price : min;
-    });
+    const maxPrice = Math.max(...prices);
+    const minPrice = Math.min(...prices);
 
     if (minPrice === maxPrice) {
       return <p className={styles.text}>NT${minPrice}</p>;

@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
 import Home from "./pages/Home";
@@ -14,9 +15,17 @@ import Maintenance from "./components/Maintenance";
 function App() {
   const maintain = false;
 
+  useEffect(() => {
+    document.body.style.overflow = maintain ? "hidden" : "auto";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [maintain]);
+
   return (
     <div className="app">
-      {maintain ? <Maintenance /> : null}
+      {maintain && <Maintenance />}
       <Routes>
         <Route path="" element={<Home />} />
         <Route path="membership">

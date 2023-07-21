@@ -21,15 +21,15 @@ export default function HeaderNavSubItemWithoutSubLayers({
   subItem,
 }: HeaderNavSubItemWithoutSubLayersProps) {
   return (
-    <li className={styles.headerNavSubItem}>
+    <li className={styles.headerNavSubItemWithoutSubLayers}>
       <NavLink
         className={({ isActive }) =>
-          `${styles.subHref} ${isActive ? styles.active : ""}`
+          `${styles.headerNavSubItemWithoutSubLayers__subHref} ${isActive ? styles["headerNavSubItemWithoutSubLayers__subHref--active"] : ""}`
         }
         to={`/${itemLink}/${subItem.subLink}`}
       >
-        <div className={styles.subLink}>
-          <span className={styles.subText}>{subItem.subNav}</span>
+        <div className={styles.headerNavSubItemWithoutSubLayers__subLink}>
+          <span className={styles.headerNavSubItemWithoutSubLayers__subText}>{subItem.subNav}</span>
         </div>
       </NavLink>
     </li>
