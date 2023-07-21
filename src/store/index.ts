@@ -1,24 +1,26 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import searchReducer from "./slice/search";
+import arrangementReducer from "./slice/arrangement";
 import cartbarReducer from "./slice/cartbar";
 import cartbarItemReducer from "./slice/cartbarItem";
-import sidebarReducer from "./slice/sidebar";
 import headerNavItemReducer from "./slice/headerNavItem";
 import headerNavSubMenuReducer from "./slice/headerNavSubMenu";
-import arrangementReducer from "./slice/arrangement";
 import paginationReducer from "./slice/pagination";
+import productReducer from "./slice/product";
+import searchReducer from "./slice/search";
+import sidebarReducer from "./slice/sidebar";
 
 export const store = configureStore({
   reducer: {
-    search: searchReducer,
+    arrangement: arrangementReducer,
     cartbar: cartbarReducer,
     cartbarItem: cartbarItemReducer,
-    sidebar: sidebarReducer,
     headerNavItem: headerNavItemReducer,
     headerNavSubMenu: headerNavSubMenuReducer,
-    arrangement: arrangementReducer,
     pagination: paginationReducer,
+    product: productReducer,
+    search: searchReducer,
+    sidebar: sidebarReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

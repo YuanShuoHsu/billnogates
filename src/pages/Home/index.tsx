@@ -1,3 +1,5 @@
+import { useSelector } from "react-redux";
+
 import Cartbar from "../../components/Cartbar";
 import Sidebar from "../../components/Sidebar";
 import ScrollToTopButton from "../../components/ScrollToTopButton";
@@ -11,11 +13,12 @@ import Product from "../../components/Product";
 import Pagination from "../../components/Pagination";
 import Footer from "../../components/Footer";
 
-import PRODUCTS from "../../dataset/product";
-
 import styles from "./index.module.scss";
+import { RootState } from "../../store";
 
 export default function Home() {
+  const products = useSelector((state:RootState) => state.product.value);
+
   return (
     <div className={styles.Home}>
       <Cartbar />
@@ -33,10 +36,10 @@ export default function Home() {
           <Arrangement />
         </div>
         <div className={styles.grid}>
-          <Product PRODUCTS={PRODUCTS} />
+          <Product products={products} />
         </div>
         <div className={styles.grid}>
-          <Pagination PRODUCTS={PRODUCTS} />
+          <Pagination products={products} />
         </div>
       </div>
       <Footer />

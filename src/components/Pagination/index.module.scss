@@ -1,10 +1,20 @@
-@mixin others {
-  @media (max-width: 320px) {
+$breakpoints: (
+  // xs: 0,
+  others: 320px,
+  // sm: 576px,
+  // md: 768px,
+  // lg: 992px,
+  // xl: 1200px,
+  // xxl: 1400px,
+);
+
+@mixin respond-to($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
     @content;
   }
 }
 
-.Pagination {
+.pagination {
   position: relative;
   height: 40px;
   background: transparent;
@@ -38,22 +48,25 @@
       pointer-events: none;
     }
 
-    .svg {
+    .svgBox {
       width: 10px;
       height: 10px;
-      fill: #000;
 
-      path {
-        pointer-events: none;
+      .svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        fill: #000;
       }
     }
 
     .text {
       color: #000;
-      font: normal normal 16px / normal sans-serif;
+      font-size: 16px;
+      font-family: sans-serif;
       white-space: nowrap;
 
-      @include others() {
+      @include respond-to(others) {
         display: none;
       }
     }
@@ -104,7 +117,8 @@
 
         .text {
           color: #000;
-          font: normal normal 12px / normal sans-serif;
+          font-size: 12px;
+          font-family: sans-serif;
           transition: 0.2s;
         }
       }

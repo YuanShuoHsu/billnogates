@@ -12,7 +12,7 @@
     overflow: auto hidden;
   }
 
-  :global(.anchorPoint) {
+  .anchorPoint {
     position: absolute;
     top: -60px;
     left: 0;

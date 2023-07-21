@@ -1,17 +1,18 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 
-import Cartbar from "../../components/Cartbar";
-import Sidebar from "../../components/Sidebar";
-import ScrollToTopButton from "../../components/ScrollToTopButton";
-import Header from "../../components/Header";
-import Arrangement from "../../components/Arrangement";
-import Product from "../../components/Product";
-import Pagination from "../../components/Pagination";
-import Footer from "../../components/Footer";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 import { useLocation } from "react-router-dom";
 
-import PRODUCTS from "../../dataset/product";
+import Arrangement from "../../components/Arrangement";
+import Cartbar from "../../components/Cartbar";
+import Footer from "../../components/Footer";
+import Header from "../../components/Header";
+import Pagination from "../../components/Pagination";
+import Product from "../../components/Product";
+import ScrollToTopButton from "../../components/ScrollToTopButton";
+import Sidebar from "../../components/Sidebar";
 
 import styles from "./index.module.scss";
 
@@ -20,7 +21,8 @@ export default function Find() {
   const { state } = location;
   const { keyWord } = state || {};
 
-  const findProduct = PRODUCTS.filter((item) =>
+  const products = useSelector((state: RootState) => state.product.value);
+  const findProduct = products.filter((item) =>
     keyWord ? item.name.toLowerCase().includes(keyWord.toLowerCase()) : null
   );
 
@@ -39,10 +41,10 @@ export default function Find() {
               <Arrangement />
             </div>
             <div className={styles.grid}>
-              <Product PRODUCTS={findProduct} />
+              <Product products={findProduct} />
             </div>
             <div className={styles.grid}>
-              <Pagination PRODUCTS={findProduct} />
+              <Pagination products={findProduct} />
             </div>
           </Fragment>
         )}

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import { useRef } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
 import { changePagination } from "../../store/slice/pagination";
@@ -11,63 +11,46 @@ import "swiper/scss/free-mode";
 
 import styles from "./index.module.scss";
 
-export default function Pagination(props) {
-  const { PRODUCTS } = props;
+const ITEMS_PER_PAGE = 24;
+const MINI_SWIPER_ITEMS = 5;
 
+export default function Pagination({ products }) {
   const swiperRef = useRef();
 
   const dispatch = useDispatch();
   const pagination = useSelector((state) => state.pagination.value);
-  const numberLength = Math.ceil(PRODUCTS.length / 24);
+  const anchorPoint = useSelector((state) => state.arrangement.anchorPoint);
+  const numberLength = Math.ceil(products.length / ITEMS_PER_PAGE);
 
-  const pageList = [];
-
-  for (let index = 0; index < numberLength; index++) {
-    pageList.push(
-      <SwiperSlide key={index}>
-        <button
-          onClick={() => handleNumber(index + 1)}
-          className={`${styles.button} ${
-            pagination === index + 1 ? `${styles.active}` : ""
-          }`}
-        >
-          <span className={styles.text}>{index + 1}</span>
-        </button>
-      </SwiperSlide>
-    );
-  }
-
-  const scrollToElement = () => {
+  const scrollToAnchorPoint = () => {
     setTimeout(() => {
-      document
-        .querySelector(".anchorPoint")
-        .scrollIntoView({ behavior: "smooth" });
+      anchorPoint.scrollIntoView({ behavior: "smooth" });
     }, 0);
   };
 
   const handleNumber = (index) => {
     dispatch(changePagination(index));
-    scrollToElement();
+    scrollToAnchorPoint();
   };
 
-  const handleFirstNumber = () => {
-    swiperRef.current.swiper.slideTo(0);
-    handleNumber(1);
+  const goToSlide = (slideIndex) => {
+    swiperRef.current.swiper.slideTo(slideIndex);
+    handleNumber(slideIndex + 1);
   };
 
-  const handleLastNumber = () => {
-    swiperRef.current.swiper.slideTo(numberLength - 1);
-    handleNumber(numberLength);
-  };
+  // const SwiperStyle = {
+  //   "--x": numberLength,
+  // } as React.CSSProperties;
 
   return (
-    <div className={styles.Pagination}>
+    <div className={styles.pagination}>
       <button
-        onClick={handleFirstNumber}
+        onClick={() => goToSlide(0)}
         className={`${styles.navigation} ${
-          pagination === 1 ? `${styles.active}` : ""
+          pagination === 1 ? styles.active : ""
         }`}
       >
+        <div className={styles.svgBox}></div>
         <svg
           className={styles.svg}
           xmlns="http://www.w3.org/2000/svg"
@@ -78,36 +61,52 @@ export default function Pagination(props) {
         <span className={styles.text}>首頁</span>
       </button>
       <Swiper
-        className={styles.mySwiper}
-        style={{ "--x": `${numberLength}` }}
-        ref={swiperRef}
-        modules={[FreeMode]}
-        slidesPerView={numberLength < 5 ? numberLength : 5}
-        spaceBetween={0}
-        slideToClickedSlide={true}
+        // {...({} as any)}
         centeredSlides={true}
+        className={styles.mySwiper}
         freeMode={{
           enabled: true,
           sticky: true,
         }}
         grabCursor={true}
+        modules={[FreeMode]}
+        ref={swiperRef}
+        spaceBetween={0}
+        slideToClickedSlide={true}
+        slidesPerView={
+          numberLength < MINI_SWIPER_ITEMS ? numberLength : MINI_SWIPER_ITEMS
+        }
+        style={{ "--x": numberLength }}
       >
-        {pageList}
+        {Array.from({ length: numberLength }, (_, index) => (
+          <SwiperSlide key={index}>
+            <button
+              onClick={() => handleNumber(index + 1)}
+              className={`${styles.button} ${
+                pagination === index + 1 ? styles.active : ""
+              }`}
+            >
+              <span className={styles.text}>{index + 1}</span>
+            </button>
+          </SwiperSlide>
+        ))}
       </Swiper>
       <button
-        onClick={handleLastNumber}
+        onClick={() => goToSlide(numberLength - 1)}
         className={`${styles.navigation} ${
-          pagination === numberLength ? `${styles.active}` : ""
+          pagination === numberLength ? styles.active : ""
         }`}
       >
         <span className={styles.text}>最後</span>
-        <svg
-          className={styles.svg}
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-        >
-          <path d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
-        </svg>
+        <div className={styles.svgBox}>
+          <svg
+            className={styles.svg}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 512 512"
+          >
+            <path d="M470.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L402.7 256 265.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160zm-352 160l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L210.7 256 73.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0z" />
+          </svg>
+        </div>
       </button>
     </div>
   );

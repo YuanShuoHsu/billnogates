@@ -1,26 +1,48 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 import { useDispatch, useSelector } from "react-redux";
-import { changeArrangement } from "../../store/slice/arrangement";
+import {
+  initialProducts,
+  sortedByAscendingPrice,
+  sortedByDescendingPrice,
+} from "../../store/slice/product";
+import {
+  changeArrangement,
+  initialAnchorPoint,
+} from "../../store/slice/arrangement";
 
 import styles from "./index.module.scss";
 
 export default function Arrangement() {
-  const dispatch = useDispatch();
+  const anchorRef = useRef();
   const arrangement = useSelector((state) => state.arrangement.value);
 
+  const dispatch = useDispatch();
+
   useEffect(() => {
-    dispatch(changeArrangement("recommend"));
+    dispatch(initialAnchorPoint(anchorRef.current));
   }, [dispatch]);
 
   const handleSelectChange = (event) => {
-    const { target } = event;
-    dispatch(changeArrangement(target.value));
+    const { value } = event.target;
+    switch (value) {
+      case "recommend":
+        dispatch(initialProducts());
+        break;
+      case "priceLow":
+        dispatch(sortedByAscendingPrice());
+        break;
+      case "priceHigh":
+        dispatch(sortedByDescendingPrice());
+        break;
+      default:
+    }
+    dispatch(changeArrangement(value));
   };
 
   return (
-    <div className={styles.Arrangement} id="Arrangement">
-      <div className="anchorPoint" />
+    <div className={styles.Arrangement}>
+      <div className={styles.anchorPoint} ref={anchorRef} />
       <div className={styles.box}>
         <span className={styles.text}>排列方式：</span>
         <div className={styles.content}>

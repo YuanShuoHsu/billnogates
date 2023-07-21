@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   value: "recommend",
+  anchorPoint: null,
 };
 
 export const arrangementSlice = createSlice({
@@ -11,9 +12,13 @@ export const arrangementSlice = createSlice({
     changeArrangement: (state, data) => {
       state.value = data.payload;
     },
+    initialAnchorPoint: (state, data) => {
+      state.anchorPoint = data.payload;
+    },
   },
 });
 
-export const { changeArrangement } = arrangementSlice.actions;
+export const { changeArrangement, initialAnchorPoint } =
+  arrangementSlice.actions;
 
 export default arrangementSlice.reducer;
