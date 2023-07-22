@@ -1,10 +1,19 @@
-@mixin screen {
-  @media (max-width: 1200px) {
+$breakpoints: (
+  // xs: 0,
+  // sm: 576px,
+  // md: 768px,
+  // lg: 992px,
+  xl: 1200px,
+  // xxl: 1400px,
+);
+
+@mixin respond-to($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
     @content;
   }
 }
 
-.Detail {
+.detail {
   position: relative;
   background: rgba(245, 245, 245, 0.8);
 
@@ -20,7 +29,7 @@
     .grid {
       width: 80%;
 
-      @include screen() {
+      @include respond-to(xl) {
         width: 100%;
       }
     }

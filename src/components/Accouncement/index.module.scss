@@ -13,18 +13,17 @@ $breakpoints: (
   }
 }
 
-.accouncement {
+swiper-container {
   position: relative;
   width: 100%;
   height: 30px;
   background: #e4027f;
-  z-index: 0;
 
   @include respond-to(md) {
     height: 20px;
   }
 
-  :global(.swiper-slide) {
+  swiper-slide {
     display: flex;
     justify-content: center;
     align-items: center;

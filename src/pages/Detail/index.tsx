@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
 
 import Cartbar from "../../components/Cartbar";
 import Sidebar from "../../components/Sidebar";
@@ -8,8 +9,6 @@ import Footer from "../../components/Footer";
 
 import Gallery from "./Gallery";
 import Commodity from "./Commodity";
-
-import { useNavigate, useParams } from "react-router-dom";
 
 import PRODUCTS from "../../dataset/product";
 
@@ -30,7 +29,7 @@ export default function Detail() {
   }, [productId, navigate]);
 
   return (
-    <div className={styles.Detail}>
+    <div className={styles.detail}>
       <Cartbar />
       <Sidebar />
       <ScrollToTopButton />

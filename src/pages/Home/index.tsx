@@ -20,7 +20,7 @@ export default function Home() {
   const products = useSelector((state:RootState) => state.product.value);
 
   return (
-    <div className={styles.Home}>
+    <div className={styles.home}>
       <Cartbar />
       <Sidebar />
       <ScrollToTopButton />
@@ -28,17 +28,17 @@ export default function Home() {
       <Accouncement />
       <Banner />
       <Ticker />
-      <div className={styles.main}>
-        <div className={styles.grid}>
+      <div className={styles.home__main}>
+        <div className={styles.home__grid}>
           <Supply />
         </div>
-        <div className={styles.grid}>
+        <div className={styles.home__grid}>
           <Arrangement />
         </div>
-        <div className={styles.grid}>
+        <div className={styles.home__grid}>
           <Product products={products} />
         </div>
-        <div className={styles.grid}>
+        <div className={styles.home__grid}>
           <Pagination products={products} />
         </div>
       </div>
