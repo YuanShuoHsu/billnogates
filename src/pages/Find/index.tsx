@@ -10,7 +10,7 @@ import Cartbar from "../../components/Cartbar";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
 import Pagination from "../../components/Pagination";
-import Product from "../../components/Product";
+import Products from "../../components/Products";
 import ScrollToTopButton from "../../components/ScrollToTopButton";
 import Sidebar from "../../components/Sidebar";
 
@@ -41,7 +41,7 @@ export default function Find() {
               <Arrangement />
             </div>
             <div className={styles.grid}>
-              <Product products={findProduct} />
+              <Products products={findProduct} />
             </div>
             <div className={styles.grid}>
               <Pagination products={findProduct} />

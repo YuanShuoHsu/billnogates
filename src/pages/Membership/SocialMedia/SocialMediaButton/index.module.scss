@@ -1,0 +1,66 @@
+@mixin others {
+  @media (max-width: 320px) {
+    @content;
+  }
+}
+
+.button {
+  padding: 0 10px;
+  width: 100%;
+  height: 40px;
+  background: #fff;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+  transition: 0.2s opacity;
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  .imgBox {
+    width: 30px;
+    height: 30px;
+
+    .image {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+  }
+
+  .textBox {
+    width: calc(100% - 30px);
+    white-space: nowrap;
+    overflow: hidden;
+    pointer-events: none;
+
+    @include others() {
+      display: none;
+    }
+
+    .text {
+      color: rgba(0, 0, 0, 0.5);
+      font-size: 16px;
+      line-height: 40px;
+      font-family: sans-serif;
+      letter-spacing: 1px;
+    }
+
+    .brandText {
+      width: 80px;
+      display: inline-block;
+      color: #000;
+      font-size: 16px;
+      line-height: 40px;
+      font-family: sans-serif;
+      letter-spacing: 1px;
+    }
+  }
+}

@@ -1,26 +1,12 @@
-@mixin keyframes-animation($name) {
-  @-webkit-keyframes #{$name} {
-    @content;
-  }
-
-  @keyframes #{$name} {
-    @content;
-  }
-}
-
-@mixin prefix-property($name, $value) {
-  -webkit-#{$name}: $value;
-  #{$name}: $value;
-}
-
-.Register {
+.register {
   position: relative;
-  padding: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 
   .inputBox {
     position: relative;
-    margin: 0 5px;
-    padding: 5px 0;
 
     .input {
       padding: 0 10px;
@@ -34,20 +20,21 @@
 
       &:valid,
       &:focus {
-        ~ .text {
+        ~ .inputText {
           padding: 0 4px;
           line-height: 20px;
           background: #fff;
           border-radius: 2px;
           color: #e4027f;
-          font: normal normal 12px / normal sans-serif;
+          font-size: 12px;
+          font-family: sans-serif;
           letter-spacing: 1px;
           transform: translate(10px, -10px);
         }
       }
     }
 
-    .text {
+    .inputText {
       position: absolute;
       padding: 0 10px;
       left: 0;
@@ -62,66 +49,62 @@
       pointer-events: none;
     }
 
-    .svg {
+    .svgBox {
       position: absolute;
       padding: 0 10px;
       right: 0;
       width: 20px;
       height: 40px;
-      background: #fff;
       border-top-right-radius: 4px;
       border-bottom-right-radius: 4px;
-      fill: rgba(0, 0, 0, 0.5);
       cursor: pointer;
 
-      &.active {
+      .svg {
+        display: block;
+        width: 100%;
+        height: 100%;
         fill: #000;
-      }
+        opacity: 0.5;
+        transition: 0.2s opacity;
 
-      path {
-        pointer-events: none;
+        &.active {
+          opacity: 1;
+        }
       }
     }
   }
 
   .alert {
-    margin: 0 5px;
-    padding: 0 10px;
-
-    .text {
-      margin: 0;
-      color: red;
-      font-size: 12px;
-      font-weight: 400;
-      letter-spacing: 1px;
-    }
+    margin: 0;
+    color: red;
+    font-size: 12px;
+    font-weight: 400;
+    letter-spacing: 1px;
   }
 
-  .register {
-    margin: 0 5px;
-    padding: 5px 0;
+  .button {
+    padding: 0;
+    width: 100%;
+    height: 40px;
+    background: #e4027f;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.2s opacity;
 
-    .button {
-      padding: 0;
-      width: 100%;
-      height: 40px;
-      background: #e4027f;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    &:hover {
+      opacity: 0.8;
+    }
 
-      &:hover {
-        opacity: 0.8;
-      }
-
-      .text {
-        color: #fff;
-        font: normal normal 16px/40px sans-serif;
-        letter-spacing: 1px;
-      }
+    .text {
+      color: #fff;
+      font-size: 16px;
+      line-height: 40px;
+      font-family: sans-serif;
+      letter-spacing: 1px;
     }
   }
 }

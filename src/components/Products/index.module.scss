@@ -1,0 +1,39 @@
+$breakpoints: (
+  // xs: 0,
+  others: 320px,
+  sm: 576px,
+  md: 768px,
+  // lg: 992px,
+  xl: 1200px,
+  // xxl: 1400px,
+);
+
+@mixin respond-to($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}
+
+.product {
+  position: relative;
+  background: transparent;
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+
+  @include respond-to(xl) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  @include respond-to(md) {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  @include respond-to(sm) {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  @include respond-to(others) {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+  }
+}

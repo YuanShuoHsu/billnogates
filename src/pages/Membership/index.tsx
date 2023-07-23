@@ -16,7 +16,7 @@ import styles from "./index.module.scss";
 
 export default function Membership() {
   return (
-    <div className={styles.Membership}>
+    <div className={styles.membership}>
       <Cartbar />
       <Sidebar />
       <ScrollToTopButton />
@@ -26,7 +26,7 @@ export default function Membership() {
           <div className={styles.router}>
             <NavLink
               className={({ isActive }) =>
-                `${styles.link}` + (isActive ? ` ${styles.active}` : "")
+                `${styles.link} ${isActive ? styles.active : ""}`
               }
               to="login"
             >
@@ -34,7 +34,7 @@ export default function Membership() {
             </NavLink>
             <NavLink
               className={({ isActive }) =>
-                `${styles.link}` + (isActive ? ` ${styles.active}` : "")
+                `${styles.link} ${isActive ? styles.active : ""}`
               }
               to="register"
             >

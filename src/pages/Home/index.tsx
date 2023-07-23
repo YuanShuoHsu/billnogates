@@ -9,7 +9,7 @@ import Ticker from "../../components/Ticker";
 import Banner from "../../components/Banner";
 import Supply from "../../components/Service";
 import Arrangement from "../../components/Arrangement";
-import Product from "../../components/Product";
+import Products from "../../components/Products";
 import Pagination from "../../components/Pagination";
 import Footer from "../../components/Footer";
 
@@ -36,7 +36,7 @@ export default function Home() {
           <Arrangement />
         </div>
         <div className={styles.home__grid}>
-          <Product products={products} />
+          <Products products={products} />
         </div>
         <div className={styles.home__grid}>
           <Pagination products={products} />

@@ -1,4 +1,4 @@
-import { useState, Fragment } from "react";
+import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
@@ -12,12 +12,11 @@ import { auth } from "../../../utils/firebase";
 import google from "../../../images/membership/Google.svg";
 import facebook from "../../../images/membership/Facebook.svg";
 
+import SocialMediaButton from "./SocialMediaButton";
+
 import styles from "./index.module.scss";
-import Loader from "../../../components/Loader";
 
-export default function SocialMedia(props) {
-  const { text } = props;
-
+export default function SocialMedia({ text }) {
   const navigate = useNavigate();
 
   const [googleError, setGoogleError] = useState("");
@@ -150,61 +149,27 @@ export default function SocialMedia(props) {
   };
 
   return (
-    <div className={styles.SocialMedia}>
+    <div className={styles.socialMedia}>
       <div className={styles.buttonBox}>
-        <button
-          onClick={(event) => handleSignIn(event, "google")}
-          className={styles.button}
-        >
-          {!isGoogleLoading ? (
-            <Fragment>
-              <img
-                className={styles.brand}
-                src={google}
-                alt="google"
-                loading="lazy"
-              />
-              <div className={styles.textBox}>
-                <span className={styles.text}>使用</span>
-                <span className={styles.brandText}>google</span>
-                <span className={styles.text}>帳號{text}</span>
-              </div>
-            </Fragment>
-          ) : (
-            <Loader />
-          )}
-        </button>
+        <SocialMediaButton
+          provider="google"
+          text={text}
+          isLoading={isGoogleLoading}
+          onClick={handleSignIn}
+          imageSrc={google}
+        />
       </div>
-      <div className={styles.alert}>
-        <p className={styles.text}>{googleError}</p>
-      </div>
+      {googleError && <p className={styles.alert}>{googleError}</p>}
       <div className={styles.buttonBox}>
-        <button
-          onClick={(event) => handleSignIn(event, "facebook")}
-          className={styles.button}
-        >
-          {!isFacebookLoading ? (
-            <Fragment>
-              <img
-                className={styles.brand}
-                src={facebook}
-                alt="facebook"
-                loading="lazy"
-              />
-              <div className={styles.textBox}>
-                <span className={styles.text}>使用</span>
-                <p className={styles.brandText}>facebook</p>
-                <span className={styles.text}>帳號{text}</span>
-              </div>
-            </Fragment>
-          ) : (
-            <Loader />
-          )}
-        </button>
+        <SocialMediaButton
+          provider="facebook"
+          text={text}
+          isLoading={isFacebookLoading}
+          onClick={handleSignIn}
+          imageSrc={facebook}
+        />
       </div>
-      <div className={styles.alert}>
-        <p className={styles.text}>{facebookError}</p>
-      </div>
+      {facebookError && <p className={styles.alert}>{facebookError}</p>}
     </div>
   );
 }
