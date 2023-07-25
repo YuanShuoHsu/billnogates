@@ -1,4 +1,4 @@
-import React, { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 
 import { useNavigate } from "react-router-dom";
 
@@ -24,6 +24,7 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 
 import Order from "./Order";
+import RadioInput from "./RadioInput";
 
 import styles from "./index.module.scss";
 
@@ -78,10 +79,7 @@ export default function Checkout() {
   const cartbarItem = useSelector((state) => state.cartbarItem.value);
 
   const renderTotal = () => {
-    let sum = 0;
-    cartbarItem &&
-      cartbarItem.forEach((item) => (sum += item.number * item.price));
-    return sum;
+    return cartbarItem.reduce((sum, item) => sum + item.number * item.price, 0);
   };
 
   const handleSubmit = async (event) => {
@@ -206,13 +204,15 @@ export default function Checkout() {
               >
                 7-ELEVEN 門市查詢
               </a>
-              <svg
-                className={styles.svg}
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 256 512"
-              >
-                <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-              </svg>
+              <div className={styles.svgBox}>
+                <svg
+                  className={styles.svg}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 256 512"
+                >
+                  <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                </svg>
+              </div>
             </div>
             <input
               onChange={(event) => handleSave(event, "address")}
@@ -237,13 +237,15 @@ export default function Checkout() {
               >
                 FamilyMart 門市查詢
               </a>
-              <svg
-                className={styles.svg}
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 256 512"
-              >
-                <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
-              </svg>
+              <div className={styles.svgBox}>
+                <svg
+                  className={styles.svg}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 256 512"
+                >
+                  <path d="M246.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-9.2-9.2-22.9-11.9-34.9-6.9s-19.8 16.6-19.8 29.6l0 256c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l128-128z" />
+                </svg>
+              </div>
             </div>
             <input
               onChange={(event) => handleSave(event, "address")}
@@ -422,7 +424,7 @@ export default function Checkout() {
             </div>
           )}
         </div>
-        {cartbarItem.length === 0 ? null : (
+        {cartbarItem.length !== 0 && (
           <Fragment>
             <div className={styles.grid}>
               <h2 className={styles.title}>優惠券</h2>
@@ -492,11 +494,11 @@ export default function Checkout() {
             <div className={styles.grid}>
               <h2 className={styles.title}>寄件方式</h2>
               <div className={styles.box}>
-                <div className={styles.radio}>
+                {/* <div className={styles.radio}>
                   <input
-                    onChange={(event) => handleSave(event, "send")}
-                    className={styles.input}
-                    type="radio"
+                    // onChange={(event) => handleSave(event, "send")}
+                    // className={styles.input}
+                    // type="radio"
                     name="send"
                     value="郵局寄送"
                     id="郵局寄送"
@@ -504,7 +506,7 @@ export default function Checkout() {
                     required
                   />
                   <label className={styles.label} htmlFor="郵局寄送">
-                    <div className={styles.imageBox}>
+                    <div className={styles.imgBox}>
                       <img
                         className={styles.image}
                         src={
@@ -516,8 +518,20 @@ export default function Checkout() {
                     </div>
                     <span className={styles.text}>郵局寄送</span>
                   </label>
-                </div>
-                <div className={styles.radio}>
+                </div> */}
+                <RadioInput
+                  handleSave={(event) => handleSave(event, "send")}
+                  name={"send"}
+                  value="郵局寄送"
+                  id="郵局寄送"
+                  checked={send === "郵局寄送"}
+                  imgSrc={
+                    require("../../images/checkout/Chunghwa_Post_Logo.svg")
+                      .default
+                  }
+                  label="郵局寄送"
+                />
+                {/* <div className={styles.radio}>
                   <input
                     onChange={(event) => handleSave(event, "send")}
                     className={styles.input}
@@ -529,7 +543,7 @@ export default function Checkout() {
                     required
                   />
                   <label className={styles.label} htmlFor="7-ELEVEN">
-                    <div className={styles.imageBox}>
+                    <div className={styles.imgBox}>
                       <img
                         className={styles.image}
                         src={
@@ -554,7 +568,7 @@ export default function Checkout() {
                     required
                   />
                   <label className={styles.label} htmlFor="FamilyMart">
-                    <div className={styles.imageBox}>
+                    <div className={styles.imgBox}>
                       <img
                         className={styles.image}
                         src={
@@ -566,7 +580,7 @@ export default function Checkout() {
                     </div>
                     <span className={styles.text}>FamilyMart</span>
                   </label>
-                </div>
+                </div> */}
               </div>
               {renderSwitchSend(send)}
             </div>
@@ -585,13 +599,16 @@ export default function Checkout() {
                     required
                   />
                   <label className={styles.label} htmlFor="銀行轉帳">
-                    <svg
-                      className={styles.svg}
-                      xmlns="http://www.w3.org/2000/svg"
-                      viewBox="0 0 576 512"
-                    >
-                      <path d="M400 96l0 .7c-5.3-.4-10.6-.7-16-.7H256c-16.5 0-32.5 2.1-47.8 6c-.1-2-.2-4-.2-6c0-53 43-96 96-96s96 43 96 96zm-16 32c3.5 0 7 .1 10.4 .3c4.2 .3 8.4 .7 12.6 1.3C424.6 109.1 450.8 96 480 96h32l-18.8 75.1c15.8 14.8 28.7 32.8 37.5 52.9H544c17.7 0 32 14.3 32 32v96c0 17.7-14.3 32-32 32H512c-9.1 12.1-19.9 22.9-32 32v64c0 17.7-14.3 32-32 32H416c-17.7 0-32-14.3-32-32V448H256v32c0 17.7-14.3 32-32 32H192c-17.7 0-32-14.3-32-32V416c-34.9-26.2-58.7-66.3-63.2-112H68c-37.6 0-68-30.4-68-68s30.4-68 68-68h4c13.3 0 24 10.7 24 24s-10.7 24-24 24H68c-11 0-20 9-20 20s9 20 20 20H99.2c12.1-59.8 57.7-107.5 116.3-122.8c12.9-3.4 26.5-5.2 40.5-5.2H384zm64 136c0-13.3-10.7-24-24-24s-24 10.7-24 24s10.7 24 24 24s24-10.7 24-24z" />
-                    </svg>
+                    <div className={styles.imgBox}>
+                      <img
+                        className={styles.image}
+                        src={
+                          require("../../images/checkout/piggy-bank-solid.svg")
+                            .default
+                        }
+                        alt="piggy-bank"
+                      />
+                    </div>
                     <span className={styles.text}>銀行轉帳</span>
                   </label>
                 </div>

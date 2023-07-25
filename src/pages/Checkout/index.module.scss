@@ -33,14 +33,16 @@
 
       .title {
         color: #000;
-        font: normal normal normal/normal sans-serif;
+        font-family: sans-serif;
         letter-spacing: 1px;
       }
 
       .p {
         margin: 0;
         color: #000;
-        font: normal normal 16px/40px sans-serif;
+        font-size: 16px;
+        line-height: 40px;
+        font-family: sans-serif;
         letter-spacing: 1px;
       }
 
@@ -74,7 +76,9 @@
 
             .text {
               color: #000;
-              font: normal normal 16px/40px sans-serif;
+              font-size: 16px;
+              line-height: 40px;
+              font-family: sans-serif;
               letter-spacing: 1px;
 
               &.fee {
@@ -97,7 +101,9 @@
           padding: 0 10px;
           width: 80%;
           color: #000;
-          font: normal normal 16px/40px sans-serif;
+          font-size: 16px;
+          line-height: 40px;
+          font-family: sans-serif;
           letter-spacing: 1px;
         }
 
@@ -106,7 +112,9 @@
           min-width: 80px;
           padding: 0 10px;
           color: #fff;
-          font: normal normal 16px/40px sans-serif;
+          font-size: 16px;
+          line-height: 40px;
+          font-family: sans-serif;
           letter-spacing: 1px;
           background: #e4027f;
           border: none;
@@ -164,86 +172,6 @@
         display: grid;
         gap: 10px;
         grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-
-        .radio {
-          position: relative;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-
-          .input {
-            position: absolute;
-            opacity: 0;
-            pointer-events: none;
-
-            &:checked {
-              + .label {
-                border: 1px solid #e4027f;
-                color: #e4027f;
-              }
-            }
-          }
-
-          .label {
-            padding: 0 5px;
-            box-sizing: border-box;
-            width: 100%;
-            height: 40px;
-            background: rgba(192, 192, 192, 0.2);
-            border: 1px solid transparent;
-            border-radius: 4px;
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            cursor: pointer;
-            transition: 0.2s;
-
-            &:hover {
-              opacity: 0.8;
-            }
-
-            .imageBox {
-              padding: 5px;
-              box-sizing: border-box;
-              width: 40px;
-              height: 40px;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              overflow: hidden;
-
-              .image {
-                display: block;
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                border-radius: 4px;
-              }
-            }
-
-            .svg {
-              padding: 5px;
-              box-sizing: border-box;
-              width: 40px;
-              height: 40px;
-              fill: #000;
-              pointer-events: none;
-
-              path {
-                pointer-events: none;
-              }
-            }
-
-            .text {
-              width: calc(100% - 40px);
-              text-align: center;
-              color: #000;
-              font: normal normal 16px/40px sans-serif;
-              letter-spacing: 1px;
-              white-space: nowrap;
-            }
-          }
-        }
       }
 
       .content {
@@ -256,14 +184,21 @@
           .a {
             color: #e4027f;
             text-decoration: none;
-            font: normal normal 16px / normal sans-serif;
+            font-size: 16px;
+            font-family: sans-serif;
             letter-spacing: 1px;
           }
 
-          .svg {
+          .svgBox {
             width: 20px;
             height: 20px;
-            fill: #e4027f;
+
+            .svg {
+              display: block;
+              width: 100%;
+              height: 100%;
+              fill: #e4027f;
+            }
           }
         }
 
@@ -303,7 +238,9 @@
         border: none;
         border-radius: 4px;
         color: #fff;
-        font: normal normal 16px/40px sans-serif;
+        font-size: 16px;
+        line-height: 40px;
+        font-family: sans-serif;
         letter-spacing: 1px;
         transition: 0.2s;
         cursor: pointer;

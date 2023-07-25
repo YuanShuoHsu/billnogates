@@ -1,32 +1,24 @@
-@mixin screen {
-  @media (max-width: 1200px) {
+$breakpoints: (
+  // xs: 0,
+  others: 320px,
+  // sm: 576px,
+  md: 768px,
+  // lg: 992px,
+  xl: 1200px,
+  // xxl: 1400px,
+);
+
+@mixin respond-to($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
     @content;
   }
 }
 
-@mixin desktop {
-  @media (max-width: 768px) {
-    @content;
-  }
-}
-
-@mixin pad {
-  @media (max-width: 576px) {
-    @content;
-  }
-}
-
-@mixin others {
-  @media (max-width: 320px) {
-    @content;
-  }
-}
-
-.Remittance {
+.remittance {
   position: relative;
   background: rgba(245, 245, 245, 0.8);
 
-  .main {
+  &__main {
     padding: 10px;
     box-sizing: border-box;
     min-height: calc(100vh - 60px - 60px);
@@ -35,87 +27,93 @@
     align-items: center;
     gap: 10px;
 
-    .grid {
+    .remittance__grid {
+      padding: 10px;
+      box-sizing: border-box;
       width: 80%;
+      background: rgba(192, 192, 192, 0.2);
+      border-radius: 4px;
 
-      @include screen() {
+      @include respond-to(xl) {
         width: 100%;
       }
 
-      .complete,
-      .bank,
-      .detail {
-        padding: 10px;
-        background: rgba(192, 192, 192, 0.2);
+      .remittance__title {
+        color: #000;
+        font-family: sans-serif;
+        letter-spacing: 1px;
+      }
+
+      .remittance__text {
+        margin: 0;
+        color: #000;
+        font-size: 16px;
+        line-height: 40px;
+        font-family: sans-serif;
+        letter-spacing: 1px;
+      }
+
+      .remittance__quotation {
+        padding: 0 10px;
+        background: #fff;
         border-radius: 4px;
+        display: flex;
+        align-items: center;
 
-        .title {
-          color: #000;
-          font: normal normal normal/normal sans-serif;
-          letter-spacing: 1px;
-        }
+        .remittance__svgBox {
+          padding: 10px;
+          box-sizing: border-box;
+          width: 40px;
+          height: 40px;
 
-        .text {
-          margin: 0;
-          color: #000;
-          font: normal normal 16px/40px sans-serif;
-          letter-spacing: 1px;
-        }
-
-        .quotation {
-          padding: 0 10px;
-          background: #fff;
-          border-radius: 4px;
-          display: flex;
-          align-items: center;
-
-          .svg {
-            padding: 10px;
-            box-sizing: border-box;
-            width: 40px;
-            height: 40px;
-            min-width: 40px;
-            min-height: 40px;
+          .remittance__svg {
+            display: block;
+            width: 100%;
+            height: 100%;
             fill: #e4027f;
           }
-
-          .ellipsis {
-            color: #000;
-            font: normal normal 16px/40px sans-serif;
-            letter-spacing: 1px;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-            overflow: hidden;
-            direction: rtl;
-          }
         }
 
-        .wrap {
-          display: grid;
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          gap: 10px;
+        &Text {
+          color: #000;
+          font-size: 16px;
+          line-height: 40px;
+          font-family: sans-serif;
+          letter-spacing: 1px;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          overflow: hidden;
+          direction: rtl;
+        }
+      }
 
-          @include desktop() {
-            grid-template-columns: repeat(2, minmax(0, 1fr));
-          }
+      .remittance__wrap {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
 
-          @include others() {
-            grid-template-columns: repeat(1, minmax(0, 1fr));
-          }
+        @include respond-to(md) {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
 
-          .subtitle {
-            color: #000;
-            font: normal normal normal/normal sans-serif;
-            letter-spacing: 1px;
-          }
+        @include respond-to(others) {
+          grid-template-columns: repeat(1, minmax(0, 1fr));
+        }
 
-          .subtext {
-            margin: 0;
-            color: rgba(0, 0, 0, 0.5);
-            font: normal normal 16px/40px sans-serif;
-            letter-spacing: 1px;
-            word-wrap: break-word;
-          }
+        .remittance__subTitle {
+          color: #000;
+          font-family: sans-serif;
+          letter-spacing: 1px;
+        }
+
+        .remittance__subText {
+          margin: 0;
+          color: rgba(0, 0, 0, 0.5);
+          font-size: 16px;
+          line-height: 40px;
+          font-family: sans-serif;
+          letter-spacing: 1px;
+          word-wrap: break-word;
         }
       }
     }

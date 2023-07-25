@@ -4,7 +4,7 @@ import ScrollToTopButton from "../../components/ScrollToTopButton";
 import Header from "../../components/Header";
 import Profile from "./Profile";
 import InfiniteScroll from "./Purchase";
-import Sheet from "./Sheet";
+import Sheet from "./Purchase/Sheet";
 import Footer from "../../components/Footer";
 
 import { NavLink, Routes, Route, Navigate } from "react-router-dom";
@@ -13,36 +13,36 @@ import styles from "./index.module.scss";
 
 export default function User() {
   return (
-    <div className={styles.User}>
+    <div className={styles.user}>
       <Cartbar />
       <Sidebar />
       <ScrollToTopButton />
       <Header />
-      <div className={styles.main}>
-        <div className={styles.group}>
+      <div className={styles.user__main}>
+        <div className={styles.user__grid}>
           <NavLink
             className={({ isActive }) =>
-              `${styles.href}` + (isActive ? ` ${styles.active}` : "")
+              `${styles.user__href} ${isActive ? styles["user__href--active"] : ""}`
             }
             to={"profile"}
           >
-            <div className={styles.link}>
-              <span className={styles.text}>會員資料</span>
+            <div className={styles.user__link}>
+              <span className={styles.user__linkText}>會員資料</span>
             </div>
           </NavLink>
           <NavLink
             className={({ isActive }) =>
-              `${styles.href}` + (isActive ? ` ${styles.active}` : "")
+              `${styles.user__href} ${isActive ? styles["user__href--active"] : ""}`
             }
             to={"purchase"}
           >
-            <div className={styles.link}>
-              <span className={styles.text}>購買記錄</span>
+            <div className={styles.user__link}>
+              <span className={styles.user__linkText}>購買記錄</span>
             </div>
           </NavLink>
         </div>
-        <div className={styles.grid}>
-          <div className={styles.box}>
+        <div className={styles.user__grid}>
+          <div className={styles.user__box}>
             <Routes>
               <Route path="profile">
                 <Route path="" element={<Profile />} />

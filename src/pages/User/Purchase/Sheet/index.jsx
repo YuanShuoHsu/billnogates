@@ -3,7 +3,7 @@ import { useState, useEffect, Fragment } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { onAuthStateChanged } from "firebase/auth";
-import { auth, db } from "../../../utils/firebase";
+import { auth, db } from "../../../../utils/firebase";
 import { doc, getDoc } from "firebase/firestore";
 
 import styles from "./index.module.scss";

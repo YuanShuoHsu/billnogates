@@ -1,16 +1,20 @@
-@mixin desktop {
-  @media (max-width: 768px) {
+$breakpoints: (
+  // xs: 0,
+  others: 320px,
+  // sm: 576px,
+  md: 768px,
+  // lg: 992px,
+  // xl: 1200px,
+  // xxl: 1400px,
+);
+
+@mixin respond-to($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
     @content;
   }
 }
 
-@mixin others {
-  @media (max-width: 320px) {
-    @content;
-  }
-}
-
-.Purchase {
+.purchase {
   position: relative;
   padding: 0 10px;
   height: 100%;
@@ -21,7 +25,9 @@
 
   .text {
     color: #000;
-    font: normal normal 16px/40px sans-serif;
+    font-size: 16px;
+    line-height: 40px;
+    font-family: sans-serif;
     letter-spacing: 1px;
   }
 
@@ -37,28 +43,30 @@
       cursor: pointer;
       transition: 0.2s;
 
-      @include desktop() {
+      @include respond-to(md) {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
 
-      @include others() {
+      @include respond-to(others) {
         grid-template-columns: repeat(1, minmax(0, 1fr));
       }
 
       &:hover {
-        background: rgba(192, 192, 192, 0.2);
+        background-color: rgba(192, 192, 192, 0.2);
       }
 
       .subtitle {
         color: #000;
-        font: normal normal normal/normal sans-serif;
+        font-family: sans-serif;
         letter-spacing: 1px;
       }
 
       .subtext {
         margin: 0;
         color: rgba(0, 0, 0, 0.5);
-        font: normal normal 16px/40px sans-serif;
+        font-size: 16px;
+        line-height: 40px;
+        font-family: sans-serif;
         letter-spacing: 1px;
         word-wrap: break-word;
       }

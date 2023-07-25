@@ -1,4 +1,4 @@
-.Profile {
+.profile {
   position: relative;
   padding: 0 10px;
   height: 100%;
@@ -7,26 +7,30 @@
   gap: 10px;
   overflow: hidden auto;
 
-  .text {
+  &__text {
     margin: 0;
     padding: 0 10px;
     color: #000;
-    font: normal normal 16px/40px sans-serif;
+    font-size: 16px;
+    line-height: 40px;
+    font-family: sans-serif;
     letter-spacing: 1px;
     word-wrap: break-word;
   }
 
-  .button {
+  &__button {
     padding: 0 10px;
     width: 100%;
     background: #e4027f;
     border: none;
     border-radius: 4px;
     color: #fff;
-    font: normal normal 16px/40px sans-serif;
+    font-size: 16px;
+    line-height: 40px;
+    font-family: sans-serif;
     letter-spacing: 1px;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.2s opacity;
 
     &:hover {
       opacity: 0.8;

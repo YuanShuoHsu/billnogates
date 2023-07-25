@@ -1,70 +1,95 @@
-@mixin screen {
-  @media (max-width: 1200px) {
+$breakpoints: (
+  // xs: 0,
+  // sm: 576px,
+  // md: 768px,
+  // lg: 992px,
+  xl: 1200px,
+  // xxl: 1400px,
+);
+
+@mixin respond-to($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
     @content;
   }
 }
 
-.Story {
+.story {
   position: relative;
   background: rgba(245, 245, 245, 0.8);
 
-  .main {
+  &__main {
     padding: 10px;
     box-sizing: border-box;
     min-height: calc(100vh - 60px - 60px);
     display: flex;
     flex-direction: column;
     align-items: center;
+    gap: 10px;
 
-    .grid {
+    .story__grid {
       width: 80%;
       display: flex;
       flex-direction: column;
       align-items: center;
 
-      @include screen() {
+      @include respond-to(xl) {
         width: 100%;
       }
 
-      .text {
-        color: #000;
-        font: normal normal 16px / normal sans-serif;
-        letter-spacing: 1px;
-      }
-
-      .picture {
+      .imgBox {
         margin: 10px;
-        padding: 10px;
         width: calc(100% / 3);
+        border-radius: 50%;
+        overflow: hidden;
 
         .image {
+          display: block;
           width: 100%;
-          border-radius: 50%;
+          height: 100%;
+          object-fit: contain;
         }
       }
 
-      .phrase {
+      .story__phrase {
         margin: 0px 0 40px 0;
         padding: 10px;
         display: flex;
         flex-direction: column;
+
+        &Text {
+          color: #000;
+          font-size: 16px;
+          font-family: sans-serif;
+          letter-spacing: 1px;
+        }
       }
 
-      .highlights {
+      .story__highlights {
         margin: 10px;
         padding: 0 5px;
         border-right: 1px solid #000;
         border-left: 1px solid #000;
+
+        &Text {
+          color: #000;
+          font-size: 16px;
+          font-family: sans-serif;
+          letter-spacing: 1px;
+        }
       }
 
-      .narration {
+      .story__narration {
         margin: 0 0 40px 0;
         padding: 10px;
         display: flex;
         flex-direction: column;
 
-        .text {
+        &Text {
+          color: #000;
+          font-size: 16px;
           line-height: 40px;
+          font-family: sans-serif;
+          letter-spacing: 1px;
         }
       }
     }

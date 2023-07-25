@@ -1,5 +1,4 @@
 import { useState, useEffect, Fragment } from "react";
-
 import { useNavigate, Link } from "react-router-dom";
 
 import { onAuthStateChanged } from "firebase/auth";
@@ -8,10 +7,28 @@ import { doc, getDoc } from "firebase/firestore";
 
 import styles from "./index.module.scss";
 
+interface HistoryItem {
+  information: {
+    sum: number;
+    discount: number | null;
+    deliveryFee: number;
+    lastName: string;
+    firstName: string;
+    phoneNumber: string;
+    email: string;
+    send: string;
+    address: string;
+    pay: string;
+    afterFiveYards: string;
+    remark: string;
+    timestamp: { toDate: () => Date };
+  };
+}
+
 export default function Purchase() {
   const navigate = useNavigate();
 
-  const [history, setHistory] = useState(null);
+  const [history, setHistory] = useState<HistoryItem[] | null>(null);
 
   useEffect(() => {
     const userState = onAuthStateChanged(auth, (user) => {
@@ -25,7 +42,7 @@ export default function Purchase() {
             const { history } = docSnap.data();
             setHistory(history.reverse());
           } else {
-            setHistory([]);
+            setHistory(null);
             // doc.data() will be undefined in this case
             // console.log("No such document!");
           }
@@ -47,13 +64,13 @@ export default function Purchase() {
   //         const container = scrollRef.current;
   //         const observer = new IntersectionObserver(entries => {
   //             // entries.forEach(entry => {
-  //             //     // 如果目标元素进入视口
+  //             //     // 如果目標元素進入視口
   //             //     console.log(entry)
   //             //     if (entry.isIntersecting) {
-  //             //         // 将背景颜色设置为红色
+  //             //         // 將背景顏色設置為紅色
   //             //         entry.target.style.backgroundColor = 'white';
   //             //     } else {
-  //             //         // 将背景颜色设置为白色
+  //             //         // 將背景顏色設置為白色
   //             //         entry.target.style.backgroundColor = 'red';
   //             //     }
   //             // });
@@ -66,69 +83,21 @@ export default function Purchase() {
   //     }
   // }, [history]);
 
-  const date = (item) => {
-    const { information } = item;
-    const { timestamp } = information;
-
-    return timestamp.toDate();
+  const formatDate = (date: Date) => {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const dayOfWeek = ["日", "一", "二", "三", "四", "五", "六"][date.getDay()];
+    return `${year}/${month}/${day}(${dayOfWeek})`;
   };
 
-  const addDays = (date, days) => {
-    date.setDate(date.getDate() + days);
-    return date;
+  const formatTime = (date: Date) => {
+    const hours = date.getHours().toString().padStart(2, "0");
+    const minutes = date.getMinutes().toString().padStart(2, "0");
+    return `${hours}:${minutes}`;
   };
 
-  const newDate = (days, item) => {
-    return addDays(date(item), days);
-  };
-
-  const renderGetDay = (day) => {
-    switch (day) {
-      case 0:
-        return "日";
-      case 1:
-        return "一";
-      case 2:
-        return "二";
-      case 3:
-        return "三";
-      case 4:
-        return "四";
-      case 5:
-        return "五";
-      case 6:
-        return "六";
-      default:
-        return;
-    }
-  };
-
-  const renderDate = (days, item) => {
-    if (history) {
-      return `${newDate(days, item).getFullYear()}/${
-        newDate(days, item).getMonth() + 1
-      }/${newDate(days, item).getDate()}(${renderGetDay(
-        newDate(days, item).getDay()
-      )})`;
-    }
-  };
-
-  const addZero = (i) => {
-    if (i < 10) {
-      i = "0" + i;
-    }
-    return i;
-  };
-
-  const renderTime = (days, item) => {
-    if (history) {
-      return `${addZero(newDate(days, item).getHours())}:${addZero(
-        newDate(days, item).getMinutes()
-      )}`;
-    }
-  };
-
-  const renderInformation = (type, item) => {
+  const renderInformation = (type: string, item: HistoryItem) => {
     if (history) {
       const { information } = item;
       const {
@@ -188,11 +157,7 @@ export default function Purchase() {
         case "afterFiveYards":
           return `帳號末五碼：${afterFiveYards}`;
         case "remark":
-          if (remark === "") {
-            return "無";
-          } else {
-            return remark;
-          }
+          return remark === "" ? "無" : remark;
         default:
           return;
       }
@@ -200,7 +165,7 @@ export default function Purchase() {
   };
 
   return (
-    <div className={styles.Purchase}>
+    <div className={styles.purchase}>
       {!history ? (
         <span className={styles.text}>資料讀取中...</span>
       ) : history.length === 0 ? (
@@ -214,7 +179,8 @@ export default function Purchase() {
                   <div className={styles.content}>
                     <h3 className={styles.subtitle}>下單時間</h3>
                     <p className={styles.subtext}>
-                      {renderDate(0, item)} {renderTime(0, item)}
+                      {formatDate(item.information.timestamp.toDate())}{" "}
+                      {formatTime(item.information.timestamp.toDate())}
                     </p>
                   </div>
                   <div className={styles.content}>
@@ -270,9 +236,7 @@ export default function Purchase() {
                   </div>
                 </div>
               </Link>
-              {index !== history.length - 1 ? (
-                <span className={styles.line} />
-              ) : null}
+              {index !== history.length - 1 && <span className={styles.line} />}
             </Fragment>
           );
         })
