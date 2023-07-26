@@ -3,6 +3,7 @@
   display: flex;
 
   .operator {
+    padding: 0;
     width: 30px;
     height: 30px;
     display: flex;
@@ -11,8 +12,9 @@
     background: rgba(192, 192, 192, 0.2);
     backdrop-filter: blur(4px);
     border: none;
+    outline: none;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.2s opacity;
 
     &:first-child {
       border-top-left-radius: 4px;
