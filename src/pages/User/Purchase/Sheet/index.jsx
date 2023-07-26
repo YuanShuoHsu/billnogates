@@ -52,53 +52,66 @@ export default function Sheet() {
     }
   }, [history, sheetId, navigate]);
 
-  const date = () => {
-    const { information } = history[sheetId - 1];
-    const { timestamp } = information;
-
-    return timestamp.toDate();
+  const formatDate = (date) => {
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    const dayOfWeek = ["日", "一", "二", "三", "四", "五", "六"][date.getDay()];
+    return `${year}/${month}/${day}(${dayOfWeek})`;
   };
 
-  const addDays = (date, days) => {
-    date.setDate(date.getDate() + days);
-    return date;
+  const getTotalPrice = () => {
+    const { sum, discount, deliveryFee } = history[sheetId - 1].information;
+
+    let total = sum;
+
+    if (discount !== null && discount !== 0) {
+      if (discount < 1) {
+        total *= discount;
+      } else {
+        total -= discount;
+      }
+    }
+
+    if (sum < 1000 && discount !== 0 && deliveryFee !== null) {
+      total += deliveryFee;
+    }
+
+    return Math.round(total);
   };
 
-  const newDate = (days) => {
-    return addDays(date(), days);
-  };
+  const renderDiscountText = () => {
+    const discount = history[sheetId - 1].information.discount;
 
-  const renderGetDay = (day) => {
-    switch (day) {
-      case 0:
-        return "日";
-      case 1:
-        return "一";
-      case 2:
-        return "二";
-      case 3:
-        return "三";
-      case 4:
-        return "四";
-      case 5:
-        return "五";
-      case 6:
-        return "六";
-      default:
-        return;
+    if (discount === null || discount === 0) {
+      return null;
+    }
+
+    if (discount < 1) {
+      return `${discount * 10}折`;
+    } else {
+      return `折${discount}`;
     }
   };
 
-  const renderDate = (days) => {
-    if (history) {
-      return `${newDate(days).getFullYear()}/${
-        newDate(days).getMonth() + 1
-      }/${newDate(days).getDate()}(${renderGetDay(newDate(days).getDay())})`;
+  const renderFeeText = () => {
+    const { sum, discount, deliveryFee } = history[sheetId - 1].information;
+
+    if (sum < 1000) {
+      if (discount === 0) {
+        return "免運";
+      } else if (deliveryFee !== null) {
+        return `運費${deliveryFee}`;
+      } else {
+        return null;
+      }
+    } else {
+      return "免運";
     }
   };
 
   return (
-    <div className={styles.Sheet}>
+    <div className={styles.sheet}>
       {!history ? (
         <span className={styles.text}>資料讀取中...</span>
       ) : history.length === 0 ? (
@@ -112,7 +125,17 @@ export default function Sheet() {
               <p className={styles.text}>帳戶名稱：許元馨</p>
               <p className={styles.text}>帳號：</p>
               <p className={styles.text}>
-                請於 {renderDate(3)} 23:59
+                請於{" "}
+                {history[sheetId - 1] &&
+                  formatDate(
+                    new Date(
+                      history[sheetId - 1].information.timestamp
+                        .toDate()
+                        .getTime() +
+                        3 * 24 * 60 * 60 * 1000
+                    )
+                  )}{" "}
+                23:59
                 前完成匯款，逾時未付款皆視為取消訂單。匯款完成後，將於一週內進行出貨程序。如有任何疑慮，請私訊
                 Instagram -《比爾公主沒蓋子》billnogates2407。
               </p>
@@ -122,7 +145,7 @@ export default function Sheet() {
             <Fragment key={index}>
               <div className={styles.container}>
                 <div className={styles.box}>
-                  <div className={styles.photo}>
+                  <div className={styles.imgBox}>
                     <img
                       className={styles.image}
                       src={item.image}
@@ -156,77 +179,18 @@ export default function Sheet() {
           {
             <div className={styles.footer}>
               <div className={styles.total}>
-                {history[sheetId - 1].information.discount !== null ? (
-                  history[sheetId - 1].information.discount === 0 ? (
-                    <Fragment>
-                      <span className={styles.text}>
-                        合計：NT${history[sheetId - 1].information.sum}
-                      </span>
-                      <span className={`${styles.text} ${styles.fee}`}>
-                        免運
-                      </span>
-                    </Fragment>
-                  ) : history[sheetId - 1].information.discount < 1 ? (
-                    <Fragment>
-                      <span className={styles.text}>
-                        合計：NT$
-                        {history[sheetId - 1].information.sum *
-                          history[sheetId - 1].information.discount +
-                          history[sheetId - 1].information.deliveryFee}
-                      </span>
-                      <span className={`${styles.text} ${styles.fee}`}>
-                        {history[sheetId - 1].information.discount * 10}折
-                      </span>
-                      {history[sheetId - 1].information.deliveryFee === 0 ? (
-                        <span className={`${styles.text} ${styles.fee}`}>
-                          免運
-                        </span>
-                      ) : (
-                        <span className={`${styles.text} ${styles.fee}`}>
-                          運費{history[sheetId - 1].information.deliveryFee}
-                        </span>
-                      )}
-                    </Fragment>
-                  ) : (
-                    <Fragment>
-                      <span className={styles.text}>
-                        合計：NT$
-                        {history[sheetId - 1].information.sum -
-                          history[sheetId - 1].information.discount +
-                          history[sheetId - 1].information.deliveryFee}
-                      </span>
-                      <span className={`${styles.text} ${styles.fee}`}>
-                        折{history[sheetId - 1].information.discount}
-                      </span>
-                      {history[sheetId - 1].information.deliveryFee === 0 ? (
-                        <span className={`${styles.text} ${styles.fee}`}>
-                          免運
-                        </span>
-                      ) : (
-                        <span className={`${styles.text} ${styles.fee}`}>
-                          運費{history[sheetId - 1].information.deliveryFee}
-                        </span>
-                      )}
-                    </Fragment>
-                  )
-                ) : history[sheetId - 1].information.deliveryFee === 0 ? (
-                  <Fragment>
-                    <span className={styles.text}>
-                      合計：NT${history[sheetId - 1].information.sum}
-                    </span>
-                    <span className={`${styles.text} ${styles.fee}`}>免運</span>
-                  </Fragment>
-                ) : (
-                  <Fragment>
-                    <span className={styles.text}>
-                      合計：NT$
-                      {history[sheetId - 1].information.sum +
-                        history[sheetId - 1].information.deliveryFee}
-                    </span>
-                    <span className={`${styles.text} ${styles.fee}`}>
-                      運費{history[sheetId - 1].information.deliveryFee}
-                    </span>
-                  </Fragment>
+                <span className={`${styles.totalText} ${styles.sum}`}>
+                  合計：NT${getTotalPrice()}
+                </span>
+                {renderDiscountText() && (
+                  <span className={`${styles.totalText} ${styles.rebate}`}>
+                    {renderDiscountText()}
+                  </span>
+                )}
+                {renderFeeText() && (
+                  <span className={`${styles.totalText} ${styles.fee}`}>
+                    {renderFeeText()}
+                  </span>
                 )}
               </div>
             </div>

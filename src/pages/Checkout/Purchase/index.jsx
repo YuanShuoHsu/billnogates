@@ -19,7 +19,7 @@ export default function Purchase({
     if (renderTotal() < 1000 && discount !== 0 && deliveryFee !== null) {
       total += deliveryFee;
     }
-    return total;
+    return Math.round(total);
   };
 
   const renderDiscountText = () => {
@@ -53,13 +53,25 @@ export default function Purchase({
           <Order item={item} key={`${item.id} ${item.choose}`} />
         ))}
       <div className={styles.purchase__footer}>
-        <div className={styles.purchase__sum}>
-          <span className={`${styles.purchase__sumText} ${styles.purchase__total}`}>合計：NT${getTotalPrice()}</span>
+        <div className={styles.purchase__total}>
+          <span
+            className={`${styles.purchase__totalText} ${styles.purchase__sum}`}
+          >
+            合計：NT${getTotalPrice()}
+          </span>
           {renderDiscountText() && (
-            <span className={`${styles.purchase__sumText} ${styles.purchase__rebate}`}>{renderDiscountText()}</span>
+            <span
+              className={`${styles.purchase__totalText} ${styles.purchase__rebate}`}
+            >
+              {renderDiscountText()}
+            </span>
           )}
           {renderFeeText() && (
-            <span className={`${styles.purchase__sumText} ${styles.purchase__fee}`}>{renderFeeText()}</span>
+            <span
+              className={`${styles.purchase__totalText} ${styles.purchase__fee}`}
+            >
+              {renderFeeText()}
+            </span>
           )}
         </div>
       </div>

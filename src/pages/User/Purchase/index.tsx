@@ -133,13 +133,13 @@ export default function Purchase() {
           return deliveryFee;
         case "total":
           if (discount === null) {
-            return sum + deliveryFee;
+            return Math.round(sum + deliveryFee);
           } else if (discount === 0) {
-            return sum;
+            return Math.round(sum);
           } else if (0 < discount && discount < 1) {
-            return sum * discount + deliveryFee;
+            return Math.round(sum * discount + deliveryFee);
           } else if (1 < discount) {
-            return sum - discount + deliveryFee;
+            return Math.round(sum - discount + deliveryFee);
           }
           break;
         case "name":
