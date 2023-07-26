@@ -42,8 +42,8 @@ export default function Remittance() {
   useEffect(() => {
     if (keyWord === "checkout") {
     } else {
-      navigate("/checkout");
       alert("請先完成結帳");
+      navigate("/checkout");
     }
   }, [keyWord, navigate]);
 
@@ -68,12 +68,14 @@ export default function Remittance() {
       } else {
         // User is signed out
 
-        alert("請先登入會員");
-        navigate("/membership/login");
+        if (keyWord) {
+          alert("請先登入會員");
+          navigate("/membership/login");
+        }
       }
     });
     return () => userState();
-  }, [navigate]);
+  }, [navigate, keyWord]);
 
   const formatDate = (date: Date) => {
     const year = date.getFullYear();

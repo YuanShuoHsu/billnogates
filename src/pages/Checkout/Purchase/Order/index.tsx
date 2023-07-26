@@ -1,15 +1,23 @@
-import React from "react";
-
 import styles from "./index.module.scss";
 
-export default function Order(props) {
-  const { item } = props;
+interface Item {
+  name: string;
+  image: string;
+  choose: string[]; // 假設 choose 是一個包含兩個元素的字串陣列
+  price: number;
+  number: number;
+}
 
+interface OrderProps {
+  item: Item;
+}
+
+export default function Order({ item }: OrderProps) {
   return (
-    <div className={styles.Order}>
+    <div className={styles.order}>
       <div className={styles.main}>
         <div className={styles.box}>
-          <div className={styles.photo}>
+          <div className={styles.imgBox}>
             <img className={styles.image} src={item.image} alt={item.name} />
           </div>
           <div className={styles.information}>

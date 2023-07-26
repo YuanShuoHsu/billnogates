@@ -17,7 +17,7 @@ $breakpoints: (
   position: relative;
   background: rgba(245, 245, 245, 0.8);
 
-  .main {
+  &__main {
     padding: 10px;
     box-sizing: border-box;
     min-height: calc(100vh - 60px - 60px);
@@ -26,7 +26,7 @@ $breakpoints: (
     align-items: center;
     gap: 10px;
 
-    .grid {
+    .detail__grid {
       width: 80%;
 
       @include respond-to(xl) {

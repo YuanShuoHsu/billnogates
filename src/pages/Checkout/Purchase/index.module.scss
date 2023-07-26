@@ -1,0 +1,58 @@
+.purchase {
+  position: relative;
+  padding: 10px;
+  background-color: #fff;
+  border-radius: 4px;
+  overflow: hidden auto;
+  scroll-behavior: smooth;
+
+  &__footer {
+    position: sticky;
+    left: 0;
+    bottom: -10px;
+    width: 100%;
+    background-color: rgba(245, 245, 245, 0.8);
+    backdrop-filter: blur(4px);
+    display: flex;
+    justify-content: flex-end;
+    z-index: 2;
+
+    .purchase__sum {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+
+      &Text {
+        font-size: 16px;
+        font-family: sans-serif;
+        letter-spacing: 1px;
+        border-radius: 2px;
+        white-space: nowrap;
+      }
+
+      .purchase__total {
+        color: #000;
+        line-height: 40px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        direction: rtl;
+      }
+
+      .purchase__rebate {
+        padding: 0 5px;
+        color: #fff;
+        line-height: 20px;
+        background-color: #0091db;
+      }
+
+      .purchase__fee {
+        padding: 0 5px;
+        color: #fff;
+        line-height: 20px;
+        background-color: #e4027f;
+      }
+    }
+  }
+}

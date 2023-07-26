@@ -381,7 +381,7 @@ export default function Forget() {
           <div className={styles.alert}>
             <p className={styles.text}>{phoneNumberError}</p>
           </div>
-          {OTPIsShow ? (
+          {OTPIsShow && (
             <Fragment>
               <div className={styles.inputBox}>
                 <input
@@ -399,7 +399,7 @@ export default function Forget() {
                 <p className={styles.text}>{OTPError}</p>
               </div>
             </Fragment>
-          ) : null}
+          )}
           <div className={styles.register}>
             <button className={styles.button}>
               {isLoading ? (

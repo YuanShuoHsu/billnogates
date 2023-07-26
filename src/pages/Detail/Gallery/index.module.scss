@@ -1,24 +1,33 @@
-@mixin desktop {
-  @media (max-width: 768px) {
+$breakpoints: (
+  // xs: 0,
+  // sm: 576px,
+  md: 768px,
+  // lg: 992px,
+  // xl: 1200px,
+  // xxl: 1400px,
+);
+
+@mixin respond-to($breakpoint) {
+  @media (max-width: map-get($breakpoints, $breakpoint)) {
     @content;
   }
 }
 
-.Gallery {
+.gallery {
   position: relative;
   display: flex;
   gap: 10px;
 
-  @include desktop {
+  @include respond-to(md) {
     flex-direction: column;
   }
 
-  .box {
+  &__box {
     width: 50%;
     display: flex;
     overflow: hidden;
 
-    @include desktop {
+    @include respond-to(md) {
       width: 100%;
     }
   }

@@ -34,11 +34,11 @@ export default function Detail() {
       <Sidebar />
       <ScrollToTopButton />
       <Header />
-      <div className={styles.main}>
-        <div className={styles.grid}>
+      <div className={styles.detail__main}>
+        <div className={styles.detail__grid}>
           <Gallery findResult={findResult} />
         </div>
-        <div className={styles.grid}>
+        <div className={styles.detail__grid}>
           <Commodity findResult={findResult} />
         </div>
       </div>

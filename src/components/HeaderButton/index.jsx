@@ -106,13 +106,11 @@ export default function HeaderButton() {
   };
 
   const renderCartbarNumber = () => {
-    let count = 0;
-    cartbarItem && cartbarItem.forEach((item) => (count += item.number));
-    return count;
+    return cartbarItem.reduce((count, item) => count + item.number, 0);
   };
-
+  
   return (
-    <div className={styles.HeaderButton}>
+    <div className={styles.headerButton}>
       <button
         onClick={handleShowHeaderSearch}
         onMouseLeave={handleHideHeaderSearch}
