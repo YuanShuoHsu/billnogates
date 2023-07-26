@@ -70,8 +70,14 @@ export default function ProductsCard({
     <Link className={styles.link} to={`/detail/${id}`} key={id}>
       <div className={styles.productsCard}>
         <span className={styles.productsCard__ribbon} />
-        <div className={styles.productsCard__imgBox}>
-          <img className={styles.productsCard__image} src={image} alt={name} />
+        <div className={styles.productsCard__container}>
+          <div className={styles.productsCard__imgBox}>
+            <img
+              className={styles.productsCard__image}
+              src={image}
+              alt={name}
+            />
+          </div>
         </div>
         <div className={styles.productsCard__footer}>
           <div className={styles.productsCard__content}>

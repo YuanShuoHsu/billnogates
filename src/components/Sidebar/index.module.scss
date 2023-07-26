@@ -31,11 +31,11 @@ $breakpoints: (
   opacity: 0;
   pointer-events: none;
   transition: 0.2s;
-  z-index: 3;
+  z-index: 4;
 
   @include respond-to(md) {
     display: block;
-   
+
     &--active {
       opacity: 1;
       pointer-events: auto;
