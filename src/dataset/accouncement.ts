@@ -1,7 +1,7 @@
-type Form = {
+interface Form {
   id: number;
   text: string;
-};
+}
 
 const forms: Form[] = [
   {

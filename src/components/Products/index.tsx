@@ -9,11 +9,9 @@ interface ProductsItem {
   id: number;
   image: string;
   name: string;
-  dimension: {
-    subId: number;
-    size: string;
-    price: number;
-  }[];
+  dimensions: {
+    [size: string]: number;
+  };
   color: {
     subId: number;
     name: string;
@@ -55,7 +53,7 @@ export default function Product({ products }: ProductsProps) {
           id={item.id}
           image={item.image}
           name={item.name}
-          dimension={item.dimension}
+          dimensions={item.dimensions}
           color={item.color}
           gallery={item.gallery}
           description={item.description}

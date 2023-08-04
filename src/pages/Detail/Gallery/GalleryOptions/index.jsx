@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
@@ -9,19 +9,11 @@ import { addToCartbarItem } from "../../../../store/slice/cartbarItem";
 import styles from "./index.module.scss";
 
 export default function GalleryOptions(props) {
-  const { findResult } = props;
+  const { foundProduct } = props;
 
-  const [color, setColor] = useState("");
-  const [size, setSize] = useState("");
+  const [selectedSize, setSelectedSize] = useState(Object.keys(foundProduct.dimensions)[0]);
+  const [color, setColor] = useState(foundProduct.color[0].name);
   const [number, setNumber] = useState(1);
-
-  useEffect(() => {
-    const keys = Object.keys(findResult);
-    if (keys.length !== 0) {
-      setSize(findResult.dimension[0].size);
-      setColor(findResult.color[0].name);
-    }
-  }, [findResult]);
 
   const minNumber = 1;
   const maxNumber = 10;
@@ -30,18 +22,6 @@ export default function GalleryOptions(props) {
   const cartbarItem = useSelector((state) => state.cartbarItem.value);
 
   const navigate = useNavigate();
-
-  const renderPrice = (size) => {
-    const keys = Object.keys(findResult);
-    if (keys.length !== 0) {
-      const foundDimension = findResult.dimension.find(
-        (item) => item.size === size
-      );
-      if (foundDimension) {
-        return foundDimension.price;
-      }
-    }
-  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -54,7 +34,7 @@ export default function GalleryOptions(props) {
 
   const handleSizeChange = (event) => {
     const { target } = event;
-    setSize(target.value);
+    setSelectedSize(target.value);
   };
 
   const decrement = () => {
@@ -73,9 +53,9 @@ export default function GalleryOptions(props) {
     dispatch(
       addToCartbarItem({
         cartbarItem,
-        findResult,
+        foundProduct,
         color,
-        size,
+        selectedSize,
         number,
         maxNumber,
       })
@@ -83,46 +63,40 @@ export default function GalleryOptions(props) {
   };
 
   const handleBuyNow = () => {
-    if (color !== "" && size !== "") {
-      addToCart();
-      navigate("/checkout");
-    }
+    addToCart();
+    navigate("/checkout");
   };
 
   const handleAddToCart = () => {
-    if (color !== "" && size !== "") {
-      addToCart();
-    }
+    addToCart();
   };
 
   return (
     <form onSubmit={handleSubmit} className={styles.GalleryOptions}>
-      <h2 className={styles.title}>{findResult.name}</h2>
-      {size === "" ? null : (
-        <h3 className={styles.title}>NT${renderPrice(size)}</h3>
-      )}
+      <h2 className={styles.title}>{foundProduct.name}</h2>
+      <h3 className={styles.title}>NT${foundProduct.dimensions[selectedSize]}</h3>
       <div className={styles.box}>
         <div className={styles.option}>
           <span className={styles.text}>品項：</span>
           <div className={styles.wrap}>
-            {findResult.dimension &&
-              findResult.dimension.map((item) => (
-                <div className={styles.radio} key={item.subId}>
+            {foundProduct.dimensions &&
+              Object.entries(foundProduct.dimensions).map(([size, _]) => (
+                <div className={styles.radio} key={size}>
                   <input
                     onChange={handleSizeChange}
                     className={styles.input}
                     type="radio"
                     name="size"
-                    value={item.size}
-                    id={item.size}
-                    checked={size === item.size}
+                    value={size}
+                    id={size}
+                    checked={size === selectedSize}
                     required
                   />
                   <label
                     className={`${styles.label} ${styles.round}`}
-                    htmlFor={item.size}
+                    htmlFor={size}
                   >
-                    {item.size}
+                    {size}
                   </label>
                 </div>
               ))}
@@ -131,8 +105,8 @@ export default function GalleryOptions(props) {
         <div className={styles.option}>
           <span className={styles.text}>顏色：</span>
           <div className={styles.wrap}>
-            {findResult.color &&
-              findResult.color.map((item) => (
+            {foundProduct.color &&
+              foundProduct.color.map((item) => (
                 <div className={styles.radio} key={item.subId}>
                   <input
                     onChange={handleColorChange}

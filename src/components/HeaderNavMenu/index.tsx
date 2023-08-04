@@ -1,4 +1,4 @@
-import navs from "../../dataset/nav";
+import navs from "../../dataset/navs";
 import HeaderNavItem from "../HeaderNavItem";
 
 import styles from "./index.module.scss";

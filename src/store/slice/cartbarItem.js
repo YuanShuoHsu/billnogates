@@ -15,35 +15,33 @@ export const cartbarItemSlice = createSlice({
       state.value = [];
     },
     addToCartbarItem: (state, data) => {
-      const { cartbarItem, findResult, color, size, number, maxNumber } =
+      const { cartbarItem, foundProduct, color, selectedSize, number, maxNumber } =
         data.payload;
 
       const newCartbarItem = JSON.parse(JSON.stringify(cartbarItem));
-      const newFindResult = JSON.parse(JSON.stringify(findResult));
-      newFindResult.choose = [color, size];
+      const newfoundProduct = JSON.parse(JSON.stringify(foundProduct));
+      newfoundProduct.choose = [color, selectedSize];
 
-      const foundDimension = newFindResult.dimension.find(
-        (item) => item.size === size
-      );
-      if (foundDimension) {
-        newFindResult.price = foundDimension.price;
+      const foundPrice = newfoundProduct.dimensions[selectedSize]; // Get the price based on selectedSize
+      if (foundPrice) {
+        newfoundProduct.price = foundPrice;
       }
 
-      delete newFindResult.gallery;
-      delete newFindResult.dimension;
-      delete newFindResult.color;
-      delete newFindResult.description;
-      delete newFindResult.information;
+      delete newfoundProduct.gallery;
+      delete newfoundProduct.dimension;
+      delete newfoundProduct.color;
+      delete newfoundProduct.description;
+      delete newfoundProduct.information;
 
       const findNewCartbarItem = newCartbarItem.find(
         (item) =>
-          item.id === newFindResult.id &&
-          JSON.stringify(item.choose) === JSON.stringify(newFindResult.choose)
+          item.id === newfoundProduct.id &&
+          JSON.stringify(item.choose) === JSON.stringify(newfoundProduct.choose)
       );
 
       if (!findNewCartbarItem) {
-        newFindResult.number = number;
-        state.value = [newFindResult, ...newCartbarItem];
+        newfoundProduct.number = number;
+        state.value = [newfoundProduct, ...newCartbarItem];
       } else {
         if (findNewCartbarItem.number + number <= maxNumber) {
           findNewCartbarItem.number += number;

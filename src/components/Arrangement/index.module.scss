@@ -58,6 +58,8 @@ $breakpoints: (
         font-size: 16px;
         font-family: sans-serif;
         appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
         outline: none;
         cursor: pointer;
 

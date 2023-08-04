@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 import { Keyboard, FreeMode, Pagination, Thumbs } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,7 +11,7 @@ import "swiper/scss/thumbs";
 import styles from "./index.module.scss";
 
 export default function GalleryThumbs(props) {
-  const { findResult } = props;
+  const { foundProduct } = props;
 
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
@@ -38,8 +38,8 @@ export default function GalleryThumbs(props) {
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
       >
-        {findResult.gallery &&
-          findResult.gallery.map((item) => (
+        {foundProduct.gallery &&
+          foundProduct.gallery.map((item) => (
             <SwiperSlide key={item.subId}>
               <img src={item.image} alt={item.name} loading="lazy" />
             </SwiperSlide>
@@ -59,8 +59,8 @@ export default function GalleryThumbs(props) {
         grabCursor={true}
         watchSlidesProgress={true}
       >
-        {findResult.gallery &&
-          findResult.gallery.map((item) => (
+        {foundProduct.gallery &&
+          foundProduct.gallery.map((item) => (
             <SwiperSlide key={item.subId}>
               <img src={item.image} alt={item.name} loading="lazy" />
             </SwiperSlide>

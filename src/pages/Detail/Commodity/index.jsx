@@ -7,7 +7,7 @@ import styles from "./index.module.scss";
 export default function Commodity(props) {
   const [activeButton, setActiveButton] = useState(true);
 
-  const { findResult } = props;
+  const { foundProduct } = props;
 
   const handleActiveButton = (boolean) => {
     setActiveButton(boolean);
@@ -29,7 +29,7 @@ export default function Commodity(props) {
           商品資訊
         </button>
       </div>
-      <Appendix findResult={findResult} activeButton={activeButton} />
+      <Appendix foundProduct={foundProduct} activeButton={activeButton} />
     </div>
   );
 }

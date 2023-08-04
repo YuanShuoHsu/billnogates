@@ -4,15 +4,15 @@ import GalleryOptions from "./GalleryOptions";
 import styles from "./index.module.scss";
 
 export default function Gallery(props) {
-  const { findResult } = props;
+  const { foundProduct } = props;
 
   return (
     <div className={styles.gallery}>
       <div className={styles.gallery__box}>
-        <GalleryThumbs findResult={findResult} />
+        <GalleryThumbs foundProduct={foundProduct} />
       </div>
       <div className={styles.gallery__box}>
-        <GalleryOptions findResult={findResult} />
+        <GalleryOptions foundProduct={foundProduct} />
       </div>
     </div>
   );

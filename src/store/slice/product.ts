@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import products from "../../dataset/product";
+import products from "../../dataset/products";
 
 const initialState = {
   value: products,
@@ -14,23 +14,15 @@ export const productSlice = createSlice({
     },
     sortedByAscendingPrice: (state) => {
       state.value.sort((a, b) => {
-        const minPriceA = Math.min(
-          ...a.dimension.map((dimension) => dimension.price)
-        );
-        const minPriceB = Math.min(
-          ...b.dimension.map((dimension) => dimension.price)
-        );
+        const minPriceA = Math.min(...Object.values(a.dimensions));
+        const minPriceB = Math.min(...Object.values(b.dimensions));
         return minPriceA - minPriceB;
       });
     },
     sortedByDescendingPrice: (state) => {
       state.value.sort((a, b) => {
-        const maxPriceA = Math.max(
-          ...a.dimension.map((dimension) => dimension.price)
-        );
-        const maxPriceB = Math.max(
-          ...b.dimension.map((dimension) => dimension.price)
-        );
+        const maxPriceA = Math.min(...Object.values(a.dimensions));
+        const maxPriceB = Math.min(...Object.values(b.dimensions));
         return maxPriceB - maxPriceA;
       });
     },

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import Cartbar from "../../components/Cartbar";
@@ -10,23 +10,25 @@ import Footer from "../../components/Footer";
 import Gallery from "./Gallery";
 import Commodity from "./Commodity";
 
-import PRODUCTS from "../../dataset/product";
+import products from "../../dataset/products";
 
 import styles from "./index.module.scss";
 
 export default function Detail() {
-  const [findResult, setFindResult] = useState({});
   const { productId } = useParams();
   const navigate = useNavigate();
 
+  const findProductById = (productId) => {
+    return products.find((detailObj) => detailObj.id === Number(productId));
+  };
+
+  const foundProduct = findProductById(productId);
+
   useEffect(() => {
-    const findProduct =
-      PRODUCTS.find((detailObj) => detailObj.id === Number(productId)) || {};
-    setFindResult(findProduct);
-    if (Object.keys(findProduct).length === 0) {
+    if (!foundProduct) {
       navigate("/detail/1");
     }
-  }, [productId, navigate]);
+  }, [foundProduct, navigate]);
 
   return (
     <div className={styles.detail}>
@@ -36,10 +38,10 @@ export default function Detail() {
       <Header />
       <div className={styles.detail__main}>
         <div className={styles.detail__grid}>
-          <Gallery findResult={findResult} />
+          {foundProduct && <Gallery foundProduct={foundProduct} />}
         </div>
         <div className={styles.detail__grid}>
-          <Commodity findResult={findResult} />
+          {foundProduct && <Commodity foundProduct={foundProduct} />}
         </div>
       </div>
       <Footer />

@@ -2,10 +2,8 @@ import { Link } from "react-router-dom";
 
 import styles from "./index.module.scss";
 
-type Dimension = {
-  subId: number;
-  size: string;
-  price: number;
+type Dimensions = {
+  [size: string]: number;
 };
 
 type Color = {
@@ -36,7 +34,7 @@ interface ProductsCardProps {
   id: number;
   image: string;
   name: string;
-  dimension: Dimension[];
+  dimensions: Dimensions;
   color: Color[];
   gallery: Gallery[];
   description: Description[];
@@ -47,10 +45,10 @@ export default function ProductsCard({
   id,
   image,
   name,
-  dimension,
+  dimensions,
 }: ProductsCardProps) {
-  const renderPriceRange = (dimension: ProductsCardProps["dimension"]) => {
-    const prices = dimension.map((item) => item.price);
+  const renderPriceRange = (dimensions: ProductsCardProps["dimensions"]) => {
+    const prices = Object.values(dimensions);
 
     const maxPrice = Math.max(...prices);
     const minPrice = Math.min(...prices);
@@ -82,7 +80,7 @@ export default function ProductsCard({
         <div className={styles.productsCard__footer}>
           <div className={styles.productsCard__content}>
             <p className={styles.productsCard__contentText}>{name}</p>
-            {renderPriceRange(dimension)}
+            {renderPriceRange(dimensions)}
           </div>
         </div>
       </div>
