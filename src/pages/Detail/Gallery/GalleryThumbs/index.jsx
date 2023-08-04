@@ -38,10 +38,10 @@ export default function GalleryThumbs(props) {
           swiper: thumbsSwiper && !thumbsSwiper.destroyed ? thumbsSwiper : null,
         }}
       >
-        {foundProduct.gallery &&
-          foundProduct.gallery.map((item) => (
-            <SwiperSlide key={item.subId}>
-              <img src={item.image} alt={item.name} loading="lazy" />
+        {foundProduct.images.gallery &&
+          foundProduct.images.gallery.map((item) => (
+            <SwiperSlide key={item.name}>
+              <img src={item.image} alt={item.name} />
             </SwiperSlide>
           ))}
       </Swiper>
@@ -59,10 +59,10 @@ export default function GalleryThumbs(props) {
         grabCursor={true}
         watchSlidesProgress={true}
       >
-        {foundProduct.gallery &&
-          foundProduct.gallery.map((item) => (
-            <SwiperSlide key={item.subId}>
-              <img src={item.image} alt={item.name} loading="lazy" />
+        {foundProduct.images.gallery &&
+          foundProduct.images.gallery.map((item) => (
+            <SwiperSlide key={item.name}>
+              <img src={item.image} alt={item.name} />
             </SwiperSlide>
           ))}
       </Swiper>

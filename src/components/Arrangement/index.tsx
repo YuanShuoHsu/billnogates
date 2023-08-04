@@ -6,7 +6,7 @@ import {
   initialProducts,
   sortedByAscendingPrice,
   sortedByDescendingPrice,
-} from "../../store/slice/product";
+} from "../../store/slice/products";
 import {
   changeArrangement,
   initialAnchorPoint,

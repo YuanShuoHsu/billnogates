@@ -148,14 +148,14 @@ export default function Sheet() {
                   <div className={styles.imgBox}>
                     <img
                       className={styles.image}
-                      src={item.image}
+                      src={item.images.main}
                       alt={item.name}
                     />
                   </div>
                   <div className={styles.information}>
                     <h3 className={styles.title}>{item.name}</h3>
                     <p className={styles.text}>
-                      {item.choose[0]}、{item.choose[1]}
+                      {item.selectedSize}、{item.selectedColor}
                     </p>
                     <p className={styles.text}>NT${item.price}</p>
                   </div>

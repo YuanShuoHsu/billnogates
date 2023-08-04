@@ -16,12 +16,16 @@ export default function CartbarContentItem({ cartbarItem, item }) {
     <div className={styles.cartbarContentItem}>
       <div className={styles.box}>
         <div className={styles.imgBox}>
-          <img className={styles.image} src={item.image} alt="logo" />
+          <img
+            className={styles.image}
+            src={item.images.main}
+            alt={item.name}
+          />
         </div>
         <div className={styles.information}>
           <h3 className={styles.name}>{item.name}</h3>
           <p className={styles.choose}>
-            {item.choose[0]}、{item.choose[1]}
+            {item.selectedSize}、{item.selectedColor}
           </p>
           <p className={styles.price}>NT${item.price}</p>
         </div>

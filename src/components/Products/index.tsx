@@ -7,31 +7,28 @@ import styles from "./index.module.scss";
 
 interface ProductsItem {
   id: number;
-  image: string;
   name: string;
   dimensions: {
     [size: string]: number;
   };
-  color: {
-    subId: number;
-    name: string;
-    rgb: string;
-  }[];
-  gallery: {
-    subId: number;
-    image: string;
-    name: string;
-  }[];
-  description: {
-    subId: number;
-    text?: string;
-    vertical?: string;
-    horizontal?: string;
-  }[];
-  information: {
-    subId: number;
-    text: string;
-  }[];
+  colors: {
+    [rgb: string]: string;
+  };
+  images: {
+    main: string;
+    gallery: {
+      image: string;
+      name: string;
+    }[];
+    description: {
+      image: string;
+      name: string;
+    }[];
+    information: {
+      image: string;
+      name: string;
+    }[];
+  };
 }
 
 interface ProductsProps {
@@ -51,13 +48,13 @@ export default function Product({ products }: ProductsProps) {
         <ProductsCard
           key={item.id}
           id={item.id}
-          image={item.image}
+          image={item.images.main}
           name={item.name}
           dimensions={item.dimensions}
-          color={item.color}
-          gallery={item.gallery}
-          description={item.description}
-          information={item.information}
+          colors={item.colors}
+          gallery={item.images.gallery}
+          description={item.images.description}
+          information={item.images.information}
         />
       ))}
     </div>

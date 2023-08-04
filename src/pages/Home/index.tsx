@@ -1,4 +1,5 @@
 import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 import Cartbar from "../../components/Cartbar";
 import Sidebar from "../../components/Sidebar";
@@ -14,10 +15,9 @@ import Pagination from "../../components/Pagination";
 import Footer from "../../components/Footer";
 
 import styles from "./index.module.scss";
-import { RootState } from "../../store";
 
 export default function Home() {
-  const products = useSelector((state:RootState) => state.product.value);
+  const products = useSelector((state:RootState) => state.products.value);
 
   return (
     <div className={styles.home}>

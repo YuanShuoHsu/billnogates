@@ -40,7 +40,7 @@ export default function Purchase() {
         getDoc(docRef).then((docSnap) => {
           if (docSnap.exists()) {
             const { history } = docSnap.data();
-            setHistory(history.reverse());
+            setHistory(history);
           } else {
             setHistory(null);
             // doc.data() will be undefined in this case

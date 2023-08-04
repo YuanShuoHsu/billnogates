@@ -15,23 +15,22 @@ export const cartbarItemSlice = createSlice({
       state.value = [];
     },
     addToCartbarItem: (state, data) => {
-      const { cartbarItem, foundProduct, color, selectedSize, number, maxNumber } =
-        data.payload;
+      const {
+        cartbarItem,
+        foundProduct,
+        selectedColor,
+        selectedSize,
+        number,
+        maxNumber,
+      } = data.payload;
 
       const newCartbarItem = JSON.parse(JSON.stringify(cartbarItem));
       const newfoundProduct = JSON.parse(JSON.stringify(foundProduct));
-      newfoundProduct.choose = [color, selectedSize];
 
-      const foundPrice = newfoundProduct.dimensions[selectedSize]; // Get the price based on selectedSize
-      if (foundPrice) {
-        newfoundProduct.price = foundPrice;
-      }
-
-      delete newfoundProduct.gallery;
-      delete newfoundProduct.dimension;
-      delete newfoundProduct.color;
-      delete newfoundProduct.description;
-      delete newfoundProduct.information;
+      // newfoundProduct.choose = [selectedColor, selectedSize];
+      newfoundProduct.selectedColor=  selectedColor;
+      newfoundProduct.selectedSize=selectedSize;
+      newfoundProduct.price = newfoundProduct.dimensions[selectedSize];
 
       const findNewCartbarItem = newCartbarItem.find(
         (item) =>

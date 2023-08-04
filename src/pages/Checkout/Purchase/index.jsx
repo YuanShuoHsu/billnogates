@@ -50,7 +50,7 @@ export default function Purchase({
     <div className={styles.purchase}>
       {cartbarItem &&
         cartbarItem.map((item) => (
-          <Order item={item} key={`${item.id} ${item.choose}`} />
+          <Order item={item} key={`${item.id} ${item.selectedSize} ${item.selectedColor}`} />
         ))}
       <div className={styles.purchase__footer}>
         <div className={styles.purchase__total}>

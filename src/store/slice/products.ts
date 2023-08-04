@@ -5,8 +5,8 @@ const initialState = {
   value: products,
 };
 
-export const productSlice = createSlice({
-  name: "product",
+export const productsSlice = createSlice({
+  name: "products",
   initialState,
   reducers: {
     initialProducts: (state) => {
@@ -33,6 +33,6 @@ export const {
   initialProducts,
   sortedByAscendingPrice,
   sortedByDescendingPrice,
-} = productSlice.actions;
+} = productsSlice.actions;
 
-export default productSlice.reducer;
+export default productsSlice.reducer;

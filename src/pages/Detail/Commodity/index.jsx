@@ -4,27 +4,25 @@ import Appendix from "./Appendix";
 
 import styles from "./index.module.scss";
 
-export default function Commodity(props) {
+export default function Commodity({ foundProduct }) {
   const [activeButton, setActiveButton] = useState(true);
-
-  const { foundProduct } = props;
 
   const handleActiveButton = (boolean) => {
     setActiveButton(boolean);
   };
 
   return (
-    <div className={styles.Commodity}>
-      <div className={styles.buttonGroup}>
+    <div className={styles.commodity}>
+      <div className={styles.commodity__buttonGroup}>
         <button
           onClick={() => handleActiveButton(true)}
-          className={`${styles.button} ${activeButton ? styles.active : ""}`}
+          className={`${styles.commodity__button} ${activeButton ? styles.active : ""}`}
         >
           商品描述
         </button>
         <button
           onClick={() => handleActiveButton(false)}
-          className={`${styles.button} ${activeButton ? "" : styles.active}`}
+          className={`${styles.commodity__button} ${activeButton ? "" : styles.active}`}
         >
           商品資訊
         </button>

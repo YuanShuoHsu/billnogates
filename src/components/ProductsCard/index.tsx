@@ -6,28 +6,23 @@ type Dimensions = {
   [size: string]: number;
 };
 
-type Color = {
-  subId: number;
-  name: string;
-  rgb: string;
+type Colors = {
+  [rgb: string]: string;
 };
 
 type Gallery = {
-  subId: number;
   image: string;
   name: string;
 };
 
 type Description = {
-  subId: number;
-  text?: string;
-  vertical?: string;
-  horizontal?: string;
+  image: string;
+  name: string;
 };
 
 type Information = {
-  subId: number;
-  text: string;
+  image: string;
+  name: string;
 };
 
 interface ProductsCardProps {
@@ -35,7 +30,7 @@ interface ProductsCardProps {
   image: string;
   name: string;
   dimensions: Dimensions;
-  color: Color[];
+  colors: Colors;
   gallery: Gallery[];
   description: Description[];
   information: Information[];

@@ -1,13 +1,7 @@
 import { useState, Fragment } from "react";
 import { useNavigate } from "react-router-dom";
 
-import {
-  doc,
-  setDoc,
-  updateDoc,
-  arrayUnion,
-  Timestamp,
-} from "firebase/firestore";
+import { doc, getDoc, setDoc, Timestamp } from "firebase/firestore";
 import { auth, db } from "../../utils/firebase";
 
 import { useDispatch, useSelector } from "react-redux";
@@ -51,18 +45,16 @@ export default function Checkout() {
   };
 
   const handleSubmit = async (event) => {
-    if (cartbarItem.length !== 0) {
-      event.preventDefault();
-      await addDataToCloudFirestore();
-      dispatch(resetCartbarItem());
+    event.preventDefault();
+    await addDataToCloudFirestore();
+    dispatch(resetCartbarItem());
 
-      switch (pay) {
-        case "銀行轉帳":
-          navigate("/remittance", { state: { keyWord: "checkout" } });
-          break;
-        default:
-          break;
-      }
+    switch (pay) {
+      case "銀行轉帳":
+        navigate("/remittance", { state: { keyWord: "checkout" } });
+        break;
+      default:
+        break;
     }
   };
 
@@ -122,30 +114,38 @@ export default function Checkout() {
     }
   };
 
-  const addDataToCloudFirestore = () => {
-    const setRef = doc(db, "purchase", auth.currentUser.uid);
-    setDoc(setRef, {}, { merge: true });
+  const addDataToCloudFirestore = async () => {
+    const purchaseRef = doc(db, "purchase", auth.currentUser.uid);
 
-    const updateRef = doc(db, "purchase", auth.currentUser.uid);
-    updateDoc(updateRef, {
-      history: arrayUnion({
-        product: cartbarItem,
-        information: {
-          send: send,
-          address: address,
-          lastName: lastName,
-          firstName: firstName,
-          email: email,
-          phoneNumber: phoneNumber,
-          remark: remark,
-          pay: pay,
-          afterFiveYards: afterFiveYards,
-          sum: renderTotal(),
-          deliveryFee: renderTotal() < 1000 && discount !== 0 ? deliveryFee : 0,
-          discount: discount,
-          timestamp: Timestamp.fromDate(new Date()),
-        },
-      }),
+    const newData = {
+      product: cartbarItem,
+      information: {
+        send,
+        address,
+        lastName,
+        firstName,
+        email,
+        phoneNumber,
+        remark,
+        pay,
+        afterFiveYards,
+        sum: renderTotal(),
+        deliveryFee: renderTotal() < 1000 && discount !== 0 ? deliveryFee : 0,
+        discount,
+        timestamp: Timestamp.fromDate(new Date()),
+      },
+    };
+
+    await getDoc(purchaseRef).then((docSnap) => {
+      if (docSnap.exists()) {
+        const existingData = docSnap.data();
+        const updatedHistory = [newData, ...existingData.history];
+        setDoc(purchaseRef, { history: updatedHistory }, { merge: true });
+      } else {
+        // doc.data() will be undefined in this case
+        // console.log("No such document!");
+        setDoc(purchaseRef, { history: [newData] }, { merge: true });
+      }
     });
   };
 

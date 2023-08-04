@@ -6,7 +6,7 @@ import cartbarItemReducer from "./slice/cartbarItem";
 import headerNavItemReducer from "./slice/headerNavItem";
 import headerNavSubMenuReducer from "./slice/headerNavSubMenu";
 import paginationReducer from "./slice/pagination";
-import productReducer from "./slice/product";
+import productsReducer from "./slice/products";
 import searchReducer from "./slice/search";
 import sidebarReducer from "./slice/sidebar";
 
@@ -18,7 +18,7 @@ export const store = configureStore({
     headerNavItem: headerNavItemReducer,
     headerNavSubMenu: headerNavSubMenuReducer,
     pagination: paginationReducer,
-    product: productReducer,
+    products: productsReducer,
     search: searchReducer,
     sidebar: sidebarReducer,
   },

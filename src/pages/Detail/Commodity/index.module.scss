@@ -1,17 +1,18 @@
-.Commodity {
+.commodity {
   position: relative;
 
-  .buttonGroup {
+  &__buttonGroup {
     display: flex;
 
-    .button {
+    .commodity__button {
       padding: 0;
       width: 100px;
       height: 40px;
       background: rgba(245, 245, 245, 0.8);
       border: none;
       color: #000;
-      font: normal normal 16px / normal sans-serif;
+      font-size: 16px;
+      font-family: sans-serif;
       cursor: pointer;
       transition: 0.2s;
 

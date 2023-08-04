@@ -1,49 +1,18 @@
 import styles from "./index.module.scss";
 
-export default function Appendix(props) {
-  const { foundProduct, activeButton } = props;
-
-  const judgeClassName = (item) => {
-    if (item.text !== undefined) {
-      return (
-        <p className={styles.text} key={item.subId}>
-          {item.text}
-        </p>
-      );
-    } else if (item.horizontal !== undefined) {
-      return (
-        <img
-          className={`${styles.image} ${styles.horizontal}`}
-          key={item.subId}
-          src={item.horizontal}
-          alt={item.name}
-          loading="lazy"
-        />
-      );
-    } else if (item.vertical !== undefined) {
-      return (
-        <img
-          className={`${styles.image} ${styles.vertical}`}
-          key={item.subId}
-          src={item.vertical}
-          alt={item.name}
-          loading="lazy"
-        />
-      );
-    }
-  };
+export default function Appendix({ foundProduct, activeButton }) {
+  const items = activeButton
+    ? foundProduct.images.description
+    : foundProduct.images.information;
 
   return (
-    <div className={styles.Appendix}>
-      {activeButton
-        ? foundProduct.description &&
-          foundProduct.description.map((item) => {
-            return judgeClassName(item);
-          })
-        : foundProduct.information &&
-          foundProduct.information.map((item) => {
-            return judgeClassName(item);
-          })}
+    <div className={styles.appendix}>
+      {items &&
+        items.map((item) => (
+          <div className={styles.imgBox} key={item.name}>
+            <img className={styles.image} src={item.image} alt={item.name} />
+          </div>
+        ))}
     </div>
   );
 }

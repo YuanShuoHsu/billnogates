@@ -59,7 +59,7 @@ export default function Remittance() {
         getDoc(docRef).then((docSnap) => {
           if (docSnap.exists()) {
             const { history } = docSnap.data();
-            setHistory(history[history.length - 1]);
+            setHistory(history[0]);
           } else {
             // doc.data() will be undefined in this case
             // console.log("No such document!");

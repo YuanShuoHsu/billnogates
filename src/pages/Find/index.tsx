@@ -21,7 +21,7 @@ export default function Find() {
   const { state } = location;
   const { keyWord } = state || {};
 
-  const products = useSelector((state: RootState) => state.product.value);
+  const products = useSelector((state: RootState) => state.products.value);
   const findProduct = products.filter((item) =>
     keyWord ? item.name.toLowerCase().includes(keyWord.toLowerCase()) : null
   );

@@ -11,8 +11,10 @@ import styles from "./index.module.scss";
 export default function GalleryOptions(props) {
   const { foundProduct } = props;
 
-  const [selectedSize, setSelectedSize] = useState(Object.keys(foundProduct.dimensions)[0]);
-  const [color, setColor] = useState(foundProduct.color[0].name);
+  const [selectedSize, setSelectedSize] = useState(
+    Object.keys(foundProduct.dimensions)[0]
+  );
+  const [selectedColor, setSelectedColor] = useState(Object.keys(foundProduct.colors)[0]);
   const [number, setNumber] = useState(1);
 
   const minNumber = 1;
@@ -29,7 +31,7 @@ export default function GalleryOptions(props) {
 
   const handleColorChange = (event) => {
     const { target } = event;
-    setColor(target.value);
+    setSelectedColor(target.value);
   };
 
   const handleSizeChange = (event) => {
@@ -54,7 +56,7 @@ export default function GalleryOptions(props) {
       addToCartbarItem({
         cartbarItem,
         foundProduct,
-        color,
+        selectedColor,
         selectedSize,
         number,
         maxNumber,
@@ -74,13 +76,15 @@ export default function GalleryOptions(props) {
   return (
     <form onSubmit={handleSubmit} className={styles.GalleryOptions}>
       <h2 className={styles.title}>{foundProduct.name}</h2>
-      <h3 className={styles.title}>NT${foundProduct.dimensions[selectedSize]}</h3>
+      <h3 className={styles.title}>
+        NT${foundProduct.dimensions[selectedSize]}
+      </h3>
       <div className={styles.box}>
         <div className={styles.option}>
           <span className={styles.text}>品項：</span>
           <div className={styles.wrap}>
             {foundProduct.dimensions &&
-              Object.entries(foundProduct.dimensions).map(([size, _]) => (
+              Object.entries(foundProduct.dimensions).map(([size]) => (
                 <div className={styles.radio} key={size}>
                   <input
                     onChange={handleSizeChange}
@@ -105,24 +109,24 @@ export default function GalleryOptions(props) {
         <div className={styles.option}>
           <span className={styles.text}>顏色：</span>
           <div className={styles.wrap}>
-            {foundProduct.color &&
-              foundProduct.color.map((item) => (
-                <div className={styles.radio} key={item.subId}>
+            {foundProduct.colors &&
+              Object.entries(foundProduct.colors).map(([color,rgb]) => (
+                <div className={styles.radio} key={color}>
                   <input
                     onChange={handleColorChange}
                     className={styles.input}
                     type="radio"
                     name="color"
-                    value={item.name}
-                    id={item.name}
-                    checked={color === item.name}
+                    value={color}
+                    id={color}
+                    checked={color === selectedColor}
                     required
                   />
                   <label
-                    style={{ background: item.rgb }}
+                    style={{ background: rgb }}
                     className={`${styles.label} ${styles.circle}`}
-                    htmlFor={item.name}
-                    title={item.name}
+                    htmlFor={color}
+                    title={color}
                   />
                 </div>
               ))}
