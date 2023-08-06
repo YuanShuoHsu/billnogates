@@ -8,9 +8,9 @@ export default function CartbarContent({ cartbarItem }) {
       {cartbarItem &&
         cartbarItem.map((item) => (
           <CartbarContentItem
+            key={`${item.id} ${item.selectedSize} ${item.selectedColor}`}
             cartbarItem={cartbarItem}
             item={item}
-            key={`${item.id} ${item.choose}`}
           />
         ))}
     </div>

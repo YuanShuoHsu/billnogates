@@ -6,6 +6,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../../../utils/firebase";
 import { doc, getDoc } from "firebase/firestore";
 
+import { formatDate } from "../../../../utils/formatDateTime";
+
 import styles from "./index.module.scss";
 
 export default function Sheet() {
@@ -25,7 +27,7 @@ export default function Sheet() {
         getDoc(docRef).then((docSnap) => {
           if (docSnap.exists()) {
             const { history } = docSnap.data();
-            setHistory(history.reverse());
+            setHistory(history);
           } else {
             setHistory([]);
             // doc.data() will be undefined in this case
@@ -51,14 +53,6 @@ export default function Sheet() {
       }
     }
   }, [history, sheetId, navigate]);
-
-  const formatDate = (date) => {
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const dayOfWeek = ["日", "一", "二", "三", "四", "五", "六"][date.getDay()];
-    return `${year}/${month}/${day}(${dayOfWeek})`;
-  };
 
   const getTotalPrice = () => {
     const { sum, discount, deliveryFee } = history[sheetId - 1].information;
@@ -148,8 +142,8 @@ export default function Sheet() {
                   <div className={styles.imgBox}>
                     <img
                       className={styles.image}
-                      src={item.images.main}
-                      alt={item.name}
+                      src={item.images.main.src}
+                      alt={item.images.main.alt}
                     />
                   </div>
                   <div className={styles.information}>

@@ -3,36 +3,12 @@ import { RootState } from "../../store";
 
 import ProductsCard from "../ProductsCard";
 
+import Products from "../../typings/products"
+
 import styles from "./index.module.scss";
 
-interface ProductsItem {
-  id: number;
-  name: string;
-  dimensions: {
-    [size: string]: number;
-  };
-  colors: {
-    [rgb: string]: string;
-  };
-  images: {
-    main: string;
-    gallery: {
-      image: string;
-      name: string;
-    }[];
-    description: {
-      image: string;
-      name: string;
-    }[];
-    information: {
-      image: string;
-      name: string;
-    }[];
-  };
-}
-
 interface ProductsProps {
-  products: ProductsItem[];
+  products: Products[];
 }
 
 export default function Product({ products }: ProductsProps) {
@@ -48,10 +24,10 @@ export default function Product({ products }: ProductsProps) {
         <ProductsCard
           key={item.id}
           id={item.id}
-          image={item.images.main}
           name={item.name}
-          dimensions={item.dimensions}
           colors={item.colors}
+          main={item.images.main}
+          dimensions={item.dimensions}
           gallery={item.images.gallery}
           description={item.images.description}
           information={item.images.information}

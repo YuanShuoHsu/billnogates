@@ -18,8 +18,8 @@ export default function CartbarContentItem({ cartbarItem, item }) {
         <div className={styles.imgBox}>
           <img
             className={styles.image}
-            src={item.images.main}
-            alt={item.name}
+            src={item.images.main.src}
+            alt={item.images.main.alt}
           />
         </div>
         <div className={styles.information}>

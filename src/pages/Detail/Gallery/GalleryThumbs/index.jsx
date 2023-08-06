@@ -40,8 +40,8 @@ export default function GalleryThumbs(props) {
       >
         {foundProduct.images.gallery &&
           foundProduct.images.gallery.map((item) => (
-            <SwiperSlide key={item.name}>
-              <img src={item.image} alt={item.name} />
+            <SwiperSlide key={item.alt}>
+              <img src={item.src} alt={item.alt} />
             </SwiperSlide>
           ))}
       </Swiper>
@@ -61,8 +61,8 @@ export default function GalleryThumbs(props) {
       >
         {foundProduct.images.gallery &&
           foundProduct.images.gallery.map((item) => (
-            <SwiperSlide key={item.name}>
-              <img src={item.image} alt={item.name} />
+            <SwiperSlide key={item.alt}>
+              <img src={item.src} alt={item.alt} />
             </SwiperSlide>
           ))}
       </Swiper>

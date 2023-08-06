@@ -1,9 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const data = JSON.parse(localStorage.getItem("CARTBAR_PRODUCTS")) || [];
+const data = localStorage.getItem("CARTBAR_PRODUCTS");
+let parsedData = [];
+try {
+  parsedData = JSON.parse(data) || [];
+} catch (error) {
+  parsedData = [];
+}
 
 const initialState = {
-  value: data,
+  value: parsedData,
 };
 
 export const cartbarItemSlice = createSlice({
@@ -25,22 +31,22 @@ export const cartbarItemSlice = createSlice({
       } = data.payload;
 
       const newCartbarItem = JSON.parse(JSON.stringify(cartbarItem));
-      const newfoundProduct = JSON.parse(JSON.stringify(foundProduct));
+      const newFoundProduct = JSON.parse(JSON.stringify(foundProduct));
 
-      // newfoundProduct.choose = [selectedColor, selectedSize];
-      newfoundProduct.selectedColor=  selectedColor;
-      newfoundProduct.selectedSize=selectedSize;
-      newfoundProduct.price = newfoundProduct.dimensions[selectedSize];
+      newFoundProduct.selectedColor = selectedColor;
+      newFoundProduct.selectedSize = selectedSize;
+      newFoundProduct.price = newFoundProduct.dimensions[selectedSize];
 
       const findNewCartbarItem = newCartbarItem.find(
         (item) =>
-          item.id === newfoundProduct.id &&
-          JSON.stringify(item.choose) === JSON.stringify(newfoundProduct.choose)
+          item.id === newFoundProduct.id &&
+          item.selectedSize === newFoundProduct.selectedSize &&
+          item.selectedColor === newFoundProduct.selectedColor
       );
 
       if (!findNewCartbarItem) {
-        newfoundProduct.number = number;
-        state.value = [newfoundProduct, ...newCartbarItem];
+        newFoundProduct.number = number;
+        state.value = [newFoundProduct, ...newCartbarItem];
       } else {
         if (findNewCartbarItem.number + number <= maxNumber) {
           findNewCartbarItem.number += number;
@@ -60,7 +66,8 @@ export const cartbarItemSlice = createSlice({
       const findNewCartbarItem = newCartbarItem.find(
         (element) =>
           element.id === item.id &&
-          JSON.stringify(element.choose) === JSON.stringify(item.choose)
+          element.selectedSize === item.selectedSize &&
+          element.selectedColor === item.selectedColor
       );
 
       if (findNewCartbarItem.number > minNumber) {
@@ -76,9 +83,10 @@ export const cartbarItemSlice = createSlice({
       const newCartbarItem = JSON.parse(JSON.stringify(cartbarItem));
 
       const findNewCartbarItem = newCartbarItem.find(
-        (obj) =>
-          obj.id === item.id &&
-          JSON.stringify(obj.choose) === JSON.stringify(item.choose)
+        (element) =>
+          element.id === item.id &&
+          element.selectedSize === item.selectedSize &&
+          element.selectedColor === item.selectedColor
       );
 
       if (findNewCartbarItem.number < maxNumber) {
@@ -91,9 +99,7 @@ export const cartbarItemSlice = createSlice({
     deleteCartbarItem: (state, data) => {
       const { cartbarItem, item } = data.payload;
 
-      const newCartbarItem = cartbarItem.filter(
-        (obj) => JSON.stringify(obj) !== JSON.stringify(item)
-      );
+      const newCartbarItem = cartbarItem.filter((obj) => obj !== item);
       state.value = [...newCartbarItem];
 
       localStorage.setItem("CARTBAR_PRODUCTS", JSON.stringify(state.value));

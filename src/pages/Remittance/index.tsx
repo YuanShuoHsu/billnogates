@@ -6,6 +6,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../utils/firebase";
 import { doc, getDoc } from "firebase/firestore";
 
+import { formatDate, formatTime } from "../../utils/formatDateTime";
+
 import Cartbar from "../../components/Cartbar";
 import Sidebar from "../../components/Sidebar";
 import ScrollToTopButton from "../../components/ScrollToTopButton";
@@ -76,20 +78,6 @@ export default function Remittance() {
     });
     return () => userState();
   }, [navigate, keyWord]);
-
-  const formatDate = (date: Date) => {
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const dayOfWeek = ["日", "一", "二", "三", "四", "五", "六"][date.getDay()];
-    return `${year}/${month}/${day}(${dayOfWeek})`;
-  };
-
-  const formatTime = (date: Date) => {
-    const hours = date.getHours().toString().padStart(2, "0");
-    const minutes = date.getMinutes().toString().padStart(2, "0");
-    return `${hours}:${minutes}`;
-  };
 
   const renderInformation = (type: string) => {
     if (history) {

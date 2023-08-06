@@ -9,6 +9,7 @@ import paginationReducer from "./slice/pagination";
 import productsReducer from "./slice/products";
 import searchReducer from "./slice/search";
 import sidebarReducer from "./slice/sidebar";
+import recaptchaReducer from "./slice/recaptcha";
 
 export const store = configureStore({
   reducer: {
@@ -19,6 +20,7 @@ export const store = configureStore({
     headerNavSubMenu: headerNavSubMenuReducer,
     pagination: paginationReducer,
     products: productsReducer,
+    recaptcha: recaptchaReducer,
     search: searchReducer,
     sidebar: sidebarReducer,
   },

@@ -13,35 +13,38 @@ const products = [
       淺色: "#ccc",
     },
     images: {
-      main: require("../images/product/photo/聯名合作/連衣連・扭扭運動好蔬活/印花帽子/花椰菜菜子裡的小白蟲先生/花椰菜菜子裡的小白蟲先生1.jpg"),
+      main: {
+        src: require("../images/product/photo/聯名合作/連衣連・扭扭運動好蔬活/印花帽子/花椰菜菜子裡的小白蟲先生/花椰菜菜子裡的小白蟲先生1.jpg"),
+        alt: "花椰菜帽1",
+      },
       gallery: [
         {
-          image: require("../images/product/photo/聯名合作/連衣連・扭扭運動好蔬活/印花帽子/花椰菜菜子裡的小白蟲先生/花椰菜菜子裡的小白蟲先生1.jpg"),
-          name: "花椰菜帽1",
+          src: require("../images/product/photo/聯名合作/連衣連・扭扭運動好蔬活/印花帽子/花椰菜菜子裡的小白蟲先生/花椰菜菜子裡的小白蟲先生1.jpg"),
+          alt: "花椰菜帽1",
         },
         {
-          image: require("../images/product/photo/聯名合作/連衣連・扭扭運動好蔬活/印花帽子/花椰菜菜子裡的小白蟲先生/花椰菜菜子裡的小白蟲先生2.jpg"),
-          name: "花椰菜帽2",
+          src: require("../images/product/photo/聯名合作/連衣連・扭扭運動好蔬活/印花帽子/花椰菜菜子裡的小白蟲先生/花椰菜菜子裡的小白蟲先生2.jpg"),
+          alt: "花椰菜帽2",
         },
         {
-          image: require("../images/product/photo/聯名合作/連衣連・扭扭運動好蔬活/印花帽子/花椰菜菜子裡的小白蟲先生/花椰菜菜子裡的小白蟲先生3.jpg"),
-          name: "花椰菜帽3",
+          src: require("../images/product/photo/聯名合作/連衣連・扭扭運動好蔬活/印花帽子/花椰菜菜子裡的小白蟲先生/花椰菜菜子裡的小白蟲先生3.jpg"),
+          alt: "花椰菜帽3",
         },
         {
-          image: require("../images/product/photo/聯名合作/連衣連・扭扭運動好蔬活/印花帽子/花椰菜菜子裡的小白蟲先生/花椰菜菜子裡的小白蟲先生4.jpg"),
-          name: "花椰菜帽4",
+          src: require("../images/product/photo/聯名合作/連衣連・扭扭運動好蔬活/印花帽子/花椰菜菜子裡的小白蟲先生/花椰菜菜子裡的小白蟲先生4.jpg"),
+          alt: "花椰菜帽4",
         },
       ],
       description: [
         {
-          image: require("../images/product/photo/聯名合作/連衣連・扭扭運動好蔬活/印花帽子/花椰菜菜子裡的小白蟲先生/花椰菜菜子裡的小白蟲先生1.jpg"),
-          name: "花椰菜帽1",
+          src: require("../images/product/photo/聯名合作/連衣連・扭扭運動好蔬活/印花帽子/花椰菜菜子裡的小白蟲先生/花椰菜菜子裡的小白蟲先生1.jpg"),
+          alt: "花椰菜帽1",
         },
       ],
       information: [
         {
-          image: require("../images/product/photo/聯名合作/連衣連・扭扭運動好蔬活/印花帽子/花椰菜菜子裡的小白蟲先生/花椰菜菜子裡的小白蟲先生2.jpg"),
-          name: "花椰菜帽2",
+          src: require("../images/product/photo/聯名合作/連衣連・扭扭運動好蔬活/印花帽子/花椰菜菜子裡的小白蟲先生/花椰菜菜子裡的小白蟲先生2.jpg"),
+          alt: "花椰菜帽2",
         },
       ],
     },

@@ -5,6 +5,8 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../../utils/firebase";
 import { doc, getDoc } from "firebase/firestore";
 
+import { formatDate,formatTime } from "../../../utils/formatDateTime";
+
 import styles from "./index.module.scss";
 
 interface HistoryItem {
@@ -82,20 +84,6 @@ export default function Purchase() {
   //         };
   //     }
   // }, [history]);
-
-  const formatDate = (date: Date) => {
-    const year = date.getFullYear();
-    const month = date.getMonth() + 1;
-    const day = date.getDate();
-    const dayOfWeek = ["日", "一", "二", "三", "四", "五", "六"][date.getDay()];
-    return `${year}/${month}/${day}(${dayOfWeek})`;
-  };
-
-  const formatTime = (date: Date) => {
-    const hours = date.getHours().toString().padStart(2, "0");
-    const minutes = date.getMinutes().toString().padStart(2, "0");
-    return `${hours}:${minutes}`;
-  };
 
   const renderInformation = (type: string, item: HistoryItem) => {
     if (history) {

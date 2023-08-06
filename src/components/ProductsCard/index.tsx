@@ -10,27 +10,32 @@ type Colors = {
   [rgb: string]: string;
 };
 
+type Main = {
+  src: string;
+  alt: string;
+}
+
 type Gallery = {
-  image: string;
-  name: string;
+  src: string;
+  alt: string;
 };
 
 type Description = {
-  image: string;
-  name: string;
+  src: string;
+  alt: string;
 };
 
 type Information = {
-  image: string;
-  name: string;
+  src: string;
+  alt: string;
 };
 
 interface ProductsCardProps {
   id: number;
-  image: string;
   name: string;
   dimensions: Dimensions;
   colors: Colors;
+  main: Main;
   gallery: Gallery[];
   description: Description[];
   information: Information[];
@@ -38,8 +43,8 @@ interface ProductsCardProps {
 
 export default function ProductsCard({
   id,
-  image,
   name,
+  main,
   dimensions,
 }: ProductsCardProps) {
   const renderPriceRange = (dimensions: ProductsCardProps["dimensions"]) => {
@@ -67,8 +72,8 @@ export default function ProductsCard({
           <div className={styles.productsCard__imgBox}>
             <img
               className={styles.productsCard__image}
-              src={image}
-              alt={name}
+              src={main.src}
+              alt={main.alt}
             />
           </div>
         </div>

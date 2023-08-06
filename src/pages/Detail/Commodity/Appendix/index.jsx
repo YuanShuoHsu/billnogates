@@ -9,8 +9,8 @@ export default function Appendix({ foundProduct, activeButton }) {
     <div className={styles.appendix}>
       {items &&
         items.map((item) => (
-          <div className={styles.imgBox} key={item.name}>
-            <img className={styles.image} src={item.image} alt={item.name} />
+          <div className={styles.imgBox} key={item.alt}>
+            <img className={styles.image} src={item.src} alt={item.alt} />
           </div>
         ))}
     </div>

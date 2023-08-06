@@ -9,18 +9,21 @@ interface Color {
 }
 
 interface ImageData {
-  main: string;
+  main: {
+    src: string;
+    alt: string;
+  }
   gallery: {
-    image: string;
-    name: string;
+    src: string;
+    alt: string;
   }[];
   description: {
-    image: string;
-    name: string;
+    src: string;
+    alt: string;
   }[];
   information: {
-    image: string;
-    name: string;
+    src: string;
+    alt: string;
   }[];
 }
 
@@ -48,8 +51,8 @@ export default function Order({ item }: OrderProps) {
           <div className={styles.imgBox}>
             <img
               className={styles.image}
-              src={item.images.main}
-              alt={item.name}
+              src={item.images.main.src}
+              alt={item.images.main.alt}
             />
           </div>
           <div className={styles.information}>
