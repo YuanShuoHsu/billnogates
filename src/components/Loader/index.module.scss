@@ -1,4 +1,5 @@
 @import "../../styles/keyframes.module.scss";
+@import "../../styles/themes.module.scss";
 
 .loader {
   position: relative;
@@ -12,7 +13,7 @@
     width: 20px;
     height: 20px;
     display: block;
-    background: #0091db;
+    background-color: $primaryBlue;
     border-radius: 50%;
     animation: loading1 ease-in-out 1s infinite;
 
@@ -29,11 +30,10 @@
 
     &:last-child {
       left: 50%;
-      background: rgba(0, 0, 0, 0.1);
+      background-color: rgba(0, 0, 0, 0.1);
       backdrop-filter: blur(10px);
       border: 1px solid rgba(255, 255, 255, 0.1);
-      animation: loading2 ease-in-out 1s infinite;
-      animation-delay: -0.5s;
+      animation: loading2 ease-in-out 1s infinite -0.5s;
 
       @include keyframes-animation(loading2) {
         0%,

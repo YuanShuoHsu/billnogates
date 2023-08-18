@@ -14,7 +14,9 @@ export default function GalleryOptions(props) {
   const [selectedSize, setSelectedSize] = useState(
     Object.keys(foundProduct.dimensions)[0]
   );
-  const [selectedColor, setSelectedColor] = useState(Object.keys(foundProduct.colors)[0]);
+  const [selectedColor, setSelectedColor] = useState(
+    Object.keys(foundProduct.colors)[0]
+  );
   const [number, setNumber] = useState(1);
 
   const minNumber = 1;
@@ -110,7 +112,7 @@ export default function GalleryOptions(props) {
           <span className={styles.text}>顏色：</span>
           <div className={styles.wrap}>
             {foundProduct.colors &&
-              Object.entries(foundProduct.colors).map(([color,rgb]) => (
+              Object.entries(foundProduct.colors).map(([color, rgb]) => (
                 <div className={styles.radio} key={color}>
                   <input
                     onChange={handleColorChange}
@@ -136,13 +138,15 @@ export default function GalleryOptions(props) {
           <span className={styles.text}>數量：</span>
           <div className={styles.number}>
             <button onClick={decrement} className={styles.button}>
-              <svg
-                className={styles.svg}
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 448 512"
-              >
-                <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" />
-              </svg>
+              <div className={styles.svgBox}>
+                <svg
+                  className={styles.svg}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
+                  <path d="M432 256c0 17.7-14.3 32-32 32L48 288c-17.7 0-32-14.3-32-32s14.3-32 32-32l352 0c17.7 0 32 14.3 32 32z" />
+                </svg>
+              </div>
             </button>
             <input
               className={styles.input}
@@ -151,13 +155,15 @@ export default function GalleryOptions(props) {
               readOnly
             />
             <button onClick={increment} className={styles.button}>
-              <svg
-                className={styles.svg}
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 448 512"
-              >
-                <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
-              </svg>
+              <div className={styles.svgBox}>
+                <svg
+                  className={styles.svg}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 448 512"
+                >
+                  <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
+                </svg>
+              </div>
             </button>
           </div>
         </div>

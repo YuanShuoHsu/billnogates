@@ -1,3 +1,5 @@
+@import "../../../styles/themes.module.scss";
+
 .login {
   position: relative;
   padding: 10px;
@@ -25,7 +27,7 @@
           line-height: 20px;
           background-color: #fff;
           border-radius: 2px;
-          color: #e4027f;
+          color: $primaryPink;
           font-size: 12px;
           font-family: sans-serif;
           transform: translate(10px, -10px);
@@ -44,7 +46,7 @@
       font-size: 16px;
       font-weight: 400;
       letter-spacing: 1px;
-      transition: 0.2s;
+      transition: 0.2s all;
       pointer-events: none;
     }
 

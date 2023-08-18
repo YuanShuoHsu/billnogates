@@ -1,4 +1,4 @@
-.Forget {
+.forget {
   position: relative;
   padding: 5px;
 
@@ -22,10 +22,11 @@
         ~ .text {
           padding: 0 4px;
           line-height: 20px;
-          background: #fff;
+          background-color: #fff;
           border-radius: 2px;
           color: #e4027f;
-          font: normal normal 12px / normal sans-serif;
+          font-size: 12px;
+          font-family: sans-serif;
           letter-spacing: 1px;
           transform: translate(10px, -10px);
         }
@@ -37,13 +38,13 @@
       padding: 0 10px;
       left: 0;
       line-height: 40px;
-      background: transparent;
+      background-color: transparent;
       border-radius: 4px;
       color: rgba(0, 0, 0, 0.5);
       font-size: 16px;
       font-weight: 400;
       letter-spacing: 1px;
-      transition: 0.2s;
+      transition: 0.2s all;
       pointer-events: none;
     }
 

@@ -1,4 +1,5 @@
 @import "../../styles/breakpoints.module.scss";
+@import "../../styles/themes.module.scss";
 
 .banner {
   position: relative;
@@ -13,7 +14,7 @@
   :global(.swiper-slide) {
     padding: 0 20px;
     box-sizing: border-box;
-    background: rgba(245, 245, 245, 0.8);
+    background: $primaryWhiteSmokeAlpha80;
 
     display: flex;
     justify-content: center;

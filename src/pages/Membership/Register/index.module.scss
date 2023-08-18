@@ -1,3 +1,5 @@
+@import "../../../styles/themes.module.scss";
+
 .register {
   position: relative;
   padding: 10px;
@@ -23,9 +25,9 @@
         ~ .inputText {
           padding: 0 4px;
           line-height: 20px;
-          background: #fff;
+          background-color: #fff;
           border-radius: 2px;
-          color: #e4027f;
+          color: $primaryPink;
           font-size: 12px;
           font-family: sans-serif;
           letter-spacing: 1px;
@@ -38,14 +40,14 @@
       position: absolute;
       padding: 0 10px;
       left: 0;
-      line-height: 40px;
-      background: transparent;
+      background-color: transparent;
       border-radius: 4px;
       color: rgba(0, 0, 0, 0.5);
-      font-size: 16px;
       font-weight: 400;
+      font-size: 16px;
+      line-height: 40px;
       letter-spacing: 1px;
-      transition: 0.2s;
+      transition: 0.2s all;
       pointer-events: none;
     }
 
@@ -86,7 +88,7 @@
     padding: 0;
     width: 100%;
     height: 40px;
-    background: #e4027f;
+    background-color: $primaryPink;
     border: none;
     border-radius: 4px;
     cursor: pointer;

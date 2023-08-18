@@ -1,3 +1,5 @@
+@import "../../../styles/themes.module.scss";
+
 .payment {
   display: flex;
   flex-direction: column;
@@ -17,7 +19,7 @@
       align-items: center;
 
       .a {
-        color: #e4027f;
+        color: $primaryPink;
         text-decoration: none;
         font-size: 16px;
         font-family: sans-serif;
@@ -32,7 +34,7 @@
           display: block;
           width: 100%;
           height: 100%;
-          fill: #e4027f;
+          fill: $primaryPink;
         }
       }
     }

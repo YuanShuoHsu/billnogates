@@ -1,7 +1,9 @@
+@import "../../styles/themes.module.scss";
+
 .headerBrand {
   padding: 0 5px;
   height: 40px;
-  background-color: rgba(245, 245, 245, 0.8);
+  background-color: $primaryWhiteSmokeAlpha80;
   backdrop-filter: blur(4px);
   border: none;
   border-radius: 4px;
@@ -13,7 +15,7 @@
 
   &:hover {
     opacity: 0.8;
-    background-color: rgba(192, 192, 192, 0.2);
+    background-color: $primarySilverAlpha20;
   }
 
   &__logo {
@@ -39,15 +41,15 @@
     letter-spacing: 1px;
 
     &Blue {
-      color: #0091db;
+      color: $primaryBlue;
     }
 
     &Pink {
-      color: #e4027f;
+      color: $primaryPink;
     }
 
     &Yellow {
-      color: #ffe10a;
+      color: $primaryYellow;
     }
   }
 }

@@ -1,3 +1,5 @@
+@import "../../../styles/themes.module.scss";
+
 .purchase {
   position: relative;
   padding: 10px;
@@ -10,7 +12,7 @@
     position: sticky;
     bottom: -10px;
     width: 100%;
-    background-color: rgba(245, 245, 245, 0.8);
+    background-color: $primaryWhiteSmokeAlpha80;
     backdrop-filter: blur(4px);
     z-index: 1;
 
@@ -41,14 +43,14 @@
         padding: 0 5px;
         color: #fff;
         line-height: 20px;
-        background-color: #0091db;
+        background-color: $primaryBlue;
       }
 
       .purchase__fee {
         padding: 0 5px;
         color: #fff;
         line-height: 20px;
-        background-color: #e4027f;
+        background-color: $primaryPink;
       }
     }
   }

@@ -1,3 +1,5 @@
+@import "../../styles/themes.module.scss";
+
 .cartbarCheckout {
   position: sticky;
   bottom: 0;
@@ -7,7 +9,7 @@
 
     .cartbarCheckout__container {
       width: 100%;
-      background-color: rgba(228, 2, 126, 0.8);
+      background-color: $primaryPinkAlpha80;
       backdrop-filter: blur(4px);
       border: none;
       display: flex;

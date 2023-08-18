@@ -1,8 +1,10 @@
-.HeaderNavSubMenu {
+@import "../../styles/themes.module.scss";
+
+.headerNavSubMenu {
   position: relative;
   margin: 0;
   padding: 10px;
-  background: rgba(228, 2, 126, 0.8);
+  background-color: $primaryPinkAlpha80;
   backdrop-filter: blur(4px);
   display: flex;
   justify-content: space-evenly;

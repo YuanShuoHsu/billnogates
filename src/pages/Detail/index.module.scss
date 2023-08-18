@@ -1,8 +1,9 @@
 @import "../../styles/breakpoints.module.scss";
+@import "../../styles/themes.module.scss";
 
 .detail {
   position: relative;
-  background: rgba(245, 245, 245, 0.8);
+  background-color: $primaryWhiteSmokeAlpha80;
 
   &__main {
     padding: 10px;

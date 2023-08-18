@@ -1,10 +1,12 @@
+@import "../../styles/themes.module.scss";
+
 .cartbarTotal {
   position: sticky;
   bottom: 40px;
   padding: 0 20px;
   box-sizing: border-box;
   width: 100%;
-  background-color: rgba(245, 245, 245, 0.8);
+  background-color: $primaryWhiteSmokeAlpha80;
   backdrop-filter: blur(4px);
   display: flex;
   justify-content: flex-end;

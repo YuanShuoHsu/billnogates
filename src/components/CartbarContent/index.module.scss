@@ -1,6 +1,8 @@
+@import "../../styles/themes.module.scss";
+
 .cartbarContent {
   padding: 10px;
-  background-color: rgba(192, 192, 192, 0.2);
+  background-color: $primarySilverAlpha20;
   backdrop-filter: blur(4px);
   display: flex;
   flex-direction: column;

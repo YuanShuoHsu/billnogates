@@ -1,3 +1,5 @@
+@import "../../styles/themes.module.scss";
+
 .cartbar {
   position: fixed;
   top: 0;
@@ -19,7 +21,7 @@
   &__box {
     width: 300px;
     height: 100%;
-    background-color: rgba(245, 245, 245, 0.8);
+    background-color: $primaryWhiteSmokeAlpha80;
     backdrop-filter: blur(4px);
     display: flex;
     flex-direction: column;

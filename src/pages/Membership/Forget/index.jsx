@@ -1,6 +1,8 @@
-import React, { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 
 import { useNavigate } from "react-router-dom";
+
+import { useSelector } from "react-redux";
 
 import {
   signInWithEmailAndPassword,
@@ -63,29 +65,34 @@ export default function Forget() {
     return () => clearInterval(interval);
   }, [timer, timerIsShow]);
 
-  useEffect(() => {
-    setRecaptchaVerifier(
-      new RecaptchaVerifier(
-        "recaptcha-container",
-        {
-          size: "invisible",
-          callback: (response) => {
-            // reCAPTCHA solved, allow signInWithPhoneNumber.
-            // console.log("callback");
-          },
-          "expired-callback": () => {
-            // Response expired. Ask user to solve reCAPTCHA again.
-            // console.log("expired-callback")
-          },
-        },
-        auth
-      )
-    );
+  const recaptcha = useSelector((state) => state.recaptcha.value);
 
+  useEffect(() => {
+    if (recaptcha) {
+      setRecaptchaVerifier(
+        new RecaptchaVerifier(
+          recaptcha,
+          {
+            size: "invisible",
+            callback: (response) => {
+              // reCAPTCHA solved, allow signInWithPhoneNumber.
+              // console.log("callback")
+            },
+            "expired-callback": () => {
+              // Response expired. Ask user to solve reCAPTCHA again.
+              // console.log("expired-callback")
+            },
+          },
+          auth
+        )
+      );
+    }
     return () => {
-      setRecaptchaVerifier(null);
+      if (recaptcha) {
+        setRecaptchaVerifier(null);
+      }
     };
-  }, []);
+  }, [recaptcha]);
 
   const handleSave = (event, type) => {
     const { target } = event;
@@ -363,7 +370,7 @@ export default function Forget() {
   };
 
   return (
-    <form onSubmit={handleSubmit} className={styles.Forget}>
+    <form onSubmit={handleSubmit} className={styles.forget}>
       {!passwordIsShow ? (
         <Fragment>
           <div className={styles.inputBox}>
