@@ -1,10 +1,13 @@
 import { createSlice } from "@reduxjs/toolkit";
+import products from "../../dataset/products";
 
 const data = localStorage.getItem("CARTBAR_PRODUCTS");
+const localStorageProducts = localStorage.getItem("PRODUCTS");
 let parsedData = [];
-try {
-  parsedData = JSON.parse(data) || [];
-} catch (error) {
+
+if (JSON.stringify(products) === localStorageProducts) {
+  parsedData = JSON.parse(data);
+} else {
   parsedData = [];
 }
 
@@ -57,6 +60,7 @@ export const cartbarItemSlice = createSlice({
       }
 
       localStorage.setItem("CARTBAR_PRODUCTS", JSON.stringify(state.value));
+      localStorage.setItem("PRODUCTS", JSON.stringify(products));
     },
     decrementCartbarItem: (state, data) => {
       const { cartbarItem, item, minNumber } = data.payload;
@@ -76,6 +80,7 @@ export const cartbarItemSlice = createSlice({
       }
 
       localStorage.setItem("CARTBAR_PRODUCTS", JSON.stringify(state.value));
+      localStorage.setItem("PRODUCTS", JSON.stringify(products));
     },
     incrementCartbarItem: (state, data) => {
       const { cartbarItem, item, maxNumber } = data.payload;
@@ -95,6 +100,7 @@ export const cartbarItemSlice = createSlice({
       }
 
       localStorage.setItem("CARTBAR_PRODUCTS", JSON.stringify(state.value));
+      localStorage.setItem("PRODUCTS", JSON.stringify(products));
     },
     deleteCartbarItem: (state, data) => {
       const { cartbarItem, item } = data.payload;
@@ -103,6 +109,7 @@ export const cartbarItemSlice = createSlice({
       state.value = [...newCartbarItem];
 
       localStorage.setItem("CARTBAR_PRODUCTS", JSON.stringify(state.value));
+      localStorage.setItem("PRODUCTS", JSON.stringify(products));
     },
   },
 });
