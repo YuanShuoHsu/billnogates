@@ -8,6 +8,8 @@ let parsedData = [];
 if (JSON.stringify(products) === localStorageProducts) {
   parsedData = JSON.parse(data);
 } else {
+  localStorage.removeItem("CARTBAR_PRODUCTS");
+  localStorage.removeItem("PRODUCTS");
   parsedData = [];
 }
 
@@ -21,6 +23,7 @@ export const cartbarItemSlice = createSlice({
   reducers: {
     resetCartbarItem: (state) => {
       localStorage.removeItem("CARTBAR_PRODUCTS");
+      localStorage.removeItem("PRODUCTS");
       state.value = [];
     },
     addToCartbarItem: (state, data) => {
@@ -33,80 +36,73 @@ export const cartbarItemSlice = createSlice({
         maxNumber,
       } = data.payload;
 
-      const newCartbarItem = JSON.parse(JSON.stringify(cartbarItem));
-      const newFoundProduct = JSON.parse(JSON.stringify(foundProduct));
+      const newCartbarItem = cartbarItem.map((element) =>
+        element.id === foundProduct.id &&
+        element.selectedSize === selectedSize &&
+        element.selectedColor === selectedColor
+          ? {
+              ...element,
+              number: Math.min(element.number + number, maxNumber),
+            }
+          : element
+      );
 
-      newFoundProduct.selectedColor = selectedColor;
-      newFoundProduct.selectedSize = selectedSize;
-      newFoundProduct.price = newFoundProduct.dimensions[selectedSize];
-
-      const findNewCartbarItem = newCartbarItem.find(
+      const existingCartItem = newCartbarItem.find(
         (item) =>
-          item.id === newFoundProduct.id &&
-          item.selectedSize === newFoundProduct.selectedSize &&
-          item.selectedColor === newFoundProduct.selectedColor
+          item.id === foundProduct.id &&
+          item.selectedSize === selectedSize &&
+          item.selectedColor === selectedColor
       );
 
-      if (!findNewCartbarItem) {
-        newFoundProduct.number = number;
-        state.value = [newFoundProduct, ...newCartbarItem];
-      } else {
-        if (findNewCartbarItem.number + number <= maxNumber) {
-          findNewCartbarItem.number += number;
-        } else if (findNewCartbarItem.number + number > maxNumber) {
-          findNewCartbarItem.number += maxNumber - findNewCartbarItem.number;
-        }
-        state.value = [...newCartbarItem];
+      if (!existingCartItem) {
+        newCartbarItem.push({
+          ...foundProduct,
+          selectedColor,
+          selectedSize,
+          price: foundProduct.dimensions[selectedSize],
+          number,
+        });
       }
+
+      state.value = newCartbarItem;
 
       localStorage.setItem("CARTBAR_PRODUCTS", JSON.stringify(state.value));
       localStorage.setItem("PRODUCTS", JSON.stringify(products));
     },
-    decrementCartbarItem: (state, data) => {
-      const { cartbarItem, item, minNumber } = data.payload;
-
-      const newCartbarItem = JSON.parse(JSON.stringify(cartbarItem));
-
-      const findNewCartbarItem = newCartbarItem.find(
-        (element) =>
-          element.id === item.id &&
-          element.selectedSize === item.selectedSize &&
-          element.selectedColor === item.selectedColor
+    decrementCartbarItem: (
+      state,
+      { payload: { cartbarItem, item, minNumber } }
+    ) => {
+      state.value = cartbarItem.map((element) =>
+        element.id === item.id &&
+        element.selectedSize === item.selectedSize &&
+        element.selectedColor === item.selectedColor &&
+        element.number > minNumber
+          ? { ...element, number: element.number - 1 }
+          : element
       );
-
-      if (findNewCartbarItem.number > minNumber) {
-        findNewCartbarItem.number -= 1;
-        state.value = [...newCartbarItem];
-      }
 
       localStorage.setItem("CARTBAR_PRODUCTS", JSON.stringify(state.value));
       localStorage.setItem("PRODUCTS", JSON.stringify(products));
     },
-    incrementCartbarItem: (state, data) => {
-      const { cartbarItem, item, maxNumber } = data.payload;
-
-      const newCartbarItem = JSON.parse(JSON.stringify(cartbarItem));
-
-      const findNewCartbarItem = newCartbarItem.find(
-        (element) =>
-          element.id === item.id &&
-          element.selectedSize === item.selectedSize &&
-          element.selectedColor === item.selectedColor
+    incrementCartbarItem: (
+      state,
+      { payload: { cartbarItem, item, maxNumber } }
+    ) => {
+      state.value = cartbarItem.map((element) =>
+        element.id === item.id &&
+        element.selectedSize === item.selectedSize &&
+        element.selectedColor === item.selectedColor &&
+        element.number < maxNumber
+          ? { ...element, number: element.number + 1 }
+          : element
       );
-
-      if (findNewCartbarItem.number < maxNumber) {
-        findNewCartbarItem.number += 1;
-        state.value = [...newCartbarItem];
-      }
 
       localStorage.setItem("CARTBAR_PRODUCTS", JSON.stringify(state.value));
       localStorage.setItem("PRODUCTS", JSON.stringify(products));
     },
-    deleteCartbarItem: (state, data) => {
-      const { cartbarItem, item } = data.payload;
-
-      const newCartbarItem = cartbarItem.filter((obj) => obj !== item);
-      state.value = [...newCartbarItem];
+    deleteCartbarItem: (state, { payload: { cartbarItem, item } }) => {
+      state.value = cartbarItem.filter((element) => element !== item);
 
       localStorage.setItem("CARTBAR_PRODUCTS", JSON.stringify(state.value));
       localStorage.setItem("PRODUCTS", JSON.stringify(products));
