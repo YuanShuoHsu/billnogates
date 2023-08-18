@@ -1,23 +1,4 @@
-@mixin desktop {
-  @media (max-width: 768px) {
-    @content;
-  }
-}
-
-@mixin keyframes-animation($name) {
-  @-webkit-keyframes #{$name} {
-    @content;
-  }
-
-  @keyframes #{$name} {
-    @content;
-  }
-}
-
-@mixin prefix-property($name, $value) {
-  -webkit-#{$name}: $value;
-  #{$name}: $value;
-}
+@import "../../../../styles/keyframes.module.scss";
 
 .GalleryThumbs {
   position: relative;
@@ -103,11 +84,11 @@
 
         @include keyframes-animation(slide) {
           0% {
-            @include prefix-property(transform, translateY(10px));
+            transform: translateY(10px);
           }
 
           100% {
-            @include prefix-property(transform, translateY(0));
+            transform: translateY(0);
           }
         }
       }

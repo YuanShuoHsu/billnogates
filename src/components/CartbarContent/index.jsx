@@ -1,4 +1,4 @@
-import CartbarContentItem from "../CartbarContentItem";
+import CartbarContentItem from "./CartbarContentItem";
 
 import styles from "./index.module.scss";
 

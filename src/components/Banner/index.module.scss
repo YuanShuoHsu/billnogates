@@ -1,19 +1,6 @@
-$breakpoints: (
-  // xs: 0,
-  // sm: 576px,
-  md: 768px,
-  // lg: 992px,
-  // xl: 1200px,
-  // xxl: 1400px,
-);
+@import "../../styles/breakpoints.module.scss";
 
-@mixin respond-to($breakpoint) {
-  @media (max-width: map-get($breakpoints, $breakpoint)) {
-    @content;
-  }
-}
-
-.Banner {
+.banner {
   position: relative;
   width: 100%;
   height: auto;

@@ -51,7 +51,7 @@ export default function Banner() {
         disableOnInteraction: false,
         waitForTransition: false,
       }}
-      className={styles.Banner}
+      className={styles.banner}
       freeMode={{
         enabled: true,
         sticky: true,

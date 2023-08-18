@@ -27,7 +27,7 @@ export default function Find() {
   );
 
   return (
-    <div className={styles.Find}>
+    <div className={styles.find}>
       <Cartbar />
       <Sidebar />
       <ScrollToTopButton />

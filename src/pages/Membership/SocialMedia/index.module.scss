@@ -1,9 +1,3 @@
-@mixin others {
-  @media (max-width: 320px) {
-    @content;
-  }
-}
-
 .socialMedia {
   position: relative;
   display: flex;

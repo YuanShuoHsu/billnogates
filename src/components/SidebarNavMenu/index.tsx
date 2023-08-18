@@ -1,5 +1,5 @@
 import navs from "../../dataset/navs";
-import SidebarNavItem from "../SidebarNavItem";
+import SidebarNavItem from "./SidebarNavItem";
 
 import styles from "./index.module.scss";
 

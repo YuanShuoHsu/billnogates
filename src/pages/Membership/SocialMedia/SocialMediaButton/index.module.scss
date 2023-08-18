@@ -1,8 +1,4 @@
-@mixin others {
-  @media (max-width: 320px) {
-    @content;
-  }
-}
+@import "../../../../styles/breakpoints.module.scss";
 
 .button {
   padding: 0 10px;
@@ -41,7 +37,7 @@
     overflow: hidden;
     pointer-events: none;
 
-    @include others() {
+    @include respond-to(others) {
       display: none;
     }
 

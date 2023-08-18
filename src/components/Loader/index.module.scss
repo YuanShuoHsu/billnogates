@@ -1,8 +1,4 @@
-@mixin keyframes-animation($name) {
-  @keyframes #{$name} {
-    @content;
-  }
-}
+@import "../../styles/keyframes.module.scss";
 
 .loader {
   position: relative;

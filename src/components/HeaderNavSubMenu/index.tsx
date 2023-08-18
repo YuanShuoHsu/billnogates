@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import { RootState } from "../../store";
 
-import HeaderNavSubItem from "../HeaderNavSubItem";
+import HeaderNavSubItem from "./HeaderNavSubItem";
 
 import styles from "./index.module.scss";
 

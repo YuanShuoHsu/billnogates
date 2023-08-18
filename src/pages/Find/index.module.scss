@@ -1,10 +1,6 @@
-@mixin screen {
-  @media (max-width: 1200px) {
-    @content;
-  }
-}
+@import "../../styles/breakpoints.module.scss";
 
-.Find {
+.find {
   position: relative;
   background: rgba(245, 245, 245, 0.8);
 
@@ -31,7 +27,7 @@
     .grid {
       width: 80%;
 
-      @include screen() {
+      @include respond-to(xl) {
         width: 100%;
       }
     }

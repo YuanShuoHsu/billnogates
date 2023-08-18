@@ -1,12 +1,4 @@
-$breakpoints: (
-  md: 768px,
-);
-
-@mixin respond-to($breakpoint) {
-  @media (max-width: map-get($breakpoints, $breakpoint)) {
-    @content;
-  }
-}
+@import "../../styles/breakpoints.module.scss";
 
 .headerSearch {
   position: relative;
