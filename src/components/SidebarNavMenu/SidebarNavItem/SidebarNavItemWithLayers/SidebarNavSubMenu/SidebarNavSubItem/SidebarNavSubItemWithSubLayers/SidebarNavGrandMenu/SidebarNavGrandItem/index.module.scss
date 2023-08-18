@@ -1,3 +1,5 @@
+@import "../../../../../../../../../styles/themes.module.scss";
+
 .sidebarNavGrandItem {
   position: relative;
   width: 100%;
@@ -9,15 +11,15 @@
     .sidebarNavGrandItem__grandLink {
       padding: 0 10px;
       height: 40px;
-      background-color: rgba(192, 192, 192, 0.8);
+      background-color: $primarySilverAlpha80;
       backdrop-filter: blur(4px);
       display: flex;
       justify-content: center;
       align-items: center;
-      transition: 0.2s;
+      transition: 0.2s background-color;
 
       &:hover {
-        background-color: rgba(228, 2, 127, 1);
+        background-color: $primaryPink;
       }
 
       .sidebarNavGrandItem__grandText {
@@ -29,13 +31,13 @@
         overflow: hidden;
         text-overflow: ellipsis;
         direction: ltr;
-        transition: 0.2s;
+        transition: 0.2s color;
       }
     }
 
     &--active {
       .sidebarNavGrandItem__grandLink {
-        background-color: rgba(0, 145, 219, 1);
+        background-color: $primaryBlue;
 
         .sidebarNavGrandItem__grandText {
           color: #fff;

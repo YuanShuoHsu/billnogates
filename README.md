@@ -23,24 +23,29 @@ npm install firebase
 ## 主題色
 ```
 Blue
-#0091DB
-rgb(0, 145, 219)
+#0091db
+rgba(0, 145, 219, 0.5)
+rgba(0, 145, 219, 0.8)
 
 Pink
-#E4027F
-rgb(228, 2, 126)
+#e4027f
+rgba(228, 2, 126, 0.5)
+rgba(228, 2, 126, 0.8)
 
 Yellow
-#FFE10A
-rgb(255, 225, 10)
+#ffe10a
+rgba(255, 225, 10, 0.5)
+rgba(255, 225, 10, 0.8)
 
 WhiteSmoke
-F5F5F5
-rgba(245, 245, 245, 0.8);
+#f5f5f5
+rgba(245, 245, 245, 0.8)
 
 Silver
-C0C0C0
-rgba(192, 192, 192, 0.2);
+#c0c0c0
+rgba(192, 192, 192, 0.2)
+rgba(192, 192, 192, 0.5)
+rgba(192, 192, 192, 0.8)
 ```
 
 # Getting Started with Create React App

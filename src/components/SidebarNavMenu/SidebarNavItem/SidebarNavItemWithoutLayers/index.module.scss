@@ -1,3 +1,5 @@
+@import "../../../../styles/themes.module.scss";
+
 .sidebarNavItemWithoutLayers {
   position: relative;
   width: 100%;
@@ -9,16 +11,16 @@
     .sidebarNavItemWithoutLayers__link {
       padding: 0 20px;
       height: 40px;
-      background-color: rgba(192, 192, 192, 0.2);
+      background-color: $primarySilverAlpha20;
       backdrop-filter: blur(4px);
       display: flex;
       justify-content: flex-start;
       align-items: center;
       cursor: pointer;
-      transition: 0.2s;
+      transition: 0.2s background-color;
 
       &:hover {
-        background: rgba(228, 2, 127, 0.5);
+        background-color: $primaryPinkAlpha50;
       }
 
       .sidebarNavItemWithoutLayers__text {
@@ -30,13 +32,13 @@
         overflow: hidden;
         text-overflow: ellipsis;
         direction: ltr;
-        transition: 0.2s;
+        transition: 0.2s color;
       }
     }
 
     &--active {
       .sidebarNavItemWithoutLayers__link {
-        background-color: rgba(0, 145, 219, 0.5);
+        background-color: $primaryBlueAlpha50;
 
         .sidebarNavItemWithoutLayers__text {
           color: #fff;

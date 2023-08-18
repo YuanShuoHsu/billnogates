@@ -1,11 +1,12 @@
 @import "../../styles/breakpoints.module.scss";
 @import "../../styles/keyframes.module.scss";
+@import "../../styles/themes.module.scss";
 
 .ticker {
   position: relative;
   width: 100%;
   height: 30px;
-  background-color: #e4027f;
+  background-color: $primaryPink;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
   display: flex;
   align-items: center;
@@ -18,7 +19,7 @@
 
   &__content {
     padding: 0 5px;
-    background: #fff;
+    background-color: $primaryWhiteSmoke;
     border-radius: 2px;
     color: #000;
     font-size: 16px;
@@ -66,7 +67,7 @@
     }
 
     &Hue {
-      color: #e4027f;
+      color: $primaryPink;
     }
   }
 }

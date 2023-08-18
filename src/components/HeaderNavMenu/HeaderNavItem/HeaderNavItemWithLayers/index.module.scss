@@ -1,3 +1,5 @@
+@import "../../../../styles/themes.module.scss";
+
 .headerNavItemWithLayers {
   position: relative;
   list-style: none;
@@ -5,15 +7,15 @@
   &__link {
     padding: 0 20px;
     height: 40px;
-    background: rgba(192, 192, 192, 0.2);
+    background-color: $primarySilverAlpha20;
     backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
     cursor: pointer;
-    transition: 0.2s;
+    transition: 0.2s background-color;
 
     &:hover {
-      background: rgba(228, 2, 126, 0.5);
+      background-color: $primaryPinkAlpha50;
     }
 
     .headerNavItemWithLayers__text {
@@ -32,12 +34,12 @@
         width: 100%;
         height: 100%;
         fill: #000;
-        transition: 0.2s;
+        transition: 0.2s transform;
       }
     }
 
     &--active {
-      background: rgba(255, 225, 10, 0.5);
+      background-color: $primaryYellowAlpha50;
 
       .headerNavItemWithLayers__svgBox {
         .headerNavItemWithLayers__svg {
