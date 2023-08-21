@@ -11,8 +11,6 @@ interface ProductsCardProps {
 export default function ProductsCard({
   products: { id, name, dimensions, images },
 }: ProductsCardProps) {
-  const { main } = images;
-
   const renderPriceRange = (dimensions: {
     [size: string]: number | undefined;
   }) => {
@@ -44,8 +42,8 @@ export default function ProductsCard({
           <div className={styles.productsCard__imgBox}>
             <img
               className={styles.productsCard__image}
-              src={main.src}
-              alt={main.alt}
+              src={images.main.src}
+              alt={images.main.alt}
             />
           </div>
         </div>
