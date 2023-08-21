@@ -5,7 +5,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { auth, db } from "../../../utils/firebase";
 import { doc, getDoc } from "firebase/firestore";
 
-import { formatDate,formatTime } from "../../../utils/formatDateTime";
+import { formatDate, formatTime } from "../../../utils/formatDateTime";
 
 import styles from "./index.module.scss";
 
@@ -44,7 +44,7 @@ export default function Purchase() {
             const { history } = docSnap.data();
             setHistory(history);
           } else {
-            setHistory(null);
+            setHistory([]);
             // doc.data() will be undefined in this case
             // console.log("No such document!");
           }
