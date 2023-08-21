@@ -74,7 +74,6 @@
 
         .title {
           color: #000;
-          font-family: sans-serif;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -86,7 +85,6 @@
           color: #000;
           font-size: 16px;
           line-height: 40px;
-          font-family: sans-serif;
           letter-spacing: 1px;
         }
       }
@@ -105,7 +103,6 @@
           text-align: center;
           font-size: 16px;
           line-height: 40px;
-          font-family: sans-serif;
           letter-spacing: 1px;
 
           &:first-child {
