@@ -10,9 +10,7 @@ import "swiper/scss/thumbs";
 
 import styles from "./index.module.scss";
 
-export default function GalleryThumbs(props) {
-  const { foundProduct } = props;
-
+export default function GalleryThumbs({ foundProduct }) {
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
 
   return (

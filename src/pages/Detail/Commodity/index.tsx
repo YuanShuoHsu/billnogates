@@ -2,12 +2,17 @@ import { useState } from "react";
 
 import Appendix from "./Appendix";
 
+import { Products } from "../../../typings/products";
 import styles from "./index.module.scss";
 
-export default function Commodity({ foundProduct }) {
-  const [activeButton, setActiveButton] = useState(true);
+interface CommodityProps {
+  foundProduct: Products;
+}
 
-  const handleActiveButton = (boolean) => {
+export default function Commodity({ foundProduct }: CommodityProps) {
+  const [activeButton, setActiveButton] = useState<boolean>(true);
+
+  const handleActiveButton = (boolean: boolean) => {
     setActiveButton(boolean);
   };
 
@@ -16,13 +21,17 @@ export default function Commodity({ foundProduct }) {
       <div className={styles.commodity__buttonGroup}>
         <button
           onClick={() => handleActiveButton(true)}
-          className={`${styles.commodity__button} ${activeButton ? styles.active : ""}`}
+          className={`${styles.commodity__button} ${
+            activeButton ? styles.active : ""
+          }`}
         >
           商品描述
         </button>
         <button
           onClick={() => handleActiveButton(false)}
-          className={`${styles.commodity__button} ${activeButton ? "" : styles.active}`}
+          className={`${styles.commodity__button} ${
+            activeButton ? "" : styles.active
+          }`}
         >
           商品資訊
         </button>

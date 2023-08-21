@@ -1,11 +1,15 @@
 import GalleryThumbs from "./GalleryThumbs";
 import GalleryOptions from "./GalleryOptions";
 
+import { Products } from "../../../typings/products";
+
 import styles from "./index.module.scss";
 
-export default function Gallery(props) {
-  const { foundProduct } = props;
+interface GalleryProps {
+  foundProduct: Products;
+}
 
+export default function Gallery({ foundProduct }: GalleryProps) {
   return (
     <div className={styles.gallery}>
       <div className={styles.gallery__box}>

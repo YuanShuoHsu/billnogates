@@ -18,11 +18,9 @@ export default function Detail() {
   const { productId } = useParams();
   const navigate = useNavigate();
 
-  const findProductById = (productId) => {
-    return products.find((detailObj) => detailObj.id === Number(productId));
-  };
-
-  const foundProduct = findProductById(productId);
+  const foundProduct = products.find(
+    (detailObj) => detailObj.id === Number(productId)
+  );
 
   useEffect(() => {
     if (!foundProduct) {

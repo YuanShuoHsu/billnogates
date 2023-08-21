@@ -1,16 +1,20 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 
 import { useDispatch, useSelector } from "react-redux";
-
+import { RootState } from "../../../../store";
 import { addToCartbarItem } from "../../../../store/slice/cartbarItem";
+
+import { Products } from "../../../../typings/products";
 
 import styles from "./index.module.scss";
 
-export default function GalleryOptions(props) {
-  const { foundProduct } = props;
+interface GalleryOptionsProps {
+  foundProduct: Products;
+}
 
+export default function GalleryOptions({ foundProduct }: GalleryOptionsProps) {
   const [selectedSize, setSelectedSize] = useState(
     Object.keys(foundProduct.dimensions)[0]
   );
@@ -23,22 +27,24 @@ export default function GalleryOptions(props) {
   const maxNumber = 10;
 
   const dispatch = useDispatch();
-  const cartbarItem = useSelector((state) => state.cartbarItem.value);
+  const cartbarItem = useSelector(
+    (state: RootState) => state.cartbarItem.value
+  );
 
   const navigate = useNavigate();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
   };
 
-  const handleColorChange = (event) => {
-    const { target } = event;
-    setSelectedColor(target.value);
+  const handleColorChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setSelectedColor(value);
   };
 
-  const handleSizeChange = (event) => {
-    const { target } = event;
-    setSelectedSize(target.value);
+  const handleSizeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.target;
+    setSelectedSize(value);
   };
 
   const decrement = () => {
