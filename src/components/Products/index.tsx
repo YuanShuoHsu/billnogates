@@ -3,7 +3,7 @@ import { RootState } from "../../store";
 
 import ProductsCard from "../ProductsCard";
 
-import Products from "../../typings/products"
+import {Products} from "../../typings/products";
 
 import styles from "./index.module.scss";
 
@@ -23,14 +23,7 @@ export default function Product({ products }: ProductsProps) {
       {newProducts.map((item) => (
         <ProductsCard
           key={item.id}
-          id={item.id}
-          name={item.name}
-          colors={item.colors}
-          main={item.images.main}
-          dimensions={item.dimensions}
-          gallery={item.images.gallery}
-          description={item.images.description}
-          information={item.images.information}
+          products={item}
         />
       ))}
     </div>

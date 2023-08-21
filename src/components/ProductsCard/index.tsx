@@ -1,67 +1,39 @@
 import { Link } from "react-router-dom";
 
+import { Products } from "../../typings/products";
+
 import styles from "./index.module.scss";
 
-type Dimensions = {
-  [size: string]: number;
-};
-
-type Colors = {
-  [rgb: string]: string;
-};
-
-type Main = {
-  src: string;
-  alt: string;
-}
-
-type Gallery = {
-  src: string;
-  alt: string;
-};
-
-type Description = {
-  src: string;
-  alt: string;
-};
-
-type Information = {
-  src: string;
-  alt: string;
-};
-
 interface ProductsCardProps {
-  id: number;
-  name: string;
-  dimensions: Dimensions;
-  colors: Colors;
-  main: Main;
-  gallery: Gallery[];
-  description: Description[];
-  information: Information[];
+  products: Products;
 }
 
 export default function ProductsCard({
-  id,
-  name,
-  main,
-  dimensions,
+  products: { id, name, dimensions, images },
 }: ProductsCardProps) {
-  const renderPriceRange = (dimensions: ProductsCardProps["dimensions"]) => {
-    const prices = Object.values(dimensions);
+  const { main } = images;
 
-    const maxPrice = Math.max(...prices);
-    const minPrice = Math.min(...prices);
+  const renderPriceRange = (dimensions: {
+    [size: string]: number | undefined;
+  }) => {
+    const validPrices = Object.values(dimensions).filter(
+      (price): price is number => typeof price === "number"
+    );
 
-    if (minPrice === maxPrice) {
-      return <p className={styles.productsCard__contentText}>NT${minPrice}</p>;
-    } else {
-      return (
-        <p className={styles.productsCard__contentText}>
-          NT${minPrice}～{maxPrice}
-        </p>
-      );
+    if (validPrices.length === 0) {
+      return <p className={styles.productsCard__contentText}>品項尚未定價</p>;
     }
+
+    const maxPrice = Math.max(...validPrices);
+    const minPrice = Math.min(...validPrices);
+
+    const isSinglePrice = minPrice === maxPrice;
+
+    return (
+      <p className={styles.productsCard__contentText}>
+        {isSinglePrice ? `NT$${minPrice}` : `NT$${minPrice}～${maxPrice}`}
+      </p>
+    );
   };
 
   return (

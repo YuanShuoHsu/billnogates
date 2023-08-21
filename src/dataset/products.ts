@@ -4,7 +4,7 @@ const products = [
     id: 1,
     name: "花椰菜菜子裡的小白蟲先生1｛ 深/淺 ｝",
     dimensions: {
-      S: 180,
+      // S: 180,
       M: 1080,
       L: 880,
     },

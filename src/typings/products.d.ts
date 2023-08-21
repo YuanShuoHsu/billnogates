@@ -7,10 +7,10 @@ interface Products {
   id: number;
   name: string;
   dimensions: {
-    [size: string]: number;
+    [size: string]: number | undefined;
   };
   colors: {
-    [rgb: string]: string;
+    [rgb: string]: string | undefined;
   };
   images: {
     main: ProductImage;
@@ -20,4 +20,4 @@ interface Products {
   };
 }
 
-export default Products;
+export { Products };

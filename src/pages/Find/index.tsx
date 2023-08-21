@@ -24,8 +24,9 @@ export default function Find() {
   const products = useSelector((state: RootState) => state.products.value);
   const findProduct = products.filter((item) =>
     keyWord ? item.name.toLowerCase().includes(keyWord.toLowerCase()) : null
-  );
+  )
 
+  console.log(findProduct)
   return (
     <div className={styles.find}>
       <Cartbar />
