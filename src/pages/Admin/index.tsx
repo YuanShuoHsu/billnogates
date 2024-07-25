@@ -5,7 +5,7 @@ import { collection, getDocs } from "firebase/firestore";
 import { auth, db } from "../../utils/firebase";
 
 import CollapsibleTable from "./CollapsibleTable";
-import Login from "./Login";
+import AdminLogin from "./AdminLogin";
 
 import Cartbar from "../../components/Cartbar";
 import Footer from "../../components/Footer";
@@ -47,7 +47,7 @@ export default function Admin() {
       <Header />
       <div className={styles.main}>
         {!hasAccess ?
-          <Login setHasAccess={setHasAccess} adminData={adminData} /> : <CollapsibleTable />}
+          <AdminLogin setHasAccess={setHasAccess} adminData={adminData} /> : <CollapsibleTable />}
       </div>
       <Footer />
     </div>

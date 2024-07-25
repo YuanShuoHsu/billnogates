@@ -144,9 +144,8 @@ export default function Login() {
         />
         <span className={styles.inputText}>密碼</span>
         {eyeIsShow ? (
-          <div className={styles.svgBox}>
+          <div className={styles.svgBox} onClick={handleToggleEye}>
             <svg
-              onClick={handleToggleEye}
               className={`${styles.svg} ${styles.active}`}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 576 512"
@@ -155,9 +154,8 @@ export default function Login() {
             </svg>
           </div>
         ) : (
-          <div className={styles.svgBox}>
+          <div className={styles.svgBox} onClick={handleToggleEye}>
             <svg
-              onClick={handleToggleEye}
               className={styles.svg}
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 640 512"

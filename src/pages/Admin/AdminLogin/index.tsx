@@ -4,12 +4,12 @@ import Loader from "../../../components/Loader";
 
 import styles from "./index.module.scss";
 
-interface LoginProps {
+interface AdminLoginProps {
   adminData: { account: string; password: string }[];
   setHasAccess: (value: boolean) => void;
 }
 
-const Login: React.FC<LoginProps> = ({ adminData, setHasAccess }) => {
+const AdminLogin: React.FC<AdminLoginProps> = ({ adminData, setHasAccess }) => {
   const [account, setAccount] = useState("");
   const [accountError, setAccountError] = useState("");
   const [password, setPassword] = useState("");
@@ -78,9 +78,8 @@ const Login: React.FC<LoginProps> = ({ adminData, setHasAccess }) => {
           />
           <span className={styles.inputText}>密碼</span>
           {eyeIsShow ? (
-            <div className={styles.svgBox}>
+            <div className={styles.svgBox} onClick={handleToggleEye}>
               <svg
-                onClick={handleToggleEye}
                 className={`${styles.svg} ${styles.active}`}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 576 512"
@@ -89,9 +88,8 @@ const Login: React.FC<LoginProps> = ({ adminData, setHasAccess }) => {
               </svg>
             </div>
           ) : (
-            <div className={styles.svgBox}>
+            <div className={styles.svgBox} onClick={handleToggleEye}>
               <svg
-                onClick={handleToggleEye}
                 className={styles.svg}
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 640 512"
@@ -110,4 +108,4 @@ const Login: React.FC<LoginProps> = ({ adminData, setHasAccess }) => {
   );
 }
 
-export default Login;
+export default AdminLogin;
