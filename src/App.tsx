@@ -1,11 +1,12 @@
 import { useEffect } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 
-import Home from "./pages/Home";
-import Membership from "./pages/Membership";
+import Admin from "./pages/Admin";
+import Checkout from "./pages/Checkout";
 import Detail from "./pages/Detail";
 import Find from "./pages/Find";
-import Checkout from "./pages/Checkout";
+import Home from "./pages/Home";
+import Membership from "./pages/Membership";
 import Remittance from "./pages/Remittance";
 import Story from "./pages/Story";
 import User from "./pages/User";
@@ -58,6 +59,10 @@ function App() {
         <Route path="user">
           <Route path="" element={<Navigate replace to="profile" />} />
           <Route path="*" element={<User />} />
+        </Route>
+        <Route path="admin">
+          <Route path="" element={<Admin />} />
+          <Route path="*" element={<Navigate replace to="" />} />
         </Route>
         <Route path="*" element={<Navigate replace to="" />} />
       </Routes>
