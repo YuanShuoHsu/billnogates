@@ -6,7 +6,7 @@ create-react-app billnogate
 
 npm install normalize.css
 
-npm install node-sass
+npm install sass
 
 npm install react-router-dom
 
