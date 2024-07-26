@@ -14,7 +14,7 @@
   :global(.swiper-slide) {
     padding: 0 20px;
     box-sizing: border-box;
-    background: $primaryWhiteSmokeAlpha80;
+    background-color: $primaryWhiteSmokeAlpha80;
 
     display: flex;
     justify-content: center;
@@ -59,7 +59,7 @@
     :global(.swiper-pagination-bullet) {
       width: 20px;
       height: 20px;
-      background: #fff;
+      background-color: #fff;
       border-radius: 50%;
       pointer-events: auto;
       overflow: hidden;

@@ -12,7 +12,7 @@
 
     &:hover {
       .headerNavSubItemWithoutSubLayers__subLink {
-        background: $primarySilverAlpha80;
+        background-color: $primarySilverAlpha80;
 
         .headerNavSubItemWithoutSubLayers__subText {
           color: #000;
@@ -43,7 +43,7 @@
 
     &--active {
       .headerNavSubItemWithoutSubLayers__subLink {
-        background: $primaryBlueAlpha80;
+        background-color: $primaryBlueAlpha80;
       }
     }
   }

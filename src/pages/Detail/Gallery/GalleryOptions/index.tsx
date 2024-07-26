@@ -131,7 +131,7 @@ export default function GalleryOptions({ foundProduct }: GalleryOptionsProps) {
                     required
                   />
                   <label
-                    style={{ background: rgb }}
+                    style={{ backgroundColor: rgb }}
                     className={`${styles.label} ${styles.circle}`}
                     htmlFor={color}
                     title={color}

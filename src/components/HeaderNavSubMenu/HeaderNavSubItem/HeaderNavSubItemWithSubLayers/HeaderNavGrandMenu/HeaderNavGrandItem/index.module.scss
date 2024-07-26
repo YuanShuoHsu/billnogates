@@ -14,12 +14,12 @@
       width: 100%;
       height: 40px;
       border-radius: 4px;
-      background: $primaryYellowAlpha80;
+      background-color: $primaryYellowAlpha80;
       transition: 0.2s;
       text-align: center;
 
       &:hover {
-        background: $primarySilverAlpha80;
+        background-color: $primarySilverAlpha80;
       }
 
       .headerNavGrandItem__grandText {
@@ -38,7 +38,7 @@
 
     &--active {
       .grandLink {
-        background: $primaryBlue;
+        background-color: $primaryBlue;
       }
     }
   }

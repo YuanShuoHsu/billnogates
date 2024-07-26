@@ -169,12 +169,7 @@
   .line {
     width: 100%;
     min-height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      $primaryPink,
-      transparent
-    );
+    background: linear-gradient(90deg, transparent, $primaryPink, transparent);
 
     @include respond-to(sm) {
       display: none;

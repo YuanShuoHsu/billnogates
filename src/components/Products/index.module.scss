@@ -2,7 +2,7 @@
 
 .product {
   position: relative;
-  background: transparent;
+  background-color: transparent;
   display: grid;
   gap: 10px;
   grid-template-columns: repeat(6, minmax(0, 1fr));

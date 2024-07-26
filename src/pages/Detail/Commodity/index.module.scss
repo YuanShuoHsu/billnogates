@@ -10,7 +10,7 @@
       padding: 0;
       width: 100px;
       height: 40px;
-      background: $primaryWhiteSmokeAlpha80;
+      background-color: $primaryWhiteSmokeAlpha80;
       border: none;
       color: #000;
       font-size: 16px;
@@ -26,11 +26,11 @@
       }
 
       &.active {
-        background: $primarySilverAlpha20;
+        background-color: $primarySilverAlpha20;
       }
 
       &:hover {
-        background: $primaryPinkAlpha50;
+        background-color: $primaryPinkAlpha50;
       }
     }
   }

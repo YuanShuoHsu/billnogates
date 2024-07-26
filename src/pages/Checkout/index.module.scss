@@ -3,7 +3,7 @@
 
 .Checkout {
   position: relative;
-  background: $primaryWhiteSmokeAlpha80;
+  background-color: $primaryWhiteSmokeAlpha80;
 
   .main {
     padding: 10px;
@@ -19,7 +19,7 @@
       box-sizing: border-box;
       width: 80%;
       max-height: calc(100vh - 60px - 20px);
-      background: $primarySilverAlpha20;
+      background-color: $primarySilverAlpha20;
       border-radius: 4px;
       display: flex;
       flex-direction: column;

@@ -4,7 +4,7 @@
 .pagination {
   position: relative;
   height: 40px;
-  background: transparent;
+  background-color: transparent;
   backdrop-filter: blur(4px);
   border-radius: 4px;
   display: flex;
@@ -14,7 +14,7 @@
   .navigation {
     padding: 0 10px;
     height: 40px;
-    background: $primarySilverAlpha20;
+    background-color: $primarySilverAlpha20;
     border: none;
     border-radius: 4px;
     display: flex;
@@ -63,7 +63,7 @@
     width: calc(var(--x) * 40px);
     max-width: 200px;
     height: 40px;
-    background: #fff;
+    background-color: #fff;
     border: 1px solid $primarySilverAlpha20;
     box-sizing: border-box;
     border-radius: 20px;
