@@ -1,3 +1,5 @@
+@import "../../../styles/themes.module.scss";
+
 .profile {
   position: relative;
   padding: 0 10px;
@@ -20,7 +22,7 @@
   &__button {
     padding: 0 10px;
     width: 100%;
-    background: #e4027f;
+    background-color: $primaryPink;
     border: none;
     border-radius: 4px;
     color: #fff;

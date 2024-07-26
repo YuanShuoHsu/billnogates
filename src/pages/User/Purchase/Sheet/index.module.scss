@@ -139,7 +139,7 @@
           &:first-child {
             border-top-right-radius: 4px;
             border-top-left-radius: 4px;
-            background: #e4027f;
+            background-color: $primaryPink;
             color: #fff;
 
             @include respond-to(sm) {
@@ -185,7 +185,7 @@
     position: sticky;
     bottom: 0;
     width: 100%;
-    background: rgba(245, 245, 245, 0.8);
+    background: $primaryWhiteSmokeAlpha80;
     backdrop-filter: blur(4px);
     // border-radius: 4px;
     z-index: 1;
@@ -216,14 +216,14 @@
         padding: 0 5px;
         color: #fff;
         line-height: 20px;
-        background-color: #0091db;
+        background-color: $primaryBlue;
       }
 
       .fee {
         padding: 0 5px;
         color: #fff;
         line-height: 20px;
-        background-color: #e4027f;
+        background-color: $primaryPink;
       }
     }
   }

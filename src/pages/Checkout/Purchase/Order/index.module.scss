@@ -109,7 +109,7 @@
           &:first-child {
             border-top-right-radius: 4px;
             border-top-left-radius: 4px;
-            background: #e4027f;
+            background: $primaryPink;
             color: #fff;
 
             @include respond-to(sm) {

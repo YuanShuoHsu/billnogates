@@ -43,7 +43,7 @@
 
     &--active {
       .headerNavSubItemWithoutSubLayers__subLink {
-        background: rgba(0, 145, 219, 0.8);
+        background: $primaryBlueAlpha80;
       }
     }
   }

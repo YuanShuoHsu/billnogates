@@ -49,7 +49,7 @@
     padding: 0;
     width: calc(100% - 30px * 2);
     height: 30px;
-    background: rgba(245, 245, 245, 0.8);
+    background: $primaryWhiteSmokeAlpha80;
     backdrop-filter: blur(4px);
     border: none;
     border-radius: 0;
