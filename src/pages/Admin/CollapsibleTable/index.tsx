@@ -1,8 +1,5 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth, db } from "../../../utils/firebase";
-import { collection, getDocs } from "firebase/firestore";
 
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
@@ -11,6 +8,11 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+
+import { onAuthStateChanged } from "firebase/auth";
+import { collection, getDocs } from "firebase/firestore";
+import { auth, db } from "../../../utils/firebase";
+
 import CollapsibleTableRow from "./CollapsibleTableRow";
 
 interface ProductItem {
@@ -49,42 +51,26 @@ interface HistoryItem {
   product: ProductItem[];
 }
 
-export default function CollapsibleTable() {
+const CollapsibleTable: React.FC = () => {
   const navigate = useNavigate();
-  const [history, setHistory] = useState<HistoryItem[]>([]);
+  const [history, setHistory] = useState<Record<string, HistoryItem[]>>({});
 
   useEffect(() => {
-    const userState = onAuthStateChanged(auth, async (user) => {
+    const userState = onAuthStateChanged(auth, async () => {
       const collectionRef = collection(db, "purchase");
       const querySnapshot = await getDocs(collectionRef);
-      const historyData: HistoryItem[] = [];
+      const historyData: Record<string, HistoryItem[]> = {};
 
-      querySnapshot.forEach((doc) => {
-        const data = doc.data().history as HistoryItem[];
-        historyData.push(...data);
-      });
+      for (const userDoc of querySnapshot.docs) {
+        const userId = userDoc.id;
+        const userHistoryData = userDoc.data().history as HistoryItem[];
+        historyData[userId] = userHistoryData;
+      }
 
       setHistory(historyData);
     });
     return () => userState();
   }, [navigate]);
-
-  const groupedHistory = history.reduce(
-    (acc, item) => {
-      const customer = `${item.information.lastName} ${item.information.firstName}`;
-      if (!acc[customer]) {
-        acc[customer] = [];
-      }
-      acc[customer].push(item);
-      return acc;
-    },
-    {} as Record<string, HistoryItem[]>,
-  );
-
-  const rows = Object.entries(groupedHistory).map(([customer, orders]) => ({
-    customer,
-    orders,
-  }));
 
   return (
     <TableContainer component={Paper}>
@@ -92,17 +78,17 @@ export default function CollapsibleTable() {
         <TableHead>
           <TableRow>
             <TableCell />
-            <TableCell>Customer</TableCell>
-            <TableCell>Email</TableCell>
-            <TableCell>Phone Number</TableCell>
+            <TableCell>用戶 ID</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map((row, index) => (
-            <CollapsibleTableRow key={index} row={row} />
+          {Object.entries(history).map(([userId, orders], index) => (
+            <CollapsibleTableRow key={index} userId={userId} orders={orders} />
           ))}
         </TableBody>
       </Table>
     </TableContainer>
   );
 }
+
+export default CollapsibleTable
