@@ -1,3 +1,5 @@
+@import "../../../../styles/themes.module.scss";
+
 .calculator {
   width: calc(50% - 5px);
   display: flex;
@@ -9,7 +11,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(192, 192, 192, 0.2);
+    background: $primarySilverAlpha20;
     backdrop-filter: blur(4px);
     border: none;
     outline: none;

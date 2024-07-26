@@ -1,3 +1,5 @@
+@import "../../../../styles/themes.module.scss";
+
 .headerNavSubItemWithoutSubLayers {
   position: relative;
   list-style: none;
@@ -10,7 +12,7 @@
 
     &:hover {
       .headerNavSubItemWithoutSubLayers__subLink {
-        background: rgba(192, 192, 192, 0.8);
+        background: $primarySilverAlpha80;
 
         .headerNavSubItemWithoutSubLayers__subText {
           color: #000;

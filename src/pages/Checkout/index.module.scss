@@ -19,7 +19,7 @@
       box-sizing: border-box;
       width: 80%;
       max-height: calc(100vh - 60px - 20px);
-      background: rgba(192, 192, 192, 0.2);
+      background: $primarySilverAlpha20;
       border-radius: 4px;
       display: flex;
       flex-direction: column;
