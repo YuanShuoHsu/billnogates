@@ -157,9 +157,7 @@ export default function Remittance() {
         <div className={styles.remittance__grid}>
           <h2 className={styles.remittance__title}>您的訂單即將完成</h2>
           <div className={styles.remittance__quotation}>
-            <div className={styles.remittance__svgBox}>
-              <CircleExclamation className={styles.remittance__svg} />
-            </div>
+            <CircleExclamation className={styles.remittance__svg} />
             <span className={styles.remittance__quotationText}>
               此訂單中所需支付的金額為 NT${renderInformation("total")}
             </span>
