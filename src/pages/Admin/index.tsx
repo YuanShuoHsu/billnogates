@@ -46,8 +46,10 @@ export default function Admin() {
       <ScrollToTopButton />
       <Header />
       <div className={styles.main}>
-        {!hasAccess ?
-          <AdminLogin setHasAccess={setHasAccess} adminData={adminData} /> : <CollapsibleTable />}
+        {/* {!hasAccess ? */}
+        {/* <AdminLogin setHasAccess={setHasAccess} adminData={adminData} /> :  */}
+        <CollapsibleTable />
+        {/* } */}
       </div>
       <Footer />
     </div>

@@ -1,0 +1,16 @@
+@import "../../../../styles/themes.module.scss";
+
+.tbodyRow {
+  :hover {
+    background-color: rgba(192, 192, 192, 0.2);
+  }
+
+  .tbodyCell {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+
+    // &:first-child {
+    //   width: 50px;
+    // }
+  }
+}

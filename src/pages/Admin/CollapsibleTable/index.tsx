@@ -1,19 +1,12 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
-
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableContainer from "@mui/material/TableContainer";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Paper from "@mui/material/Paper";
 
 import { onAuthStateChanged } from "firebase/auth";
 import { collection, getDocs } from "firebase/firestore";
 import { auth, db } from "../../../utils/firebase";
 
 import CollapsibleTableRow from "./CollapsibleTableRow";
+
+import styles from "./index.module.scss"
 
 interface ProductItem {
   dimensions: { [key: string]: number };
@@ -52,7 +45,6 @@ interface HistoryItem {
 }
 
 const CollapsibleTable: React.FC = () => {
-  const navigate = useNavigate();
   const [history, setHistory] = useState<Record<string, HistoryItem[]>>({});
 
   useEffect(() => {
@@ -70,24 +62,24 @@ const CollapsibleTable: React.FC = () => {
       setHistory(historyData);
     });
     return () => userState();
-  }, [navigate]);
+  }, []);
 
   return (
-    <TableContainer component={Paper}>
-      <Table aria-label="collapsible table">
-        <TableHead>
-          <TableRow>
-            <TableCell />
-            <TableCell>用戶 ID</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
+    <div className={styles.tableContainer}>
+      <table className={styles.table}>
+        <thead className={styles.thead}>
+          <tr className={styles.theadRow}>
+            <th className={styles.theadCell} />
+            <th className={styles.theadCell}>用戶 ID</th>
+          </tr>
+        </thead>
+        <tbody className={styles.tbody}>
           {Object.entries(history).map(([userId, orders], index) => (
             <CollapsibleTableRow key={index} userId={userId} orders={orders} />
           ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+        </tbody>
+      </table>
+    </div>
   );
 }
 

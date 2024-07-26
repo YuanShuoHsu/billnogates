@@ -59,32 +59,6 @@ export default function Purchase() {
     return () => userState();
   }, [navigate]);
 
-  // const scrollRef = useRef(null);
-
-  // useEffect(() => {
-  //     if (history) {
-  //         const container = scrollRef.current;
-  //         const observer = new IntersectionObserver(entries => {
-  //             // entries.forEach(entry => {
-  //             //     // 如果目標元素進入視口
-  //             //     console.log(entry)
-  //             //     if (entry.isIntersecting) {
-  //             //         // 將背景顏色設置為紅色
-  //             //         entry.target.style.backgroundColor = 'white';
-  //             //     } else {
-  //             //         // 將背景顏色設置為白色
-  //             //         entry.target.style.backgroundColor = 'red';
-  //             //     }
-  //             // });
-  //         }, { root: null, rootMargin: '0px', threshold: 1 });
-  //         observer.observe(container);
-
-  //         return () => {
-  //             observer.unobserve(container);
-  //         };
-  //     }
-  // }, [history]);
-
   const renderInformation = (type: string, item: HistoryItem) => {
     if (history) {
       const { information } = item;

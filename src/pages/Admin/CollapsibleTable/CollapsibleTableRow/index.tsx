@@ -1,18 +1,8 @@
 import { useState, Fragment } from "react";
 
-import Box from "@mui/material/Box";
-import Collapse from "@mui/material/Collapse";
-import IconButton from "@mui/material/IconButton";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import Table from "@mui/material/Table";
-import TableBody from "@mui/material/TableBody";
-import TableCell from "@mui/material/TableCell";
-import TableHead from "@mui/material/TableHead";
-import TableRow from "@mui/material/TableRow";
-import Typography from "@mui/material/Typography";
-
 import { formatDate, formatTime } from "../../../../utils/formatDateTime";
+
+import styles from "./index.module.scss"
 
 interface ProductItem {
   dimensions: { [key: string]: number };
@@ -60,97 +50,77 @@ const CollapsibleTableRow: React.FC<CollapsibleTableRowProps> = ({ userId, order
 
   return (
     <Fragment>
-      <TableRow sx={{ "& > *": { borderBottom: "unset" } }}>
-        <TableCell>
-          <IconButton
-            aria-label="expand row"
-            onClick={() => setOpen(!open)}
-            size="small"
-          >
-            {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
-          </IconButton>
-        </TableCell>
-        <TableCell>{userId}</TableCell>
-      </TableRow>
-      <TableRow>
-        <TableCell style={{ paddingBottom: 0, paddingTop: 0 }} colSpan={6}>
-          <Collapse in={open} timeout="auto" unmountOnExit>
-            <Box sx={{ margin: 1 }}>
-              <Typography variant="h6" gutterBottom component="div">
-                Orders
-              </Typography>
-              <Table size="small" aria-label="purchases">
-                <TableHead>
-                  <TableRow>
-                    <TableCell>Date</TableCell>
-                    <TableCell>Sum</TableCell>
-                    <TableCell>Delivery Fee</TableCell>
-                    <TableCell>Address</TableCell>
-                    <TableCell>Remark</TableCell>
-                    <TableCell>Payment</TableCell>
-                    <TableCell>Send Method</TableCell>
-                    <TableCell>Customer Name</TableCell>
-                    <TableCell>Email</TableCell>
-                    <TableCell>Phone Number</TableCell>
-                    <TableCell>Discount</TableCell>
-                    <TableCell>Products</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {orders.map((order, orderIdx) => (
-                    <TableRow key={orderIdx}>
-                      <TableCell>
-                        {formatDate(
-                          new Date(order.information.timestamp.seconds * 1000)
-                        )}{" "}
-                        {formatTime(
-                          new Date(order.information.timestamp.seconds * 1000)
-                        )}
-                      </TableCell>
-                      <TableCell>{order.information.sum}</TableCell>
-                      <TableCell>{order.information.deliveryFee}</TableCell>
-                      <TableCell>{order.information.address}</TableCell>
-                      <TableCell>{order.information.remark}</TableCell>
-                      <TableCell>{order.information.pay}</TableCell>
-                      <TableCell>{order.information.send}</TableCell>
-                      <TableCell>{order.information.lastName} {order.information.firstName}</TableCell>
-                      <TableCell>{order.information.email}</TableCell>
-                      <TableCell>{order.information.phoneNumber}</TableCell>
-                      <TableCell>{order.information.discount ?? "N/A"}</TableCell>
-                      <TableCell>
-                        {order.product.map((product, productIdx) => (
-                          <div key={productIdx} style={{ marginBottom: "10px" }}>
-                            <Typography variant="body2">
-                              {product.name}
-                            </Typography>
-                            <Typography variant="body2">
-                              Size: {product.selectedSize}
-                            </Typography>
-                            <Typography variant="body2">
-                              Color: {product.selectedColor}
-                            </Typography>
-                            <Typography variant="body2">
-                              Quantity: {product.number}
-                            </Typography>
-                            <Typography variant="body2">
-                              Price: ${product.price}
-                            </Typography>
+      <tr className={styles.tbodyRow}>
+        <td className={styles.tbodyCell}>
+          <button type="button" onClick={() => setOpen(!open)}>
+            {open ? '-' : '+'}
+          </button>
+        </td>
+        <td className={styles.tbodyCell}>{userId}</td>
+      </tr>
+      {open && (
+        <tr>
+          <td colSpan={2} style={{ padding: 0 }}>
+            <div style={{ margin: '1em' }}>
+              <h6>Orders</h6>
+              <table style={{ width: '100%' }}>
+                <thead>
+                  <tr>
+                    <th>Date</th>
+                    <th>Sum</th>
+                    <th>Delivery Fee</th>
+                    <th>Address</th>
+                    <th>Remark</th>
+                    <th>Payment</th>
+                    <th>Send Method</th>
+                    <th>Customer Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                    <th>Discount</th>
+                    <th>Products</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {orders.map(({ information: { address, deliveryFee, discount, email, firstName, lastName, pay, phoneNumber, remark, send, sum, timestamp, }, product }, orderIndex) => (
+                    <tr key={orderIndex}>
+                      <td>
+                        {formatDate(new Date(timestamp.seconds * 1000))}{" "}
+                        {formatTime(new Date(timestamp.seconds * 1000))}
+                      </td>
+                      <td>{sum}</td>
+                      <td>{deliveryFee}</td>
+                      <td>{address}</td>
+                      <td>{remark}</td>
+                      <td>{pay}</td>
+                      <td>{send}</td>
+                      <td>{lastName} {firstName}</td>
+                      <td>{email}</td>
+                      <td>{phoneNumber}</td>
+                      <td>{discount ?? "N/A"}</td>
+                      <td>
+                        {product.map(({ images, name, number, price, selectedColor, selectedSize }, productIndex) => (
+                          <div key={productIndex} style={{ marginBottom: "10px" }}>
+                            <p>{name}</p>
+                            <p>Size: {selectedSize}</p>
+                            <p>Color: {selectedColor}</p>
+                            <p>Quantity: {number}</p>
+                            <p>Price: ${price}</p>
                             <img
-                              src={product.images.main.src}
-                              alt={product.images.main.alt}
+                              src={images.main.src}
+                              alt={images.main.alt}
                               width="50"
                             />
                           </div>
                         ))}
-                      </TableCell>
-                    </TableRow>
+                      </td>
+                    </tr>
                   ))}
-                </TableBody>
-              </Table>
-            </Box>
-          </Collapse>
-        </TableCell>
-      </TableRow>
+                </tbody>
+              </table>
+            </div>
+          </td>
+        </tr>
+      )}
     </Fragment>
   );
 }
