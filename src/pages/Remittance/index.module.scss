@@ -44,12 +44,12 @@
         border-radius: 4px;
         display: flex;
         align-items: center;
+        gap: 10px;
 
         .remittance__svgBox {
-          padding: 10px;
-          box-sizing: border-box;
-          width: 40px;
-          height: 40px;
+          width: 20px;
+          height: 20px;
+          flex-shrink: 0;
 
           .remittance__svg {
             display: block;
@@ -64,10 +64,6 @@
           font-size: 16px;
           line-height: 40px;
           letter-spacing: 1px;
-          white-space: nowrap;
-          text-overflow: ellipsis;
-          overflow: hidden;
-          direction: rtl;
         }
       }
 
