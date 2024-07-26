@@ -1,5 +1,8 @@
 import { useState } from "react";
+
 import SidebarNavSubMenu from "./SidebarNavSubMenu";
+
+import { ReactComponent as AngleDown } from "../../../../images/others/angle-down.svg"
 
 import styles from "./index.module.scss";
 
@@ -33,9 +36,8 @@ export default function SidebarNavItemWithLayers({
   return (
     <li
       onClick={handleClick}
-      className={`${styles.sidebarNavItemWithLayers} ${
-        itemClick ? styles["sidebarNavItemWithLayers--active"] : ""
-      }`}
+      className={`${styles.sidebarNavItemWithLayers} ${itemClick ? styles["sidebarNavItemWithLayers--active"] : ""
+        }`}
       key={item.id}
     >
       <div className={styles["sidebarNavItemWithLayers__link--active"]}>
@@ -43,13 +45,7 @@ export default function SidebarNavItemWithLayers({
           {item.nav}
         </span>
         <div className={styles.sidebarNavItemWithLayers__svgBox}>
-          <svg
-            className={styles.sidebarNavItemWithLayers__svg}
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 448 512"
-          >
-            <path d="M201.4 374.6c12.5 12.5 32.8 12.5 45.3 0l160-160c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L224 306.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l160 160z" />
-          </svg>
+          <AngleDown className={styles.sidebarNavItemWithLayers__svg} />
         </div>
       </div>
       <SidebarNavSubMenu itemClick={itemClick} itemLink={item.link} itemLayers={item.layers} />
