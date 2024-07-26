@@ -43,10 +43,10 @@
     }
 
     :global(.swiper-pagination) {
-      background: rgba(228, 2, 126, 0.2);
+      background-color: $primaryPinkAlpha20;
 
       :global(.swiper-pagination-progressbar-fill) {
-        background: #e4027d;
+        background-color: $primaryPink;
       }
     }
   }
@@ -54,11 +54,11 @@
   .mySwiper {
     width: 100%;
     height: 20%;
-    background: $primarySilverAlpha20;
+    background-color: $primarySilverAlpha20;
     border-radius: 4px;
 
     :global(.swiper-slide) {
-      background: #fff;
+      background-color: #fff;
       border-radius: 4px;
 
       display: flex;

@@ -60,11 +60,6 @@
   .line {
     width: 100%;
     min-height: 1px;
-    background: linear-gradient(
-      90deg,
-      transparent,
-      rgba(228, 2, 126, 1),
-      transparent
-    );
+    background: linear-gradient(90deg, transparent, $primaryPink, transparent);
   }
 }
