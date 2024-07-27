@@ -27,6 +27,7 @@ type SortOptionKey = keyof typeof sortOptions;
 export default function Arrangement() {
   const anchorRef = useRef<HTMLDivElement>(null);
   const selectRef = useRef<HTMLDivElement>(null);
+
   const arrangement = useSelector(
     (state: RootState) => state.arrangement.value
   );
