@@ -2,6 +2,10 @@ import { useState, Fragment } from "react";
 
 import { formatDate, formatTime } from "../../../../utils/formatDateTime";
 
+// import { ReactComponentElement } from "react";
+
+import { ReactComponent as AngleDown } from "../../../../images/others/angle-down.svg";
+
 import styles from "./index.module.scss"
 
 interface ProductItem {
@@ -52,9 +56,7 @@ const CollapsibleTableRow: React.FC<CollapsibleTableRowProps> = ({ userId, order
     <Fragment>
       <tr className={styles.tbodyRow}>
         <td className={styles.tbodyCell}>
-          <button type="button" onClick={() => setOpen(!open)}>
-            {open ? '-' : '+'}
-          </button>
+          <AngleDown  className={styles.angleDown} onClick={() => setOpen(!open)} />
         </td>
         <td className={styles.tbodyCell}>{userId}</td>
       </tr>

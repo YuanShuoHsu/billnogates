@@ -5,72 +5,88 @@
   position: relative;
   display: flex;
 
-  @include respond-to(others) {
-    overflow: auto hidden;
-  }
-
   &__anchorPoint {
     position: absolute;
     top: -60px;
   }
 
   &__box {
-    padding: 0 10px;
-    height: 40px;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 300px;
     background-color: $primarySilverAlpha20;
     backdrop-filter: blur(4px);
     border-radius: 4px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    z-index: 3;
 
     .arrangement__text {
-      font-size: 16px;
+      line-height: 40px;
       white-space: nowrap;
     }
 
     .arrangement__content {
       position: relative;
+      flex: 1;
+      min-width: 180px;
       display: flex;
       align-items: center;
 
       .arrangement__select {
         padding: 0 10px;
-        width: 150px;
-        height: 30px;
+        width: 100%;
+        height: 40px;
         background-color: #fff;
         border: none;
         border-radius: 4px;
-        color: #000;
-        font-size: 16px;
-        appearance: none;
-        -webkit-appearance: none;
-        -moz-appearance: none;
         outline: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
         cursor: pointer;
 
-        &:hover {
-          & ~ .arrangement__svgBox {
-            .arrangement__svg {
-              transform: rotate(180deg);
-            }
+        .arrangement__angleDown {
+          width: 15px;
+          height: 15px;
+          transition: transform 0.2s ease-in-out;
+
+          &.open {
+            transform: rotate(180deg);
           }
         }
       }
 
-      .arrangement__svgBox {
+      .arrangement__options {
         position: absolute;
-        margin: 0 5px;
-        right: 0;
-        width: 15px;
-        height: 15px;
+        top: calc(100% + 5px);
+        left: 0;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+        background-color: #fff;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        list-style: none;
+        overflow: hidden;
+        opacity: 0;
         pointer-events: none;
 
-        .arrangement__svg {
-          display: block;
-          width: 100%;
-          height: 100%;
-          fill: #000;
-          transition: 0.2s;
+        &.open {
+          opacity: 1;
+          pointer-events: auto;
+        }
+
+        .arrangement__option {
+          padding: 0 10px;
+          line-height: 40px;
+          cursor: pointer;
+
+          &:hover {
+            background-color: $primaryWhiteSmoke;
+          }
         }
       }
     }

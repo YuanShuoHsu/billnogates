@@ -1,11 +1,14 @@
-import { useState, useEffect } from "react";
+import {
+  // useState,
+  useEffect
+} from "react";
 
 import { onAuthStateChanged } from "firebase/auth";
 import { collection, getDocs } from "firebase/firestore";
 import { auth, db } from "../../utils/firebase";
 
 import CollapsibleTable from "./CollapsibleTable";
-import AdminLogin from "./AdminLogin";
+// import AdminLogin from "./AdminLogin";
 
 import Cartbar from "../../components/Cartbar";
 import Footer from "../../components/Footer";
@@ -21,8 +24,8 @@ interface AdminData {
 }
 
 export default function Admin() {
-  const [hasAccess, setHasAccess] = useState(false);
-  const [adminData, setAdminData] = useState<AdminData[]>([]);
+  // const [hasAccess, setHasAccess] = useState(false);
+  // const [adminData, setAdminData] = useState<AdminData[]>([]);
 
   useEffect(() => {
     const userState = onAuthStateChanged(auth, async () => {
@@ -34,7 +37,7 @@ export default function Admin() {
         adminArray.push(doc.data() as AdminData);
       });
 
-      setAdminData(adminArray);
+      // setAdminData(adminArray);
     });
     return () => userState();
   }, []);

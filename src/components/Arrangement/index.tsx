@@ -1,5 +1,4 @@
-import React from "react";
-import { useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { RootState } from "../../store";
@@ -21,13 +20,18 @@ const sortOptions = {
   recommend: "推薦",
   priceLow: "價錢，從低到高",
   priceHigh: "價錢，從高到低",
-};
+} as const;
+
+type SortOptionKey = keyof typeof sortOptions;
 
 export default function Arrangement() {
   const anchorRef = useRef<HTMLDivElement>(null);
+  const selectRef = useRef<HTMLDivElement>(null);
   const arrangement = useSelector(
     (state: RootState) => state.arrangement.value
   );
+
+  const [isSelectOpen, setIsSelectOpen] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -35,8 +39,22 @@ export default function Arrangement() {
     dispatch(initialAnchorPoint(anchorRef.current));
   }, [dispatch]);
 
-  const handleSelectChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    const { value } = event.target;
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        selectRef.current &&
+        !selectRef.current.contains(event.target as Node)
+      ) {
+        setIsSelectOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [selectRef]);
+
+  const handleOptionClick = (value: SortOptionKey) => {
     switch (value) {
       case "recommend":
         dispatch(initialProducts());
@@ -50,30 +68,42 @@ export default function Arrangement() {
       default:
         break;
     }
+
     dispatch(changeArrangement(value));
+
+    setIsSelectOpen(false);
   };
+
+  const handleSelectClick = () => setIsSelectOpen((prev) => !prev);
 
   return (
     <div className={styles.arrangement}>
       <div className={styles.arrangement__anchorPoint} ref={anchorRef} />
       <div className={styles.arrangement__box}>
         <span className={styles.arrangement__text}>排列方式：</span>
-        <div className={styles.arrangement__content}>
-          <select
-            value={arrangement}
-            onChange={handleSelectChange}
+        <div className={styles.arrangement__content} ref={selectRef}>
+          <button
             className={styles.arrangement__select}
-            name="arrangement"
+            onClick={handleSelectClick}
           >
-            {Object.entries(sortOptions).map(([value, label]) => (
-              <option key={value} value={value}>
-                {label}
-              </option>
-            ))}
-          </select>
-          <div className={styles.arrangement__svgBox}>
-            <AngleDown className={styles.arrangement__svg} />
-          </div>
+            {sortOptions[arrangement as SortOptionKey]}
+            <AngleDown
+              className={`${styles.arrangement__angleDown} ${isSelectOpen ? styles.open : ""}`}
+            />
+          </button>
+          <ul className={`${styles.arrangement__options} ${isSelectOpen ? styles.open : ""}`}>
+            {Object.entries(sortOptions)
+              .filter(([value]) => value !== arrangement)
+              .map(([value, label]) => (
+                <li
+                  className={styles.arrangement__option}
+                  key={value}
+                  onClick={() => handleOptionClick(value as SortOptionKey)}
+                >
+                  {label}
+                </li>
+              ))}
+          </ul>
         </div>
       </div>
     </div>
