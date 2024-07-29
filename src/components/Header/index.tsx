@@ -9,15 +9,13 @@ import styles from "./index.module.scss";
 export default function Header() {
   return (
     <header className={styles.header}>
-      <div className={styles.header__box}>
-        <Link className={styles.header__link} to="/">
-          <HeaderBrand />
-        </Link>
-        <nav className={styles.header__content}>
-          <HeaderNavMenu />
-          <HeaderButtonGroup />
-        </nav>
-      </div>
+      <Link className={styles.header__link} to="/">
+        <HeaderBrand />
+      </Link>
+      <nav className={styles.header__content}>
+        <HeaderNavMenu />
+        <HeaderButtonGroup />
+      </nav>
     </header>
   );
 }

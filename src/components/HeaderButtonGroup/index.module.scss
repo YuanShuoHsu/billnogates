@@ -47,14 +47,6 @@
       }
     }
 
-    &.search {
-      display: flex;
-
-      @include respond-to(md) {
-        display: none;
-      }
-    }
-
     &.customer {
       &.active {
         padding: 0 5px;
@@ -90,33 +82,6 @@
             max-width: 40px;
           }
         }
-      }
-    }
-
-    &.cart {
-      &.active {
-        &::before {
-          position: absolute;
-          counter-reset: x var(--x);
-          content: counter(x);
-          width: 16px;
-          background-color: $primaryPinkAlpha80;
-          backdrop-filter: blur(4px);
-          border-radius: 50%;
-          color: #fff;
-          font-size: 16px;
-          line-height: 16px;
-          text-align: center;
-          pointer-events: none;
-        }
-      }
-    }
-
-    &.hamburger {
-      display: none;
-
-      @include respond-to(md) {
-        display: flex;
       }
     }
   }
