@@ -1,11 +1,6 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useState, useRef, useEffect } from "react";
 
-import { RootState } from "../../../../store";
-import { changeHeaderNavItem } from "../../../../store/slice/headerNavItem";
-import {
-  showHeaderNavSubMenu,
-  hideHeaderNavSubMenu,
-} from "../../../../store/slice/headerNavSubMenu";
+import HeaderNavSubMenu from "./HeaderNavSubMenu"
 
 import { ReactComponent as AngleDown } from "../../../../images/others/angle-down.svg"
 
@@ -26,35 +21,39 @@ interface HeaderNavItemWithLayersProps {
         grandNav: string;
       }>;
     }>;
-  };
+  }
 }
 
 export default function HeaderNavItemWithLayers({
   item,
 }: HeaderNavItemWithLayersProps) {
-  const dispatch = useDispatch();
-  const headerNavSubMenu = useSelector(
-    (state: RootState) => state.headerNavSubMenu.value
-  );
+  const [isSubMenuVisible, setIsSubMenuVisible] = useState(false);
 
-  const handleEnterHover = async () => {
-    await dispatch(changeHeaderNavItem(item));
-    dispatch(showHeaderNavSubMenu());
-  };
+  const navItemRef = useRef<HTMLLIElement>(null);
 
-  const handleLeaveHover = () => {
-    dispatch(hideHeaderNavSubMenu());
-  };
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navItemRef.current && !navItemRef.current.contains(event.target as Node)) {
+        setIsSubMenuVisible(false);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => document.removeEventListener("click", handleClickOutside);
+  }, []);
+
+  const handleOnClick = () => setIsSubMenuVisible(!isSubMenuVisible);
 
   return (
     <li
-      onMouseEnter={handleEnterHover}
-      onMouseLeave={handleLeaveHover}
       className={styles.headerNavItemWithLayers}
       key={item.id}
+      onClick={handleOnClick}
+      ref={navItemRef}
     >
       <div
-        className={`${styles.headerNavItemWithLayers__link} ${headerNavSubMenu
+        className={`${styles.headerNavItemWithLayers__link} ${isSubMenuVisible
           ? styles["headerNavItemWithLayers__link--active"]
           : ""
           }`}
@@ -64,6 +63,7 @@ export default function HeaderNavItemWithLayers({
           <AngleDown className={styles.headerNavItemWithLayers__svg} />
         </div>
       </div>
+      <HeaderNavSubMenu item={item} isSubMenuVisible={isSubMenuVisible} />
     </li>
   );
 }

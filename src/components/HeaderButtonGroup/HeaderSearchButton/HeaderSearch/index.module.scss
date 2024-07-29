@@ -1,16 +1,26 @@
-@import "../../styles/breakpoints.module.scss";
-@import "../../styles/themes.module.scss";
+@import "../../../../styles/breakpoints.module.scss";
+@import "../../../../styles/themes.module.scss";
 
 .headerSearch {
-  position: relative;
-  padding: 0 10px;
-  height: 50px;
+  position: fixed;
+  top: 60px;
+  left: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
   background-color: $primaryWhiteSmokeAlpha80;
   backdrop-filter: blur(4px);
-  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
 
   @include respond-to(md) {
     display: none;
+  }
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
   }
 
   &__input {

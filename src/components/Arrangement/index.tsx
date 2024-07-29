@@ -50,9 +50,9 @@ export default function Arrangement() {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("click", handleClickOutside);
 
-    return () => document.removeEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("click", handleClickOutside);
   }, [selectRef]);
 
   const handleOptionClick = (value: SortOptionKey) => {
