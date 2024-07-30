@@ -1,0 +1,50 @@
+@import "../../../../../../../../styles/themes.module.scss";
+
+.headerNavSubItemWithoutSubLayers {
+  position: relative;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__subHref {
+    text-decoration: none;
+
+    &:hover {
+      .headerNavSubItemWithoutSubLayers__subLink {
+        background-color: $primarySilverAlpha80;
+
+        .headerNavSubItemWithoutSubLayers__subText {
+          color: #000;
+        }
+      }
+    }
+
+    .headerNavSubItemWithoutSubLayers__subLink {
+      padding: 0 10px;
+      height: 40px;
+      border-radius: 4px;
+      transition: 0.2s;
+
+      .headerNavSubItemWithoutSubLayers__subText {
+        max-width: 25vw;
+        color: #fff;
+        font-size: 16px;
+        line-height: 40px;
+        letter-spacing: 1px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        direction: ltr;
+        display: inline-block;
+        transition: 0.2s;
+      }
+    }
+
+    &--active {
+      .headerNavSubItemWithoutSubLayers__subLink {
+        background-color: $primaryBlueAlpha80;
+      }
+    }
+  }
+}

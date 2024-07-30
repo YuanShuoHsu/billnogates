@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-import HeaderBrand from "../HeaderBrand";
-import HeaderNavMenu from "../HeaderNavMenu";
-import HeaderButtonGroup from "../HeaderButtonGroup";
+import HeaderBrand from "./HeaderBrand";
+import HeaderNavMenu from "./HeaderNavMenu";
+import HeaderButtonGroup from "./HeaderButtonGroup";
 
 import styles from "./index.module.scss";
 

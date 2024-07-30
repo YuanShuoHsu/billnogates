@@ -1,0 +1,22 @@
+@import "../../../../../../styles/themes.module.scss";
+
+.headerNavSubMenu {
+  position: fixed;
+  top: 60px;
+  left: 0;
+  padding: 10px;
+  box-sizing: border-box;
+  width: 100%;
+  background-color: $primaryPinkAlpha80;
+  backdrop-filter: blur(4px);
+  display: flex;
+  justify-content: space-evenly;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}

@@ -1,0 +1,42 @@
+@import "../../../../../styles/themes.module.scss";
+
+.headerNavItemWithoutLayers {
+  position: relative;
+  list-style: none;
+
+  &__href {
+    text-decoration: none;
+
+    .headerNavItemWithoutLayers__link {
+      padding: 0 20px;
+      height: 40px;
+      background-color: $primarySilverAlpha20;
+      backdrop-filter: blur(4px);
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      transition: 0.2s background-color;
+
+      &:hover {
+        background-color: $primaryPinkAlpha50;
+      }
+
+      .headerNavItemWithoutLayers__text {
+        color: #000;
+        font-size: 16px;
+        letter-spacing: 1px;
+        white-space: nowrap;
+      }
+    }
+
+    &--active {
+      .headerNavItemWithoutLayers__link {
+        background-color: $primaryBlueAlpha50;
+
+        .headerNavItemWithoutLayers__text {
+          color: #fff;
+        }
+      }
+    }
+  }
+}
