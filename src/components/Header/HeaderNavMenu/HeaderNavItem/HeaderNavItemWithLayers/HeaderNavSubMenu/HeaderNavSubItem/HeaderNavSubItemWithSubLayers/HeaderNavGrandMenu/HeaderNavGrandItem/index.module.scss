@@ -1,11 +1,9 @@
 @import "../../../../../../../../../../styles/themes.module.scss";
 
 .headerNavGrandItem {
-  position: relative;
   list-style: none;
 
   &__grandHref {
-    margin: 5px 0 0 0;
     text-decoration: none;
     display: flex;
 
@@ -25,7 +23,6 @@
       .headerNavGrandItem__grandText {
         max-width: 25vw;
         color: #000;
-        font-size: 16px;
         line-height: 40px;
         letter-spacing: 1px;
         white-space: nowrap;
