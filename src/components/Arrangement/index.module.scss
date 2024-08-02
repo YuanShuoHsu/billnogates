@@ -74,6 +74,7 @@
         overflow: hidden;
         opacity: 0;
         pointer-events: none;
+        transition: opacity 0.2s ease;
 
         &.open {
           opacity: 1;
@@ -88,6 +89,11 @@
 
           &:hover {
             background-color: $primaryWhiteSmoke;
+          }
+
+          &.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
           }
         }
       }

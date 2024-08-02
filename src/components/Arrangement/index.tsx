@@ -93,17 +93,15 @@ export default function Arrangement() {
             />
           </button>
           <ul className={`${styles.arrangement__options} ${isSelectOpen ? styles.open : ""}`}>
-            {Object.entries(sortOptions)
-              .filter(([value]) => value !== arrangement)
-              .map(([value, label]) => (
-                <li
-                  className={styles.arrangement__option}
-                  key={value}
-                  onClick={() => handleOptionClick(value as SortOptionKey)}
-                >
-                  {label}
-                </li>
-              ))}
+            {Object.entries(sortOptions).map(([value, label]) => (
+              <li
+                className={`${styles.arrangement__option} ${value === arrangement ? styles.disabled : ""}`}
+                key={value}
+                onClick={() => value !== arrangement && handleOptionClick(value as SortOptionKey)}
+              >
+                {label}
+              </li>
+            ))}
           </ul>
         </div>
       </div>
