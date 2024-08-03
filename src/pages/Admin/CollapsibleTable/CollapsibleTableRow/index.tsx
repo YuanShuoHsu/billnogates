@@ -59,21 +59,32 @@ const CollapsibleTableRow: React.FC<CollapsibleTableRowProps> = ({ userId, order
     }
   }, [open]);
 
+  const hasRecentOrders = () => {
+    const oneMonthAgo = new Date();
+    oneMonthAgo.setMonth(oneMonthAgo.getMonth() - 1);
+    return orders.some(({ information: { timestamp } }) => {
+      const orderDate = new Date(timestamp.seconds * 1000);
+      return orderDate > oneMonthAgo;
+    });
+  };
+
   return (
     <Fragment>
       <tr className={`${styles.tbodyRow} ${open ? styles.open : ""}`}>
         <td className={styles.tbodyCell}>
-          <div className={styles.iconWrapper}>
+          <div className={`${styles.iconWrapper} ${hasRecentOrders() ? styles.iconWrapperRecentOrder : ""}`}>
             <AngleDown className={`${styles.angleDown} ${open ? styles.open : ""}`} onClick={() => setOpen(!open)} />
           </div>
         </td>
         <td className={styles.tbodyCell}>{userId}</td>
+        <td className={`${styles.tbodyCell} ${hasRecentOrders() ? styles.recentOrderWarning : ""}`}>
+          {hasRecentOrders() && "有新訂單"}
+        </td>
       </tr>
       <tr className={`${styles.collapsibleTbodyRow} ${open ? styles.open : ""}`}>
-        <td colSpan={2} className={styles.collapsibleTbodyCell}>
+        <td colSpan={3} className={styles.collapsibleTbodyCell}>
           <div ref={contentRef} className={`${styles.collapsibleTbodyCellContent} ${open ? styles.open : ""}`}>
-            <h6>Orders</h6>
-            <table>
+            <table style={{ padding: "10px" }}>
               <thead>
                 <tr>
                   <th>下單時間</th>

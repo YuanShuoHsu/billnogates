@@ -20,6 +20,10 @@
   }
 
   .tbodyCell {
+    &.recentOrderWarning {
+      color: $primaryPink;
+    }
+
     .iconWrapper {
       width: 40px;
       height: 40px;
@@ -29,6 +33,10 @@
       align-items: center;
       cursor: pointer;
       transition: opacity 0.2s ease;
+
+      &.iconWrapperRecentOrder {
+        background-color: $primaryPinkAlpha50;
+      }
 
       &:hover {
         opacity: 0.8;
