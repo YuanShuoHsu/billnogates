@@ -51,6 +51,13 @@ interface CollapsibleTableRowProps {
 
 const CollapsibleTableRow: React.FC<CollapsibleTableRowProps> = ({ userId, orders }) => {
   const [open, setOpen] = useState(false);
+  const contentRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      contentRef.current.style.height = open ? `${contentRef.current.scrollHeight}px` : "0px";
+    }
+  }, [open]);
 
   return (
     <Fragment>
@@ -64,23 +71,23 @@ const CollapsibleTableRow: React.FC<CollapsibleTableRowProps> = ({ userId, order
       </tr>
       <tr className={`${styles.collapsibleTbodyRow} ${open ? styles.open : ""}`}>
         <td colSpan={2} className={styles.collapsibleTbodyCell}>
-          <div className={`${styles.collapsibleTbodyCellContent} ${open ? styles.open : ""}`}>
+          <div ref={contentRef} className={`${styles.collapsibleTbodyCellContent} ${open ? styles.open : ""}`}>
             <h6>Orders</h6>
-            <table style={{ width: '100%' }}>
+            <table>
               <thead>
                 <tr>
-                  <th>Date</th>
-                  <th>Sum</th>
-                  <th>Delivery Fee</th>
-                  <th>Address</th>
-                  <th>Remark</th>
-                  <th>Payment</th>
-                  <th>Send Method</th>
-                  <th>Customer Name</th>
-                  <th>Email</th>
-                  <th>Phone Number</th>
-                  <th>Discount</th>
-                  <th>Products</th>
+                  <th>下單時間</th>
+                  <th>總額</th>
+                  <th>運費</th>
+                  <th>地址</th>
+                  <th>備註</th>
+                  <th>付款方式</th>
+                  <th>寄送方式</th>
+                  <th>客戶姓名</th>
+                  <th>電子郵件</th>
+                  <th>電話號碼</th>
+                  <th>折扣</th>
+                  <th>商品</th>
                 </tr>
               </thead>
               <tbody>

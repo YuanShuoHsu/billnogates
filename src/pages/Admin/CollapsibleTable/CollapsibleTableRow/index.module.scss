@@ -52,10 +52,8 @@
 
 .collapsibleTbodyRow {
   transition: border-color 0.2s ease;
-  display: none;
 
   &.open {
-    display: table-row;
     border-bottom: 1px solid $primarySilverAlpha50;
 
     &:last-child {
@@ -64,14 +62,14 @@
   }
 
   .collapsibleTbodyCell {
+    padding: 0;
+
     .collapsibleTbodyCellContent {
-      height: 0;
       opacity: 0;
       overflow: hidden;
-      transition: height 1s ease, opacity 1s ease;
+      transition: height 0.2s ease, opacity 0.2s ease;
 
       &.open {
-        height: 100%;
         opacity: 1;
       }
     }

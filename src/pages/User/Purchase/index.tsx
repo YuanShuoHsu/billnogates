@@ -59,70 +59,65 @@ export default function Purchase() {
     return () => userState();
   }, [navigate]);
 
-  const renderInformation = (type: string, item: HistoryItem) => {
-    if (history) {
-      const { information } = item;
-      const {
-        sum,
-        discount,
-        deliveryFee,
-        lastName,
-        firstName,
-        phoneNumber,
-        email,
-        send,
-        address,
-        pay,
-        afterFiveYards,
-        remark,
-      } = information;
-
-      switch (type) {
-        case "sum":
-          return sum;
-        case "discount":
-          if (discount === null) {
-            return "無";
-          } else if (discount === 0) {
-            return `NT$${discount}`;
-          } else if (0 < discount && discount < 1) {
-            return `${discount * 10}折`;
-          } else if (1 < discount) {
-            return `NT$${discount}`;
-          }
-          break;
-        case "deliveryFee":
-          return deliveryFee;
-        case "total":
-          if (discount === null) {
-            return Math.round(sum + deliveryFee);
-          } else if (discount === 0) {
-            return Math.round(sum);
-          } else if (0 < discount && discount < 1) {
-            return Math.round(sum * discount + deliveryFee);
-          } else if (1 < discount) {
-            return Math.round(sum - discount + deliveryFee);
-          }
-          break;
-        case "name":
-          return lastName + firstName;
-        case "phoneNumber":
-          return phoneNumber;
-        case "email":
-          return email;
-        case "send":
-          return send;
-        case "address":
-          return address;
-        case "pay":
-          return pay;
-        case "afterFiveYards":
-          return `帳號末五碼：${afterFiveYards}`;
-        case "remark":
-          return remark === "" ? "無" : remark;
-        default:
-          return;
-      }
+  const renderInformation = (type: string, { information: {
+    sum,
+    discount,
+    deliveryFee,
+    lastName,
+    firstName,
+    phoneNumber,
+    email,
+    send,
+    address,
+    pay,
+    afterFiveYards,
+    remark,
+  } }: HistoryItem) => {
+    switch (type) {
+      case "sum":
+        return sum;
+      case "discount":
+        if (discount === null) {
+          return "無";
+        } else if (discount === 0) {
+          return `NT$${discount}`;
+        } else if (0 < discount && discount < 1) {
+          return `${discount * 10}折`;
+        } else if (1 < discount) {
+          return `NT$${discount}`;
+        }
+        break;
+      case "deliveryFee":
+        return deliveryFee;
+      case "total":
+        if (discount === null) {
+          return Math.round(sum + deliveryFee);
+        } else if (discount === 0) {
+          return Math.round(sum);
+        } else if (0 < discount && discount < 1) {
+          return Math.round(sum * discount + deliveryFee);
+        } else if (1 < discount) {
+          return Math.round(sum - discount + deliveryFee);
+        }
+        break;
+      case "name":
+        return lastName + firstName;
+      case "phoneNumber":
+        return phoneNumber;
+      case "email":
+        return email;
+      case "send":
+        return send;
+      case "address":
+        return address;
+      case "pay":
+        return pay;
+      case "afterFiveYards":
+        return `帳號末五碼：${afterFiveYards}`;
+      case "remark":
+        return remark === "" ? "無" : remark;
+      default:
+        return;
     }
   };
 
